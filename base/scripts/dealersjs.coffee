@@ -1093,6 +1093,7 @@ class DragContainer extends Component
 		@bmpid = opts.id
 		@width = b.width
 		@height = b.height
+		@dragged = false
 		@setPosition opts.align
 		switch opts.afterSuccess
 			when 'drop' then @afterSuccess = @dropInPlace
@@ -1135,6 +1136,7 @@ class DragContainer extends Component
 		@x = posX - offset.x
 		@y = posY - offset.y
 		e.addEventListener 'mousemove', (ev)=>
+			@dragged = true
 			posX = ev.stageX / d2oda.stage.r
 			posY = ev.stageY / d2oda.stage.r
 			@x = posX - offset.x
@@ -1156,8 +1158,8 @@ class DragContainer extends Component
 				target = drop
 				dropped = true
 		if dropped
-			d2oda.evaluator.evaluate @eval, @name, target
 			@dispatchEvent {type: 'dropped', drop: target}
+			d2oda.evaluator.evaluate @eval, @name, target
 		else
 			@returnToPlace @alpha, @scaleX, @scaleY
 

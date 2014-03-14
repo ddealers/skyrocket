@@ -2114,6 +2114,7 @@ LIBRARY
       this.bmpid = opts.id;
       this.width = b.width;
       this.height = b.height;
+      this.dragged = false;
       this.setPosition(opts.align);
       switch (opts.afterSuccess) {
         case 'drop':
@@ -2199,6 +2200,7 @@ LIBRARY
       this.x = posX - offset.x;
       this.y = posY - offset.y;
       e.addEventListener('mousemove', function(ev) {
+        _this.dragged = true;
         posX = ev.stageX / d2oda.stage.r;
         posY = ev.stageY / d2oda.stage.r;
         _this.x = posX - offset.x;
@@ -2232,11 +2234,11 @@ LIBRARY
         }
       }
       if (dropped) {
-        d2oda.evaluator.evaluate(this["eval"], this.name, target);
-        return this.dispatchEvent({
+        this.dispatchEvent({
           type: 'dropped',
           drop: target
         });
+        return d2oda.evaluator.evaluate(this["eval"], this.name, target);
       } else {
         return this.returnToPlace(this.alpha, this.scaleX, this.scaleY);
       }

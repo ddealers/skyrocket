@@ -8,35 +8,60 @@ class U1A3 extends Oda
 		@manifest = [
 			{ id: 'c1', src: 'circulo1.png' }
 			{ id: 'c2', src: 'circulo2.png' }
+			{ id: 'artposters', src: 'art_posters.png' }
+			{ id: 'camera', src: 'camera.png' }
 			{ id: 'compass', src: 'compass.png' }
+			{ id: 'flipflops', src: 'flip_flops.png' }
 			{ id: 'globes', src: 'globes.png' }
+			{ id: 'guidebook', src: 'guide_book.png' }
 			{ id: 'header', src: 'header.png' }
 			{ id: 'hikingboots', src: 'hiking_boots.png' }
 			{ id: 'map', src: 'map.png' }
+			{ id: 'parasol', src: 'parasol.png' }
 			{ id: 'repeat', src: 'repeat.png' }
 			{ id: 'skigoggles', src: 'ski_goggles.png' }
 			{ id: 'skihat', src: 'ski_hat.png' }
 			{ id: 'summer', src: 'summer.png' }
+			{ id: 'sunscreen', src: 'sunscreen.png' }
+			{ id: 'beach', src: 'the_beach.png' }
+			{ id: 'city', src: 'the_city.png' }
 			{ id: 'winter', src: 'winter.png' }
+			{ id: 's/1', src: '1.mp3' }
+			{ id: 's/2', src: '2.mp3' }
+			{ id: 's/3', src: '3.mp3' }
+			{ id: 's/4', src: '4.mp3' }
+			{ id: 's/5', src: '5.mp3' }
+			{ id: 's/6', src: '6.mp3' }
+			{ id: 's/a', src: 'a.mp3' }
+			{ id: 's/b', src: 'b.mp3' }
+			{ id: 's/c', src: 'c.mp3' }
+			{ id: 's/d', src: 'd.mp3' }
+			{ id: 's/e', src: 'e.mp3' }
+			{ id: 's/f', src: 'f.mp3' }
 			{ id: 's/silence', src: 'silence.mp3' }
 		]
 		@onDrop = (dispatcher, target) =>
+			failed = false
 			d = lib[dispatcher]
 			t = target.parent
 			a = d.index
 			b = t.success
-			console.log d, t
 			if a in t.success
 				t.success.remove a
 				d.afterSuccess()
 				lib.scene.success()
 				TweenLite.to d, 0.3, {scaleX:0.7, scaleY:0.7}
 			else
-				lib.scene.fail()
 				d.afterFail()
+				lib.scene.fail()
 		@onClick = (dispatcher) =>
 			d = lib[dispatcher]
-			createjs.Sound.play d.index
+			if d.dragged
+				d.dragged = false
+				return
+			lib.scene.snd = "s/#{d.index}"
+			createjs.Sound.stop()
+			createjs.Sound.play lib.scene.snd
 		@game = 
 			header: 'header'
 			instructions: {x: 110, y: 130, states: [{text:'Listen, look and drag to the correct box.', sound:'s/silence', played: false}]}
@@ -46,12 +71,44 @@ class U1A3 extends Oda
 					answers: {
 						collection: [
 							[
+								{name:'beach', opts:{
+										success:['1','4','5']
+									}
+								}
+								{name:'city', opts:{
+										success:['2','3','6']
+									}
+								}
+							]
+						]
+						type: 'steps'
+					}
+					containers:[
+						{type: 'idc', id: 'beach', x: 310, y: 360, align: 'mc'}
+						{type: 'idc', id: 'city', x: 525, y: 360, align: 'mc'}
+						{type: 'drg', id: 'sunscreen', x: 100, y: 250, align:'mc', index: '1', target: ['beach','city'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: 'guidebook', x: 100, y: 350, align:'mc', index: '2', target: ['beach','city'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: 'camera', x: 100, y: 450, align:'mc', index: '3', target: ['beach','city'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: 'parasol', x: 720, y: 250, align:'mc', index: '4', target: ['beach','city'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: 'flipflops', x: 720, y: 350, align:'mc', index: '5', target: ['beach','city'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: 'artposters', x: 720, y: 450, align:'mc', index: '6', target: ['beach','city'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{
+							type: 'btn', id: 'repeat', x: 400, y: 530, isRepeat: true
+							states:[img: {name:'repeat', x: 0, y: 0, align:'mc'}]
+						}
+					]
+					groups:[]
+				}
+				{
+					answers: {
+						collection: [
+							[
 								{name:'winter', opts:{
-										success:['b','c','e','f']
+										success:['b','e','f']
 									}
 								}
 								{name:'summer', opts:{
-										success:['a','d']
+										success:['a','c','d']
 									}
 								}
 							]
@@ -74,7 +131,6 @@ class U1A3 extends Oda
 					]
 					groups:[]
 				}
-				
 			]
 		super()
 	window.U1A3 = U1A3
