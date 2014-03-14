@@ -237,6 +237,21 @@ LIBRARY
         return this.y = this.pos.y;
       };
 
+      Actions.dropInPlace = function(alpha, scaleX, scaleY) {
+        if (alpha == null) {
+          alpha = 1;
+        }
+        if (scaleX == null) {
+          scaleX = 1;
+        }
+        if (scaleY == null) {
+          scaleY = 1;
+        }
+        TweenMax.killTweensOf(this);
+        TweenLite.killTweensOf(this);
+        return this.removeAllEventListeners();
+      };
+
       Actions.putInPlace = function(position, alpha, scaleX, scaleY) {
         if (alpha == null) {
           alpha = 1;
@@ -2033,6 +2048,9 @@ LIBRARY
       this.height = b.height;
       this.setPosition(opts.align);
       switch (opts.afterSuccess) {
+        case 'drop':
+          this.afterSuccess = this.dropInPlace;
+          break;
         case 'hide':
           this.afterSuccess = this.hide;
           break;
@@ -2046,6 +2064,9 @@ LIBRARY
           this.afterSuccess = this.setInOrigin;
       }
       switch (opts.afterFail) {
+        case 'drop':
+          this.afterFail = this.dropInPlace;
+          break;
         case 'hide':
           this.afterFail = this.hide;
           break;
@@ -2075,7 +2096,10 @@ LIBRARY
           this.target.observer.subscribe(ComponentObserver.UPDATED, this.update);
         }
       }
-      return this.addEventListener('mousedown', this.handleMouseDown);
+      this.addEventListener('mousedown', this.handleMouseDown);
+      if (opts.click) {
+        return this.addEventListener('click', opts.click);
+      }
     };
 
     DragContainer.prototype.update = function(opts) {
@@ -2235,7 +2259,16 @@ LIBRARY
           t.lineWidth = txt.lineWidth;
         }
         hit = new createjs.Shape();
-        hit.graphics.beginFill('#000').drawRect(-5, -3, t.getMeasuredWidth() + 10, t.getMeasuredHeight() + 6);
+        switch (align) {
+          case 'center':
+            hit.graphics.beginFill('#000').drawRect(-5 - t.getMeasuredWidth() / 2, -3, t.getMeasuredWidth() + 10, t.getMeasuredHeight() + 6);
+            break;
+          case 'right':
+            hit.graphics.beginFill('#000').drawRect(-5 - t.getMeasuredWidth(), -3, t.getMeasuredWidth() + 10, t.getMeasuredHeight() + 6);
+            break;
+          default:
+            hit.graphics.beginFill('#000').drawRect(-5, -3, t.getMeasuredWidth() + 10, t.getMeasuredHeight() + 6);
+        }
         t.hitArea = hit;
         return this.add(t, false);
       }
@@ -3598,7 +3631,7 @@ LIBRARY
       this.x = x;
       this.y = y;
       this.success = (_ref2 = opts.success) != null ? _ref2 : opts.text;
-      this.text = this.createText('txt', opts.text, font, fcolor, 0, -5);
+      this.text = this.createText('txt', opts.text, font, fcolor, 0, -1);
       this.width = (_ref3 = opts.width) != null ? _ref3 : this.text.getMeasuredWidth();
       this.height = (_ref4 = opts.height) != null ? _ref4 : this.text.getMeasuredHeight();
       this.complete = false;

@@ -100,6 +100,10 @@ window.d2oda.actions ?= class Actions
 	@setInOrigin = ->
 		@x = @pos.x
 		@y = @pos.y
+	@dropInPlace = (alpha=1, scaleX=1, scaleY=1) ->
+		TweenMax.killTweensOf @
+		TweenLite.killTweensOf @
+		@removeAllEventListeners()
 	@putInPlace = (position, alpha=1, scaleX=1, scaleY=1) ->
 		TweenMax.killTweensOf @
 		TweenLite.killTweensOf @
@@ -1049,11 +1053,13 @@ class DragContainer extends Component
 		@height = b.height
 		@setPosition opts.align
 		switch opts.afterSuccess
+			when 'drop' then @afterSuccess = @dropInPlace
 			when 'hide' then @afterSuccess = @hide
 			when 'inplace' then @afterSuccess = @putInPlace
 			when 'return' then @afterSuccess = @returnToPlace
 			when 'origin' then @afterSuccess = @setInOrigin
 		switch opts.afterFail
+			when 'drop' then @afterFail = @dropInPlace
 			when 'hide' then @afterFail = @hide
 			when 'inplace' then @afterSuccess = @putInPlace
 			when 'return' then @afterFail = @returnToPlace
@@ -1070,6 +1076,7 @@ class DragContainer extends Component
 			else 
 				@target.observer.subscribe ComponentObserver.UPDATED, @update
 		@addEventListener 'mousedown', @handleMouseDown
+		if opts.click then @addEventListener 'click', opts.click
 	update: (opts) =>
 		if @isArray @target
 			alldrops = new Array()
@@ -1165,7 +1172,13 @@ class ButtonContainer extends Component
 			t = @createText 'txt', text, font, color, x, y, align
 			if txt.lineWidth then t.lineWidth = txt.lineWidth
 			hit = new createjs.Shape()
-			hit.graphics.beginFill('#000').drawRect(-5, -3, t.getMeasuredWidth() + 10, t.getMeasuredHeight() + 6)
+			switch align
+				when 'center'
+					hit.graphics.beginFill('#000').drawRect(-5 -t.getMeasuredWidth() / 2, -3, t.getMeasuredWidth() + 10, t.getMeasuredHeight() + 6)
+				when 'right'
+					hit.graphics.beginFill('#000').drawRect(-5 -t.getMeasuredWidth(), -3, t.getMeasuredWidth() + 10, t.getMeasuredHeight() + 6)
+				else
+					hit.graphics.beginFill('#000').drawRect(-5, -3, t.getMeasuredWidth() + 10, t.getMeasuredHeight() + 6)
 			t.hitArea = hit
 			@add t, false
 	updateState: () ->
@@ -1946,7 +1959,7 @@ class TextCompleterContainer extends Component
 		@x = x
 		@y = y
 		@success = opts.success ? opts.text
-		@text = @createText 'txt', opts.text, font, fcolor, 0, -5
+		@text = @createText 'txt', opts.text, font, fcolor, 0, -1
 		@width = opts.width ? @text.getMeasuredWidth()
 		@height = opts.height ? @text.getMeasuredHeight()
 		@complete = false

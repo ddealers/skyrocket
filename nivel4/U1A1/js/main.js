@@ -13,19 +13,20 @@ NEW ODA
     __extends(U1A1, _super);
 
     function U1A1() {
+      var _this = this;
       this.manifest = [
         {
-          id: 'apirin',
-          src: 'apirin.png'
+          id: 'aspirin',
+          src: 'aspirin.png'
         }, {
           id: 'bites',
           src: 'bites.png'
         }, {
           id: 'c1',
-          src: 'boton_azul.png'
+          src: 'circulo1.png'
         }, {
           id: 'c2',
-          src: 'boton_azul_claro.png'
+          src: 'circulo2.png'
         }, {
           id: 'clean',
           src: 'clean.png'
@@ -60,10 +61,29 @@ NEW ODA
           id: 'toothache',
           src: 'toothache.png'
         }, {
-          id: 'sonido',
-          src: 'sonido.mp3'
+          id: 's/silence',
+          src: 'silence.mp3'
         }
       ];
+      this.btnClick = function(dispatcher, target) {
+        var a, b, c, d, t;
+        d = lib[dispatcher];
+        t = lib[target];
+        a = d.index;
+        b = t.droptargets;
+        c = t.currentTarget;
+        console.log(a, b[c].success);
+        if (a === b[c].success) {
+          b[c].complete = true;
+          b[c].update();
+          t.currentTarget++;
+        }
+        if (t.currentTarget === b.length) {
+          return lib.scene.success();
+        } else {
+          return lib.scene.fail();
+        }
+      };
       this.game = {
         header: 'header',
         instructions: {
@@ -72,7 +92,7 @@ NEW ODA
           states: [
             {
               text: 'Read and write the correct words.',
-              sound: 'sonido',
+              sound: 's/silence',
               played: false
             }
           ]
@@ -187,7 +207,7 @@ NEW ODA
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
-                      target: 'apirin'
+                      target: 'aspirin'
                     }
                   }, {
                     name: 'pcpt1',
@@ -316,7 +336,7 @@ NEW ODA
             containers: [
               {
                 type: 'img',
-                id: 'apirin',
+                id: 'aspirin',
                 x: 433,
                 y: 328,
                 align: 'mc'
@@ -391,18 +411,18 @@ NEW ODA
                 id: 'pcpt1',
                 x: 433,
                 y: 510,
-                font: '24px Quicksand',
-                margin: 10,
+                font: '20px Quicksand',
+                margin: 5,
                 align: 'tc',
                 scolor: '#F9101A'
               }, {
                 type: 'btn',
                 id: 'btn_1',
-                x: 120,
-                y: 160,
+                x: 140,
+                y: 155,
                 index: 'aspirin',
                 target: 'pcpt1',
-                "eval": 'click_01',
+                "eval": this.btnClick,
                 states: [
                   {
                     txt: {
@@ -418,11 +438,11 @@ NEW ODA
               }, {
                 type: 'btn',
                 id: 'btn_2',
-                x: 120,
-                y: 190,
+                x: 140,
+                y: 185,
                 index: 'bites',
                 target: 'pcpt1',
-                "eval": 'click_01',
+                "eval": this.btnClick,
                 states: [
                   {
                     txt: {
@@ -438,11 +458,11 @@ NEW ODA
               }, {
                 type: 'btn',
                 id: 'btn_3',
-                x: 120,
-                y: 220,
+                x: 140,
+                y: 215,
                 index: 'clean',
                 target: 'pcpt1',
-                "eval": 'click_01',
+                "eval": this.btnClick,
                 states: [
                   {
                     txt: {
@@ -458,11 +478,11 @@ NEW ODA
               }, {
                 type: 'btn',
                 id: 'btn_4',
-                x: 120,
-                y: 250,
+                x: 140,
+                y: 245,
                 index: 'cotton',
                 target: 'pcpt1',
-                "eval": 'click_01',
+                "eval": this.btnClick,
                 states: [
                   {
                     txt: {
@@ -478,11 +498,11 @@ NEW ODA
               }, {
                 type: 'btn',
                 id: 'btn_5',
-                x: 120,
-                y: 280,
+                x: 140,
+                y: 275,
                 index: 'disinfectant',
                 target: 'pcpt1',
-                "eval": 'click_01',
+                "eval": this.btnClick,
                 states: [
                   {
                     txt: {
@@ -498,11 +518,11 @@ NEW ODA
               }, {
                 type: 'btn',
                 id: 'btn_6',
-                x: 120,
-                y: 310,
+                x: 140,
+                y: 305,
                 index: 'fever',
                 target: 'pcpt1',
-                "eval": 'click_01',
+                "eval": this.btnClick,
                 states: [
                   {
                     txt: {
@@ -518,11 +538,11 @@ NEW ODA
               }, {
                 type: 'btn',
                 id: 'btn_7',
-                x: 120,
-                y: 340,
+                x: 140,
+                y: 335,
                 index: 'hungry',
                 target: 'pcpt1',
-                "eval": 'click_01',
+                "eval": this.btnClick,
                 states: [
                   {
                     txt: {
@@ -538,11 +558,11 @@ NEW ODA
               }, {
                 type: 'btn',
                 id: 'btn_8',
-                x: 120,
-                y: 370,
+                x: 140,
+                y: 365,
                 index: 'rash',
                 target: 'pcpt1',
-                "eval": 'click_01',
+                "eval": this.btnClick,
                 states: [
                   {
                     txt: {
@@ -558,11 +578,11 @@ NEW ODA
               }, {
                 type: 'btn',
                 id: 'btn_9',
-                x: 120,
-                y: 400,
+                x: 140,
+                y: 395,
                 index: 'stomachache',
                 target: 'pcpt1',
-                "eval": 'click_01',
+                "eval": this.btnClick,
                 states: [
                   {
                     txt: {
@@ -578,11 +598,11 @@ NEW ODA
               }, {
                 type: 'btn',
                 id: 'btn_10',
-                x: 120,
-                y: 430,
+                x: 140,
+                y: 425,
                 index: 'sunscreen',
                 target: 'pcpt1',
-                "eval": 'click_01',
+                "eval": this.btnClick,
                 states: [
                   {
                     txt: {
@@ -598,11 +618,11 @@ NEW ODA
               }, {
                 type: 'btn',
                 id: 'btn_11',
-                x: 120,
+                x: 140,
                 y: 460,
                 index: 'throat',
                 target: 'pcpt1',
-                "eval": 'click_01',
+                "eval": this.btnClick,
                 states: [
                   {
                     txt: {
@@ -618,16 +638,16 @@ NEW ODA
               }, {
                 type: 'btn',
                 id: 'btn_12',
-                x: 120,
+                x: 140,
                 y: 490,
-                index: 'toothache ',
+                index: 'toothache',
                 target: 'pcpt1',
-                "eval": 'click_01',
+                "eval": this.btnClick,
                 states: [
                   {
                     txt: {
-                      text: 'toothache ',
-                      name: 'toothache ',
+                      text: 'toothache',
+                      name: 'toothache',
                       x: 0,
                       y: 0,
                       align: 'center',
@@ -641,7 +661,8 @@ NEW ODA
               {
                 type: 'grp',
                 id: 'grp1',
-                group: ['apirin', 'bites', 'clean', 'cutknee', 'fever', 'hungry', 'mom', 'rash', 'sorethroat', 'stomachache', 'thirsty', 'toothache']
+                invisible: true,
+                group: ['aspirin', 'bites', 'clean', 'cutknee', 'fever', 'hungry', 'mom', 'rash', 'sorethroat', 'stomachache', 'thirsty', 'toothache']
               }
             ]
           }
