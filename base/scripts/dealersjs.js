@@ -5,7 +5,7 @@ LIBRARY
 
 
 (function() {
-  var ABCContainer, Actions, Behaviors, ButtonContainer, ChooseContainer, CloneCompleterContainer, CloneContainer, Component, ComponentGroup, ComponentObserver, CrossWordsContainer, DragContainer, Evaluator, Game, GameObserver, GridContainer, ImageCompleterContainer, ImageContainer, ImageWordCompleterContainer, Instructions, LabelContainer, LetterContainer, LetterDragContainer, MainContainer, Methods, Mobile, Module, Observer, Oda, PhraseCloneContainer, PhraseCompleterContainer, Preloader, Scene, SceneFactory, SceneObserver, SceneStack, Score, ScrambledWordContainer, SpriteContainer, StepContainer, StepsContainer, TextCloneContainer, TextCompleterContainer, TextContainer, Utilities, WordCompleterContainer, WordSearchContainer, WriteContainer, moduleKeywords, _base, _base1, _base2, _base3, _base4, _base5, _base6, _ref, _ref1, _ref2,
+  var ABCContainer, Actions, Behaviors, ButtonContainer, ChooseContainer, CloneCompleterContainer, CloneContainer, Component, ComponentGroup, ComponentObserver, CrossWordsContainer, DragContainer, Evaluator, Game, GameObserver, GridContainer, ImageCompleterContainer, ImageContainer, ImageDropContainer, ImageWordCompleterContainer, Instructions, LabelContainer, LetterContainer, LetterDragContainer, MainContainer, Methods, Mobile, Module, Observer, Oda, PhraseCloneContainer, PhraseCompleterContainer, Preloader, Scene, SceneFactory, SceneObserver, SceneStack, Score, ScrambledWordContainer, SpriteContainer, StepContainer, StepsContainer, TextCloneContainer, TextCompleterContainer, TextContainer, Utilities, WordCompleterContainer, WordSearchContainer, WriteContainer, moduleKeywords, _base, _base1, _base2, _base3, _base4, _base5, _base6, _ref, _ref1, _ref2,
     __slice = [].slice,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
@@ -995,6 +995,23 @@ LIBRARY
     return Array.prototype.push.apply(this, other);
   };
 
+  Array.prototype.remove = function() {
+    var arg, args, index, output, _i, _len;
+    args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
+    output = [];
+    for (_i = 0, _len = args.length; _i < _len; _i++) {
+      arg = args[_i];
+      index = this.indexOf(arg);
+      if (index !== -1) {
+        output.push(this.splice(index, 1));
+      }
+    }
+    if (args.length === 1) {
+      output = output[0];
+    }
+    return output;
+  };
+
   /*
   
   BASE CLASSES
@@ -1896,6 +1913,56 @@ LIBRARY
 
   })(Component);
 
+  ImageDropContainer = (function(_super) {
+    __extends(ImageDropContainer, _super);
+
+    ImageDropContainer.prototype = new createjs.Container();
+
+    ImageDropContainer.prototype.Container_initialize = ImageDropContainer.prototype.initialize;
+
+    function ImageDropContainer(opts) {
+      this.initialize(opts);
+    }
+
+    ImageDropContainer.prototype.initialize = function(opts) {
+      var align, b, _ref2, _ref3, _ref4, _ref5;
+      this.Container_initialize();
+      Module.extend(this, d2oda.methods);
+      Module.extend(this, d2oda.actions);
+      align = (_ref2 = opts.align) != null ? _ref2 : '';
+      this.name = (_ref3 = opts.name) != null ? _ref3 : opts.id;
+      this.x = opts.x;
+      this.y = opts.y;
+      this.scaleX = (_ref4 = opts.scale) != null ? _ref4 : 1;
+      this.scaleY = (_ref5 = opts.scale) != null ? _ref5 : 1;
+      b = this.createBitmap(this.name, opts.id, 0, 0, align);
+      this.width = b.width;
+      this.height = b.height;
+      this.shape = new createjs.Shape();
+      this.shape.graphics.beginFill('rgba(255,255,255,0.2)').drawRect(0, 0, this.width, this.height);
+      this.shape.width = this.width;
+      this.shape.height = this.height;
+      this.setPosition(align, this.shape);
+      this.mouseEnabled = true;
+      this.droptargets = [this.shape];
+      this.observer = new ComponentObserver();
+      this.add(b, false);
+      return this.add(this.shape, false);
+    };
+
+    ImageDropContainer.prototype.update = function(opts) {
+      this.success = opts.success;
+      return this.observer.notify(ComponentObserver.UPDATED);
+    };
+
+    ImageDropContainer.prototype.isComplete = function() {
+      return !this.success.length > 0;
+    };
+
+    return ImageDropContainer;
+
+  })(Component);
+
   TextContainer = (function(_super) {
     __extends(TextContainer, _super);
 
@@ -2026,7 +2093,8 @@ LIBRARY
     }
 
     DragContainer.prototype.initialize = function(opts) {
-      var b, t, _i, _len, _ref2, _ref3;
+      var b, t, _i, _len, _ref2, _ref3,
+        _this = this;
       this.Container_initialize();
       Module.extend(this, d2oda.methods);
       Module.extend(this, d2oda.actions);
@@ -2098,7 +2166,9 @@ LIBRARY
       }
       this.addEventListener('mousedown', this.handleMouseDown);
       if (opts.click) {
-        return this.addEventListener('click', opts.click);
+        return this.addEventListener('click', function() {
+          return window.d2oda.evaluator.evaluate(opts.click, _this.name, _this.target);
+        });
       }
     };
 
@@ -4130,6 +4200,8 @@ LIBRARY
           return new StepsContainer(opts);
         case 'chs':
           return new ChooseContainer(opts);
+        case 'idc':
+          return new ImageDropContainer(opts);
         case 'cwd':
           return new CrossWordsContainer(opts);
         case 'wsch':

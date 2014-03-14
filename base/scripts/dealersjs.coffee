@@ -487,6 +487,14 @@ Array::compare = (array) ->
 	return true;
 Array::merge = (other) -> Array::push.apply @, other
 
+Array::remove = (args...) ->
+  output = []
+  for arg in args
+    index = @indexOf arg
+    output.push @splice(index, 1) if index isnt -1
+  output = output[0] if args.length is 1
+  output
+
 ###
 
 BASE CLASSES
@@ -957,6 +965,40 @@ class ImageContainer extends Component
 		@alpha = 1
 		true
 
+class ImageDropContainer extends Component
+	ImageDropContainer.prototype = new createjs.Container()
+	ImageDropContainer::Container_initialize = ImageDropContainer::initialize
+	constructor: (opts) ->
+		@initialize opts
+	ImageDropContainer::initialize = (opts) ->
+		@Container_initialize()
+		Module.extend @, d2oda.methods
+		Module.extend @, d2oda.actions
+		align = opts.align ? ''
+		@name = opts.name ? opts.id
+		@x = opts.x
+		@y = opts.y
+		@scaleX = opts.scale ? 1
+		@scaleY = opts.scale ? 1
+		b = @createBitmap @name, opts.id, 0, 0, align
+		@width = b.width
+		@height = b.height
+		@shape = new createjs.Shape()
+		@shape.graphics.beginFill('rgba(255,255,255,0.2)').drawRect(0, 0, @width, @height)
+		@shape.width = @width
+		@shape.height = @height
+		@setPosition align, @shape
+		@mouseEnabled = true
+		@droptargets = [@shape]
+		@observer = new ComponentObserver()
+		@add b, false
+		@add @shape, false
+	update:(opts) ->
+		@success = opts.success
+		@observer.notify ComponentObserver.UPDATED
+	isComplete: ->
+		not @success.length > 0
+
 class TextContainer extends Component
 	TextContainer.prototype = new createjs.Container()
 	TextContainer::Container_initialize = TextContainer::initialize
@@ -1076,7 +1118,8 @@ class DragContainer extends Component
 			else 
 				@target.observer.subscribe ComponentObserver.UPDATED, @update
 		@addEventListener 'mousedown', @handleMouseDown
-		if opts.click then @addEventListener 'click', opts.click
+		if opts.click then @addEventListener 'click', =>
+			window.d2oda.evaluator.evaluate opts.click, @name, @target
 	update: (opts) =>
 		if @isArray @target
 			alldrops = new Array()
@@ -2228,6 +2271,7 @@ class SceneFactory
 			when 'btn' then new ButtonContainer opts
 			when 'stps' then new StepsContainer opts
 			when 'chs' then new ChooseContainer opts
+			when 'idc' then new ImageDropContainer opts
 			when 'cwd' then new CrossWordsContainer opts
 			when 'wsch' then new WordSearchContainer opts
 			when 'ldrg' then new LetterDragContainer opts

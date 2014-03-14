@@ -7,7 +7,8 @@ NEW ODA
 (function() {
   var U1A3,
     __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+    __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   U1A3 = (function(_super) {
     __extends(U1A3, _super);
@@ -56,24 +57,30 @@ NEW ODA
           src: 'silence.mp3'
         }
       ];
-      this.btnClick = function(dispatcher, target) {
-        var a, b, c, d, t;
+      this.onDrop = function(dispatcher, target) {
+        var a, b, d, t;
         d = lib[dispatcher];
-        t = lib[target];
+        t = target.parent;
         a = d.index;
-        b = t.droptargets;
-        c = t.currentTarget;
-        console.log(a, b[c].success);
-        if (a === b[c].success) {
-          b[c].complete = true;
-          b[c].update();
-          t.currentTarget++;
-        }
-        if (t.currentTarget === b.length) {
-          return lib.scene.success();
+        b = t.success;
+        console.log(d, t);
+        if (__indexOf.call(t.success, a) >= 0) {
+          t.success.remove(a);
+          d.afterSuccess();
+          lib.scene.success();
+          return TweenLite.to(d, 0.3, {
+            scaleX: 0.7,
+            scaleY: 0.7
+          });
         } else {
-          return lib.scene.fail();
+          lib.scene.fail();
+          return d.afterFail();
         }
+      };
+      this.onClick = function(dispatcher) {
+        var d;
+        d = lib[dispatcher];
+        return createjs.Sound.play(d.index);
       };
       this.game = {
         header: 'header',
@@ -105,297 +112,14 @@ NEW ODA
               collection: [
                 [
                   {
-                    name: 'grp1',
+                    name: 'winter',
                     opts: {
-                      type: 'fadeIn',
-                      target: 'dog'
+                      success: ['b', 'c', 'e', 'f']
                     }
                   }, {
-                    name: 'txt_grp',
+                    name: 'summer',
                     opts: {
-                      type: 'fadeIn',
-                      target: 't1'
-                    }
-                  }, {
-                    name: 'pcpt1',
-                    opts: {
-                      pattern: ['Mommy! You,', '#tcpt', 'feed the dog', '#rtn', 'food for humans. He has dog food.'],
-                      targets: [
-                        {
-                          text: 'shouldn\'t',
-                          success: 'shouldnt'
-                        }
-                      ]
-                    }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'outside'
-                    }
-                  }, {
-                    name: 'txt_grp',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 't2'
-                    }
-                  }, {
-                    name: 'pcpt1',
-                    opts: {
-                      pattern: ['Turn off your electronics, please.', '#rtn', 'You', '#tcpt', 'play together!'],
-                      targets: [
-                        {
-                          text: 'should'
-                        }
-                      ]
-                    }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'head'
-                    }
-                  }, {
-                    name: 'txt_grp',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 't3'
-                    }
-                  }, {
-                    name: 'pcpt1',
-                    opts: {
-                      pattern: ['I\'m sorry, Davey. You', '#tcpt', '#rtn', 'wear your helmet when you cycle.'],
-                      targets: [
-                        {
-                          text: 'should'
-                        }
-                      ]
-                    }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'oven'
-                    }
-                  }, {
-                    name: 'txt_grp',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 't4'
-                    }
-                  }, {
-                    name: 'pcpt1',
-                    opts: {
-                      pattern: ['Wait! You', '#tcpt', 'use the hot oven.', '#rtn', 'I\'ll do it.'],
-                      targets: [
-                        {
-                          text: 'shouldn\'t',
-                          success: 'shouldnt'
-                        }
-                      ]
-                    }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'cat'
-                    }
-                  }, {
-                    name: 'txt_grp',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 't5'
-                    }
-                  }, {
-                    name: 'pcpt1',
-                    opts: {
-                      pattern: ['I\'ll clean it.But you', '#tcpt', '#rtn', 'brush the catmore often, Bobby.'],
-                      targets: [
-                        {
-                          text: 'should'
-                        }
-                      ]
-                    }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'soda'
-                    }
-                  }, {
-                    name: 'txt_grp',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 't6'
-                    }
-                  }, {
-                    name: 'pcpt1',
-                    opts: {
-                      pattern: ['You', '#tcpt', 'drink soda,', '#rtn', 'you should drink water.'],
-                      targets: [
-                        {
-                          text: 'shouldn\'t',
-                          success: 'shouldnt'
-                        }
-                      ]
-                    }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'kiss'
-                    }
-                  }, {
-                    name: 'txt_grp',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 't7'
-                    }
-                  }, {
-                    name: 'pcpt1',
-                    opts: {
-                      pattern: ['Sally, you', '#tcpt', 'kiss the dog;', '#rtn', 'it isn\'t clean!'],
-                      targets: [
-                        {
-                          text: 'shouldn\'t',
-                          success: 'shouldnt'
-                        }
-                      ]
-                    }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'sun'
-                    }
-                  }, {
-                    name: 'txt_grp',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 't8'
-                    }
-                  }, {
-                    name: 'pcpt1',
-                    opts: {
-                      pattern: ['Yes, but you', '#tcpt', 'wear sunscreen', '#rtn', 'to protect your skin.'],
-                      targets: [
-                        {
-                          text: 'should'
-                        }
-                      ]
-                    }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'fever'
-                    }
-                  }, {
-                    name: 'txt_grp',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 't9'
-                    }
-                  }, {
-                    name: 'pcpt1',
-                    opts: {
-                      pattern: ['You have a fever, you', '#tcpt', '#rtn', 'go to school today.'],
-                      targets: [
-                        {
-                          text: 'shouldn\'t',
-                          success: 'shouldnt'
-                        }
-                      ]
-                    }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'burger'
-                    }
-                  }, {
-                    name: 'txt_grp',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 't10'
-                    }
-                  }, {
-                    name: 'pcpt1',
-                    opts: {
-                      pattern: ['Honey, the doctor said you', '#rtn', '#tcpt', 'eat fat food!'],
-                      targets: [
-                        {
-                          text: 'shouldn\'t',
-                          success: 'shouldnt'
-                        }
-                      ]
-                    }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'homework'
-                    }
-                  }, {
-                    name: 'txt_grp',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 't11'
-                    }
-                  }, {
-                    name: 'pcpt1',
-                    opts: {
-                      pattern: ['Great! You', '#tcpt', 'finish it quickly', '#rtn', 'and you can play outside.'],
-                      targets: [
-                        {
-                          text: 'should'
-                        }
-                      ]
-                    }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'swim'
-                    }
-                  }, {
-                    name: 'txt_grp',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 't12'
-                    }
-                  }, {
-                    name: 'pcpt1',
-                    opts: {
-                      pattern: ['You have an earache;', '#rtn', 'you', '#tcpt', 'swim today!'],
-                      targets: [
-                        {
-                          text: 'shouldn\'t',
-                          success: 'shouldnt'
-                        }
-                      ]
+                      success: ['a', 'd']
                     }
                   }
                 ]
@@ -404,55 +128,87 @@ NEW ODA
             },
             containers: [
               {
-                type: 'img',
+                type: 'idc',
                 id: 'winter',
                 x: 300,
                 y: 330,
                 align: 'mc'
               }, {
-                type: 'img',
+                type: 'idc',
                 id: 'summer',
                 x: 545,
                 y: 330,
                 align: 'mc'
               }, {
-                type: 'img',
+                type: 'drg',
                 id: 'map',
                 x: 100,
                 y: 250,
-                align: 'mc'
+                align: 'mc',
+                index: 'a',
+                target: ['winter', 'summer'],
+                "eval": this.onDrop,
+                click: this.onClick,
+                afterSuccess: 'drop',
+                afterFail: 'return'
               }, {
-                type: 'img',
+                type: 'drg',
                 id: 'globes',
                 x: 100,
                 y: 350,
-                align: 'mc'
+                align: 'mc',
+                index: 'b',
+                target: ['winter', 'summer'],
+                "eval": this.onDrop,
+                click: this.onClick,
+                afterSuccess: 'drop',
+                afterFail: 'return'
               }, {
-                type: 'img',
+                type: 'drg',
                 id: 'hikingboots',
                 x: 100,
                 y: 450,
-                align: 'mc'
+                align: 'mc',
+                index: 'c',
+                target: ['winter', 'summer'],
+                "eval": this.onDrop,
+                click: this.onClick,
+                afterSuccess: 'drop',
+                afterFail: 'return'
               }, {
-                type: 'img',
+                type: 'drg',
                 id: 'compass',
                 x: 720,
                 y: 250,
-                align: 'mc'
+                align: 'mc',
+                index: 'd',
+                target: ['winter', 'summer'],
+                "eval": this.onDrop,
+                click: this.onClick,
+                afterSuccess: 'drop',
+                afterFail: 'return'
               }, {
-                type: 'img',
+                type: 'drg',
                 id: 'skihat',
                 x: 720,
                 y: 350,
-                align: 'mc'
+                align: 'mc',
+                index: 'e',
+                target: ['winter', 'summer'],
+                "eval": this.onDrop,
+                click: this.onClick,
+                afterSuccess: 'drop',
+                afterFail: 'return'
               }, {
                 type: 'drg',
                 id: 'skigoggles',
                 x: 720,
                 y: 450,
+                align: 'mc',
                 index: 'f',
                 target: ['winter', 'summer'],
                 "eval": this.onDrop,
+                click: this.onClick,
                 afterSuccess: 'drop',
                 afterFail: 'return'
               }, {
