@@ -349,7 +349,7 @@ NEW ODA
                   {
                     name: 'lbl3',
                     opts: {
-                      text: 'If you run a crocodile safar,i you should teach people how to stay safe.',
+                      text: 'If you run a crocodile safari, you should teach people how to stay safe.',
                       success: true
                     }
                   }

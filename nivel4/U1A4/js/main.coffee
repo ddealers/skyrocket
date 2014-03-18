@@ -95,7 +95,7 @@ class U1A4 extends Oda
 				{
 					answers: {
 						collection: [
-							[{name:'lbl3', opts:{text:'If you run a crocodile safar,i you should teach people how to stay safe.', success:true}}]
+							[{name:'lbl3', opts:{text:'If you run a crocodile safari, you should teach people how to stay safe.', success:true}}]
 							[{name:'lbl3', opts:{text:'You should put your hands in the water; the crocodiles like to play.', success:false}}]
 							[{name:'lbl3', opts:{text:'You should eat your lunch far from the crocodiles.', success:true}}]
 							[{name:'lbl3', opts:{text:'You shouldn\'t take photographs. It makes the crocodiles aggressive.', success:false}}]

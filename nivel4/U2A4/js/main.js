@@ -5,16 +5,14 @@ NEW ODA
 
 
 (function() {
-  var U1A3,
+  var U2A4,
     __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
-    __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  U1A3 = (function(_super) {
-    __extends(U1A3, _super);
+  U2A4 = (function(_super) {
+    __extends(U2A4, _super);
 
-    function U1A3() {
-      var _this = this;
+    function U2A4() {
       this.manifest = [
         {
           id: 'c1',
@@ -23,131 +21,58 @@ NEW ODA
           id: 'c2',
           src: 'circulo2.png'
         }, {
-          id: 'artposters',
-          src: 'art_posters.png'
-        }, {
-          id: 'camera',
-          src: 'camera.png'
-        }, {
-          id: 'compass',
-          src: 'compass.png'
-        }, {
-          id: 'flipflops',
-          src: 'flip_flops.png'
-        }, {
-          id: 'globes',
-          src: 'globes.png'
-        }, {
-          id: 'guidebook',
-          src: 'guide_book.png'
+          id: 'fondo',
+          src: 'fondo.png'
         }, {
           id: 'header',
           src: 'header.png'
         }, {
-          id: 'hikingboots',
-          src: 'hiking_boots.png'
+          id: 'paso1',
+          src: 'paso_1.png'
         }, {
-          id: 'map',
-          src: 'map.png'
+          id: 'paso2',
+          src: 'paso_2.png'
         }, {
-          id: 'parasol',
-          src: 'parasol.png'
+          id: 'paso3',
+          src: 'paso_3.png'
         }, {
-          id: 'repeat',
-          src: 'repeat.png'
+          id: 'paso4',
+          src: 'paso_4.png'
         }, {
-          id: 'skigoggles',
-          src: 'ski_goggles.png'
+          id: 'paso5',
+          src: 'paso_5.png'
         }, {
-          id: 'skihat',
-          src: 'ski_hat.png'
+          id: 'paso6',
+          src: 'paso_6.png'
         }, {
-          id: 'summer',
-          src: 'summer.png'
+          id: 'paso7',
+          src: 'paso_7.png'
         }, {
-          id: 'sunscreen',
-          src: 'sunscreen.png'
+          id: 'paso8',
+          src: 'paso_8.png'
         }, {
-          id: 'beach',
-          src: 'the_beach.png'
+          id: 'paso9',
+          src: 'paso_9.png'
         }, {
-          id: 'city',
-          src: 'the_city.png'
+          id: 'playagain',
+          src: 'play_again.png'
         }, {
-          id: 'winter',
-          src: 'winter.png'
+          id: 'startgame',
+          src: 'start_game.png'
         }, {
-          id: 's/1',
-          src: '1.mp3'
-        }, {
-          id: 's/2',
-          src: '2.mp3'
-        }, {
-          id: 's/3',
-          src: '3.mp3'
-        }, {
-          id: 's/4',
-          src: '4.mp3'
-        }, {
-          id: 's/5',
-          src: '5.mp3'
-        }, {
-          id: 's/6',
-          src: '6.mp3'
-        }, {
-          id: 's/a',
-          src: 'a.mp3'
-        }, {
-          id: 's/b',
-          src: 'b.mp3'
-        }, {
-          id: 's/c',
-          src: 'c.mp3'
-        }, {
-          id: 's/d',
-          src: 'd.mp3'
-        }, {
-          id: 's/e',
-          src: 'e.mp3'
-        }, {
-          id: 's/f',
-          src: 'f.mp3'
+          id: 'boing',
+          src: 'boing.mp3'
         }, {
           id: 's/silence',
           src: 'silence.mp3'
+        }, {
+          id: 'good',
+          src: 'good.mp3'
+        }, {
+          id: 'wrong',
+          src: 'wrong.mp3'
         }
       ];
-      this.onDrop = function(dispatcher, target) {
-        var a, b, d, failed, t;
-        failed = false;
-        d = lib[dispatcher];
-        t = target.parent;
-        a = d.index;
-        b = t.success;
-        if (__indexOf.call(t.success, a) >= 0) {
-          t.success.remove(a);
-          d.afterSuccess();
-          lib.scene.success();
-          return TweenLite.to(d, 0.3, {
-            scaleX: 0.7,
-            scaleY: 0.7
-          });
-        } else {
-          d.afterFail();
-          return lib.scene.fail();
-        }
-      };
-      this.onClick = function(dispatcher) {
-        var d;
-        d = lib[dispatcher];
-        if (d.dragged) {
-          d.dragged = false;
-          return;
-        }
-        lib.scene.snd = "s/" + d.index;
-        createjs.Sound.stop();
-        return createjs.Sound.play(lib.scene.snd);
-      };
       this.game = {
         header: 'header',
         instructions: {
@@ -155,7 +80,7 @@ NEW ODA
           y: 130,
           states: [
             {
-              text: 'Listen, look and drag to the correct box.',
+              text: 'Choose the answers and run!',
               sound: 's/silence',
               played: false
             }
@@ -166,7 +91,7 @@ NEW ODA
           x: 20,
           y: 500,
           init: 0,
-          total: 12,
+          total: 14,
           aimg: 'c1',
           acolor: '#333',
           bimg: 'c2',
@@ -178,256 +103,324 @@ NEW ODA
               collection: [
                 [
                   {
-                    name: 'beach',
+                    name: 'global',
                     opts: {
-                      success: ['1', '4', '5']
+                      success: 1
                     }
                   }, {
-                    name: 'city',
+                    name: 'chs1',
                     opts: {
-                      success: ['2', '3', '6']
+                      type: 'txt',
+                      opt1: 'Put on all your clothes to stay *warm',
+                      opt2: 'wet*.'
+                    }
+                  }
+                ], [
+                  {
+                    name: 'global',
+                    opts: {
+                      success: 2
+                    }
+                  }, {
+                    name: 'chs1',
+                    opts: {
+                      type: 'txt',
+                      opt1: 'You can use *grass',
+                      opt2: 'a trash bag* to protect yourself // from the rain.'
+                    }
+                  }
+                ], [
+                  {
+                    name: 'global',
+                    opts: {
+                      success: 1
+                    }
+                  }, {
+                    name: 'chs1',
+                    opts: {
+                      type: 'txt',
+                      opt1: 'You *shouldn\'t',
+                      opt2: 'should* move around when you are lost.'
+                    }
+                  }
+                ], [
+                  {
+                    name: 'global',
+                    opts: {
+                      success: 2
+                    }
+                  }, {
+                    name: 'chs1',
+                    opts: {
+                      type: 'txt',
+                      opt1: 'Use *a bright sweater ',
+                      opt2: 'aluminium foil* to create a reflector.'
+                    }
+                  }
+                ], [
+                  {
+                    name: 'global',
+                    opts: {
+                      success: 2
+                    }
+                  }, {
+                    name: 'chs1',
+                    opts: {
+                      type: 'txt',
+                      opt1: 'Use *binoculars',
+                      opt2: 'rocks* to spell the word help.'
+                    }
+                  }
+                ], [
+                  {
+                    name: 'global',
+                    opts: {
+                      success: 1
+                    }
+                  }, {
+                    name: 'chs1',
+                    opts: {
+                      type: 'txt',
+                      opt1: 'You should use a *whistle',
+                      opt2: 'knife* to make noise // and attract attention.'
+                    }
+                  }
+                ], [
+                  {
+                    name: 'global',
+                    opts: {
+                      success: 1
+                    }
+                  }, {
+                    name: 'chs1',
+                    opts: {
+                      type: 'txt',
+                      opt1: 'You should use a *resealable plastic bag',
+                      opt2: 'trash bag* // to carry water.'
+                    }
+                  }
+                ], [
+                  {
+                    name: 'global',
+                    opts: {
+                      success: 2
+                    }
+                  }, {
+                    name: 'chs1',
+                    opts: {
+                      type: 'txt',
+                      opt1: 'You should use a *pencil',
+                      opt2: 'compass* to find your way.'
+                    }
+                  }
+                ], [
+                  {
+                    name: 'global',
+                    opts: {
+                      success: 1
+                    }
+                  }, {
+                    name: 'chs1',
+                    opts: {
+                      type: 'txt',
+                      opt1: 'You can use a *knife',
+                      opt2: 'shell* to cut leaves // and make a shelter.'
+                    }
+                  }
+                ], [
+                  {
+                    name: 'global',
+                    opts: {
+                      success: 2
+                    }
+                  }, {
+                    name: 'chs1',
+                    opts: {
+                      type: 'txt',
+                      opt1: 'If you have * sunglasses',
+                      opt2: 'binoculars*, // use them to look for help.'
+                    }
+                  }
+                ], [
+                  {
+                    name: 'global',
+                    opts: {
+                      success: 2
+                    }
+                  }, {
+                    name: 'chs1',
+                    opts: {
+                      type: 'txt',
+                      opt1: 'You should always take *sodas',
+                      opt2: 'snacks* // in case you get hungry.'
+                    }
+                  }
+                ], [
+                  {
+                    name: 'global',
+                    opts: {
+                      success: 2
+                    }
+                  }, {
+                    name: 'chs1',
+                    opts: {
+                      type: 'txt',
+                      opt1: 'Wear a brightly colored *swimsuit',
+                      opt2: 'jacket* // so people can see you better.'
+                    }
+                  }
+                ], [
+                  {
+                    name: 'global',
+                    opts: {
+                      success: 1
+                    }
+                  }, {
+                    name: 'chs1',
+                    opts: {
+                      type: 'txt',
+                      opt1: 'You *should',
+                      opt2: 'shouldn\'t* stay in one place. '
+                    }
+                  }
+                ], [
+                  {
+                    name: 'global',
+                    opts: {
+                      success: 2
+                    }
+                  }, {
+                    name: 'chs1',
+                    opts: {
+                      type: 'txt',
+                      opt1: 'You can survive without food for a few days, // but you need *fire',
+                      opt2: 'water*.'
+                    }
+                  }
+                ], [
+                  {
+                    name: 'global',
+                    opts: {
+                      success: 2
+                    }
+                  }, {
+                    name: 'chs1',
+                    opts: {
+                      type: 'txt',
+                      opt1: 'Use your whistle so people can *see',
+                      opt2: 'hear* you.'
+                    }
+                  }
+                ], [
+                  {
+                    name: 'global',
+                    opts: {
+                      success: 1
+                    }
+                  }, {
+                    name: 'chs1',
+                    opts: {
+                      type: 'txt',
+                      opt1: 'Try to stay *warm and dry',
+                      opt2: 'cool and relaxed* at all times.'
+                    }
+                  }
+                ], [
+                  {
+                    name: 'global',
+                    opts: {
+                      success: 2
+                    }
+                  }, {
+                    name: 'chs1',
+                    opts: {
+                      type: 'txt',
+                      opt1: 'It\'s always good to know the *survive',
+                      opt2: 'emergency* procedures.'
+                    }
+                  }
+                ], [
+                  {
+                    name: 'global',
+                    opts: {
+                      success: 1
+                    }
+                  }, {
+                    name: 'chs1',
+                    opts: {
+                      type: 'txt',
+                      opt1: 'Stay with your group; don\'t walk *alone',
+                      opt2: 'fast*.'
+                    }
+                  }
+                ], [
+                  {
+                    name: 'global',
+                    opts: {
+                      success: 1
+                    }
+                  }, {
+                    name: 'chs1',
+                    opts: {
+                      type: 'txt',
+                      opt1: 'Tell your mom and dad where you *are going',
+                      opt2: 'left*.'
+                    }
+                  }
+                ], [
+                  {
+                    name: 'global',
+                    opts: {
+                      success: 1
+                    }
+                  }, {
+                    name: 'chs1',
+                    opts: {
+                      type: 'txt',
+                      opt1: 'If possible, you *should',
+                      opt2: 'shouldn\'t* take a cell phone.'
                     }
                   }
                 ]
               ],
-              type: 'steps'
+              mixed: true,
+              type: 'limit',
+              limit: 20
             },
             containers: [
               {
-                type: 'idc',
-                id: 'beach',
-                x: 310,
-                y: 360,
-                align: 'mc'
-              }, {
-                type: 'idc',
-                id: 'city',
-                x: 525,
-                y: 360,
-                align: 'mc'
-              }, {
-                type: 'drg',
-                id: 'sunscreen',
-                x: 100,
-                y: 250,
-                align: 'mc',
-                index: '1',
-                target: ['beach', 'city'],
-                "eval": this.onDrop,
-                click: this.onClick,
-                afterSuccess: 'drop',
-                afterFail: 'return'
-              }, {
-                type: 'drg',
-                id: 'guidebook',
-                x: 100,
-                y: 350,
-                align: 'mc',
-                index: '2',
-                target: ['beach', 'city'],
-                "eval": this.onDrop,
-                click: this.onClick,
-                afterSuccess: 'drop',
-                afterFail: 'return'
-              }, {
-                type: 'drg',
-                id: 'camera',
-                x: 100,
-                y: 450,
-                align: 'mc',
-                index: '3',
-                target: ['beach', 'city'],
-                "eval": this.onDrop,
-                click: this.onClick,
-                afterSuccess: 'drop',
-                afterFail: 'return'
-              }, {
-                type: 'drg',
-                id: 'parasol',
-                x: 720,
-                y: 250,
-                align: 'mc',
-                index: '4',
-                target: ['beach', 'city'],
-                "eval": this.onDrop,
-                click: this.onClick,
-                afterSuccess: 'drop',
-                afterFail: 'return'
-              }, {
-                type: 'drg',
-                id: 'flipflops',
-                x: 720,
-                y: 350,
-                align: 'mc',
-                index: '5',
-                target: ['beach', 'city'],
-                "eval": this.onDrop,
-                click: this.onClick,
-                afterSuccess: 'drop',
-                afterFail: 'return'
-              }, {
-                type: 'drg',
-                id: 'artposters',
-                x: 720,
-                y: 450,
-                align: 'mc',
-                index: '6',
-                target: ['beach', 'city'],
-                "eval": this.onDrop,
-                click: this.onClick,
-                afterSuccess: 'drop',
-                afterFail: 'return'
-              }, {
-                type: 'btn',
-                id: 'repeat',
+                type: 'chs',
+                id: 'chs1',
                 x: 400,
-                y: 530,
-                isRepeat: true,
-                states: [
-                  {
-                    img: {
-                      name: 'repeat',
-                      x: 0,
-                      y: 0,
-                      align: 'mc'
-                    }
-                  }
-                ]
-              }
-            ],
-            groups: []
-          }, {
-            answers: {
-              collection: [
-                [
-                  {
-                    name: 'winter',
-                    opts: {
-                      success: ['b', 'e', 'f']
-                    }
-                  }, {
-                    name: 'summer',
-                    opts: {
-                      success: ['a', 'c', 'd']
-                    }
-                  }
-                ]
-              ],
-              type: 'steps'
-            },
-            containers: [
-              {
-                type: 'idc',
-                id: 'winter',
-                x: 300,
-                y: 330,
-                align: 'mc'
-              }, {
-                type: 'idc',
-                id: 'summer',
-                x: 545,
-                y: 330,
-                align: 'mc'
-              }, {
-                type: 'drg',
-                id: 'map',
-                x: 100,
-                y: 250,
-                align: 'mc',
-                index: 'a',
-                target: ['winter', 'summer'],
-                "eval": this.onDrop,
-                click: this.onClick,
-                afterSuccess: 'drop',
-                afterFail: 'return'
-              }, {
-                type: 'drg',
-                id: 'globes',
-                x: 100,
-                y: 350,
-                align: 'mc',
-                index: 'b',
-                target: ['winter', 'summer'],
-                "eval": this.onDrop,
-                click: this.onClick,
-                afterSuccess: 'drop',
-                afterFail: 'return'
-              }, {
-                type: 'drg',
-                id: 'hikingboots',
-                x: 100,
-                y: 450,
-                align: 'mc',
-                index: 'c',
-                target: ['winter', 'summer'],
-                "eval": this.onDrop,
-                click: this.onClick,
-                afterSuccess: 'drop',
-                afterFail: 'return'
-              }, {
-                type: 'drg',
-                id: 'compass',
-                x: 720,
-                y: 250,
-                align: 'mc',
-                index: 'd',
-                target: ['winter', 'summer'],
-                "eval": this.onDrop,
-                click: this.onClick,
-                afterSuccess: 'drop',
-                afterFail: 'return'
-              }, {
-                type: 'drg',
-                id: 'skihat',
-                x: 720,
-                y: 350,
-                align: 'mc',
-                index: 'e',
-                target: ['winter', 'summer'],
-                "eval": this.onDrop,
-                click: this.onClick,
-                afterSuccess: 'drop',
-                afterFail: 'return'
-              }, {
-                type: 'drg',
-                id: 'skigoggles',
-                x: 720,
-                y: 450,
-                align: 'mc',
-                index: 'f',
-                target: ['winter', 'summer'],
-                "eval": this.onDrop,
-                click: this.onClick,
-                afterSuccess: 'drop',
-                afterFail: 'return'
-              }, {
-                type: 'btn',
-                id: 'repeat',
-                x: 400,
-                y: 530,
-                isRepeat: true,
-                states: [
-                  {
-                    img: {
-                      name: 'repeat',
-                      x: 0,
-                      y: 0,
-                      align: 'mc'
-                    }
-                  }
-                ]
+                y: 100,
+                align: 'tc',
+                target: 'global',
+                "eval": 'global_01',
+                label: {
+                  font: '18px Quicksand',
+                  color: '#333'
+                },
+                caption: {
+                  font: '20px Quicksand',
+                  color: '#333'
+                },
+                bullets: {
+                  font: '18px Quicksand',
+                  color: '#000',
+                  lineWidth: 300
+                }
               }
             ],
             groups: []
           }
         ]
       };
-      U1A3.__super__.constructor.call(this);
+      U2A4.__super__.constructor.call(this);
     }
 
-    window.U1A3 = U1A3;
+    window.U2A4 = U2A4;
 
-    return U1A3;
+    return U2A4;
 
   })(Oda);
 

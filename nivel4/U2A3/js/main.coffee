@@ -3,134 +3,157 @@
 NEW ODA
 
 ###
-class U1A3 extends Oda
+class U2A3 extends Oda
 	constructor: ->
 		@manifest = [
-			{ id: 'c1', src: 'circulo1.png' }
-			{ id: 'c2', src: 'circulo2.png' }
-			{ id: 'artposters', src: 'art_posters.png' }
-			{ id: 'camera', src: 'camera.png' }
-			{ id: 'compass', src: 'compass.png' }
-			{ id: 'flipflops', src: 'flip_flops.png' }
-			{ id: 'globes', src: 'globes.png' }
-			{ id: 'guidebook', src: 'guide_book.png' }
-			{ id: 'header', src: 'header.png' }
-			{ id: 'hikingboots', src: 'hiking_boots.png' }
-			{ id: 'map', src: 'map.png' }
-			{ id: 'parasol', src: 'parasol.png' }
-			{ id: 'repeat', src: 'repeat.png' }
-			{ id: 'skigoggles', src: 'ski_goggles.png' }
-			{ id: 'skihat', src: 'ski_hat.png' }
-			{ id: 'summer', src: 'summer.png' }
-			{ id: 'sunscreen', src: 'sunscreen.png' }
-			{ id: 'beach', src: 'the_beach.png' }
-			{ id: 'city', src: 'the_city.png' }
-			{ id: 'winter', src: 'winter.png' }
-			{ id: 's/1', src: '1.mp3' }
-			{ id: 's/2', src: '2.mp3' }
-			{ id: 's/3', src: '3.mp3' }
-			{ id: 's/4', src: '4.mp3' }
-			{ id: 's/5', src: '5.mp3' }
-			{ id: 's/6', src: '6.mp3' }
-			{ id: 's/a', src: 'a.mp3' }
-			{ id: 's/b', src: 'b.mp3' }
-			{ id: 's/c', src: 'c.mp3' }
-			{ id: 's/d', src: 'd.mp3' }
-			{ id: 's/e', src: 'e.mp3' }
-			{ id: 's/f', src: 'f.mp3' }
-			{ id: 's/silence', src: 'silence.mp3' }
+			{id: 'caja', src : 'caja.png' }
+			{id: 'c1', src : 'circulo1.png' }
+			{id: 'c2', src : 'circulo2.png' }
+			{id: 'EasterIsland', src : 'Easter_Island.png' }
+			{id: 'family', src : 'family.png' }
+			{id: 'header', src : 'header.png' }
+			{id: 'ready', src : 'ready.png' }
+			{id: 'repeat', src : 'repeat.png' }
+			{id: 's/travel', src : 'Travel.mp3' }
+			{id: 's/silence', src : 'silence.mp3' }
 		]
-		@onDrop = (dispatcher, target) =>
-			failed = false
-			d = lib[dispatcher]
-			t = target.parent
-			a = d.index
-			b = t.success
-			if a in t.success
-				t.success.remove a
-				d.afterSuccess()
-				lib.scene.success()
-				TweenLite.to d, 0.3, {scaleX:0.7, scaleY:0.7}
-			else
-				d.afterFail()
-				lib.scene.fail()
-		@onClick = (dispatcher) =>
-			d = lib[dispatcher]
-			if d.dragged
-				d.dragged = false
-				return
-			lib.scene.snd = "s/#{d.index}"
-			createjs.Sound.stop()
-			createjs.Sound.play lib.scene.snd
+		@evaluateDrop02_01 = (dispatcher, target) ->
+			complete = true
+			if lib[dispatcher].index is target.success
+				target.update lib[dispatcher].label.text, true
+			else 
+				target.update lib[dispatcher].label.text, false
+			lib[dispatcher].afterSuccess()
+			for drop in lib[dispatcher].droptargets
+				if drop.text.text is '' then complete = false
+			if not complete then return
+			for drop in lib[dispatcher].droptargets
+				#drop.showEvaluation()
+				if drop.complete
+					lib.score.plusOne()
+			lib.scene.success false
 		@game = 
 			header: 'header'
-			instructions: {x: 110, y: 130, states: [{text:'Listen, look and drag to the correct box.', sound:'s/silence', played: false}]}
-			score:{type: 'points', x:20, y:500, init: 0, total: 12, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
+			instructions: {x: 110, y: 130, states: [{text:'Read and listen. Then complete the sentences.', sound:'s/silence', played: false}]}
+			score:{type: 'points', x:20, y:500, init: 0, total: 14, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
 			scenes:[
+				
 				{
 					answers: {
-						collection: [
+						collection: [ 
 							[
-								{name:'beach', opts:{
-										success:['1','4','5']
-									}
-								}
-								{name:'city', opts:{
-										success:['2','3','6']
-									}
-								}
+								{name: 'grp1', opts:{type: 'fadeIn', target: 'family'}}
+								{name: 'pcct1', opts:{pattern:['We met in Africa ', '#tcpt',' years ago.'], targets: [{text:'on Christmas Day', success:'ten'}]}}
+								{name: 'pcct2', opts:{pattern:['We got married ', '#tcpt','.'], targets: [{text:'on Christmas Day', success:'in 2005'}]}}
+								{name: 'pcct3', opts:{pattern:['In 2007, ', '#tcpt',' was born.'], targets: [{text:'on Christmas Day', success:'Patrick'}]}}
+								{name: 'pcct4', opts:{pattern:['We started homeschooling Patrick when he was ', '#tcpt',' years old.'], targets: [{text:'on Christmas Day', success:'four'}]}}
+								{name: 'pcct5', opts:{pattern:['In 2011, a university gave us ', '#tcpt',' to study Pacific cultures.'], targets: [{text:'on Christmas Day', success:'money'}]}}
+								{name: 'pcct6', opts:{pattern:['We gave', '#tcpt','to say goodbye to our family and friends.'], targets: [{text:'on Christmas Day', success:'a party'}]}}
+								{name: 'pcct7', opts:{pattern:['We left Hawaii ', '#tcpt','.'], targets: [{text:'on Christmas Day', success:'on Christmas Day'}]}}
+								{name: 'pcct8', opts:{pattern:['Patrick is happy and he is making ', '#tcpt',' everywhere.'], targets: [{text:'on Christmas Day', success:'new friends'}]}}
 							]
 						]
 						type: 'steps'
 					}
 					containers:[
-						{type: 'idc', id: 'beach', x: 310, y: 360, align: 'mc'}
-						{type: 'idc', id: 'city', x: 525, y: 360, align: 'mc'}
-						{type: 'drg', id: 'sunscreen', x: 100, y: 250, align:'mc', index: '1', target: ['beach','city'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
-						{type: 'drg', id: 'guidebook', x: 100, y: 350, align:'mc', index: '2', target: ['beach','city'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
-						{type: 'drg', id: 'camera', x: 100, y: 450, align:'mc', index: '3', target: ['beach','city'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
-						{type: 'drg', id: 'parasol', x: 720, y: 250, align:'mc', index: '4', target: ['beach','city'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
-						{type: 'drg', id: 'flipflops', x: 720, y: 350, align:'mc', index: '5', target: ['beach','city'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
-						{type: 'drg', id: 'artposters', x: 720, y: 450, align:'mc', index: '6', target: ['beach','city'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'img', id: 'caja', x: 144, y: 480}
+						{type: 'img', id: 'family', x: 28, y: 40}
+						{type: 'pcct', id: 'pcct1', x: 385, y: 190, font: '12px Quicksand', margin: 10, scolor: '#F9101A'}
+						{type: 'pcct', id: 'pcct2', x: 385, y: 225, font: '12px Quicksand', margin: 10, scolor: '#F9101A'}
+						{type: 'pcct', id: 'pcct3', x: 385, y: 260, font: '12px Quicksand', margin: 10, scolor: '#F9101A'}
+						{type: 'pcct', id: 'pcct4', x: 385, y: 295, font: '12px Quicksand', margin: 10, scolor: '#F9101A'}
+						{type: 'pcct', id: 'pcct5', x: 385, y: 330, font: '12px Quicksand', margin: 10, scolor: '#F9101A'}
+						{type: 'pcct', id: 'pcct6', x: 385, y: 365, font: '12px Quicksand', margin: 10, scolor: '#F9101A'}
+						{type: 'pcct', id: 'pcct7', x: 385, y: 400, font: '12px Quicksand', margin: 10, scolor: '#F9101A'}
+						{type: 'pcct', id: 'pcct8', x: 385, y: 435, font: '12px Quicksand', margin: 10, scolor: '#F9101A'}
+						 
+
+						{type: 'ldrg', id: 'ldrg1', x: 240,  y: 510, index: 'a party', text:'a party', font:'15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg2', x: 320, y: 510, index: 'Christmas Day', text:'Christmas Day', font:'15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg3', x: 460, y: 510, index: 'four', text:'four', font:'15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg4', x: 515, y: 510, index: 'in 2005', text:'in 2005', font:'15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg5', x: 255, y: 530, index: 'money', text:'money', font:'15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg6', x: 335, y: 530, index: 'new friends', text:'new friends', font:'15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg7', x: 455, y: 530, index: 'Patrick', text:'Patrick', font:'15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg8', x: 535, y: 530, index: 'ten', text:'ten', font:'15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+					]
+					groups: [
 						{
-							type: 'btn', id: 'repeat', x: 400, y: 530, isRepeat: true
-							states:[img: {name:'repeat', x: 0, y: 0, align:'mc'}]
+							type: 'grp', id: 'grp1', invisible: true
+							group: [
+								'family'
+							]
 						}
 					]
-					groups:[]
 				}
 				{
 					answers: {
 						collection: [
 							[
-								{name:'winter', opts:{
-										success:['b','e','f']
-									}
+								{name: 'snd', opts:{id:'travel'}}
+								{name:'global', opts:{success:1}}
+								{
+									name: 'chs1', opts:{type: 'txt'
+									opt1: 'They met in Africa ten years ago.', opt2: 'They met in Africa last year'}
 								}
-								{name:'summer', opts:{
-										success:['a','c','d']
-									}
+							]
+							[
+								{name:'global', opts:{success:2}}
+								{
+									name: 'chs1', opts:{type: 'txt'
+									opt1: 'They had a son 4 years ago.', opt2: 'They had a son 6 years ago.'}
+								}
+							]
+							[
+								{name:'global', opts:{success:2}}
+								{
+									name: 'chs1', opts:{type: 'txt'
+									opt1: 'They sent Patrick to school in Hawaii.', opt2: 'They homeschooled their son.'}
+								}
+							]
+							[
+								{name:'global', opts:{success:2}}
+								{
+									name: 'chs1', opts:{type: 'txt'
+									opt1: 'They spent Christmas with her mom.', opt2: 'They had a party two weeks before Christmas.'}
+								}
+							]
+							[
+								{name:'global', opts:{success:2}}
+								{
+									name: 'chs1', opts:{type: 'txt'
+									opt1: 'They traveled to the islands last month.', opt2: 'They sailed to the islands a year ago.'}
+								}
+							]
+							[
+								{name:'global', opts:{success:2}}
+								{
+									name: 'chs1', opts:{type: 'txt'
+									opt1: 'Patrick doesn\'t like to travel.', opt2: 'Patrick likes to travel.'}
 								}
 							]
 						]
-						type: 'steps'
+						mixed: true
+						type: 'limit'
+						limit: 6
 					}
 					containers:[
-						{type: 'idc', id: 'winter', x: 300, y: 330, align: 'mc'}
-						{type: 'idc', id: 'summer', x: 545, y: 330, align: 'mc'}
-						{type: 'drg', id: 'map', x: 100, y: 250, align:'mc', index: 'a', target: ['winter','summer'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
-						{type: 'drg', id: 'globes', x: 100, y: 350, align:'mc', index: 'b', target: ['winter','summer'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
-						{type: 'drg', id: 'hikingboots', x: 100, y: 450, align:'mc', index: 'c', target: ['winter','summer'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
-						{type: 'drg', id: 'compass', x: 720, y: 250, align:'mc', index: 'd', target: ['winter','summer'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
-						{type: 'drg', id: 'skihat', x: 720, y: 350, align:'mc', index: 'e', target: ['winter','summer'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
-						{type: 'drg', id: 'skigoggles', x: 720, y: 450, align:'mc', index: 'f', target: ['winter','summer'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'img', id: 'EasterIsland', x: 400, y: 80, align: 'tc'}
 						{
-							type: 'btn', id: 'repeat', x: 400, y: 530, isRepeat: true
-							states:[img: {name:'repeat', x: 0, y: 0, align:'mc'}]
+							type: 'btn', id: 'repeat', x: 400, y: 540, isRepeat: true
+							states:[img: {name:'repeat', x: 0, y: 0, align:'tc'}]
+						}
+						
+						{
+							type: 'chs', id: 'chs1', x: 400, y: 100, align: 'tc', target: 'global', eval:'global_01'
+							label:{font:'18px Quicksand', color:'#333'}
+							caption:{font:'20px Quicksand', color:'#333'}
+							bullets:{font:'12px Quicksand', color: '#000', lineWidth: 300}
 						}
 					]
-					groups:[]
+					groups: []
 				}
+				 
 			]
 		super()
-	window.U1A3 = U1A3
+	window.U2A3 = U2A3

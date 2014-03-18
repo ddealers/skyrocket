@@ -1,0 +1,16 @@
+{id: 'caja', src : 'caja.png' }
+{id: 'circulo1', src : 'circulo1.png' }
+{id: 'circulo2', src : 'circulo2.png' }
+{id: 'EasterIsland', src : 'Easter_Island.png' }
+{id: 'family', src : 'family.png' }
+{id: 'good', src : 'good.mp3' }
+{id: 'header', src : 'header.png' }
+{id: 'play_again', src : 'play_again.png' }
+{id: 'ready', src : 'ready.png' }
+{id: 'repeat', src : 'repeat.png' }
+{id: 'start_game', src : 'start_game.png' }
+{id: 'boing', src : 'boing.mp3' }
+{id: 'Travel', src : 'Travel.mp3' }
+{id: 'wrong', src : 'wrong.mp3' }
+{id: 'silence', src : 'silence.mp3' }
+
