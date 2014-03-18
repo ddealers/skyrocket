@@ -5,7 +5,7 @@ LIBRARY
 
 
 (function() {
-  var ABCContainer, Actions, Behaviors, ButtonContainer, ChooseContainer, CloneCompleterContainer, CloneContainer, Component, ComponentGroup, ComponentObserver, CrossWordsContainer, DragContainer, Evaluator, Game, GameObserver, GridContainer, ImageCompleterContainer, ImageContainer, ImageDropContainer, ImageWordCompleterContainer, Instructions, LabelContainer, LetterContainer, LetterDragContainer, MainContainer, Methods, Mobile, Module, Observer, Oda, PhraseCloneContainer, PhraseCompleterContainer, Preloader, Scene, SceneFactory, SceneObserver, SceneStack, Score, ScrambledWordContainer, SpriteContainer, StepContainer, StepsContainer, TextCloneContainer, TextCompleterContainer, TextContainer, Utilities, WordCompleterContainer, WordSearchContainer, WriteContainer, moduleKeywords, _base, _base1, _base2, _base3, _base4, _base5, _base6, _ref, _ref1, _ref2,
+  var ABCContainer, Actions, Behaviors, ButtonContainer, ChooseAWordContainer, ChooseContainer, CloneCompleterContainer, CloneContainer, Component, ComponentGroup, ComponentObserver, CrossWordsContainer, DragContainer, Evaluator, Game, GameObserver, GridContainer, ImageCompleterContainer, ImageContainer, ImageDropContainer, ImageWordCompleterContainer, Instructions, LabelContainer, LetterContainer, LetterDragContainer, MainContainer, Methods, Mobile, Module, Observer, Oda, PhraseCloneContainer, PhraseCompleterContainer, Preloader, Scene, SceneFactory, SceneObserver, SceneStack, Score, ScrambledWordContainer, SpriteContainer, StepContainer, StepsContainer, TextCloneContainer, TextCompleterContainer, TextContainer, Utilities, WordCompleterContainer, WordSearchContainer, WriteContainer, moduleKeywords, _base, _base1, _base2, _base3, _base4, _base5, _base6, _ref, _ref1, _ref2,
     __slice = [].slice,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
@@ -2040,11 +2040,15 @@ LIBRARY
     };
 
     SpriteContainer.prototype.prevFrame = function() {
-      return this.sprite.currentFrame--;
+      var cf;
+      cf = this.sprite.currentFrame - 1;
+      return this.sprite.gotoAndStop(cf);
     };
 
     SpriteContainer.prototype.nextFrame = function() {
-      return this.sprite.currentFrame++;
+      var cf;
+      cf = this.sprite.currentFrame + 1;
+      return this.sprite.gotoAndStop(cf);
     };
 
     SpriteContainer.prototype.nextStep = function() {
@@ -2260,7 +2264,7 @@ LIBRARY
     }
 
     ButtonContainer.prototype.initialize = function(opts) {
-      var _ref2, _ref3,
+      var _ref2, _ref3, _ref4,
         _this = this;
       this.Container_initialize();
       Module.extend(this, d2oda.actions);
@@ -2268,9 +2272,10 @@ LIBRARY
       Module.extend(this, d2oda.utilities);
       this.x = opts.x;
       this.y = opts.y;
+      this.visible = (_ref2 = opts.visible) != null ? _ref2 : true;
       this.index = opts.index;
-      this.name = (_ref2 = opts.name) != null ? _ref2 : opts.id;
-      this.scale = (_ref3 = opts.scale) != null ? _ref3 : 1;
+      this.name = (_ref3 = opts.name) != null ? _ref3 : opts.id;
+      this.scale = (_ref4 = opts.scale) != null ? _ref4 : 1;
       this.states = opts.states;
       this.currentState = 0;
       this.setImageText(this.states[this.currentState].img, this.states[this.currentState].txt);
@@ -2365,7 +2370,12 @@ LIBRARY
 
     ButtonContainer.prototype.update = function(opts) {
       TweenLite.killTweensOf(this);
-      this.setImageText(opts.img, opts.txt);
+      if (opts.img || opts.txt) {
+        this.setImageText(opts.img, opts.txt);
+      }
+      if (opts.visible) {
+        this.visible = opts.visible;
+      }
       return TweenLite.from(this, 0.5, {
         alpha: 0
       });
@@ -2376,6 +2386,81 @@ LIBRARY
     };
 
     return ButtonContainer;
+
+  })(Component);
+
+  ChooseAWordContainer = (function(_super) {
+    __extends(ChooseAWordContainer, _super);
+
+    ChooseAWordContainer.prototype = new createjs.Container();
+
+    ChooseAWordContainer.prototype.Container_initialize = ChooseAWordContainer.prototype.initialize;
+
+    function ChooseAWordContainer(opts) {
+      this.initialize(opts);
+    }
+
+    ChooseAWordContainer.prototype.initialize = function(opts) {
+      var _ref2;
+      this.Container_initialize();
+      Module.extend(this, d2oda.methods);
+      this.x = opts.x;
+      this.y = opts.y;
+      this.name = (_ref2 = opts.name) != null ? _ref2 : opts.id;
+      this.target = opts.target;
+      return this["eval"] = opts["eval"];
+    };
+
+    ChooseAWordContainer.prototype.update = function(opts) {
+      var hito1, hito2, opt1, opt2,
+        _this = this;
+      opt1 = this.createText("" + this.name + "_opt1", opts.opt1, this.bullets.font, this.bullets.color, -20, 400, 'right');
+      if (this.bullets.lineWidth) {
+        opt1.lineWidth = this.bullets.lineWidth;
+      }
+      hito1 = new createjs.Shape();
+      hito1.graphics.beginFill('#000').drawRect(-opt1.getMeasuredWidth() - 5, -3, opt1.getMeasuredWidth() + 10, opt1.getMeasuredHeight() + 6);
+      opt1.hitArea = hito1;
+      opt1.index = 1;
+      opt2 = this.createText("" + this.name + "_opt2", opts.opt2, this.bullets.font, this.bullets.color, 20, 400, 'left');
+      if (this.bullets.lineWidth) {
+        opt2.lineWidth = this.bullets.lineWidth;
+      }
+      hito2 = new createjs.Shape();
+      hito2.graphics.beginFill('#000').drawRect(-5, -3, opt2.getMeasuredWidth() + 10, opt2.getMeasuredHeight() + 6);
+      opt2.hitArea = hito2;
+      opt2.index = 2;
+      this.add(opt1);
+      opt1.addEventListener('mouseover', function() {
+        return TweenLite.to(opt1, 0.5, {
+          alpha: 0.5
+        });
+      });
+      opt1.addEventListener('mouseout', function() {
+        return TweenLite.to(opt1, 0.5, {
+          alpha: 1
+        });
+      });
+      opt1.addEventListener('click', function() {
+        return d2oda.evaluator.evaluate(_this["eval"], "" + _this.name + "_opt1", _this.target);
+      });
+      this.add(opt2);
+      opt2.addEventListener('mouseover', function() {
+        return TweenLite.to(opt2, 0.5, {
+          alpha: 0.5
+        });
+      });
+      opt2.addEventListener('mouseout', function() {
+        return TweenLite.to(opt2, 0.5, {
+          alpha: 1
+        });
+      });
+      return opt2.addEventListener('click', function() {
+        return d2oda.evaluator.evaluate(_this["eval"], "" + _this.name + "_opt2", _this.target);
+      });
+    };
+
+    return ChooseAWordContainer;
 
   })(Component);
 
@@ -2510,6 +2595,9 @@ LIBRARY
       color = (_ref4 = opts.color) != null ? _ref4 : '#333';
       align = (_ref5 = opts.align) != null ? _ref5 : '';
       this.text = this.createText('txt', '', font, color, 0, 0, align);
+      if (opts.lineWidth) {
+        this.text.lineWidth = opts.lineWidth;
+      }
       return this.add(this.text, false);
     };
 
@@ -4210,6 +4298,8 @@ LIBRARY
           return new WordSearchContainer(opts);
         case 'ldrg':
           return new LetterDragContainer(opts);
+        case 'caw':
+          return new ChooseAWordContainer(opts);
         case 'pcct':
           return new PhraseCloneContainer(opts);
         case 'wcpt':

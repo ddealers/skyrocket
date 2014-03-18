@@ -1051,9 +1051,11 @@ class SpriteContainer extends Component
 		@observer = new ComponentObserver()
 		@add @sprite, false
 	prevFrame: ->
-		@sprite.currentFrame--
+		cf = @sprite.currentFrame - 1
+		@sprite.gotoAndStop cf
 	nextFrame: ->
-		@sprite.currentFrame++
+		cf = @sprite.currentFrame + 1
+		@sprite.gotoAndStop cf
 	nextStep: ->
 		if @storyboard.length > 0 
 			@sprite.gotoAndStop @storyboard[@sprite.currentFrame]
@@ -1175,6 +1177,7 @@ class ButtonContainer extends Component
 		Module.extend @, d2oda.utilities
 		@x = opts.x
 		@y = opts.y
+		@visible = opts.visible ? true
 		@index = opts.index
 		@name = opts.name ? opts.id
 		@scale = opts.scale ? 1
@@ -1239,10 +1242,56 @@ class ButtonContainer extends Component
 			@currentState--
 	update: (opts) ->
 		TweenLite.killTweensOf @
-		@setImageText opts.img, opts.txt
+		if opts.img or opts.txt then @setImageText opts.img, opts.txt
+		if opts.visible then @visible = opts.visible
 		TweenLite.from @, 0.5, {alpha: 0}
 	isComplete: ->
 		true
+
+class ChooseAWordContainer extends Component
+	ChooseAWordContainer.prototype = new createjs.Container()
+	ChooseAWordContainer::Container_initialize = ChooseAWordContainer::initialize
+	constructor: (opts) ->
+		@initialize opts
+	ChooseAWordContainer::initialize = (opts) ->
+		@Container_initialize()
+		Module.extend @, d2oda.methods
+		@x = opts.x
+		@y = opts.y
+		@name = opts.name ? opts.id
+		@target = opts.target
+		@eval = opts.eval
+	update: (opts) ->
+		opt1 = @createText "#{@name}_opt1", opts.opt1, @bullets.font, @bullets.color, -20, 400, 'right'
+		if @bullets.lineWidth then opt1.lineWidth = @bullets.lineWidth
+		hito1 = new createjs.Shape()
+		hito1.graphics.beginFill('#000').drawRect(-opt1.getMeasuredWidth() - 5, -3, opt1.getMeasuredWidth() + 10, opt1.getMeasuredHeight() + 6)
+		opt1.hitArea = hito1
+		opt1.index = 1
+
+		opt2 = @createText "#{@name}_opt2", opts.opt2, @bullets.font, @bullets.color, 20, 400, 'left'
+		if @bullets.lineWidth then opt2.lineWidth = @bullets.lineWidth
+		hito2 = new createjs.Shape()
+		hito2.graphics.beginFill('#000').drawRect(-5, -3, opt2.getMeasuredWidth() + 10, opt2.getMeasuredHeight() + 6)
+		opt2.hitArea = hito2
+		opt2.index = 2
+				
+		@add opt1
+		opt1.addEventListener 'mouseover', =>
+			TweenLite.to opt1, 0.5, {alpha: 0.5}
+		opt1.addEventListener 'mouseout', =>
+			TweenLite.to opt1, 0.5, {alpha: 1}
+		opt1.addEventListener 'click', =>
+			d2oda.evaluator.evaluate @eval, "#{@name}_opt1", @target
+
+		@add opt2
+		opt2.addEventListener 'mouseover', =>
+			TweenLite.to opt2, 0.5, {alpha: 0.5}
+		opt2.addEventListener 'mouseout', =>
+			TweenLite.to opt2, 0.5, {alpha: 1}
+		opt2.addEventListener 'click', =>
+			d2oda.evaluator.evaluate @eval, "#{@name}_opt2", @target
+
 
 class ChooseContainer extends Component
 	ChooseContainer.prototype = new createjs.Container()
@@ -1328,6 +1377,7 @@ class LabelContainer extends Component
 		color = opts.color ? '#333'
 		align = opts.align ? ''
 		@text = @createText 'txt', '', font, color, 0, 0, align
+		if opts.lineWidth then @text.lineWidth = opts.lineWidth
 		@add @text, false
 	update: (opts) ->
 		@text.text = opts.text
@@ -2277,6 +2327,7 @@ class SceneFactory
 			when 'cwd' then new CrossWordsContainer opts
 			when 'wsch' then new WordSearchContainer opts
 			when 'ldrg' then new LetterDragContainer opts
+			when 'caw' then new ChooseAWordContainer opts
 			when 'pcct' then new PhraseCloneContainer opts
 			when 'wcpt' then new WordCompleterContainer opts
 			when 'swct' then new ScrambledWordContainer opts

@@ -78,7 +78,6 @@ NEW ODA
         a = d.index;
         b = t.droptargets;
         c = t.currentTarget;
-        console.log(a, b[c].success);
         if (a === b[c].success) {
           b[c].complete = true;
           b[c].update();
