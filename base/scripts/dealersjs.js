@@ -5,7 +5,7 @@ LIBRARY
 
 
 (function() {
-  var ABCContainer, Actions, Behaviors, ButtonContainer, ChooseAWordContainer, ChooseContainer, CloneCompleterContainer, CloneContainer, Component, ComponentGroup, ComponentObserver, CrossWordsContainer, DragContainer, Evaluator, Game, GameObserver, GridContainer, ImageCompleterContainer, ImageContainer, ImageDropContainer, ImageWordCompleterContainer, Instructions, LabelContainer, LetterContainer, LetterDragContainer, MainContainer, Methods, Mobile, Module, Observer, Oda, PhraseCloneContainer, PhraseCompleterContainer, Preloader, Scene, SceneFactory, SceneObserver, SceneStack, Score, ScrambledWordContainer, SpriteContainer, StepContainer, StepsContainer, TextCloneContainer, TextCompleterContainer, TextContainer, Utilities, WordCompleterContainer, WordSearchContainer, WriteContainer, moduleKeywords, _base, _base1, _base2, _base3, _base4, _base5, _base6, _ref, _ref1, _ref2,
+  var ABCContainer, Actions, Behaviors, ButtonContainer, ChooseAWordContainer, ChooseContainer, CloneCompleterContainer, CloneContainer, Component, ComponentGroup, ComponentObserver, CrossWordsContainer, DragContainer, Evaluator, Game, GameObserver, GridContainer, ImageCompleterContainer, ImageContainer, ImageDropContainer, ImageWordCompleterContainer, Instructions, LabelContainer, LetterContainer, LetterDragContainer, MainContainer, Methods, Mobile, Module, Observer, Oda, PhraseCloneContainer, PhraseCompleterContainer, Preloader, Scene, SceneFactory, SceneObserver, SceneStack, Score, ScrambledWordContainer, SpriteAnimContainer, SpriteContainer, StepContainer, StepsContainer, TextCloneContainer, TextCompleterContainer, TextContainer, Utilities, WordCompleterContainer, WordSearchContainer, WriteContainer, moduleKeywords, _base, _base1, _base2, _base3, _base4, _base5, _base6, _ref, _ref1, _ref2,
     __slice = [].slice,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
@@ -1975,7 +1975,7 @@ LIBRARY
     }
 
     TextContainer.prototype.initialize = function(opts) {
-      var align, fcolor, font, t, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7;
+      var align, fcolor, font, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7;
       this.Container_initialize();
       Module.extend(this, d2oda.methods);
       Module.extend(this, d2oda.actions);
@@ -1987,14 +1987,20 @@ LIBRARY
       this.y = opts.y;
       this.scaleX = (_ref6 = opts.scale) != null ? _ref6 : 1;
       this.scaleY = (_ref7 = opts.scale) != null ? _ref7 : 1;
-      t = this.createText(this.name, opts.text, font, fcolor, 0, 0, align);
+      this.t = this.createText(this.name, opts.text, font, fcolor, 0, 0, align);
       if (opts.lineWidth) {
-        t.lineWidth = opts.lineWidth;
+        this.t.lineWidth = opts.lineWidth;
       }
-      this.width = t.getMeasuredWidth();
-      this.height = t.getMeasuredHeight();
+      this.width = this.t.getMeasuredWidth();
+      this.height = this.t.getMeasuredHeight();
       this.mouseEnabled = true;
-      return this.add(t, false);
+      return this.add(this.t, false);
+    };
+
+    TextContainer.prototype.update = function(opts) {
+      if (opts.text) {
+        return this.t.text = opts.text;
+      }
     };
 
     TextContainer.prototype.isComplete = function() {
@@ -2065,6 +2071,8 @@ LIBRARY
     };
 
     SpriteContainer.prototype.update = function(opts) {
+      var _ref2;
+      this.complete = (_ref2 = opts.complete) != null ? _ref2 : false;
       this.droptargets = [this.sprite];
       this.success = opts.success;
       this.storyboard = opts.storyboard;
@@ -2075,10 +2083,100 @@ LIBRARY
       TweenLite.killTweensOf(this);
       TweenMax.killTweensOf(this);
       this.alpha = 1;
-      return this.sprite.currentFrame > 0;
+      if (!this.complete) {
+        this.sprite.currentFrame > 0;
+      }
+      return this.complete;
     };
 
     return SpriteContainer;
+
+  })(Component);
+
+  SpriteAnimContainer = (function(_super) {
+    __extends(SpriteAnimContainer, _super);
+
+    SpriteAnimContainer.prototype = new createjs.Container();
+
+    SpriteAnimContainer.prototype.Container_initialize = SpriteAnimContainer.prototype.initialize;
+
+    function SpriteAnimContainer(opts) {
+      this.initialize(opts);
+    }
+
+    SpriteAnimContainer.prototype.initialize = function(opts) {
+      var framerate, img, label, spriteImgs, _ref2, _ref3;
+      this.Container_initialize();
+      Module.extend(this, d2oda.methods);
+      Module.extend(this, d2oda.actions);
+      Module.extend(this, d2oda.utilities);
+      this.name = (_ref2 = opts.name) != null ? _ref2 : opts.id;
+      this.x = opts.x;
+      this.y = opts.y;
+      this.firstPlay = true;
+      this.currentLabel = 0;
+      this.labels = new Array();
+      spriteImgs = (function() {
+        var _i, _len, _ref3, _results;
+        _ref3 = opts.images;
+        _results = [];
+        for (_i = 0, _len = _ref3.length; _i < _len; _i++) {
+          img = _ref3[_i];
+          _results.push(lib.preloader.preload.getResult(img));
+        }
+        return _results;
+      })();
+      for (label in opts.animations) {
+        this.labels.push(label);
+      }
+      framerate = (_ref3 = opts.framerate) != null ? _ref3 : 24;
+      console.log(framerate);
+      this.spritesheet = new createjs.SpriteSheet({
+        framerate: framerate,
+        images: spriteImgs,
+        frames: opts.frames,
+        animations: opts.animations
+      });
+      this.animation = new createjs.BitmapAnimation(this.spritesheet);
+      this.add(this.animation, false);
+      return this.animation.gotoAndStop(this.labels[this.currentLabel]);
+    };
+
+    SpriteAnimContainer.prototype.nextAnimation = function() {
+      if (this.firstPlay) {
+        this.firstPlay = false;
+        this.playAnimation();
+        return;
+      }
+      this.currentLabel++;
+      this.animation.gotoAndPlay(this.labels[this.currentLabel]);
+      return false;
+    };
+
+    SpriteAnimContainer.prototype.prevAnimation = function() {
+      if (this.firstPlay) {
+        this.firstPlay = false;
+        this.playAnimation();
+        return;
+      }
+      this.currentLabel--;
+      this.animation.gotoAndPlay(this.labels[this.currentLabel]);
+      return false;
+    };
+
+    SpriteAnimContainer.prototype.playAnimation = function(name) {
+      var i, _i, _ref2;
+      if (name) {
+        for (i = _i = 0, _ref2 = this.labels.length; 0 <= _ref2 ? _i <= _ref2 : _i >= _ref2; i = 0 <= _ref2 ? ++_i : --_i) {
+          if (label === name) {
+            this.currentLabel = i;
+          }
+        }
+      }
+      return this.animation.gotoAndPlay(this.labels[this.currentLabel]);
+    };
+
+    return SpriteAnimContainer;
 
   })(Component);
 
@@ -2408,28 +2506,31 @@ LIBRARY
       this.y = opts.y;
       this.name = (_ref2 = opts.name) != null ? _ref2 : opts.id;
       this.target = opts.target;
-      return this["eval"] = opts["eval"];
+      this["eval"] = opts["eval"];
+      this.label = opts.label;
+      return this.bullets = opts.bullets;
     };
 
     ChooseAWordContainer.prototype.update = function(opts) {
-      var hito1, hito2, opt1, opt2,
+      var after, before, hito1, hito2, opt1, opt2, slash,
         _this = this;
-      opt1 = this.createText("" + this.name + "_opt1", opts.opt1, this.bullets.font, this.bullets.color, -20, 400, 'right');
-      if (this.bullets.lineWidth) {
-        opt1.lineWidth = this.bullets.lineWidth;
-      }
+      this.removeAllChildren();
+      before = this.createText("" + this.name + "_before", opts.before, this.label.font, this.label.color, 0, 0);
+      this.add(before);
+      opt1 = this.createText("" + this.name + "_opt1", opts.opt1, "bold " + this.bullets.font, this.bullets.color, before.x + before.getMeasuredWidth() + 10, 0);
       hito1 = new createjs.Shape();
-      hito1.graphics.beginFill('#000').drawRect(-opt1.getMeasuredWidth() - 5, -3, opt1.getMeasuredWidth() + 10, opt1.getMeasuredHeight() + 6);
+      hito1.graphics.beginFill('#000').drawRect(-5, -3, opt1.getMeasuredWidth() + 10, opt1.getMeasuredHeight() + 6);
       opt1.hitArea = hito1;
       opt1.index = 1;
-      opt2 = this.createText("" + this.name + "_opt2", opts.opt2, this.bullets.font, this.bullets.color, 20, 400, 'left');
-      if (this.bullets.lineWidth) {
-        opt2.lineWidth = this.bullets.lineWidth;
-      }
+      slash = this.createText("" + this.name + "_slash", '/', this.label.font, this.label.color, opt1.x + opt1.getMeasuredWidth() + 10, 0);
+      this.add(slash);
+      opt2 = this.createText("" + this.name + "_opt2", opts.opt2, "bold " + this.bullets.font, this.bullets.color, slash.x + slash.getMeasuredWidth() + 10, 0);
       hito2 = new createjs.Shape();
       hito2.graphics.beginFill('#000').drawRect(-5, -3, opt2.getMeasuredWidth() + 10, opt2.getMeasuredHeight() + 6);
       opt2.hitArea = hito2;
       opt2.index = 2;
+      after = this.createText("" + this.name + "_after", opts.after, this.label.font, this.label.color, opt2.x + opt2.getMeasuredWidth() + 10, 0);
+      this.add(after);
       this.add(opt1);
       opt1.addEventListener('mouseover', function() {
         return TweenLite.to(opt1, 0.5, {
@@ -2455,9 +2556,19 @@ LIBRARY
           alpha: 1
         });
       });
-      return opt2.addEventListener('click', function() {
+      opt2.addEventListener('click', function() {
         return d2oda.evaluator.evaluate(_this["eval"], "" + _this.name + "_opt2", _this.target);
       });
+      this.width = after.x + after.getMeasuredWidth();
+      this.setPosition('tc');
+      return TweenLite.from(this, 0.5, {
+        y: this.y - 20,
+        alpha: 0
+      });
+    };
+
+    ChooseAWordContainer.prototype.isComplete = function() {
+      return true;
     };
 
     return ChooseAWordContainer;
@@ -4294,6 +4405,8 @@ LIBRARY
           return new ImageDropContainer(opts);
         case 'cwd':
           return new CrossWordsContainer(opts);
+        case 'sac':
+          return new SpriteAnimContainer(opts);
         case 'wsch':
           return new WordSearchContainer(opts);
         case 'ldrg':

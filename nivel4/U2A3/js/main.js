@@ -46,6 +46,13 @@ NEW ODA
           src: 'silence.mp3'
         }
       ];
+      this.evaluateGlobal01 = function(dispatcher) {
+        if (lib[dispatcher].index === d2oda.evaluator.success) {
+          return lib.scene.success(true, false);
+        } else {
+          return lib.scene.fail();
+        }
+      };
       this.evaluateDrop02_01 = function(dispatcher, target) {
         var complete, drop, _i, _j, _len, _len1, _ref, _ref1;
         complete = true;
@@ -398,7 +405,7 @@ NEW ODA
                   {
                     name: 'snd',
                     opts: {
-                      id: 'travel'
+                      id: 's/travel'
                     }
                   }, {
                     name: 'global',
@@ -485,9 +492,7 @@ NEW ODA
                   }
                 ]
               ],
-              mixed: true,
-              type: 'limit',
-              limit: 6
+              type: 'steps'
             },
             containers: [
               {
@@ -519,7 +524,7 @@ NEW ODA
                 y: 100,
                 align: 'tc',
                 target: 'global',
-                "eval": 'global_01',
+                "eval": this.evaluateGlobal01,
                 label: {
                   font: '18px Quicksand',
                   color: '#333'

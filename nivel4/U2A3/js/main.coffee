@@ -6,17 +6,22 @@ NEW ODA
 class U2A3 extends Oda
 	constructor: ->
 		@manifest = [
-			{id: 'caja', src : 'caja.png' }
-			{id: 'c1', src : 'circulo1.png' }
-			{id: 'c2', src : 'circulo2.png' }
-			{id: 'EasterIsland', src : 'Easter_Island.png' }
-			{id: 'family', src : 'family.png' }
-			{id: 'header', src : 'header.png' }
-			{id: 'ready', src : 'ready.png' }
-			{id: 'repeat', src : 'repeat.png' }
-			{id: 's/travel', src : 'Travel.mp3' }
-			{id: 's/silence', src : 'silence.mp3' }
+			{id: 'caja', src: 'caja.png' }
+			{id: 'c1', src: 'circulo1.png' }
+			{id: 'c2', src: 'circulo2.png' }
+			{id: 'EasterIsland', src: 'Easter_Island.png' }
+			{id: 'family', src: 'family.png' }
+			{id: 'header', src: 'header.png' }
+			{id: 'ready', src: 'ready.png' }
+			{id: 'repeat', src: 'repeat.png' }
+			{id: 's/travel', src: 'Travel.mp3' }
+			{id: 's/silence', src: 'silence.mp3' }
 		]
+		@evaluateGlobal01 = (dispatcher) ->
+			if lib[dispatcher].index is d2oda.evaluator.success
+				lib.scene.success true, false
+			else
+				lib.scene.fail()
 		@evaluateDrop02_01 = (dispatcher, target) ->
 			complete = true
 			if lib[dispatcher].index is target.success
@@ -90,7 +95,7 @@ class U2A3 extends Oda
 					answers: {
 						collection: [
 							[
-								{name: 'snd', opts:{id:'travel'}}
+								{name: 'snd', opts:{id:'s/travel'}}
 								{name:'global', opts:{success:1}}
 								{
 									name: 'chs1', opts:{type: 'txt'
@@ -133,9 +138,7 @@ class U2A3 extends Oda
 								}
 							]
 						]
-						mixed: true
-						type: 'limit'
-						limit: 6
+						type: 'steps'
 					}
 					containers:[
 						{type: 'img', id: 'EasterIsland', x: 400, y: 80, align: 'tc'}
@@ -145,7 +148,7 @@ class U2A3 extends Oda
 						}
 						
 						{
-							type: 'chs', id: 'chs1', x: 400, y: 100, align: 'tc', target: 'global', eval:'global_01'
+							type: 'chs', id: 'chs1', x: 400, y: 100, align: 'tc', target: 'global', eval: @evaluateGlobal01
 							label:{font:'18px Quicksand', color:'#333'}
 							caption:{font:'20px Quicksand', color:'#333'}
 							bullets:{font:'12px Quicksand', color: '#000', lineWidth: 300}

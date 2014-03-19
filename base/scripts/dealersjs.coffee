@@ -1016,12 +1016,14 @@ class TextContainer extends Component
 		@y = opts.y
 		@scaleX = opts.scale ? 1
 		@scaleY = opts.scale ? 1
-		t = @createText @name, opts.text, font, fcolor, 0, 0, align
-		if opts.lineWidth then t.lineWidth = opts.lineWidth
-		@width = t.getMeasuredWidth()
-		@height = t.getMeasuredHeight()
+		@t = @createText @name, opts.text, font, fcolor, 0, 0, align
+		if opts.lineWidth then @t.lineWidth = opts.lineWidth
+		@width = @t.getMeasuredWidth()
+		@height = @t.getMeasuredHeight()
 		@mouseEnabled = true
-		@add t, false
+		@add @t, false
+	update: (opts) ->
+		if opts.text then @t.text = opts.text
 	isComplete: ->
 		TweenLite.killTweensOf @
 		TweenMax.killTweensOf @
@@ -1063,6 +1065,7 @@ class SpriteContainer extends Component
 	goto: (frame) ->
 		@sprite.gotoAndStop frame
 	update:(opts) ->
+		@complete = opts.complete ? false
 		@droptargets = [@sprite]
 		@success = opts.success
 		@storyboard = opts.storyboard
@@ -1071,7 +1074,57 @@ class SpriteContainer extends Component
 		TweenLite.killTweensOf @
 		TweenMax.killTweensOf @
 		@alpha = 1
-		@sprite.currentFrame > 0
+		if not @complete
+			@sprite.currentFrame > 0
+		@complete
+
+class SpriteAnimContainer extends Component
+	SpriteAnimContainer.prototype = new createjs.Container()
+	SpriteAnimContainer::Container_initialize = SpriteAnimContainer::initialize
+	constructor: (opts) ->
+		@initialize opts
+	SpriteAnimContainer::initialize = (opts) ->
+		@Container_initialize()
+		Module.extend @, d2oda.methods
+		Module.extend @, d2oda.actions
+		Module.extend @, d2oda.utilities
+		@name = opts.name ? opts.id
+		@x = opts.x
+		@y = opts.y
+		@firstPlay = true
+		@currentLabel = 0
+		@labels = new Array()
+		spriteImgs = for img in opts.images
+			lib.preloader.preload.getResult img
+		for label of opts.animations
+			@labels.push label
+		framerate = opts.framerate ? 24
+		console.log framerate
+		@spritesheet = new createjs.SpriteSheet {framerate: framerate, images: spriteImgs, frames: opts.frames, animations: opts.animations}
+		@animation = new createjs.BitmapAnimation @spritesheet
+		@add @animation, false
+		@animation.gotoAndStop @labels[@currentLabel]
+	nextAnimation: ->
+		if @firstPlay
+			@firstPlay = false
+			@playAnimation()
+			return
+		@currentLabel++
+		@animation.gotoAndPlay @labels[@currentLabel]
+		false
+	prevAnimation: ->
+		if @firstPlay
+			@firstPlay = false
+			@playAnimation()
+			return
+		@currentLabel--
+		@animation.gotoAndPlay @labels[@currentLabel]
+		false
+	playAnimation: (name) ->
+		if name
+			for i in [0..@labels.length]
+				if label is name then @currentLabel = i
+		@animation.gotoAndPlay @labels[@currentLabel]
 
 class DragContainer extends Component
 	DragContainer.prototype = new createjs.Container()
@@ -1261,21 +1314,31 @@ class ChooseAWordContainer extends Component
 		@name = opts.name ? opts.id
 		@target = opts.target
 		@eval = opts.eval
+		@label = opts.label
+		@bullets = opts.bullets
 	update: (opts) ->
-		opt1 = @createText "#{@name}_opt1", opts.opt1, @bullets.font, @bullets.color, -20, 400, 'right'
-		if @bullets.lineWidth then opt1.lineWidth = @bullets.lineWidth
+		@removeAllChildren()
+		before = @createText "#{@name}_before", opts.before, @label.font, @label.color, 0, 0 
+		@add before
+
+		opt1 = @createText "#{@name}_opt1", opts.opt1, "bold #{@bullets.font}", @bullets.color, before.x + before.getMeasuredWidth() + 10, 0
 		hito1 = new createjs.Shape()
-		hito1.graphics.beginFill('#000').drawRect(-opt1.getMeasuredWidth() - 5, -3, opt1.getMeasuredWidth() + 10, opt1.getMeasuredHeight() + 6)
+		hito1.graphics.beginFill('#000').drawRect(-5, -3, opt1.getMeasuredWidth() + 10, opt1.getMeasuredHeight() + 6)
 		opt1.hitArea = hito1
 		opt1.index = 1
 
-		opt2 = @createText "#{@name}_opt2", opts.opt2, @bullets.font, @bullets.color, 20, 400, 'left'
-		if @bullets.lineWidth then opt2.lineWidth = @bullets.lineWidth
+		slash = @createText "#{@name}_slash", '/', @label.font, @label.color, opt1.x + opt1.getMeasuredWidth() + 10, 0 
+		@add slash
+
+		opt2 = @createText "#{@name}_opt2", opts.opt2, "bold #{@bullets.font}", @bullets.color, slash.x + slash.getMeasuredWidth() + 10, 0
 		hito2 = new createjs.Shape()
 		hito2.graphics.beginFill('#000').drawRect(-5, -3, opt2.getMeasuredWidth() + 10, opt2.getMeasuredHeight() + 6)
 		opt2.hitArea = hito2
 		opt2.index = 2
-				
+
+		after = @createText "#{@name}_after", opts.after, @label.font, @label.color, opt2.x + opt2.getMeasuredWidth() + 10, 0 
+		@add after
+
 		@add opt1
 		opt1.addEventListener 'mouseover', =>
 			TweenLite.to opt1, 0.5, {alpha: 0.5}
@@ -1292,6 +1355,11 @@ class ChooseAWordContainer extends Component
 		opt2.addEventListener 'click', =>
 			d2oda.evaluator.evaluate @eval, "#{@name}_opt2", @target
 
+		@width = after.x + after.getMeasuredWidth()
+		@setPosition 'tc'
+		TweenLite.from @, 0.5, {y: @y - 20, alpha: 0}
+	isComplete: ->
+		true
 
 class ChooseContainer extends Component
 	ChooseContainer.prototype = new createjs.Container()
@@ -2325,6 +2393,7 @@ class SceneFactory
 			when 'chs' then new ChooseContainer opts
 			when 'idc' then new ImageDropContainer opts
 			when 'cwd' then new CrossWordsContainer opts
+			when 'sac' then new SpriteAnimContainer opts
 			when 'wsch' then new WordSearchContainer opts
 			when 'ldrg' then new LetterDragContainer opts
 			when 'caw' then new ChooseAWordContainer opts
