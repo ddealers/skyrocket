@@ -3187,7 +3187,7 @@ LIBRARY
     };
 
     PhraseCloneContainer.prototype.update = function(opts) {
-      var align, h, h2, i, npos, t, txt, _i, _len, _ref2, _ref3;
+      var align, h, h2, i, maxWidth, npos, t, txt, ypos, _i, _len, _ref2, _ref3;
       this.removeAllChildren();
       if (opts.h2) {
         align = (_ref2 = opts.h2.align) != null ? _ref2 : '';
@@ -3196,23 +3196,32 @@ LIBRARY
       }
       i = 0;
       npos = 0;
+      ypos = -5;
+      maxWidth = 0;
       _ref3 = opts.pattern;
       for (_i = 0, _len = _ref3.length; _i < _len; _i++) {
         t = _ref3[_i];
         if (t === '#tcpt') {
           txt = opts.targets[i];
-          h = new TextCloneContainer(txt, this.font, this.fcolor, this.bcolor, this.scolor, this.stroke, npos, -5);
+          h = new TextCloneContainer(txt, this.font, this.fcolor, this.bcolor, this.scolor, this.stroke, npos, ypos);
           this.droptargets.push(h);
           this.add(h, false);
-          npos += h.width + this.margin;
+          maxWidth = npos += h.width + this.margin;
           i++;
+        } else if (t === '#rtn') {
+          h = this.createText('txt', 'BLANK', this.font, this.fcolor, npos, ypos);
+          if (npos > maxWidth) {
+            maxWidth = npos;
+          }
+          npos = 0;
+          ypos += h.getMeasuredHeight();
         } else {
-          h = this.createText('txt', t, this.font, this.fcolor, npos, -5);
+          h = this.createText('txt', t, this.font, this.fcolor, npos, ypos);
           this.add(h, false);
-          npos += h.getMeasuredWidth() + this.margin;
+          maxWidth = npos += h.getMeasuredWidth() + this.margin;
         }
       }
-      this.width = npos;
+      this.width = maxWidth;
       this.setPosition(this.align);
       this.observer.notify(ComponentObserver.UPDATED);
       return TweenLite.from(this, 0.3, {

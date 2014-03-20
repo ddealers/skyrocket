@@ -1725,19 +1725,26 @@ class PhraseCloneContainer extends Component
 			@add h2, false
 		i = 0
 		npos = 0
+		ypos = -5
+		maxWidth = 0
 		for t in opts.pattern
 			if t is '#tcpt'
 				txt = opts.targets[i]
-				h = new TextCloneContainer txt, @font, @fcolor, @bcolor, @scolor, @stroke, npos, -5
+				h = new TextCloneContainer txt, @font, @fcolor, @bcolor, @scolor, @stroke, npos, ypos
 				@droptargets.push h
 				@add h, false
-				npos += h.width + @margin
+				maxWidth = npos += h.width + @margin
 				i++
+			else if t is '#rtn'
+				h = @createText 'txt', 'BLANK', @font, @fcolor, npos, ypos
+				maxWidth = npos if npos > maxWidth
+				npos = 0
+				ypos += h.getMeasuredHeight()
 			else
-				h = @createText 'txt', t, @font, @fcolor, npos, -5
+				h = @createText 'txt', t, @font, @fcolor, npos, ypos
 				@add h, false
-				npos += h.getMeasuredWidth() + @margin
-		@width = npos
+				maxWidth = npos += h.getMeasuredWidth() + @margin
+		@width = maxWidth
 		@setPosition @align
 		@observer.notify ComponentObserver.UPDATED
 		TweenLite.from @, 0.3, {alpha: 0, y: @y - 10}
