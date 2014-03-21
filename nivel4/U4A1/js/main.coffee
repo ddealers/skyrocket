@@ -3,79 +3,127 @@
 NEW ODA
 
 ###
-class U1A3 extends Oda
+class U4A1 extends Oda
 	constructor: ->
 		@manifest = [
-
 			{ id: 'c1', src: 'circulo1.png' }
 			{ id: 'c2', src: 'circulo2.png' }
-			{ id: 'g1', src: '1.png'}
-			{ id: 'b1', src: '1_1.png'}
-			{ id: 'g2', src: '2.png'}
-			{ id: 'b2', src: '2_2.png'}
-			{ id: 'g3', src: '3.png'}
-			{ id: 'b3', src: '3_3.png'}
-			{ id: 'g4', src: '4.png'}
-			{ id: 'b4', src: '4_4.png'}
-			{ id: 'g5', src: '5.png'}
-			{ id: 'b5', src: '5_5.png'}
-			{ id: 'repeat', src:'btn_repeat.png'}
-			{ id: 'header', src:'header.png'}
-			{ id: 's/silence', src:'silence.mp3'}
+			{ id: 'header', src: 'header.png' }
+			{id:'1b', src:'1-1.png'}
+			{id:'1', src:'1.png'}
+			{id:'2b', src:'2-1.png'}
+			{id:'2', src:'2.png'}
+			{id:'3b', src:'3-1.png'}
+			{id:'3', src:'3.png'}
+			{id:'4b', src:'4-1.png'}
+			{id:'4', src:'4.png'}
+			{id:'5b', src:'5-1.png'}
+			{id:'5', src:'5.png'}
+			{id:'6b', src:'6-1.png'}
+			{id:'6', src:'6.png'}
+			{id:'7b', src:'7-1.png'}
+			{id:'7', src:'7.png'}
+			{id:'couldnt', src:'coludnt.png'}
+			{id:'could', src:'could.png'}
+			{id:'Joe', src:'Joe.png'}
+			{id:'Noam', src:'Noam.png'}
+			{id:'repeat', src:'repeat.png'}
+			{id:'s/Joe', src:'Joe.mp3'}
+			{id:'s/Noam', src:'Noam.mp3'}
+			{ id: 's/silence', src: 'silence.mp3' }
 		]
-		 
+		@onDrop = (dispatcher, target) =>
+			failed = false
+			d = lib[dispatcher]
+			t = target.parent
+			a = d.index
+			b = t.success
+			if a in t.success
+				t.success.remove a
+				d.afterSuccess()
+				lib.scene.success()
+				TweenLite.to d, 0.3, {scaleX:0.7, scaleY:0.7}
+			else
+				d.afterFail()
+				lib.scene.fail()
 		@game = 
 			header: 'header'
-			instructions: {x: 110, y: 130, states: [{text:'Listen and match the names with the children.', sound:'s/silence', played: false}]}
+			instructions: {x: 110, y: 130, states: [{text:'Listen, look and drag the pictures to the correct column.', sound:'s/silence', played: false}]}
 			score:{type: 'points', x:20, y:500, init: 0, total: 12, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
 			scenes:[
 				{
 					answers: {
 						collection: [
 							[
-								{name:'g1', opts:{
-										success:['Margaret']
+								{name:'could', opts:{
+										success:['1','2','3','5']
 									}
 								}
-								{name:'g2', opts:{
-										success:['Emily']
+								{name:'couldnt', opts:{
+										success:['4','7','6']
 									}
 								}
-								{name:'g3', opts:{
-										success:['Pia']
-									}
-								}
-								{name:'g4', opts:{
-										success:['Maria']
-									}
-								}
-								{name:'g5', opts:{
-										success:['Sandra']
-									}
-								}
+								{name:'snd', opts:{id:'s/Noam'}}
 							]
 						]
 						type: 'steps'
 					}
 					containers:[
-						{type: 'idc', id: 'g1', x: 310, y: 360, align: 'mc'}
-						{type: 'idc', id: 'g2', x: 525, y: 360, align: 'mc'}
-						{type: 'idc', id: 'g3', x: 525, y: 360, align: 'mc'}
-						{type: 'idc', id: 'g4', x: 525, y: 360, align: 'mc'}
-						{type: 'idc', id: 'g5', x: 525, y: 360, align: 'mc'}
-
-						{type: 'ldrg', id: 'ldrg1', x: 240,  y: 510, index: 'Margaret', text:'Margaret', font:'15px Quicksand', color:'#333', target: ['g1','g2','g3','g4','g5'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg2', x: 240,  y: 510, index: 'Emily', text:'Emily', font:'15px Quicksand', color:'#333', target: ['g1','g2','g3','g4','g5'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg3', x: 240,  y: 510, index: 'Pia', text:'Pia', font:'15px Quicksand', color:'#333', target: ['g1','g2','g3','g4','g5'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg4', x: 240,  y: 510, index: 'Maria', text:'Maria', font:'15px Quicksand', color:'#333', target: ['g1','g2','g3','g4','g5'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg5', x: 240,  y: 510, index: 'Sandra', text:'Sandra', font:'15px Quicksand', color:'#333', target: ['g1','g2','g3','g4','g5'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'img', id: 'Noam', x: 56, y: 230}
+						{type: 'idc', id: 'could', x: 411, y: 317, align: 'mc'}
+						{type: 'idc', id: 'couldnt', x: 647, y: 317, align: 'mc'}
+						{type: 'drg', id: '1', x: 187+30, y: 510, align:'mc', index: '1', target: ['could','couldnt'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: '2', x: 187+30, y: 565, align:'mc', index: '2', target: ['could','couldnt'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: '3', x: 287+30, y: 510, align:'mc', index: '3', target: ['could','couldnt'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: '4', x: 287+30, y: 565, align:'mc', index: '4', target: ['could','couldnt'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: '5', x: 387+30, y: 510, align:'mc', index: '5', target: ['could','couldnt'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: '6', x: 387+30, y: 565, align:'mc', index: '6', target: ['could','couldnt'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: '7', x: 487+30, y: 510, align:'mc', index: '7', target: ['could','couldnt'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
 						{
-							type: 'btn', id: 'repeat', x: 400, y: 530, isRepeat: true
+							type: 'btn', id: 'repeat', x: 710, y: 540, isRepeat: true
 							states:[img: {name:'repeat', x: 0, y: 0, align:'mc'}]
 						}
 					]
 					groups:[]
 				}
+				{
+					answers: {
+						collection: [
+							[
+								{name:'could', opts:{
+										success:['1b','2b','4b','7b']
+									}
+								}
+
+								{name:'couldnt', opts:{
+										success:['3b','5b','6b']
+									}
+								}
+								{name:'snd', opts:{id:'s/Joe'}}
+
+							]
+						]
+						type: 'steps'
+					}
+					containers:[
+						{type: 'img', id: 'Joe', x: 56, y: 230}
+						{type: 'idc', id: 'could', x: 411, y: 317, align: 'mc'}
+						{type: 'idc', id: 'couldnt', x: 647, y: 317, align: 'mc'}
+						{type: 'drg', id: '1b', x: 187+30, y: 510, align:'mc', index: '1b', target: ['could','couldnt'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: '2b', x: 187+30, y: 565, align:'mc', index: '2b', target: ['could','couldnt'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: '3b', x: 287+30, y: 510, align:'mc', index: '3b', target: ['could','couldnt'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: '4b', x: 287+30, y: 565, align:'mc', index: '4b', target: ['could','couldnt'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: '5b', x: 387+30, y: 510, align:'mc', index: '5b', target: ['could','couldnt'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: '6b', x: 387+30, y: 565, align:'mc', index: '6b', target: ['could','couldnt'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: '7b', x: 487+30, y: 510, align:'mc', index: '7b', target: ['could','couldnt'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{
+							type: 'btn', id: 'repeat', x: 710, y: 540, isRepeat: true
+							states:[img: {name:'repeat', x: 0, y: 0, align:'mc'}]
+						}
+					]
+					groups:[]
+				}
+				
 			]
 		super()
-	window.U1A3 = U1A3
+	window.U4A1 = U4A1

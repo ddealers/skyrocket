@@ -5,14 +5,16 @@ NEW ODA
 
 
 (function() {
-  var U1A3,
+  var U4A1,
     __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+    __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
-  U1A3 = (function(_super) {
-    __extends(U1A3, _super);
+  U4A1 = (function(_super) {
+    __extends(U4A1, _super);
 
-    function U1A3() {
+    function U4A1() {
+      var _this = this;
       this.manifest = [
         {
           id: 'c1',
@@ -21,46 +23,96 @@ NEW ODA
           id: 'c2',
           src: 'circulo2.png'
         }, {
-          id: 'g1',
-          src: '1.png'
-        }, {
-          id: 'b1',
-          src: '1_1.png'
-        }, {
-          id: 'g2',
-          src: '2.png'
-        }, {
-          id: 'b2',
-          src: '2_2.png'
-        }, {
-          id: 'g3',
-          src: '3.png'
-        }, {
-          id: 'b3',
-          src: '3_3.png'
-        }, {
-          id: 'g4',
-          src: '4.png'
-        }, {
-          id: 'b4',
-          src: '4_4.png'
-        }, {
-          id: 'g5',
-          src: '5.png'
-        }, {
-          id: 'b5',
-          src: '5_5.png'
-        }, {
-          id: 'repeat',
-          src: 'btn_repeat.png'
-        }, {
           id: 'header',
           src: 'header.png'
+        }, {
+          id: '1b',
+          src: '1-1.png'
+        }, {
+          id: '1',
+          src: '1.png'
+        }, {
+          id: '2b',
+          src: '2-1.png'
+        }, {
+          id: '2',
+          src: '2.png'
+        }, {
+          id: '3b',
+          src: '3-1.png'
+        }, {
+          id: '3',
+          src: '3.png'
+        }, {
+          id: '4b',
+          src: '4-1.png'
+        }, {
+          id: '4',
+          src: '4.png'
+        }, {
+          id: '5b',
+          src: '5-1.png'
+        }, {
+          id: '5',
+          src: '5.png'
+        }, {
+          id: '6b',
+          src: '6-1.png'
+        }, {
+          id: '6',
+          src: '6.png'
+        }, {
+          id: '7b',
+          src: '7-1.png'
+        }, {
+          id: '7',
+          src: '7.png'
+        }, {
+          id: 'couldnt',
+          src: 'coludnt.png'
+        }, {
+          id: 'could',
+          src: 'could.png'
+        }, {
+          id: 'Joe',
+          src: 'Joe.png'
+        }, {
+          id: 'Noam',
+          src: 'Noam.png'
+        }, {
+          id: 'repeat',
+          src: 'repeat.png'
+        }, {
+          id: 's/Joe',
+          src: 'Joe.mp3'
+        }, {
+          id: 's/Noam',
+          src: 'Noam.mp3'
         }, {
           id: 's/silence',
           src: 'silence.mp3'
         }
       ];
+      this.onDrop = function(dispatcher, target) {
+        var a, b, d, failed, t;
+        failed = false;
+        d = lib[dispatcher];
+        t = target.parent;
+        a = d.index;
+        b = t.success;
+        if (__indexOf.call(t.success, a) >= 0) {
+          t.success.remove(a);
+          d.afterSuccess();
+          lib.scene.success();
+          return TweenLite.to(d, 0.3, {
+            scaleX: 0.7,
+            scaleY: 0.7
+          });
+        } else {
+          d.afterFail();
+          return lib.scene.fail();
+        }
+      };
       this.game = {
         header: 'header',
         instructions: {
@@ -68,7 +120,7 @@ NEW ODA
           y: 130,
           states: [
             {
-              text: 'Listen and match the names with the children.',
+              text: 'Listen, look and drag the pictures to the correct column.',
               sound: 's/silence',
               played: false
             }
@@ -91,29 +143,19 @@ NEW ODA
               collection: [
                 [
                   {
-                    name: 'g1',
+                    name: 'could',
                     opts: {
-                      success: ['Margaret']
+                      success: ['1', '2', '3', '5']
                     }
                   }, {
-                    name: 'g2',
+                    name: 'couldnt',
                     opts: {
-                      success: ['Emily']
+                      success: ['4', '7', '6']
                     }
                   }, {
-                    name: 'g3',
+                    name: 'snd',
                     opts: {
-                      success: ['Pia']
-                    }
-                  }, {
-                    name: 'g4',
-                    opts: {
-                      success: ['Maria']
-                    }
-                  }, {
-                    name: 'g5',
-                    opts: {
-                      success: ['Sandra']
+                      id: 's/Noam'
                     }
                   }
                 ]
@@ -122,105 +164,256 @@ NEW ODA
             },
             containers: [
               {
+                type: 'img',
+                id: 'Noam',
+                x: 56,
+                y: 230
+              }, {
                 type: 'idc',
-                id: 'g1',
-                x: 310,
-                y: 360,
+                id: 'could',
+                x: 411,
+                y: 317,
                 align: 'mc'
               }, {
                 type: 'idc',
-                id: 'g2',
-                x: 525,
-                y: 360,
+                id: 'couldnt',
+                x: 647,
+                y: 317,
                 align: 'mc'
               }, {
-                type: 'idc',
-                id: 'g3',
-                x: 525,
-                y: 360,
-                align: 'mc'
-              }, {
-                type: 'idc',
-                id: 'g4',
-                x: 525,
-                y: 360,
-                align: 'mc'
-              }, {
-                type: 'idc',
-                id: 'g5',
-                x: 525,
-                y: 360,
-                align: 'mc'
-              }, {
-                type: 'ldrg',
-                id: 'ldrg1',
-                x: 240,
+                type: 'drg',
+                id: '1',
+                x: 187 + 30,
                 y: 510,
-                index: 'Margaret',
-                text: 'Margaret',
-                font: '15px Quicksand',
-                color: '#333',
-                target: ['g1', 'g2', 'g3', 'g4', 'g5'],
-                "eval": this.evaluateDrop02_01,
-                afterSuccess: 'origin',
+                align: 'mc',
+                index: '1',
+                target: ['could', 'couldnt'],
+                "eval": this.onDrop,
+                click: this.onClick,
+                afterSuccess: 'drop',
                 afterFail: 'return'
               }, {
-                type: 'ldrg',
-                id: 'ldrg2',
-                x: 240,
-                y: 510,
-                index: 'Emily',
-                text: 'Emily',
-                font: '15px Quicksand',
-                color: '#333',
-                target: ['g1', 'g2', 'g3', 'g4', 'g5'],
-                "eval": this.evaluateDrop02_01,
-                afterSuccess: 'origin',
+                type: 'drg',
+                id: '2',
+                x: 187 + 30,
+                y: 565,
+                align: 'mc',
+                index: '2',
+                target: ['could', 'couldnt'],
+                "eval": this.onDrop,
+                click: this.onClick,
+                afterSuccess: 'drop',
                 afterFail: 'return'
               }, {
-                type: 'ldrg',
-                id: 'ldrg3',
-                x: 240,
+                type: 'drg',
+                id: '3',
+                x: 287 + 30,
                 y: 510,
-                index: 'Pia',
-                text: 'Pia',
-                font: '15px Quicksand',
-                color: '#333',
-                target: ['g1', 'g2', 'g3', 'g4', 'g5'],
-                "eval": this.evaluateDrop02_01,
-                afterSuccess: 'origin',
+                align: 'mc',
+                index: '3',
+                target: ['could', 'couldnt'],
+                "eval": this.onDrop,
+                click: this.onClick,
+                afterSuccess: 'drop',
                 afterFail: 'return'
               }, {
-                type: 'ldrg',
-                id: 'ldrg4',
-                x: 240,
-                y: 510,
-                index: 'Maria',
-                text: 'Maria',
-                font: '15px Quicksand',
-                color: '#333',
-                target: ['g1', 'g2', 'g3', 'g4', 'g5'],
-                "eval": this.evaluateDrop02_01,
-                afterSuccess: 'origin',
+                type: 'drg',
+                id: '4',
+                x: 287 + 30,
+                y: 565,
+                align: 'mc',
+                index: '4',
+                target: ['could', 'couldnt'],
+                "eval": this.onDrop,
+                click: this.onClick,
+                afterSuccess: 'drop',
                 afterFail: 'return'
               }, {
-                type: 'ldrg',
-                id: 'ldrg5',
-                x: 240,
+                type: 'drg',
+                id: '5',
+                x: 387 + 30,
                 y: 510,
-                index: 'Sandra',
-                text: 'Sandra',
-                font: '15px Quicksand',
-                color: '#333',
-                target: ['g1', 'g2', 'g3', 'g4', 'g5'],
-                "eval": this.evaluateDrop02_01,
-                afterSuccess: 'origin',
+                align: 'mc',
+                index: '5',
+                target: ['could', 'couldnt'],
+                "eval": this.onDrop,
+                click: this.onClick,
+                afterSuccess: 'drop',
+                afterFail: 'return'
+              }, {
+                type: 'drg',
+                id: '6',
+                x: 387 + 30,
+                y: 565,
+                align: 'mc',
+                index: '6',
+                target: ['could', 'couldnt'],
+                "eval": this.onDrop,
+                click: this.onClick,
+                afterSuccess: 'drop',
+                afterFail: 'return'
+              }, {
+                type: 'drg',
+                id: '7',
+                x: 487 + 30,
+                y: 510,
+                align: 'mc',
+                index: '7',
+                target: ['could', 'couldnt'],
+                "eval": this.onDrop,
+                click: this.onClick,
+                afterSuccess: 'drop',
                 afterFail: 'return'
               }, {
                 type: 'btn',
                 id: 'repeat',
-                x: 400,
-                y: 530,
+                x: 710,
+                y: 540,
+                isRepeat: true,
+                states: [
+                  {
+                    img: {
+                      name: 'repeat',
+                      x: 0,
+                      y: 0,
+                      align: 'mc'
+                    }
+                  }
+                ]
+              }
+            ],
+            groups: []
+          }, {
+            answers: {
+              collection: [
+                [
+                  {
+                    name: 'could',
+                    opts: {
+                      success: ['1b', '2b', '4b', '7b']
+                    }
+                  }, {
+                    name: 'couldnt',
+                    opts: {
+                      success: ['3b', '5b', '6b']
+                    }
+                  }, {
+                    name: 'snd',
+                    opts: {
+                      id: 's/Joe'
+                    }
+                  }
+                ]
+              ],
+              type: 'steps'
+            },
+            containers: [
+              {
+                type: 'img',
+                id: 'Joe',
+                x: 56,
+                y: 230
+              }, {
+                type: 'idc',
+                id: 'could',
+                x: 411,
+                y: 317,
+                align: 'mc'
+              }, {
+                type: 'idc',
+                id: 'couldnt',
+                x: 647,
+                y: 317,
+                align: 'mc'
+              }, {
+                type: 'drg',
+                id: '1b',
+                x: 187 + 30,
+                y: 510,
+                align: 'mc',
+                index: '1b',
+                target: ['could', 'couldnt'],
+                "eval": this.onDrop,
+                click: this.onClick,
+                afterSuccess: 'drop',
+                afterFail: 'return'
+              }, {
+                type: 'drg',
+                id: '2b',
+                x: 187 + 30,
+                y: 565,
+                align: 'mc',
+                index: '2b',
+                target: ['could', 'couldnt'],
+                "eval": this.onDrop,
+                click: this.onClick,
+                afterSuccess: 'drop',
+                afterFail: 'return'
+              }, {
+                type: 'drg',
+                id: '3b',
+                x: 287 + 30,
+                y: 510,
+                align: 'mc',
+                index: '3b',
+                target: ['could', 'couldnt'],
+                "eval": this.onDrop,
+                click: this.onClick,
+                afterSuccess: 'drop',
+                afterFail: 'return'
+              }, {
+                type: 'drg',
+                id: '4b',
+                x: 287 + 30,
+                y: 565,
+                align: 'mc',
+                index: '4b',
+                target: ['could', 'couldnt'],
+                "eval": this.onDrop,
+                click: this.onClick,
+                afterSuccess: 'drop',
+                afterFail: 'return'
+              }, {
+                type: 'drg',
+                id: '5b',
+                x: 387 + 30,
+                y: 510,
+                align: 'mc',
+                index: '5b',
+                target: ['could', 'couldnt'],
+                "eval": this.onDrop,
+                click: this.onClick,
+                afterSuccess: 'drop',
+                afterFail: 'return'
+              }, {
+                type: 'drg',
+                id: '6b',
+                x: 387 + 30,
+                y: 565,
+                align: 'mc',
+                index: '6b',
+                target: ['could', 'couldnt'],
+                "eval": this.onDrop,
+                click: this.onClick,
+                afterSuccess: 'drop',
+                afterFail: 'return'
+              }, {
+                type: 'drg',
+                id: '7b',
+                x: 487 + 30,
+                y: 510,
+                align: 'mc',
+                index: '7b',
+                target: ['could', 'couldnt'],
+                "eval": this.onDrop,
+                click: this.onClick,
+                afterSuccess: 'drop',
+                afterFail: 'return'
+              }, {
+                type: 'btn',
+                id: 'repeat',
+                x: 710,
+                y: 540,
                 isRepeat: true,
                 states: [
                   {
@@ -238,12 +431,12 @@ NEW ODA
           }
         ]
       };
-      U1A3.__super__.constructor.call(this);
+      U4A1.__super__.constructor.call(this);
     }
 
-    window.U1A3 = U1A3;
+    window.U4A1 = U4A1;
 
-    return U1A3;
+    return U4A1;
 
   })(Oda);
 
