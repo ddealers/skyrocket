@@ -28,7 +28,7 @@ class U3A4 extends Oda
 			{id: 'q8', src: 'Question_8.png'}
 			{id: 's/silence' , src: 'silence.mp3' }
 		]
-		@btnClick = (dispatcher, target) =>
+		@onDrop = (dispatcher, target) =>
 			d = lib[dispatcher]
 			t = lib[target]
 			a = d.index
@@ -51,53 +51,52 @@ class U3A4 extends Oda
 					answers: {
 						collection: [
 							[
-								{name: 'grp1', opts:{type: 'fadeIn', target: 'q1'}}
-								{name: 'pcpt1', opts:{pattern:['It wasn\'t me. I', '#tcpt','#rtn', 'a movie.','#rtn', 'I was with my sister. '], targets: [{text:'was watching'}]}}
-
-							]
-							[
-
-								{name: 'grp1', opts:{type: 'fadeIn', target: 'q2'}}
+								{name: 'pcpt1', opts:{pattern:['It wasn\'t me. I', '#tcpt','a movie.','#rtn','I was with my sister. '], targets: [{text:'was watching'}]}}
 								{name: 'pcpt2', opts:{pattern:['No, you weren\'t. I saw your sister.','#rtn', 'She ', '#tcpt', 'mambo at the dance school!'], targets: [{text:'was dancing'}]}}
-							]
-							[
-								{name: 'grp1', opts:{type: 'fadeIn', target: 'q3'}}
 								{name: 'pcpt3', opts:{pattern:['He has two sisters. I saw him.','#rtn', 'He', '#tcpt', 'popcorn before the movie.'], targets: [{text:'was buying'}]}}
-							]
-							[
-								{name: 'grp1', opts:{type: 'fadeIn', target: 'q4'}}
 								{name: 'pcpt4', opts:{pattern:['Me? I', '#tcpt', 'in the park with my dog.'], targets: [{text:'was walking'}]}}
-							]
-							[
-								{name: 'grp1', opts:{type: 'fadeIn', target: 'q5'}}
 								{name: 'pcpt5', opts:{pattern:['What', '#tcpt', '?'], targets: [{text:'were you doing'}]}}
-							]
-							[
-								{name: 'grp1', opts:{type: 'fadeIn', target: 'q6'}}
 								{name: 'pcpt6', opts:{pattern:['I think the thief was a woman. I heard her.','#rtn', 'She ', '#tcpt', 'at the policeman.'], targets: [{text:'was shouting'}]}}
-							]
-							[
-								{name: 'grp1', opts:{type: 'fadeIn', target: 'q7'}}
 								{name: 'pcpt7', opts:{pattern:['I\'m not the thief!','#rtn', 'I', '#tcpt', 'my grandmother in prison.'], targets: [{text:'was visiting'}]}}
-							]
-							[
-								{name: 'grp1', opts:{type: 'fadeIn', target: 'q8'}}
 								{name: 'pcpt8', opts:{pattern:['Oh… me? I was trying to get some exercise.','#rtn', 'I', '#tcpt', '!'], targets: [{text:'was running'}]}}
 							]
 							
 						]
-						mixed: true
 						type: 'steps'
 					}
 					containers:[
-						{type: 'img', id: '1', x: 70, y: 470, align: 'bl'}
-						{type: 'img', id: '2', x: 193, y:470, align: 'bl'}
-						{type: 'img', id: '3', x: 276, y:470, align: 'bl'}
-						{type: 'img', id: '4', x: 339, y:470, align: 'bl'}
-						{type: 'img', id: '5', x: 403, y:470, align: 'bl'}
-						{type: 'img', id: '6', x: 473, y:470, align: 'bl'}
-						{type: 'img', id: '7', x: 583, y:470, align: 'bl'}
-						{type: 'img', id: '8', x: 663, y:470, align: 'bl'}
+						{
+							type: 'btn', id: 'btn_1', x: 70, y: 470, index: 0, target: 'grp_pcpt', noHover: true, eval: @btnClick
+							states: [{img: {name:'1', x:0, y:0, align:'bl'}}]
+						}
+						{
+							type: 'btn', id: 'btn_2', x: 193, y: 470, index: 1, target: 'grp_pcpt', noHover: true, eval: @btnClick
+							states: [{img: {name:'2', x:0, y:0, align:'bl'}}]
+						}
+						{
+							type: 'btn', id: 'btn_3', x: 276, y: 470, index: 2, target: 'grp_pcpt', noHover: true, eval: @btnClick
+							states: [{img: {name:'3', x:0, y:0, align:'bl'}}]
+						}
+						{
+							type: 'btn', id: 'btn_4', x: 339, y: 470, index: 3, target: 'grp_pcpt', noHover: true, eval: @btnClick
+							states: [{img: {name:'4', x:0, y:0, align:'bl'}}]
+						}
+						{
+							type: 'btn', id: 'btn_5', x: 403, y: 470, index: 4, target: 'grp_pcpt', noHover: true, eval: @btnClick
+							states: [{img: {name:'5', x:0, y:0, align:'bl'}}]
+						}
+						{
+							type: 'btn', id: 'btn_6', x: 473, y: 470, index: 5, target: 'grp_pcpt', noHover: true, eval: @btnClick
+							states: [{img: {name:'6', x:0, y:0, align:'bl'}}]
+						}
+						{
+							type: 'btn', id: 'btn_7', x: 583, y: 470, index: 6, target: 'grp_pcpt', noHover: true, eval: @btnClick
+							states: [{img: {name:'7', x:0, y:0, align:'bl'}}]
+						}
+						{
+							type: 'btn', id: 'btn_8', x: 663, y: 470, index: 7, target: 'grp_pcpt', noHover: true, eval: @btnClick
+							states: [{img: {name:'8', x:0, y:0, align:'bl'}}]
+						}
 						{type: 'img', id: 'caja', x: 140, y: 490, align: 'tl'}
 
 						{type: 'img', id: 'q1', x: 110, y: 170, align: 'tl'}
@@ -109,53 +108,39 @@ class U3A4 extends Oda
 						{type: 'img', id: 'q7', x: 563, y: 150, align: 'tl'}
 						{type: 'img', id: 'q8', x: 464, y: 160, align: 'tl'}
 
-						{type: 'pcpt', id: 'pcpt1', x: 125, y: 190,  font: '10px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A'}
-						{type: 'pcpt', id: 'pcpt2', x: 200, y: 195,  font: '10px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A'}
-						{type: 'pcpt', id: 'pcpt3', x: 162, y: 195,  font: '10px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A'}
-						{type: 'pcpt', id: 'pcpt4', x: 306, y: 188,  font: '10px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A'}
-						{type: 'pcpt', id: 'pcpt5', x: 400, y: 170,  font: '10px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A'}
-						{type: 'pcpt', id: 'pcpt6', x: 468, y: 165,  font: '10px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A'}
-						{type: 'pcpt', id: 'pcpt7', x: 570, y: 175,  font: '10px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A'}
-						{type: 'pcpt', id: 'pcpt8', x: 479, y: 195,  font: '10px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A'}
+						{type: 'pcpt', id: 'pcpt1', x: 125, y: 190,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', bcolor: 'rgba(255,255,255,0.01)', stroke: 1}
+						{type: 'pcpt', id: 'pcpt2', x: 200, y: 195,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', stroke: 1}
+						{type: 'pcpt', id: 'pcpt3', x: 162, y: 195,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', stroke: 1}
+						{type: 'pcpt', id: 'pcpt4', x: 306, y: 188,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', stroke: 1}
+						{type: 'pcpt', id: 'pcpt5', x: 400, y: 170,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', stroke: 1}
+						{type: 'pcpt', id: 'pcpt6', x: 468, y: 165,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', stroke: 1}
+						{type: 'pcpt', id: 'pcpt7', x: 570, y: 175,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', stroke: 1}
+						{type: 'pcpt', id: 'pcpt8', x: 479, y: 195,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', stroke: 1}
 
-						{
-							type: 'btn', id: 'btn_1', x: 230, y: 510, index: 'was buying', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @btnClick
-							states: [{txt: {text:'was buying', name:'was buying', x:0, y:0, align:'center', font: '18px Quicksand'}}]
-						}
-						{
-							type: 'btn', id: 'btn_2', x: 230, y: 530, index: 'was dancing', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @btnClick
-							states: [{txt: {text:'was dancing', name:'was dancing', x:0, y:0, align:'center', font: '18px Quicksand'}}]
-						}
-						{
-							type: 'btn', id: 'btn_3', x: 375, y: 510, index: 'was running', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @btnClick
-							states: [{txt: {text:'was running', name:'was running', x:0, y:0, align:'center', font: '18px Quicksand'}}]
-						}
-						{
-							type: 'btn', id: 'btn_4', x: 375, y: 530, index: 'was shouting', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @btnClick
-							states: [{txt: {text:'was shouting', name:'was shouting', x:0, y:0, align:'center', font: '18px Quicksand'}}]
-						}
-						{
-							type: 'btn', id: 'btn_5', x: 520, y: 510, index: 'were you doing', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @btnClick
-							states: [{txt: {text:'were you doing', name:'were you doing', x:0, y:0, align:'center', font: '18px Quicksand'}}]
-						}
-						{
-							type: 'btn', id: 'btn_6', x: 520, y: 530, index: 'was visiting', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @btnClick
-							states: [{txt: {text:'was visiting', name:'was visiting', x:0, y:0, align:'center', font: '18px Quicksand'}}]
-						}
-						{
-							type: 'btn', id: 'btn_7', x: 675, y: 510, index: 'was walking', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @btnClick
-							states: [{txt: {text:'was walking', name:'was walking', x:0, y:0, align:'center', font: '18px Quicksand'}}]
-						}
-						{
-							type: 'btn', id: 'btn_8', x: 675, y: 530, index: 'was watching', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @btnClick
-							states: [{txt: {text:'was watching', name:'was watching', x:0, y:0, align:'center', font: '18px Quicksand'}}]
-						}
-
-
+						{type: 'ldrg', id: 'ldrg1', x: 200, y: 510, index: 'was buying', text: 'was buying', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'hide', afterFail:'return', eval: @onDrop}
+						{type: 'ldrg', id: 'ldrg2', x: 200, y: 530, index: 'was dancing', text: 'was dancing', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'hide', afterFail:'return', eval: @onDrop}
+						{type: 'ldrg', id: 'ldrg3', x: 325, y: 510, index: 'was running', text: 'was running', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'hide', afterFail:'return', eval: @onDrop}
+						{type: 'ldrg', id: 'ldrg4', x: 325, y: 530, index: 'was shouting', text: 'was shouting', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'hide', afterFail:'return', eval: @onDrop}
+						{type: 'ldrg', id: 'ldrg5', x: 450, y: 510, index: 'were you doing', text: 'were you doing', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'hide', afterFail:'return', eval: @onDrop}
+						{type: 'ldrg', id: 'ldrg6', x: 450, y: 530, index: 'was visiting', text: 'was visiting', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'hide', afterFail:'return', eval: @onDrop}
+						{type: 'ldrg', id: 'ldrg7', x: 610, y: 510, index: 'was walking', text: 'was walking', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'hide', afterFail:'return', eval: @onDrop}
+						{type: 'ldrg', id: 'ldrg8', x: 610, y: 530, index: 'was watching', text: 'was watching', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'hide', afterFail:'return', eval: @onDrop}
 					]
 					groups:[
 						{
-
+							type: 'grp', id:'grp_pcpt', invisible:true
+							group: [
+								'pcpt1'
+								'pcpt2'
+								'pcpt3'
+								'pcpt4'
+								'pcpt5'
+								'pcpt6'
+								'pcpt7'
+								'pcpt8'
+							]
+						}
+						{
 							type: 'grp', id: 'grp1', invisible:true
 							group: [
 								 'q1'

@@ -7,7 +7,8 @@ NEW ODA
 (function() {
   var U3A1,
     __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+    __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   U3A1 = (function(_super) {
     __extends(U3A1, _super);
@@ -91,33 +92,20 @@ NEW ODA
           src: "silence.mp3"
         }
       ];
-      this.evaluateDrop02_01 = function(dispatcher, target) {
-        var complete, drop, _i, _j, _len, _len1, _ref, _ref1;
-        complete = true;
-        if (lib[dispatcher].index === target.success) {
-          target.update(lib[dispatcher].label.text, true);
+      this.evaluateDrop = function(dispatcher, target) {
+        var a, b, d, t;
+        d = lib[dispatcher];
+        t = target.parent;
+        a = d.index;
+        b = t.success;
+        if (t.success && __indexOf.call(t.success, a) >= 0) {
+          t.success.remove(a);
+          d.afterSuccess();
+          return lib.scene.success();
         } else {
-          target.update(lib[dispatcher].label.text, false);
+          d.afterFail();
+          return lib.scene.fail();
         }
-        lib[dispatcher].afterSuccess();
-        _ref = lib[dispatcher].droptargets;
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          drop = _ref[_i];
-          if (drop.text.text === '') {
-            complete = false;
-          }
-        }
-        if (!complete) {
-          return;
-        }
-        _ref1 = lib[dispatcher].droptargets;
-        for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
-          drop = _ref1[_j];
-          if (drop.complete) {
-            lib.score.plusOne();
-          }
-        }
-        return lib.scene.success(false);
       };
       this.game = {
         header: 'header',
@@ -149,24 +137,57 @@ NEW ODA
               collection: [
                 [
                   {
+                    name: 'snd',
+                    opts: {
+                      id: 's/Margaret'
+                    }
+                  }, {
                     name: "g1",
                     opts: {
                       success: ["Margaret"]
+                    }
+                  }
+                ], [
+                  {
+                    name: 'snd',
+                    opts: {
+                      id: 's/Emily'
                     }
                   }, {
                     name: "g2",
                     opts: {
                       success: ["Emily"]
                     }
+                  }
+                ], [
+                  {
+                    name: 'snd',
+                    opts: {
+                      id: 's/Pia'
+                    }
                   }, {
                     name: "g3",
                     opts: {
                       success: ["Pia"]
                     }
+                  }
+                ], [
+                  {
+                    name: 'snd',
+                    opts: {
+                      id: 's/Maria'
+                    }
                   }, {
                     name: "g4",
                     opts: {
                       success: ["Maria"]
+                    }
+                  }
+                ], [
+                  {
+                    name: 'snd',
+                    opts: {
+                      id: 's/Sandra'
                     }
                   }, {
                     name: "g5",
@@ -176,6 +197,7 @@ NEW ODA
                   }
                 ]
               ],
+              mixed: true,
               type: 'steps'
             },
             containers: [
@@ -219,8 +241,8 @@ NEW ODA
                 font: "26px Quicksand",
                 color: "#333",
                 target: ["g1", "g2", "g3", "g4", "g5"],
-                "eval": this.evaluateDrop02_01,
-                afterSuccess: "origin",
+                "eval": this.evaluateDrop,
+                afterSuccess: "hide",
                 afterFail: "return"
               }, {
                 type: "ldrg",
@@ -232,8 +254,8 @@ NEW ODA
                 font: "26px Quicksand",
                 color: "#333",
                 target: ["g1", "g2", "g3", "g4", "g5"],
-                "eval": this.evaluateDrop02_01,
-                afterSuccess: "origin",
+                "eval": this.evaluateDrop,
+                afterSuccess: "hide",
                 afterFail: "return"
               }, {
                 type: "ldrg",
@@ -245,8 +267,8 @@ NEW ODA
                 font: "26px Quicksand",
                 color: "#333",
                 target: ["g1", "g2", "g3", "g4", "g5"],
-                "eval": this.evaluateDrop02_01,
-                afterSuccess: "origin",
+                "eval": this.evaluateDrop,
+                afterSuccess: "hide",
                 afterFail: "return"
               }, {
                 type: "ldrg",
@@ -258,8 +280,8 @@ NEW ODA
                 font: "26px Quicksand",
                 color: "#333",
                 target: ["g1", "g2", "g3", "g4", "g5"],
-                "eval": this.evaluateDrop02_01,
-                afterSuccess: "origin",
+                "eval": this.evaluateDrop,
+                afterSuccess: "hide",
                 afterFail: "return"
               }, {
                 type: "ldrg",
@@ -271,8 +293,8 @@ NEW ODA
                 font: "26px Quicksand",
                 color: "#333",
                 target: ["g1", "g2", "g3", "g4", "g5"],
-                "eval": this.evaluateDrop02_01,
-                afterSuccess: "origin",
+                "eval": this.evaluateDrop,
+                afterSuccess: "hide",
                 afterFail: "return"
               }, {
                 type: "btn",

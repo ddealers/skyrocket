@@ -23,7 +23,6 @@ class U3A3 extends Oda
 			{id: 'shark', src:'shark.png'}
 			{id: 'sleeping', src:'sleeping.png'}
 			{id: 'soda', src:'soda.png'}
-
 			{ id: 's/silence' , src: 'silence.mp3' }
 
 		]
@@ -33,74 +32,80 @@ class U3A3 extends Oda
 			a = d.index
 			b = t.droptargets
 			c = t.currentTarget
+			console.log d,t,a,b,c
+			console.log a, b[c].success
 			if a is b[c].success
-				b[c].complete = true
-				b[c].update()
-				t.currentTarget++
-			if t.currentTarget is b.length
-				lib.scene.success()
+				verb = prompt "Enter the correct form of #{d.index}"
+				if verb is b[c].text.text
+					b[c].complete = true
+					b[c].update()
+					t.currentTarget++
+				if t.currentTarget is b.length
+					lib.scene.success()
+				else
+					lib.scene.fail()
 			else
-				lib.scene.fail()
-		
+				lib.scene.fail false 
 		@game = 
 			header: 'header'
 			instructions: {x: 110, y: 130, states: [{text:'Choose the verb and write it in the correct form.', sound:'s/silence', played: false}]}
-			score:{type: 'points', x:20, y:500, init: 0, total: 12, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
+			score:{type: 'points', x:20, y:500, init: 0, total: 10, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
 			scenes:[
 				{
 					answers: {
 						collection: [
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'chapulines'}}
-								{name: 'pcpt1', opts: {pattern:['    What was Tracy', '#tcpt','last night? ','#rtn', 'Grasshoppers! It\'s a Mexican delicacy.'], targets: [{text: 'eating'}]}}
+								{name: 'pcpt1', opts: {pattern:['What was Tracy', '#tcpt','last night? ','#rtn', 'Grasshoppers! It\'s a Mexican delicacy.'], targets: [{text: 'eating', success:'eat'}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'sleeping'}}
-								{name: 'pcpt1', opts: {pattern:['At 3 p.m., the dog was', '#tcpt','#rtn', 'under the table in the yard.'], targets: [{text: 'sleeping'}]}}
+								{name: 'pcpt1', opts: {pattern:['At 3 p.m., the dog was', '#tcpt','#rtn', 'under the table in the yard.'], targets: [{text: 'sleeping', success:'sleep'}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'soda'}}
-								{name: 'pcpt1', opts: {pattern:['Was he', '#tcpt','soda at 7 o\'clock? '], targets: [{text: 'drinking'}]}}
+								{name: 'pcpt1', opts: {pattern:['Was he', '#tcpt','soda at 7 o\'clock? '], targets: [{text: 'drinking', success:'drink'}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'cat'}}
-								{name: 'pcpt1', opts: {pattern:['At 10 a.m., the cat was', '#tcpt', 'with a ball of wool.'], targets: [{text: 'playing'}]}}
+								{name: 'pcpt1', opts: {pattern:['At 10 a.m., the cat was', '#tcpt', 'with a ball of wool.'], targets: [{text: 'playing', success:'play'}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'cap'}}
-								{name: 'pcpt1', opts: {pattern:['At 2 o\'clock, Jack was', '#tcpt','a blue cap.'], targets: [{text: 'wearing'}]}}
+								{name: 'pcpt1', opts: {pattern:['At 2 o\'clock, Jack was', '#tcpt','a blue cap.'], targets: [{text: 'wearing', success:'wear'}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'cycling'}}
-								{name: 'pcpt1', opts: {pattern:['She wasn\'t', '#tcpt','TV at 6 p.m. ','#rtn', 'She was riding her bike!'], targets: [{text: 'watching'}]}}
+								{name: 'pcpt1', opts: {pattern:['She wasn\'t', '#tcpt','TV at 6 p.m. ','#rtn', 'She was riding her bike!'], targets: [{text: 'watching', success:'watch'}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'cake'}}
-								{name: 'pcpt1', opts: {pattern:['Mom wasn\'t making dinner at 4 p.m.','#rtn', 'She was', '#tcpt','cookies!'], targets: [{text: 'making'}]}}
+								{name: 'pcpt1', opts: {pattern:['Mom wasn\'t making dinner at 4 p.m.','#rtn', 'She was', '#tcpt','cookies!'], targets: [{text: 'making', success:'make'}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'shark'}}
-								{name: 'pcpt1', opts: {pattern:['What were you', '#tcpt','at 5 p.m.? I was in the ','#rtn', 'aquarium, looking at the shark.'], targets: [{text: 'doing'}]}}
+								{name: 'pcpt1', opts: {pattern:['What were you', '#tcpt','at 5 p.m.? I was in the ','#rtn', 'aquarium, looking at the shark.'], targets: [{text: 'doing', success:'do'}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'binoculars'}}
-								{name: 'pcpt1', opts: {pattern:['What was Carla', '#tcpt','at 2 o\'clock? She ','#rtn', 'was Observing birds with her binoculars.'], targets: [{text: 'doing'}]}}
+								{name: 'pcpt1', opts: {pattern:['What was Carla', '#tcpt','at 2 o\'clock? She ','#rtn', 'was Observing birds with her binoculars.'], targets: [{text: 'doing', success:'do'}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'dad'}}
-								{name: 'pcpt1', opts: {pattern:['Dad was', '#tcpt','with Mom today. They  ','#rtn', 'took tango classes and they are good!'], targets: [{text: 'dancing'}]}}
+								{name: 'pcpt1', opts: {pattern:['Dad was', '#tcpt','with Mom today. They  ','#rtn', 'took tango classes and they are good!'], targets: [{text: 'dancing', success:'dance'}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'book'}}
-								{name: 'pcpt1', opts: {pattern:['I was', '#tcpt','a great book at 7 p.m. Today. ','#rtn', 'Let me tell you about it!'], targets: [{text: 'reading'}]}}
+								{name: 'pcpt1', opts: {pattern:['I was', '#tcpt','a great book at 7 p.m. Today. ','#rtn', 'Let me tell you about it!'], targets: [{text: 'reading', success:'read'}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'actor'}}
-								{name: 'pcpt1', opts: {pattern:['Marty was', '#tcpt','in the school theater ','#rtn', 'play at four o\'clock today. He was very funny!'], targets: [{text: 'acting'}]}}
+								{name: 'pcpt1', opts: {pattern:['Marty was', '#tcpt','in the school theater ','#rtn', 'play at four o\'clock today. He was very funny!'], targets: [{text: 'acting', success:'act'}]}}
 							]
 						]
 						mixed: true
-						type: 'steps'
+						type: 'limit'
+						limit: 10
 					}
 					containers:[
 						{type: 'img', id: 'actor', x: 380, y: 338, align: 'mc'}
@@ -117,7 +122,7 @@ class U3A3 extends Oda
 						{type: 'img', id: 'soda', x: 380, y: 338, align: 'mc'}
 						{type: 'img', id: 'caja', x: 640, y: 175}
 
-						{type: 'pcpt', id: 'pcpt1', x: 380, y: 510, font: '24px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A'}
+						{type: 'pcpt', id: 'pcpt1', x: 385, y: 510, font: '24px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A'}
 						{
 							type: 'btn', id: 'btn_1', x: 690, y: 210-10, index: 'act', target: 'pcpt1', eval: @btnClick
 							states: [{txt: {text:'act', name:'act', x:0, y:0, align:'center', font: '20px Quicksand'}}]

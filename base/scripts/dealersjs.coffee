@@ -1159,7 +1159,7 @@ class DragContainer extends Component
 		switch opts.afterFail
 			when 'drop' then @afterFail = @dropInPlace
 			when 'hide' then @afterFail = @hide
-			when 'inplace' then @afterSuccess = @putInPlace
+			when 'inplace' then @afterFail = @putInPlace
 			when 'return' then @afterFail = @returnToPlace
 			when 'origin' then @afterFail = @setInOrigin
 		@add b, false
@@ -1246,6 +1246,7 @@ class ButtonContainer extends Component
 			TweenLite.to @, 0.5, {scaleX: 1.2, scaleY: 1.2}
 		@addEventListener 'mouseout', =>
 			TweenLite.to @, 0.5, {scaleX: @scale, scaleY: @scale}
+		if opts.noHover then @removeAllEventListeners()
 		@addEventListener 'click', =>
 			if opts.isRepeat
 				d2oda.evaluator.evaluate 'repeat'
@@ -1667,7 +1668,7 @@ class PhraseCompleterContainer extends Component
 			@nextGroup = opts.nextGroup
 		i = 0
 		npos = 0
-		ypos = -5
+		ypos = opts.ypos ? -5
 		maxWidth = 0
 		for t in opts.pattern
 			if t is '#tcpt'
@@ -1675,17 +1676,19 @@ class PhraseCompleterContainer extends Component
 				h = new TextCompleterContainer txt, @font, @fcolor, @bcolor, @scolor, @stroke, npos, ypos
 				@droptargets.push h
 				@add h, false
-				maxWidth = npos += h.width + @margin
+				npos += h.width + @margin
+				maxWidth = npos if npos > maxWidth
 				i++
 			else if t is '#rtn'
 				h = @createText 'txt', 'BLANK', @font, @fcolor, npos, 0
 				maxWidth = npos if npos > maxWidth
 				npos = 0
-				ypos += h.getMeasuredHeight()
+				ypos += h.getMeasuredHeight() + h.getMeasuredHeight() * 0.1
 			else
 				h = @createText 'txt', t, @font, @fcolor, npos, ypos
 				@add h, false
-				maxWidth = npos += h.getMeasuredWidth() + @margin
+				npos += h.getMeasuredWidth() + @margin
+				maxWidth = npos if npos > maxWidth
 		@width = maxWidth
 		@setPosition @align
 		@observer.notify ComponentObserver.UPDATED
@@ -1725,7 +1728,7 @@ class PhraseCloneContainer extends Component
 			@add h2, false
 		i = 0
 		npos = 0
-		ypos = -5
+		ypos = opts.ypos ? -5
 		maxWidth = 0
 		for t in opts.pattern
 			if t is '#tcpt'
@@ -1739,7 +1742,7 @@ class PhraseCloneContainer extends Component
 				h = @createText 'txt', 'BLANK', @font, @fcolor, npos, ypos
 				maxWidth = npos if npos > maxWidth
 				npos = 0
-				ypos += h.getMeasuredHeight()
+				ypos += h.getMeasuredHeight() + h.getMeasuredHeight() * 0.1
 			else
 				h = @createText 'txt', t, @font, @fcolor, npos, ypos
 				@add h, false
@@ -1762,7 +1765,7 @@ class TextCloneContainer extends Component
 		@x = x
 		@y = y
 		@success = opts.success ? opts.text
-		@text = @createText 'txt', opts.text, font, fcolor, 0, -5
+		@text = @createText 'txt', opts.text, font, fcolor, 0, -2
 		@width = opts.width ? @text.getMeasuredWidth()
 		@height = opts.height ? @text.getMeasuredHeight()
 		@complete = false
@@ -2213,7 +2216,7 @@ class LetterDragContainer extends Component
 			when 'origin' then @afterSuccess = @setInOrigin
 		switch opts.afterFail
 			when 'hide' then @afterFail = @hide
-			when 'inplace' then @afterSuccess = @putInPlace
+			when 'inplace' then @afterFail = @putInPlace
 			when 'return' then @afterFail = @returnToPlace
 			when 'origin' then @afterFail = @setInOrigin
 		hit = new createjs.Shape()
@@ -2473,8 +2476,8 @@ class Scene extends Component
 		@nextStep()
 	sndsuccess: () =>
 		@success false
-	fail: ->
-		lib.score.enableBlock()
+	fail: (enableBlock = true) ->
+		if enableBlock then lib.score.enableBlock()
 		lib.mainContainer.warning()
 	next: =>
 		@currentStep++

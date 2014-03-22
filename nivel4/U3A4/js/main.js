@@ -80,7 +80,7 @@ NEW ODA
           src: 'silence.mp3'
         }
       ];
-      this.btnClick = function(dispatcher, target) {
+      this.onDrop = function(dispatcher, target) {
         var a, b, c, d, t;
         d = lib[dispatcher];
         t = lib[target];
@@ -128,28 +128,14 @@ NEW ODA
               collection: [
                 [
                   {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'q1'
-                    }
-                  }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['It wasn\'t me. I', '#tcpt', '#rtn', 'a movie.', '#rtn', 'I was with my sister. '],
+                      pattern: ['It wasn\'t me. I', '#tcpt', 'a movie.', '#rtn', 'I was with my sister. '],
                       targets: [
                         {
                           text: 'was watching'
                         }
                       ]
-                    }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'q2'
                     }
                   }, {
                     name: 'pcpt2',
@@ -161,14 +147,6 @@ NEW ODA
                         }
                       ]
                     }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'q3'
-                    }
                   }, {
                     name: 'pcpt3',
                     opts: {
@@ -178,14 +156,6 @@ NEW ODA
                           text: 'was buying'
                         }
                       ]
-                    }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'q4'
                     }
                   }, {
                     name: 'pcpt4',
@@ -197,14 +167,6 @@ NEW ODA
                         }
                       ]
                     }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'q5'
-                    }
                   }, {
                     name: 'pcpt5',
                     opts: {
@@ -214,14 +176,6 @@ NEW ODA
                           text: 'were you doing'
                         }
                       ]
-                    }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'q6'
                     }
                   }, {
                     name: 'pcpt6',
@@ -233,14 +187,6 @@ NEW ODA
                         }
                       ]
                     }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'q7'
-                    }
                   }, {
                     name: 'pcpt7',
                     opts: {
@@ -250,14 +196,6 @@ NEW ODA
                           text: 'was visiting'
                         }
                       ]
-                    }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'q8'
                     }
                   }, {
                     name: 'pcpt8',
@@ -272,58 +210,161 @@ NEW ODA
                   }
                 ]
               ],
-              mixed: true,
               type: 'steps'
             },
             containers: [
               {
-                type: 'img',
-                id: '1',
+                type: 'btn',
+                id: 'btn_1',
                 x: 70,
                 y: 470,
-                align: 'bl'
+                index: 0,
+                target: 'grp_pcpt',
+                noHover: true,
+                "eval": this.btnClick,
+                states: [
+                  {
+                    img: {
+                      name: '1',
+                      x: 0,
+                      y: 0,
+                      align: 'bl'
+                    }
+                  }
+                ]
               }, {
-                type: 'img',
-                id: '2',
+                type: 'btn',
+                id: 'btn_2',
                 x: 193,
                 y: 470,
-                align: 'bl'
+                index: 1,
+                target: 'grp_pcpt',
+                noHover: true,
+                "eval": this.btnClick,
+                states: [
+                  {
+                    img: {
+                      name: '2',
+                      x: 0,
+                      y: 0,
+                      align: 'bl'
+                    }
+                  }
+                ]
               }, {
-                type: 'img',
-                id: '3',
+                type: 'btn',
+                id: 'btn_3',
                 x: 276,
                 y: 470,
-                align: 'bl'
+                index: 2,
+                target: 'grp_pcpt',
+                noHover: true,
+                "eval": this.btnClick,
+                states: [
+                  {
+                    img: {
+                      name: '3',
+                      x: 0,
+                      y: 0,
+                      align: 'bl'
+                    }
+                  }
+                ]
               }, {
-                type: 'img',
-                id: '4',
+                type: 'btn',
+                id: 'btn_4',
                 x: 339,
                 y: 470,
-                align: 'bl'
+                index: 3,
+                target: 'grp_pcpt',
+                noHover: true,
+                "eval": this.btnClick,
+                states: [
+                  {
+                    img: {
+                      name: '4',
+                      x: 0,
+                      y: 0,
+                      align: 'bl'
+                    }
+                  }
+                ]
               }, {
-                type: 'img',
-                id: '5',
+                type: 'btn',
+                id: 'btn_5',
                 x: 403,
                 y: 470,
-                align: 'bl'
+                index: 4,
+                target: 'grp_pcpt',
+                noHover: true,
+                "eval": this.btnClick,
+                states: [
+                  {
+                    img: {
+                      name: '5',
+                      x: 0,
+                      y: 0,
+                      align: 'bl'
+                    }
+                  }
+                ]
               }, {
-                type: 'img',
-                id: '6',
+                type: 'btn',
+                id: 'btn_6',
                 x: 473,
                 y: 470,
-                align: 'bl'
+                index: 5,
+                target: 'grp_pcpt',
+                noHover: true,
+                "eval": this.btnClick,
+                states: [
+                  {
+                    img: {
+                      name: '6',
+                      x: 0,
+                      y: 0,
+                      align: 'bl'
+                    }
+                  }
+                ]
               }, {
-                type: 'img',
-                id: '7',
+                type: 'btn',
+                id: 'btn_7',
                 x: 583,
                 y: 470,
-                align: 'bl'
+                index: 6,
+                target: 'grp_pcpt',
+                noHover: true,
+                "eval": this.btnClick,
+                states: [
+                  {
+                    img: {
+                      name: '7',
+                      x: 0,
+                      y: 0,
+                      align: 'bl'
+                    }
+                  }
+                ]
               }, {
-                type: 'img',
-                id: '8',
+                type: 'btn',
+                id: 'btn_8',
                 x: 663,
                 y: 470,
-                align: 'bl'
+                index: 7,
+                target: 'grp_pcpt',
+                noHover: true,
+                "eval": this.btnClick,
+                states: [
+                  {
+                    img: {
+                      name: '8',
+                      x: 0,
+                      y: 0,
+                      align: 'bl'
+                    }
+                  }
+                ]
               }, {
                 type: 'img',
                 id: 'caja',
@@ -383,237 +424,187 @@ NEW ODA
                 id: 'pcpt1',
                 x: 125,
                 y: 190,
-                font: '10px Quicksand',
+                font: '11px Quicksand',
                 margin: 5,
                 align: 'tl',
-                scolor: '#F9101A'
+                scolor: '#F9101A',
+                bcolor: 'rgba(255,255,255,0.01)',
+                stroke: 1
               }, {
                 type: 'pcpt',
                 id: 'pcpt2',
                 x: 200,
                 y: 195,
-                font: '10px Quicksand',
+                font: '11px Quicksand',
                 margin: 5,
                 align: 'tl',
-                scolor: '#F9101A'
+                scolor: '#F9101A',
+                stroke: 1
               }, {
                 type: 'pcpt',
                 id: 'pcpt3',
                 x: 162,
                 y: 195,
-                font: '10px Quicksand',
+                font: '11px Quicksand',
                 margin: 5,
                 align: 'tl',
-                scolor: '#F9101A'
+                scolor: '#F9101A',
+                stroke: 1
               }, {
                 type: 'pcpt',
                 id: 'pcpt4',
                 x: 306,
                 y: 188,
-                font: '10px Quicksand',
+                font: '11px Quicksand',
                 margin: 5,
                 align: 'tl',
-                scolor: '#F9101A'
+                scolor: '#F9101A',
+                stroke: 1
               }, {
                 type: 'pcpt',
                 id: 'pcpt5',
                 x: 400,
                 y: 170,
-                font: '10px Quicksand',
+                font: '11px Quicksand',
                 margin: 5,
                 align: 'tl',
-                scolor: '#F9101A'
+                scolor: '#F9101A',
+                stroke: 1
               }, {
                 type: 'pcpt',
                 id: 'pcpt6',
                 x: 468,
                 y: 165,
-                font: '10px Quicksand',
+                font: '11px Quicksand',
                 margin: 5,
                 align: 'tl',
-                scolor: '#F9101A'
+                scolor: '#F9101A',
+                stroke: 1
               }, {
                 type: 'pcpt',
                 id: 'pcpt7',
                 x: 570,
                 y: 175,
-                font: '10px Quicksand',
+                font: '11px Quicksand',
                 margin: 5,
                 align: 'tl',
-                scolor: '#F9101A'
+                scolor: '#F9101A',
+                stroke: 1
               }, {
                 type: 'pcpt',
                 id: 'pcpt8',
                 x: 479,
                 y: 195,
-                font: '10px Quicksand',
+                font: '11px Quicksand',
                 margin: 5,
                 align: 'tl',
-                scolor: '#F9101A'
+                scolor: '#F9101A',
+                stroke: 1
               }, {
-                type: 'btn',
-                id: 'btn_1',
-                x: 230,
+                type: 'ldrg',
+                id: 'ldrg1',
+                x: 200,
                 y: 510,
                 index: 'was buying',
+                text: 'was buying',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
-                "eval": this.btnClick,
-                states: [
-                  {
-                    txt: {
-                      text: 'was buying',
-                      name: 'was buying',
-                      x: 0,
-                      y: 0,
-                      align: 'center',
-                      font: '18px Quicksand'
-                    }
-                  }
-                ]
+                font: '18px Quicksand',
+                afterSuccess: 'hide',
+                afterFail: 'return',
+                "eval": this.onDrop
               }, {
-                type: 'btn',
-                id: 'btn_2',
-                x: 230,
+                type: 'ldrg',
+                id: 'ldrg2',
+                x: 200,
                 y: 530,
                 index: 'was dancing',
+                text: 'was dancing',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
-                "eval": this.btnClick,
-                states: [
-                  {
-                    txt: {
-                      text: 'was dancing',
-                      name: 'was dancing',
-                      x: 0,
-                      y: 0,
-                      align: 'center',
-                      font: '18px Quicksand'
-                    }
-                  }
-                ]
+                font: '18px Quicksand',
+                afterSuccess: 'hide',
+                afterFail: 'return',
+                "eval": this.onDrop
               }, {
-                type: 'btn',
-                id: 'btn_3',
-                x: 375,
+                type: 'ldrg',
+                id: 'ldrg3',
+                x: 325,
                 y: 510,
                 index: 'was running',
+                text: 'was running',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
-                "eval": this.btnClick,
-                states: [
-                  {
-                    txt: {
-                      text: 'was running',
-                      name: 'was running',
-                      x: 0,
-                      y: 0,
-                      align: 'center',
-                      font: '18px Quicksand'
-                    }
-                  }
-                ]
+                font: '18px Quicksand',
+                afterSuccess: 'hide',
+                afterFail: 'return',
+                "eval": this.onDrop
               }, {
-                type: 'btn',
-                id: 'btn_4',
-                x: 375,
+                type: 'ldrg',
+                id: 'ldrg4',
+                x: 325,
                 y: 530,
                 index: 'was shouting',
+                text: 'was shouting',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
-                "eval": this.btnClick,
-                states: [
-                  {
-                    txt: {
-                      text: 'was shouting',
-                      name: 'was shouting',
-                      x: 0,
-                      y: 0,
-                      align: 'center',
-                      font: '18px Quicksand'
-                    }
-                  }
-                ]
+                font: '18px Quicksand',
+                afterSuccess: 'hide',
+                afterFail: 'return',
+                "eval": this.onDrop
               }, {
-                type: 'btn',
-                id: 'btn_5',
-                x: 520,
+                type: 'ldrg',
+                id: 'ldrg5',
+                x: 450,
                 y: 510,
                 index: 'were you doing',
+                text: 'were you doing',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
-                "eval": this.btnClick,
-                states: [
-                  {
-                    txt: {
-                      text: 'were you doing',
-                      name: 'were you doing',
-                      x: 0,
-                      y: 0,
-                      align: 'center',
-                      font: '18px Quicksand'
-                    }
-                  }
-                ]
+                font: '18px Quicksand',
+                afterSuccess: 'hide',
+                afterFail: 'return',
+                "eval": this.onDrop
               }, {
-                type: 'btn',
-                id: 'btn_6',
-                x: 520,
+                type: 'ldrg',
+                id: 'ldrg6',
+                x: 450,
                 y: 530,
                 index: 'was visiting',
+                text: 'was visiting',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
-                "eval": this.btnClick,
-                states: [
-                  {
-                    txt: {
-                      text: 'was visiting',
-                      name: 'was visiting',
-                      x: 0,
-                      y: 0,
-                      align: 'center',
-                      font: '18px Quicksand'
-                    }
-                  }
-                ]
+                font: '18px Quicksand',
+                afterSuccess: 'hide',
+                afterFail: 'return',
+                "eval": this.onDrop
               }, {
-                type: 'btn',
-                id: 'btn_7',
-                x: 675,
+                type: 'ldrg',
+                id: 'ldrg7',
+                x: 610,
                 y: 510,
                 index: 'was walking',
+                text: 'was walking',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
-                "eval": this.btnClick,
-                states: [
-                  {
-                    txt: {
-                      text: 'was walking',
-                      name: 'was walking',
-                      x: 0,
-                      y: 0,
-                      align: 'center',
-                      font: '18px Quicksand'
-                    }
-                  }
-                ]
+                font: '18px Quicksand',
+                afterSuccess: 'hide',
+                afterFail: 'return',
+                "eval": this.onDrop
               }, {
-                type: 'btn',
-                id: 'btn_8',
-                x: 675,
+                type: 'ldrg',
+                id: 'ldrg8',
+                x: 610,
                 y: 530,
                 index: 'was watching',
+                text: 'was watching',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
-                "eval": this.btnClick,
-                states: [
-                  {
-                    txt: {
-                      text: 'was watching',
-                      name: 'was watching',
-                      x: 0,
-                      y: 0,
-                      align: 'center',
-                      font: '18px Quicksand'
-                    }
-                  }
-                ]
+                font: '18px Quicksand',
+                afterSuccess: 'hide',
+                afterFail: 'return',
+                "eval": this.onDrop
               }
             ],
             groups: [
               {
+                type: 'grp',
+                id: 'grp_pcpt',
+                invisible: true,
+                group: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8']
+              }, {
                 type: 'grp',
                 id: 'grp1',
                 invisible: true,

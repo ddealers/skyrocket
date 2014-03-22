@@ -2242,7 +2242,7 @@ LIBRARY
           this.afterFail = this.hide;
           break;
         case 'inplace':
-          this.afterSuccess = this.putInPlace;
+          this.afterFail = this.putInPlace;
           break;
         case 'return':
           this.afterFail = this.returnToPlace;
@@ -2397,6 +2397,9 @@ LIBRARY
           scaleY: _this.scale
         });
       });
+      if (opts.noHover) {
+        this.removeAllEventListeners();
+      }
       return this.addEventListener('click', function() {
         if (opts.isRepeat) {
           return d2oda.evaluator.evaluate('repeat');
@@ -3094,7 +3097,7 @@ LIBRARY
     };
 
     PhraseCompleterContainer.prototype.update = function(opts) {
-      var align, h, h2, i, maxWidth, npos, t, txt, ypos, _i, _len, _ref2, _ref3;
+      var align, h, h2, i, maxWidth, npos, t, txt, ypos, _i, _len, _ref2, _ref3, _ref4;
       this.removeAllChildren();
       if (opts.h2) {
         align = (_ref2 = opts.h2.align) != null ? _ref2 : '';
@@ -3106,17 +3109,20 @@ LIBRARY
       }
       i = 0;
       npos = 0;
-      ypos = -5;
+      ypos = (_ref3 = opts.ypos) != null ? _ref3 : -5;
       maxWidth = 0;
-      _ref3 = opts.pattern;
-      for (_i = 0, _len = _ref3.length; _i < _len; _i++) {
-        t = _ref3[_i];
+      _ref4 = opts.pattern;
+      for (_i = 0, _len = _ref4.length; _i < _len; _i++) {
+        t = _ref4[_i];
         if (t === '#tcpt') {
           txt = opts.targets[i];
           h = new TextCompleterContainer(txt, this.font, this.fcolor, this.bcolor, this.scolor, this.stroke, npos, ypos);
           this.droptargets.push(h);
           this.add(h, false);
-          maxWidth = npos += h.width + this.margin;
+          npos += h.width + this.margin;
+          if (npos > maxWidth) {
+            maxWidth = npos;
+          }
           i++;
         } else if (t === '#rtn') {
           h = this.createText('txt', 'BLANK', this.font, this.fcolor, npos, 0);
@@ -3124,11 +3130,14 @@ LIBRARY
             maxWidth = npos;
           }
           npos = 0;
-          ypos += h.getMeasuredHeight();
+          ypos += h.getMeasuredHeight() + h.getMeasuredHeight() * 0.1;
         } else {
           h = this.createText('txt', t, this.font, this.fcolor, npos, ypos);
           this.add(h, false);
-          maxWidth = npos += h.getMeasuredWidth() + this.margin;
+          npos += h.getMeasuredWidth() + this.margin;
+          if (npos > maxWidth) {
+            maxWidth = npos;
+          }
         }
       }
       this.width = maxWidth;
@@ -3187,7 +3196,7 @@ LIBRARY
     };
 
     PhraseCloneContainer.prototype.update = function(opts) {
-      var align, h, h2, i, maxWidth, npos, t, txt, ypos, _i, _len, _ref2, _ref3;
+      var align, h, h2, i, maxWidth, npos, t, txt, ypos, _i, _len, _ref2, _ref3, _ref4;
       this.removeAllChildren();
       if (opts.h2) {
         align = (_ref2 = opts.h2.align) != null ? _ref2 : '';
@@ -3196,11 +3205,11 @@ LIBRARY
       }
       i = 0;
       npos = 0;
-      ypos = -5;
+      ypos = (_ref3 = opts.ypos) != null ? _ref3 : -5;
       maxWidth = 0;
-      _ref3 = opts.pattern;
-      for (_i = 0, _len = _ref3.length; _i < _len; _i++) {
-        t = _ref3[_i];
+      _ref4 = opts.pattern;
+      for (_i = 0, _len = _ref4.length; _i < _len; _i++) {
+        t = _ref4[_i];
         if (t === '#tcpt') {
           txt = opts.targets[i];
           h = new TextCloneContainer(txt, this.font, this.fcolor, this.bcolor, this.scolor, this.stroke, npos, ypos);
@@ -3214,7 +3223,7 @@ LIBRARY
             maxWidth = npos;
           }
           npos = 0;
-          ypos += h.getMeasuredHeight();
+          ypos += h.getMeasuredHeight() + h.getMeasuredHeight() * 0.1;
         } else {
           h = this.createText('txt', t, this.font, this.fcolor, npos, ypos);
           this.add(h, false);
@@ -3256,7 +3265,7 @@ LIBRARY
       this.x = x;
       this.y = y;
       this.success = (_ref2 = opts.success) != null ? _ref2 : opts.text;
-      this.text = this.createText('txt', opts.text, font, fcolor, 0, -5);
+      this.text = this.createText('txt', opts.text, font, fcolor, 0, -2);
       this.width = (_ref3 = opts.width) != null ? _ref3 : this.text.getMeasuredWidth();
       this.height = (_ref4 = opts.height) != null ? _ref4 : this.text.getMeasuredHeight();
       this.complete = false;
@@ -4057,7 +4066,7 @@ LIBRARY
           this.afterFail = this.hide;
           break;
         case 'inplace':
-          this.afterSuccess = this.putInPlace;
+          this.afterFail = this.putInPlace;
           break;
         case 'return':
           this.afterFail = this.returnToPlace;
@@ -4558,8 +4567,13 @@ LIBRARY
       return this.success(false);
     };
 
-    Scene.prototype.fail = function() {
-      lib.score.enableBlock();
+    Scene.prototype.fail = function(enableBlock) {
+      if (enableBlock == null) {
+        enableBlock = true;
+      }
+      if (enableBlock) {
+        lib.score.enableBlock();
+      }
       return lib.mainContainer.warning();
     };
 

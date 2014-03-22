@@ -69,21 +69,28 @@ NEW ODA
         }
       ];
       this.btnClick = function(dispatcher, target) {
-        var a, b, c, d, t;
+        var a, b, c, d, t, verb;
         d = lib[dispatcher];
         t = lib[target];
         a = d.index;
         b = t.droptargets;
         c = t.currentTarget;
+        console.log(d, t, a, b, c);
+        console.log(a, b[c].success);
         if (a === b[c].success) {
-          b[c].complete = true;
-          b[c].update();
-          t.currentTarget++;
-        }
-        if (t.currentTarget === b.length) {
-          return lib.scene.success();
+          verb = prompt("Enter the correct form of " + d.index);
+          if (verb === b[c].text.text) {
+            b[c].complete = true;
+            b[c].update();
+            t.currentTarget++;
+          }
+          if (t.currentTarget === b.length) {
+            return lib.scene.success();
+          } else {
+            return lib.scene.fail();
+          }
         } else {
-          return lib.scene.fail();
+          return lib.scene.fail(false);
         }
       };
       this.game = {
@@ -104,7 +111,7 @@ NEW ODA
           x: 20,
           y: 500,
           init: 0,
-          total: 12,
+          total: 10,
           aimg: 'c1',
           acolor: '#333',
           bimg: 'c2',
@@ -124,10 +131,11 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['    What was Tracy', '#tcpt', 'last night? ', '#rtn', 'Grasshoppers! It\'s a Mexican delicacy.'],
+                      pattern: ['What was Tracy', '#tcpt', 'last night? ', '#rtn', 'Grasshoppers! It\'s a Mexican delicacy.'],
                       targets: [
                         {
-                          text: 'eating'
+                          text: 'eating',
+                          success: 'eat'
                         }
                       ]
                     }
@@ -145,7 +153,8 @@ NEW ODA
                       pattern: ['At 3 p.m., the dog was', '#tcpt', '#rtn', 'under the table in the yard.'],
                       targets: [
                         {
-                          text: 'sleeping'
+                          text: 'sleeping',
+                          success: 'sleep'
                         }
                       ]
                     }
@@ -163,7 +172,8 @@ NEW ODA
                       pattern: ['Was he', '#tcpt', 'soda at 7 o\'clock? '],
                       targets: [
                         {
-                          text: 'drinking'
+                          text: 'drinking',
+                          success: 'drink'
                         }
                       ]
                     }
@@ -181,7 +191,8 @@ NEW ODA
                       pattern: ['At 10 a.m., the cat was', '#tcpt', 'with a ball of wool.'],
                       targets: [
                         {
-                          text: 'playing'
+                          text: 'playing',
+                          success: 'play'
                         }
                       ]
                     }
@@ -199,7 +210,8 @@ NEW ODA
                       pattern: ['At 2 o\'clock, Jack was', '#tcpt', 'a blue cap.'],
                       targets: [
                         {
-                          text: 'wearing'
+                          text: 'wearing',
+                          success: 'wear'
                         }
                       ]
                     }
@@ -217,7 +229,8 @@ NEW ODA
                       pattern: ['She wasn\'t', '#tcpt', 'TV at 6 p.m. ', '#rtn', 'She was riding her bike!'],
                       targets: [
                         {
-                          text: 'watching'
+                          text: 'watching',
+                          success: 'watch'
                         }
                       ]
                     }
@@ -235,7 +248,8 @@ NEW ODA
                       pattern: ['Mom wasn\'t making dinner at 4 p.m.', '#rtn', 'She was', '#tcpt', 'cookies!'],
                       targets: [
                         {
-                          text: 'making'
+                          text: 'making',
+                          success: 'make'
                         }
                       ]
                     }
@@ -253,7 +267,8 @@ NEW ODA
                       pattern: ['What were you', '#tcpt', 'at 5 p.m.? I was in the ', '#rtn', 'aquarium, looking at the shark.'],
                       targets: [
                         {
-                          text: 'doing'
+                          text: 'doing',
+                          success: 'do'
                         }
                       ]
                     }
@@ -271,7 +286,8 @@ NEW ODA
                       pattern: ['What was Carla', '#tcpt', 'at 2 o\'clock? She ', '#rtn', 'was Observing birds with her binoculars.'],
                       targets: [
                         {
-                          text: 'doing'
+                          text: 'doing',
+                          success: 'do'
                         }
                       ]
                     }
@@ -289,7 +305,8 @@ NEW ODA
                       pattern: ['Dad was', '#tcpt', 'with Mom today. They  ', '#rtn', 'took tango classes and they are good!'],
                       targets: [
                         {
-                          text: 'dancing'
+                          text: 'dancing',
+                          success: 'dance'
                         }
                       ]
                     }
@@ -307,7 +324,8 @@ NEW ODA
                       pattern: ['I was', '#tcpt', 'a great book at 7 p.m. Today. ', '#rtn', 'Let me tell you about it!'],
                       targets: [
                         {
-                          text: 'reading'
+                          text: 'reading',
+                          success: 'read'
                         }
                       ]
                     }
@@ -325,7 +343,8 @@ NEW ODA
                       pattern: ['Marty was', '#tcpt', 'in the school theater ', '#rtn', 'play at four o\'clock today. He was very funny!'],
                       targets: [
                         {
-                          text: 'acting'
+                          text: 'acting',
+                          success: 'act'
                         }
                       ]
                     }
@@ -333,7 +352,8 @@ NEW ODA
                 ]
               ],
               mixed: true,
-              type: 'steps'
+              type: 'limit',
+              limit: 10
             },
             containers: [
               {
@@ -416,7 +436,7 @@ NEW ODA
               }, {
                 type: 'pcpt',
                 id: 'pcpt1',
-                x: 380,
+                x: 385,
                 y: 510,
                 font: '24px Quicksand',
                 margin: 5,

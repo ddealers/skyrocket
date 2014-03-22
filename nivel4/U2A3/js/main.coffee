@@ -63,14 +63,14 @@ class U2A3 extends Oda
 					containers:[
 						{type: 'img', id: 'caja', x: 144, y: 480}
 						{type: 'img', id: 'family', x: 28, y: 40}
-						{type: 'pcct', id: 'pcct1', x: 385, y: 190, font: '12px Quicksand', margin: 10, scolor: '#F9101A'}
-						{type: 'pcct', id: 'pcct2', x: 385, y: 225, font: '12px Quicksand', margin: 10, scolor: '#F9101A'}
-						{type: 'pcct', id: 'pcct3', x: 385, y: 260, font: '12px Quicksand', margin: 10, scolor: '#F9101A'}
-						{type: 'pcct', id: 'pcct4', x: 385, y: 295, font: '12px Quicksand', margin: 10, scolor: '#F9101A'}
-						{type: 'pcct', id: 'pcct5', x: 385, y: 330, font: '12px Quicksand', margin: 10, scolor: '#F9101A'}
-						{type: 'pcct', id: 'pcct6', x: 385, y: 365, font: '12px Quicksand', margin: 10, scolor: '#F9101A'}
-						{type: 'pcct', id: 'pcct7', x: 385, y: 400, font: '12px Quicksand', margin: 10, scolor: '#F9101A'}
-						{type: 'pcct', id: 'pcct8', x: 385, y: 435, font: '12px Quicksand', margin: 10, scolor: '#F9101A'}
+						{type: 'pcct', id: 'pcct1', x: 385, y: 190, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct2', x: 385, y: 225, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct3', x: 385, y: 260, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct4', x: 385, y: 295, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct5', x: 385, y: 330, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct6', x: 385, y: 365, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct7', x: 385, y: 400, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct8', x: 385, y: 435, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
 						 
 
 						{type: 'ldrg', id: 'ldrg1', x: 240,  y: 510, index: 'a party', text:'a party', font:'15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}

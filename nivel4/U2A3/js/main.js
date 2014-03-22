@@ -227,7 +227,8 @@ NEW ODA
                 y: 190,
                 font: '12px Quicksand',
                 margin: 10,
-                scolor: '#F9101A'
+                scolor: '#F9101A',
+                stroke: 2
               }, {
                 type: 'pcct',
                 id: 'pcct2',
@@ -235,7 +236,8 @@ NEW ODA
                 y: 225,
                 font: '12px Quicksand',
                 margin: 10,
-                scolor: '#F9101A'
+                scolor: '#F9101A',
+                stroke: 2
               }, {
                 type: 'pcct',
                 id: 'pcct3',
@@ -243,7 +245,8 @@ NEW ODA
                 y: 260,
                 font: '12px Quicksand',
                 margin: 10,
-                scolor: '#F9101A'
+                scolor: '#F9101A',
+                stroke: 2
               }, {
                 type: 'pcct',
                 id: 'pcct4',
@@ -251,7 +254,8 @@ NEW ODA
                 y: 295,
                 font: '12px Quicksand',
                 margin: 10,
-                scolor: '#F9101A'
+                scolor: '#F9101A',
+                stroke: 2
               }, {
                 type: 'pcct',
                 id: 'pcct5',
@@ -259,7 +263,8 @@ NEW ODA
                 y: 330,
                 font: '12px Quicksand',
                 margin: 10,
-                scolor: '#F9101A'
+                scolor: '#F9101A',
+                stroke: 2
               }, {
                 type: 'pcct',
                 id: 'pcct6',
@@ -267,7 +272,8 @@ NEW ODA
                 y: 365,
                 font: '12px Quicksand',
                 margin: 10,
-                scolor: '#F9101A'
+                scolor: '#F9101A',
+                stroke: 2
               }, {
                 type: 'pcct',
                 id: 'pcct7',
@@ -275,7 +281,8 @@ NEW ODA
                 y: 400,
                 font: '12px Quicksand',
                 margin: 10,
-                scolor: '#F9101A'
+                scolor: '#F9101A',
+                stroke: 2
               }, {
                 type: 'pcct',
                 id: 'pcct8',
@@ -283,7 +290,8 @@ NEW ODA
                 y: 435,
                 font: '12px Quicksand',
                 margin: 10,
-                scolor: '#F9101A'
+                scolor: '#F9101A',
+                stroke: 2
               }, {
                 type: 'ldrg',
                 id: 'ldrg1',

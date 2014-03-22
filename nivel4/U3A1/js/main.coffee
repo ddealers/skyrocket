@@ -32,21 +32,18 @@ class U3A1 extends Oda
       {id: "s/Sandra", src: "Sandra.mp3"}
       {id: "s/silence", src: "silence.mp3"}
     ]
-    @evaluateDrop02_01 = (dispatcher, target) ->
-      complete = true
-      if lib[dispatcher].index is target.success
-        target.update lib[dispatcher].label.text, true
-      else 
-        target.update lib[dispatcher].label.text, false
-      lib[dispatcher].afterSuccess()
-      for drop in lib[dispatcher].droptargets
-        if drop.text.text is '' then complete = false
-      if not complete then return
-      for drop in lib[dispatcher].droptargets
-        #drop.showEvaluation()
-        if drop.complete
-          lib.score.plusOne()
-      lib.scene.success false
+    @evaluateDrop = (dispatcher, target) ->
+      d = lib[dispatcher]
+      t = target.parent
+      a = d.index
+      b = t.success
+      if t.success and a in t.success
+        t.success.remove a
+        d.afterSuccess()
+        lib.scene.success()
+      else
+        d.afterFail()
+        lib.scene.fail()
     @game = 
       header: 'header'
       instructions: {x: 110, y: 130, states: [{text:'Listen and match the names with the children.', sound:'s/silence', played: false}]}
@@ -57,26 +54,39 @@ class U3A1 extends Oda
           answers: {
             collection: [ 
               [
+                {name: 'snd', opts:{id:'s/Margaret'}}
                 {
                   name: "g1"
                   opts:
                     success: ["Margaret"]
                 }
+              ]
+              [
+                {name: 'snd', opts:{id:'s/Emily'}}
                 {
                   name: "g2"
                   opts:
                     success: ["Emily"]
                 }
+              ]
+              [
+                {name: 'snd', opts:{id:'s/Pia'}}
                 {
                   name: "g3"
                   opts:
                     success: ["Pia"]
                 }
+              ]
+              [
+                {name: 'snd', opts:{id:'s/Maria'}}
                 {
                   name: "g4"
                   opts:
                     success: ["Maria"]
                 }
+              ]
+              [
+                {name: 'snd', opts:{id:'s/Sandra'}}
                 {
                   name: "g5"
                   opts:
@@ -84,6 +94,7 @@ class U3A1 extends Oda
                 }
               ]
             ]
+            mixed: true
             type: 'steps'
           }
           containers:[
@@ -92,11 +103,11 @@ class U3A1 extends Oda
             {type: "idc", id: "g3", x: 362, y: 460, align: "bl",}
             {type: "idc", id: "g4", x: 438, y: 460, align: "bl",}
             {type: "idc", id: "g5", x: 566, y: 460, align: "bl",}
-            {type: "ldrg", id: "ldrg5", x: 170, y: 500, index: "Sandra", text: "Sandra", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop02_01, afterSuccess: "origin", afterFail: "return"}
-            {type: "ldrg", id: "ldrg3", x: 295, y: 500, index: "Pia", text: "Pia", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop02_01, afterSuccess: "origin", afterFail: "return"}
-            {type: "ldrg", id: "ldrg4", x: 360, y: 500, index: "Maria", text: "Maria", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop02_01, afterSuccess: "origin", afterFail: "return"}
-            {type: "ldrg", id: "ldrg1", x: 455, y: 500, index: "Margaret", text: "Margaret", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop02_01, afterSuccess: "origin", afterFail: "return"}
-            {type: "ldrg", id: "ldrg2", x: 600, y: 500, index: "Emily", text: "Emily", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop02_01, afterSuccess: "origin", afterFail: "return"}
+            {type: "ldrg", id: "ldrg5", x: 170, y: 500, index: "Sandra", text: "Sandra", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+            {type: "ldrg", id: "ldrg3", x: 295, y: 500, index: "Pia", text: "Pia", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+            {type: "ldrg", id: "ldrg4", x: 360, y: 500, index: "Maria", text: "Maria", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+            {type: "ldrg", id: "ldrg1", x: 455, y: 500, index: "Margaret", text: "Margaret", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+            {type: "ldrg", id: "ldrg2", x: 600, y: 500, index: "Emily", text: "Emily", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
             {
               type: "btn", id: "repeat", x: 740, y: 540, isRepeat: true
               states: [img: {name: "repeat", x: 0, y: 0, align: "mc"}]
