@@ -80,21 +80,35 @@ NEW ODA
           src: 'silence.mp3'
         }
       ];
+      this.btnClick = function(dispatcher) {
+        var d;
+        d = lib[dispatcher];
+        lib.grp_pcpt.update({
+          type: 'fadeIn',
+          target: "pcpt" + (d.index + 1)
+        });
+        return lib.grp1.update({
+          type: 'fadeIn',
+          target: "q" + (d.index + 1)
+        });
+      };
       this.onDrop = function(dispatcher, target) {
         var a, b, c, d, t;
         d = lib[dispatcher];
-        t = lib[target];
+        t = target.parent;
         a = d.index;
         b = t.droptargets;
         c = t.currentTarget;
         if (a === b[c].success) {
           b[c].complete = true;
           b[c].update();
+          d.afterSuccess();
           t.currentTarget++;
         }
         if (t.currentTarget === b.length) {
           return lib.scene.success();
         } else {
+          d.afterFail();
           return lib.scene.fail();
         }
       };
@@ -130,7 +144,7 @@ NEW ODA
                   {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['It wasn\'t me. I', '#tcpt', 'a movie.', '#rtn', 'I was with my sister. '],
+                      pattern: ['It wasn\'t me. I', '#tcpt', 'a movie.', '#rtn', 'I was with my sister.'],
                       targets: [
                         {
                           text: 'was watching'
@@ -140,7 +154,7 @@ NEW ODA
                   }, {
                     name: 'pcpt2',
                     opts: {
-                      pattern: ['No, you weren\'t. I saw your sister.', '#rtn', 'She ', '#tcpt', 'mambo at the dance school!'],
+                      pattern: ['No, you weren\'t. I saw your sister.', '#rtn', 'She ', '#tcpt', 'mambo at the', '#rtn', 'dance school!'],
                       targets: [
                         {
                           text: 'was dancing'
@@ -150,7 +164,7 @@ NEW ODA
                   }, {
                     name: 'pcpt3',
                     opts: {
-                      pattern: ['He has two sisters. I saw him.', '#rtn', 'He', '#tcpt', 'popcorn before the movie.'],
+                      pattern: ['He has two sisters. I saw him.', '#rtn', 'He', '#tcpt', 'popcorn before', '#rtn', 'the movie.'],
                       targets: [
                         {
                           text: 'was buying'
@@ -170,7 +184,7 @@ NEW ODA
                   }, {
                     name: 'pcpt5',
                     opts: {
-                      pattern: ['What', '#tcpt', '?'],
+                      pattern: ['What', '#rtn', '#tcpt', '?'],
                       targets: [
                         {
                           text: 'were you doing'
@@ -422,8 +436,8 @@ NEW ODA
               }, {
                 type: 'pcpt',
                 id: 'pcpt1',
-                x: 125,
-                y: 190,
+                x: 113,
+                y: 195,
                 font: '11px Quicksand',
                 margin: 5,
                 align: 'tl',
@@ -433,52 +447,57 @@ NEW ODA
               }, {
                 type: 'pcpt',
                 id: 'pcpt2',
-                x: 200,
-                y: 195,
+                x: 230,
+                y: 180,
                 font: '11px Quicksand',
                 margin: 5,
                 align: 'tl',
                 scolor: '#F9101A',
+                bcolor: 'rgba(255,255,255,0.01)',
                 stroke: 1
               }, {
                 type: 'pcpt',
                 id: 'pcpt3',
-                x: 162,
-                y: 195,
+                x: 183,
+                y: 175,
                 font: '11px Quicksand',
                 margin: 5,
                 align: 'tl',
                 scolor: '#F9101A',
+                bcolor: 'rgba(255,255,255,0.01)',
                 stroke: 1
               }, {
                 type: 'pcpt',
                 id: 'pcpt4',
-                x: 306,
+                x: 303,
                 y: 188,
                 font: '11px Quicksand',
                 margin: 5,
                 align: 'tl',
                 scolor: '#F9101A',
+                bcolor: 'rgba(255,255,255,0.01)',
                 stroke: 1
               }, {
                 type: 'pcpt',
                 id: 'pcpt5',
-                x: 400,
-                y: 170,
-                font: '11px Quicksand',
-                margin: 5,
-                align: 'tl',
-                scolor: '#F9101A',
-                stroke: 1
-              }, {
-                type: 'pcpt',
-                id: 'pcpt6',
-                x: 468,
+                x: 410,
                 y: 165,
                 font: '11px Quicksand',
                 margin: 5,
                 align: 'tl',
                 scolor: '#F9101A',
+                bcolor: 'rgba(255,255,255,0.01)',
+                stroke: 1
+              }, {
+                type: 'pcpt',
+                id: 'pcpt6',
+                x: 460,
+                y: 165,
+                font: '11px Quicksand',
+                margin: 5,
+                align: 'tl',
+                scolor: '#F9101A',
+                bcolor: 'rgba(255,255,255,0.01)',
                 stroke: 1
               }, {
                 type: 'pcpt',
@@ -489,16 +508,18 @@ NEW ODA
                 margin: 5,
                 align: 'tl',
                 scolor: '#F9101A',
+                bcolor: 'rgba(255,255,255,0.01)',
                 stroke: 1
               }, {
                 type: 'pcpt',
                 id: 'pcpt8',
-                x: 479,
-                y: 195,
+                x: 472,
+                y: 186,
                 font: '11px Quicksand',
                 margin: 5,
                 align: 'tl',
                 scolor: '#F9101A',
+                bcolor: 'rgba(255,255,255,0.01)',
                 stroke: 1
               }, {
                 type: 'ldrg',
@@ -563,7 +584,7 @@ NEW ODA
               }, {
                 type: 'ldrg',
                 id: 'ldrg6',
-                x: 450,
+                x: 470,
                 y: 530,
                 index: 'was visiting',
                 text: 'was visiting',

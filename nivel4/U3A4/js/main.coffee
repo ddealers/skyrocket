@@ -28,19 +28,26 @@ class U3A4 extends Oda
 			{id: 'q8', src: 'Question_8.png'}
 			{id: 's/silence' , src: 'silence.mp3' }
 		]
+		@btnClick = (dispatcher) =>
+			d = lib[dispatcher]
+			lib.grp_pcpt.update {type:'fadeIn', target:"pcpt#{d.index + 1}"}
+			lib.grp1.update {type:'fadeIn', target:"q#{d.index + 1}"}
 		@onDrop = (dispatcher, target) =>
 			d = lib[dispatcher]
-			t = lib[target]
+			t = target.parent
 			a = d.index
 			b = t.droptargets
 			c = t.currentTarget
+			
 			if a is b[c].success
 				b[c].complete = true
 				b[c].update()
+				d.afterSuccess()
 				t.currentTarget++
 			if t.currentTarget is b.length
 				lib.scene.success()
 			else
+				d.afterFail()
 				lib.scene.fail()
 		@game = 
 			header: 'header'
@@ -51,11 +58,11 @@ class U3A4 extends Oda
 					answers: {
 						collection: [
 							[
-								{name: 'pcpt1', opts:{pattern:['It wasn\'t me. I', '#tcpt','a movie.','#rtn','I was with my sister. '], targets: [{text:'was watching'}]}}
-								{name: 'pcpt2', opts:{pattern:['No, you weren\'t. I saw your sister.','#rtn', 'She ', '#tcpt', 'mambo at the dance school!'], targets: [{text:'was dancing'}]}}
-								{name: 'pcpt3', opts:{pattern:['He has two sisters. I saw him.','#rtn', 'He', '#tcpt', 'popcorn before the movie.'], targets: [{text:'was buying'}]}}
+								{name: 'pcpt1', opts:{pattern:['It wasn\'t me. I', '#tcpt','a movie.','#rtn','I was with my sister.'], targets: [{text:'was watching'}]}}
+								{name: 'pcpt2', opts:{pattern:['No, you weren\'t. I saw your sister.','#rtn', 'She ', '#tcpt', 'mambo at the', '#rtn','dance school!'], targets: [{text:'was dancing'}]}}
+								{name: 'pcpt3', opts:{pattern:['He has two sisters. I saw him.','#rtn', 'He', '#tcpt', 'popcorn before', '#rtn', 'the movie.'], targets: [{text:'was buying'}]}}
 								{name: 'pcpt4', opts:{pattern:['Me? I', '#tcpt', 'in the park with my dog.'], targets: [{text:'was walking'}]}}
-								{name: 'pcpt5', opts:{pattern:['What', '#tcpt', '?'], targets: [{text:'were you doing'}]}}
+								{name: 'pcpt5', opts:{pattern:['What', '#rtn', '#tcpt', '?'], targets: [{text:'were you doing'}]}}
 								{name: 'pcpt6', opts:{pattern:['I think the thief was a woman. I heard her.','#rtn', 'She ', '#tcpt', 'at the policeman.'], targets: [{text:'was shouting'}]}}
 								{name: 'pcpt7', opts:{pattern:['I\'m not the thief!','#rtn', 'I', '#tcpt', 'my grandmother in prison.'], targets: [{text:'was visiting'}]}}
 								{name: 'pcpt8', opts:{pattern:['Oh… me? I was trying to get some exercise.','#rtn', 'I', '#tcpt', '!'], targets: [{text:'was running'}]}}
@@ -108,21 +115,21 @@ class U3A4 extends Oda
 						{type: 'img', id: 'q7', x: 563, y: 150, align: 'tl'}
 						{type: 'img', id: 'q8', x: 464, y: 160, align: 'tl'}
 
-						{type: 'pcpt', id: 'pcpt1', x: 125, y: 190,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', bcolor: 'rgba(255,255,255,0.01)', stroke: 1}
-						{type: 'pcpt', id: 'pcpt2', x: 200, y: 195,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', stroke: 1}
-						{type: 'pcpt', id: 'pcpt3', x: 162, y: 195,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', stroke: 1}
-						{type: 'pcpt', id: 'pcpt4', x: 306, y: 188,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', stroke: 1}
-						{type: 'pcpt', id: 'pcpt5', x: 400, y: 170,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', stroke: 1}
-						{type: 'pcpt', id: 'pcpt6', x: 468, y: 165,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', stroke: 1}
-						{type: 'pcpt', id: 'pcpt7', x: 570, y: 175,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', stroke: 1}
-						{type: 'pcpt', id: 'pcpt8', x: 479, y: 195,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', stroke: 1}
+						{type: 'pcpt', id: 'pcpt1', x: 113, y: 195,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', bcolor: 'rgba(255,255,255,0.01)', stroke: 1}
+						{type: 'pcpt', id: 'pcpt2', x: 230, y: 180,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', bcolor: 'rgba(255,255,255,0.01)', stroke: 1}
+						{type: 'pcpt', id: 'pcpt3', x: 183, y: 175,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', bcolor: 'rgba(255,255,255,0.01)', stroke: 1}
+						{type: 'pcpt', id: 'pcpt4', x: 303, y: 188,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', bcolor: 'rgba(255,255,255,0.01)', stroke: 1}
+						{type: 'pcpt', id: 'pcpt5', x: 410, y: 165,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', bcolor: 'rgba(255,255,255,0.01)', stroke: 1}
+						{type: 'pcpt', id: 'pcpt6', x: 460, y: 165,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', bcolor: 'rgba(255,255,255,0.01)', stroke: 1}
+						{type: 'pcpt', id: 'pcpt7', x: 570, y: 175,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', bcolor: 'rgba(255,255,255,0.01)', stroke: 1}
+						{type: 'pcpt', id: 'pcpt8', x: 472, y: 186,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', bcolor: 'rgba(255,255,255,0.01)', stroke: 1}
 
 						{type: 'ldrg', id: 'ldrg1', x: 200, y: 510, index: 'was buying', text: 'was buying', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'hide', afterFail:'return', eval: @onDrop}
 						{type: 'ldrg', id: 'ldrg2', x: 200, y: 530, index: 'was dancing', text: 'was dancing', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'hide', afterFail:'return', eval: @onDrop}
 						{type: 'ldrg', id: 'ldrg3', x: 325, y: 510, index: 'was running', text: 'was running', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'hide', afterFail:'return', eval: @onDrop}
 						{type: 'ldrg', id: 'ldrg4', x: 325, y: 530, index: 'was shouting', text: 'was shouting', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'hide', afterFail:'return', eval: @onDrop}
 						{type: 'ldrg', id: 'ldrg5', x: 450, y: 510, index: 'were you doing', text: 'were you doing', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'hide', afterFail:'return', eval: @onDrop}
-						{type: 'ldrg', id: 'ldrg6', x: 450, y: 530, index: 'was visiting', text: 'was visiting', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'hide', afterFail:'return', eval: @onDrop}
+						{type: 'ldrg', id: 'ldrg6', x: 470, y: 530, index: 'was visiting', text: 'was visiting', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'hide', afterFail:'return', eval: @onDrop}
 						{type: 'ldrg', id: 'ldrg7', x: 610, y: 510, index: 'was walking', text: 'was walking', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'hide', afterFail:'return', eval: @onDrop}
 						{type: 'ldrg', id: 'ldrg8', x: 610, y: 530, index: 'was watching', text: 'was watching', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'hide', afterFail:'return', eval: @onDrop}
 					]
