@@ -2064,10 +2064,12 @@ class ScrambledWordContainer extends Component
 		@x = opts.x
 		@y = opts.y
 		@uwidth = opts.uwidth ? 25
+		@distance = opts.distance ? 0
 		@bcolor = opts.bcolor ? '#FFF'
 		@scolor = opts.scolor ? '#333'
 		@fcolor = opts.fcolor ? '#333'
 		@font = opts.font ? '20px Arial'
+		@sentence = opts.sentence ? 'false'
 		@stroke = opts.stroke ? 3
 		@align = opts.align ? ''
 		@margin = opts.margin ? 5
@@ -2080,37 +2082,76 @@ class ScrambledWordContainer extends Component
 		@removeAllChildren()
 		@target = opts.target
 		@fx = opts.fx ? 'fadeOut'
-		word = opts.word.split ''
-		scrambledWord = @shuffle word
-		i = 0
-		if opts.prev
-			@prev = @insertText 'prevTxt', opts.prev, @font, @fcolor, 0, 0
-			npos = @prev.getMeasuredWidth() + @margin
-		else
-			npos = 0
-		for letter in word
-			#create container
-			if letter is ' '
-				npos+= @margin
+		if @sentence is false
+			word = opts.word.split ''
+			scrambledWord = @shuffle word
+			i = 0
+			if opts.prev
+				@prev = @insertText 'prevTxt', opts.prev, @font, @fcolor, 0, 0
+				npos = @prev.getMeasuredWidth() + @margin
 			else
-				opts = {text: letter, width: @uwidth}
-				h = new TextCompleterContainer opts, @font, @fcolor, @bcolor, @scolor, @stroke, npos, 5
-				@droptargets.push h
-				@add h, false
-				npos += @uwidth + @margin
-			i++
-		@width = npos
-		@setPosition @align
-		i = 0
-		npos = if @prev then @prev.getMeasuredWidth() + @margin else 0
-		for scrambledLetter in scrambledWord
-			#create drag
-			if scrambledLetter isnt ' '
-				opts = {id:"l#{@name}#{i}", x: npos, y: -h.height, index: scrambledLetter, target: @name, eval:@eval, text: scrambledLetter, font: @font, color: @fcolor, afterSuccess: 'hide',afterFail: 'return'}
-				d = new LetterDragContainer opts
-				@add d
-				npos += @uwidth + @margin
+				npos = 0
+			for letter in word
+				#create container
+				if letter is ' '
+					npos+= @margin
+				else
+					opts = {text: letter, width: @uwidth}
+					h = new TextCompleterContainer opts, @font, @fcolor, @bcolor, @scolor, @stroke, npos, 5
+					@droptargets.push h
+					@add h, false
+					npos += @uwidth + @margin
 				i++
+			@width = npos
+			@setPosition @align
+			i = 0
+			npos = if @prev then @prev.getMeasuredWidth() + @margin else 0
+			for scrambledLetter in scrambledWord
+				#create drag
+				if scrambledLetter isnt ' '
+					opts = {id:"l#{@name}#{i}", x: npos, y: -h.height, index: scrambledLetter, target: @name, eval:@eval, text: scrambledLetter, font: @font, color: @fcolor, afterSuccess: 'hide',afterFail: 'return'}
+					d = new LetterDragContainer opts
+					@add d
+					npos += @uwidth + @margin
+					i++
+		else
+			sentence = opts.word
+			anchoMax = 0
+			scrambledSentence = @shuffle sentence
+			i = 0
+			if opts.prev
+				@prev = @insertText 'prevTxt', opts.prev, @font, @fcolor, 0, 0
+				npos = @prev.getMeasuredWidth() + @margin
+			else
+				npos = 0
+
+			for word in sentence
+				#create container
+				if word is ' '
+					npos+= @margin
+				else
+					opts = {text: word, width: @uwidth}
+					h = new TextCompleterContainer opts, @font, @fcolor, @bcolor, @scolor, @stroke, npos, 5
+					@droptargets.push h
+					@add h, false
+					npos += h.width + @margin
+				i++
+			@width = npos
+			@setPosition @align
+			i = 0
+			npos = if @prev then @prev.getMeasuredWidth() + @margin else 0
+			for scrambledWord in scrambledSentence
+				#create drag
+				if scrambledWord isnt ' '
+					opts = {id:"l#{@name}#{i}", x: npos, y: -h.height - @distance, index: scrambledWord, target: @name, eval:@eval, text: scrambledWord, font: @font, color: @fcolor, afterSuccess: 'hide',afterFail: 'return'}
+
+					d = new LetterDragContainer opts
+					@add d
+					if i < sentence.length - 1
+						@insertText "separator", '/', @font, @fcolor, npos + d.width + @margin,  -h.height - @distance, 'center'
+
+					npos += d.width +  @margin + @margin
+					i++
 		@observer.notify ComponentObserver.UPDATED
 		TweenLite.from @, 0.3, {alpha: 0, y: @y - 10}
 	onComplete: () ->
