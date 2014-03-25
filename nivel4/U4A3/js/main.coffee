@@ -44,7 +44,7 @@ class U4A3 extends Oda
 		@game = 
 			header: 'header'
 			instructions: {x: 110, y: 130, states: [{text:'Read and choose the word.', sound:'s/silence', played: false}]}
-			score:{type: 'points', x:20, y:500, init: 0, total: 15, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
+			score:{type: 'points', x:20, y:500, init: 0, total: 10, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
 			scenes:[
 				{
 					answers: {

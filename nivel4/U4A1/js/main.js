@@ -131,7 +131,7 @@ NEW ODA
           x: 20,
           y: 500,
           init: 0,
-          total: 12,
+          total: 14,
           aimg: 'c1',
           acolor: '#333',
           bimg: 'c2',
