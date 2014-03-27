@@ -1975,7 +1975,7 @@ LIBRARY
     }
 
     TextContainer.prototype.initialize = function(opts) {
-      var align, fcolor, font, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7;
+      var align, fcolor, font, h, maxWidth, npos, t, ypos, _i, _len, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8, _ref9;
       this.Container_initialize();
       Module.extend(this, d2oda.methods);
       Module.extend(this, d2oda.actions);
@@ -1987,14 +1987,38 @@ LIBRARY
       this.y = opts.y;
       this.scaleX = (_ref6 = opts.scale) != null ? _ref6 : 1;
       this.scaleY = (_ref7 = opts.scale) != null ? _ref7 : 1;
-      this.t = this.createText(this.name, opts.text, font, fcolor, 0, 0, align);
-      if (opts.lineWidth) {
-        this.t.lineWidth = opts.lineWidth;
+      this.parrafo = (_ref8 = opts.parrafo) != null ? _ref8 : false;
+      if (this.parrafo === false) {
+        this.t = this.createText(this.name, opts.text, font, fcolor, 0, 0, align);
+        if (opts.lineWidth) {
+          this.t.lineWidth = opts.lineWidth;
+        }
+        this.width = this.t.getMeasuredWidth();
+        this.height = this.t.getMeasuredHeight();
+        this.mouseEnabled = true;
+        return this.add(this.t, false);
+      } else {
+        npos = 0;
+        ypos = -5;
+        maxWidth = 0;
+        _ref9 = opts.text;
+        for (_i = 0, _len = _ref9.length; _i < _len; _i++) {
+          t = _ref9[_i];
+          if (t === '#rtn') {
+            h = this.createText('txt', 'BLANK', font, fcolor, npos, 0);
+            if (npos > maxWidth) {
+              maxWidth = npos;
+            }
+            npos = 0;
+            ypos += h.getMeasuredHeight();
+          } else {
+            h = this.createText('txt', t, font, fcolor, npos, ypos);
+            this.add(h, false);
+            maxWidth = npos += h.getMeasuredWidth() + this.margin;
+          }
+        }
+        return this.width = maxWidth;
       }
-      this.width = this.t.getMeasuredWidth();
-      this.height = this.t.getMeasuredHeight();
-      this.mouseEnabled = true;
-      return this.add(this.t, false);
     };
 
     TextContainer.prototype.update = function(opts) {

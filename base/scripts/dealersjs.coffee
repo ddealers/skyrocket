@@ -1016,12 +1016,30 @@ class TextContainer extends Component
 		@y = opts.y
 		@scaleX = opts.scale ? 1
 		@scaleY = opts.scale ? 1
-		@t = @createText @name, opts.text, font, fcolor, 0, 0, align
-		if opts.lineWidth then @t.lineWidth = opts.lineWidth
-		@width = @t.getMeasuredWidth()
-		@height = @t.getMeasuredHeight()
-		@mouseEnabled = true
-		@add @t, false
+		@parrafo = opts.parrafo ? false
+
+		if @parrafo is false 
+			@t = @createText @name, opts.text, font, fcolor, 0, 0, align
+			if opts.lineWidth then @t.lineWidth = opts.lineWidth
+			@width = @t.getMeasuredWidth()
+			@height = @t.getMeasuredHeight()
+			@mouseEnabled = true
+			@add @t, false
+		else
+			npos = 0
+			ypos = -5
+			maxWidth = 0
+			for t in opts.text
+				if t is '#rtn'
+					h = @createText 'txt', 'BLANK', font, fcolor, npos, 0
+					maxWidth = npos if npos > maxWidth
+					npos = 0
+					ypos += h.getMeasuredHeight()
+				else
+					h = @createText 'txt', t, font, fcolor, npos, ypos
+					@add h, false
+					maxWidth = npos += h.getMeasuredWidth() + @margin
+			@width = maxWidth
 	update: (opts) ->
 		if opts.text then @t.text = opts.text
 	isComplete: ->
