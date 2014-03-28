@@ -159,6 +159,12 @@ NEW ODA
                       target: 'older'
                     }
                   }, {
+                    name: 'grp2',
+                    opts: {
+                      type: 'fadeIn',
+                      target: 'text1'
+                    }
+                  }, {
                     name: 'pcpt1',
                     opts: {
                       pattern: ['Lizzy is ', '#tcpt', '#tcpt', ' her sister'],
@@ -172,12 +178,6 @@ NEW ODA
                         }
                       ]
                     }
-                  }, {
-                    name: 't1',
-                    opts: {
-                      text: ['Lizzy is 10 years old and her sister is 3.'],
-                      parrafo: true
-                    }
                   }
                 ], [
                   {
@@ -185,6 +185,12 @@ NEW ODA
                     opts: {
                       type: 'fadeIn',
                       target: 'thinner'
+                    }
+                  }, {
+                    name: 'grp2',
+                    opts: {
+                      type: 'fadeIn',
+                      target: 'text1'
                     }
                   }, {
                     name: 'pcpt1',
@@ -200,12 +206,6 @@ NEW ODA
                         }
                       ]
                     }
-                  }, {
-                    name: 't1',
-                    opts: {
-                      text: ['Patrick is thin. Louis is not thin.'],
-                      parrafo: true
-                    }
                   }
                 ], [
                   {
@@ -213,6 +213,12 @@ NEW ODA
                     opts: {
                       type: 'fadeIn',
                       target: 'hotter'
+                    }
+                  }, {
+                    name: 'grp2',
+                    opts: {
+                      type: 'fadeIn',
+                      target: 'text1'
                     }
                   }, {
                     name: 'pcpt1',
@@ -228,12 +234,6 @@ NEW ODA
                         }
                       ]
                     }
-                  }, {
-                    name: 't1',
-                    opts: {
-                      text: ['It\'s hot today, 32 degrees!', '#rtn', 'Yesterday it was 25 degrees.'],
-                      parrafo: true
-                    }
                   }
                 ], [
                   {
@@ -241,6 +241,12 @@ NEW ODA
                     opts: {
                       type: 'fadeIn',
                       target: 'funnier'
+                    }
+                  }, {
+                    name: 'grp2',
+                    opts: {
+                      type: 'fadeIn',
+                      target: 'text2'
                     }
                   }, {
                     name: 'pcpt1',
@@ -256,12 +262,6 @@ NEW ODA
                         }
                       ]
                     }
-                  }, {
-                    name: 't1',
-                    opts: {
-                      text: ['This movie is very funny.', '#rtn', 'The one we saw yesterday wasn\'t.'],
-                      parrafo: true
-                    }
                   }
                 ], [
                   {
@@ -269,6 +269,12 @@ NEW ODA
                     opts: {
                       type: 'fadeIn',
                       target: 'longer'
+                    }
+                  }, {
+                    name: 'grp2',
+                    opts: {
+                      type: 'fadeIn',
+                      target: 'text3'
                     }
                   }, {
                     name: 'pcpt1',
@@ -284,12 +290,6 @@ NEW ODA
                         }
                       ]
                     }
-                  }, {
-                    name: 't1',
-                    opts: {
-                      text: ['Roger\'s book is long, 300 pages! ', '#rtn', 'Paul\'s book is only 200 pages.'],
-                      parrafo: true
-                    }
                   }
                 ], [
                   {
@@ -297,6 +297,12 @@ NEW ODA
                     opts: {
                       type: 'fadeIn',
                       target: 'stronger'
+                    }
+                  }, {
+                    name: 'grp2',
+                    opts: {
+                      type: 'fadeIn',
+                      target: 'text4'
                     }
                   }, {
                     name: 'pcpt1',
@@ -312,12 +318,6 @@ NEW ODA
                         }
                       ]
                     }
-                  }, {
-                    name: 't1',
-                    opts: {
-                      text: ['I am strong, but my big brother is very strong.'],
-                      parrafo: true
-                    }
                   }
                 ], [
                   {
@@ -325,6 +325,12 @@ NEW ODA
                     opts: {
                       type: 'fadeIn',
                       target: 'higher'
+                    }
+                  }, {
+                    name: 'grp2',
+                    opts: {
+                      type: 'fadeIn',
+                      target: 'text5'
                     }
                   }, {
                     name: 'pcpt1',
@@ -340,12 +346,6 @@ NEW ODA
                         }
                       ]
                     }
-                  }, {
-                    name: 't1',
-                    opts: {
-                      text: ['My mom is a dancer. She jumps really high.'],
-                      parrafo: true
-                    }
                   }
                 ], [
                   {
@@ -353,6 +353,12 @@ NEW ODA
                     opts: {
                       type: 'fadeIn',
                       target: 'happier'
+                    }
+                  }, {
+                    name: 'grp2',
+                    opts: {
+                      type: 'fadeIn',
+                      target: 'text6'
                     }
                   }, {
                     name: 'pcpt1',
@@ -368,12 +374,6 @@ NEW ODA
                         }
                       ]
                     }
-                  }, {
-                    name: 't1',
-                    opts: {
-                      text: ['Laura got a 9 on her exam. Samuel got a 7.'],
-                      parrafo: true
-                    }
                   }
                 ], [
                   {
@@ -381,6 +381,12 @@ NEW ODA
                     opts: {
                       type: 'fadeIn',
                       target: 'harder'
+                    }
+                  }, {
+                    name: 'grp2',
+                    opts: {
+                      type: 'fadeIn',
+                      target: 'text7'
                     }
                   }, {
                     name: 'pcpt1',
@@ -396,12 +402,6 @@ NEW ODA
                         }
                       ]
                     }
-                  }, {
-                    name: 't1',
-                    opts: {
-                      text: ['Dennis scored a goal. He kicked the ball hard.'],
-                      parrafo: true
-                    }
                   }
                 ], [
                   {
@@ -409,6 +409,12 @@ NEW ODA
                     opts: {
                       type: 'fadeIn',
                       target: 'farther'
+                    }
+                  }, {
+                    name: 'grp2',
+                    opts: {
+                      type: 'fadeIn',
+                      target: 'text8'
                     }
                   }, {
                     name: 'pcpt1',
@@ -423,12 +429,6 @@ NEW ODA
                           success: 'than'
                         }
                       ]
-                    }
-                  }, {
-                    name: 't1',
-                    opts: {
-                      text: ['Liz lives next door to the school. ', '#rtn', 'Andrew lives five kilometers away.'],
-                      parrafo: true
                     }
                   }
                 ]
@@ -512,12 +512,82 @@ NEW ODA
                 align: 'mc'
               }, {
                 type: 'txt',
-                id: 't1',
-                text: [],
-                x: 265,
-                y: 510,
+                id: 'text1',
+                text: 'Patrick is thin. Louis is not thin.',
+                x: 256,
+                y: 505,
                 font: '14px Quicksand',
-                align: 'center'
+                align: 'center',
+                lineWidth: 250
+              }, {
+                type: 'txt',
+                id: 'text2',
+                text: 'It\'s hot today, 32 degrees!',
+                '#rtn': '#rtn',
+                'Yesterday it was 25 degrees.': 'Yesterday it was 25 degrees.',
+                x: 256,
+                y: 505,
+                font: '14px Quicksand',
+                align: 'center',
+                lineWidth: 250
+              }, {
+                type: 'txt',
+                id: 'text3',
+                text: 'This movie is very funny.',
+                '#rtn': '#rtn',
+                'The one we saw yesterday wasn\'t.': 'The one we saw yesterday wasn\'t.',
+                x: 256,
+                y: 505,
+                font: '14px Quicksand',
+                align: 'center',
+                lineWidth: 250
+              }, {
+                type: 'txt',
+                id: 'text4',
+                text: 'Roger\'s book is long, 300 pages! ',
+                '#rtn': '#rtn',
+                'Paul\'s book is only 200 pages.': 'Paul\'s book is only 200 pages.',
+                x: 256,
+                y: 505,
+                font: '14px Quicksand',
+                align: 'center',
+                lineWidth: 250
+              }, {
+                type: 'txt',
+                id: 'text5',
+                text: 'I am strong, but my big brother is very strong.',
+                x: 256,
+                y: 505,
+                font: '14px Quicksand',
+                align: 'center',
+                lineWidth: 250
+              }, {
+                type: 'txt',
+                id: 'text6',
+                text: 'My mom is a dancer. She jumps really high.',
+                x: 256,
+                y: 505,
+                font: '14px Quicksand',
+                align: 'center',
+                lineWidth: 250
+              }, {
+                type: 'txt',
+                id: 'text7',
+                text: 'Laura got a 9 on her exam. Samuel got a 7.',
+                x: 256,
+                y: 505,
+                font: '14px Quicksand',
+                align: 'center',
+                lineWidth: 250
+              }, {
+                type: 'txt',
+                id: 'text8',
+                text: 'Dennis scored a goal. He kicked the ball hard.',
+                x: 256,
+                y: 505,
+                font: '14px Quicksand',
+                align: 'center',
+                lineWidth: 250
               }, {
                 type: 'pcpt',
                 id: 'pcpt1',
@@ -527,40 +597,6 @@ NEW ODA
                 margin: 5,
                 align: 'tc',
                 scolor: '#F9101A'
-              }, {
-                type: 'btn',
-                id: 'btn_1',
-                x: 690,
-                y: 210 - 10,
-                index: 'clic',
-                target: 'pcpt1',
-                "eval": this.btnClick,
-                states: [
-                  {
-                    img: {
-                      name: '5',
-                      x: 0,
-                      y: 0
-                    }
-                  }
-                ]
-              }, {
-                type: 'btn',
-                id: 'btn_2',
-                x: 690,
-                y: 400,
-                index: 'than',
-                target: 'pcpt1',
-                "eval": this.btnClick,
-                states: [
-                  {
-                    img: {
-                      name: '5',
-                      x: 0,
-                      y: 0
-                    }
-                  }
-                ]
               }
             ],
             groups: [
@@ -569,6 +605,11 @@ NEW ODA
                 id: 'grp1',
                 invisible: true,
                 group: ['older', 'thinner', 'hotter', 'funnier', 'longer', 'stronger', 'higher', 'happier', 'harder', 'farther']
+              }, {
+                type: 'grp',
+                id: 'grp2',
+                invisible: true,
+                group: ['text1', 'text2', 'text3', 'text4', 'text5', 'text6', 'text7', 'text8']
               }
             ]
           }
