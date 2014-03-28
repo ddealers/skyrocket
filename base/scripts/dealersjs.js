@@ -1975,7 +1975,7 @@ LIBRARY
     }
 
     TextContainer.prototype.initialize = function(opts) {
-      var align, fcolor, font, h, maxWidth, npos, t, ypos, _i, _len, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8, _ref9;
+      var align, fcolor, font, h, maxWidth, npos, t, ypos, _i, _len, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8, _ref9, _results;
       this.Container_initialize();
       Module.extend(this, d2oda.methods);
       Module.extend(this, d2oda.actions);
@@ -2002,22 +2002,25 @@ LIBRARY
         ypos = -5;
         maxWidth = 0;
         _ref9 = opts.text;
+        _results = [];
         for (_i = 0, _len = _ref9.length; _i < _len; _i++) {
           t = _ref9[_i];
           if (t === '#rtn') {
             h = this.createText('txt', 'BLANK', font, fcolor, npos, 0);
-            if (npos > maxWidth) {
-              maxWidth = npos;
-            }
             npos = 0;
-            ypos += h.getMeasuredHeight();
+            ypos += this.height;
+            _results.push(this.height = h.getMeasuredHeight());
           } else {
             h = this.createText('txt', t, font, fcolor, npos, ypos);
-            this.add(h, false);
-            maxWidth = npos += h.getMeasuredWidth() + this.margin;
+            if (opts.lineWidth) {
+              h.lineWidth = opts.lineWidth;
+            }
+            this.width = h.getMeasuredWidth();
+            this.height = h.getMeasuredHeight();
+            _results.push(this.add(h, false));
           }
         }
-        return this.width = maxWidth;
+        return _results;
       }
     };
 

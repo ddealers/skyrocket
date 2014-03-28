@@ -1032,14 +1032,16 @@ class TextContainer extends Component
 			for t in opts.text
 				if t is '#rtn'
 					h = @createText 'txt', 'BLANK', font, fcolor, npos, 0
-					maxWidth = npos if npos > maxWidth
 					npos = 0
-					ypos += h.getMeasuredHeight()
+					ypos += @height
+					@height = h.getMeasuredHeight()
+
 				else
 					h = @createText 'txt', t, font, fcolor, npos, ypos
+					if opts.lineWidth then h.lineWidth = opts.lineWidth
+					@width = h.getMeasuredWidth()
+					@height = h.getMeasuredHeight()
 					@add h, false
-					maxWidth = npos += h.getMeasuredWidth() + @margin
-			@width = maxWidth
 	update: (opts) ->
 		if opts.text then @t.text = opts.text
 	isComplete: ->
