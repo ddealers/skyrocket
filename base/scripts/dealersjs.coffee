@@ -1357,7 +1357,12 @@ class ChooseAWordContainer extends Component
 		opt2.hitArea = hito2
 		opt2.index = 2
 
-		after = @createText "#{@name}_after", opts.after, @label.font, @label.color, opt2.x + opt2.getMeasuredWidth() + 10, 0 
+		if opts.after is '.'
+			margen = 0
+		else
+			margen = 10
+
+		after = @createText "#{@name}_after", opts.after, @label.font, @label.color, opt2.x + opt2.getMeasuredWidth() + margen, 0 
 		@add after
 
 		@add opt1
@@ -1415,20 +1420,39 @@ class ChooseContainer extends Component
 				lineWidth = if @bullets.lineWidth then @bullets.lineWidth else 200
 				@insertText "separator", '/', @bullets.font, @bullets.color, 0, 400, 'center'
 
-				opt1 = @createText "#{@name}_opt1", opts.opt1, @bullets.font, @bullets.color, -20, 400, 'right'
-				if @bullets.lineWidth then opt1.lineWidth = @bullets.lineWidth
-				hito1 = new createjs.Shape()
-				hito1.graphics.beginFill('#000').drawRect(-opt1.getMeasuredWidth() - 5, -3, opt1.getMeasuredWidth() + 10, opt1.getMeasuredHeight() + 6)
-				opt1.hitArea = hito1
-				opt1.index = 1
 
-				opt2 = @createText "#{@name}_opt2", opts.opt2, @bullets.font, @bullets.color, 20, 400, 'left'
-				if @bullets.lineWidth then opt2.lineWidth = @bullets.lineWidth
-				hito2 = new createjs.Shape()
-				hito2.graphics.beginFill('#000').drawRect(-5, -3, opt2.getMeasuredWidth() + 10, opt2.getMeasuredHeight() + 6)
-				opt2.hitArea = hito2
-				opt2.index = 2
 				
+				
+				rand = Math.round Math.random()
+				if rand is 1
+					opt1 = @createText "#{@name}_opt1", opts.opt1, @bullets.font, @bullets.color, -20, 400, 'right'
+					if @bullets.lineWidth then opt1.lineWidth = @bullets.lineWidth
+					hito1 = new createjs.Shape()
+					hito1.graphics.beginFill('#000').drawRect(-opt1.getMeasuredWidth() - 5, -3, opt1.getMeasuredWidth() + 10, opt1.getMeasuredHeight() + 6)
+					opt1.hitArea = hito1
+					opt1.index = 1
+
+					opt2 = @createText "#{@name}_opt2", opts.opt2, @bullets.font, @bullets.color, 20, 400, 'left'
+					if @bullets.lineWidth then opt2.lineWidth = @bullets.lineWidth
+					hito2 = new createjs.Shape()
+					hito2.graphics.beginFill('#000').drawRect(-5, -3, opt2.getMeasuredWidth() + 10, opt2.getMeasuredHeight() + 6)
+					opt2.hitArea = hito2
+					opt2.index = 2
+				else
+					opt1 = @createText "#{@name}_opt1", opts.opt1, @bullets.font, @bullets.color, 20, 400, 'left'
+					if @bullets.lineWidth then opt1.lineWidth = @bullets.lineWidth
+					hito1 = new createjs.Shape()
+					hito1.graphics.beginFill('#000').drawRect( - 5, -3, opt1.getMeasuredWidth() + 10, opt1.getMeasuredHeight() + 6)
+					opt1.hitArea = hito1
+					opt1.index = 1
+
+					opt2 = @createText "#{@name}_opt2", opts.opt2, @bullets.font, @bullets.color, -20, 400, 'right'
+					if @bullets.lineWidth then opt2.lineWidth = @bullets.lineWidth
+					hito2 = new createjs.Shape()
+					hito2.graphics.beginFill('#000').drawRect(-opt2.getMeasuredWidth()-5, -3, opt2.getMeasuredWidth() + 10, opt2.getMeasuredHeight() + 6)
+					opt2.hitArea = hito2
+					opt2.index = 2
+
 		@add opt1
 		opt1.addEventListener 'mouseover', =>
 			TweenLite.to opt1, 0.5, {alpha: 0.5}
@@ -1675,6 +1699,7 @@ class PhraseCompleterContainer extends Component
 		@stroke = opts.stroke ? 3
 		@name = opts.name ? opts.id
 		@align = opts.align ? ''
+		@uwidth = opts.uwidth
 		@currentTarget = 0
 		@observer = new ComponentObserver()
 		@droptargets = new Array()
@@ -1693,7 +1718,11 @@ class PhraseCompleterContainer extends Component
 		for t in opts.pattern
 			if t is '#tcpt'
 				txt = opts.targets[i]
-				h = new TextCompleterContainer txt, @font, @fcolor, @bcolor, @scolor, @stroke, npos, ypos
+				if @uwidth 
+					hopts = {text: txt.text, width: @uwidth}
+				else
+					hopts = txt
+				h = new TextCompleterContainer hopts, @font, @fcolor, @bcolor, @scolor, @stroke, npos, ypos
 				@droptargets.push h
 				@add h, false
 				npos += h.width + @margin
@@ -1751,6 +1780,7 @@ class PhraseCloneContainer extends Component
 		ypos = opts.ypos ? -5
 		maxWidth = 0
 		for t in opts.pattern
+
 			if t is '#tcpt'
 				txt = opts.targets[i]
 				h = new TextCloneContainer txt, @font, @fcolor, @bcolor, @scolor, @stroke, npos, ypos
@@ -1767,6 +1797,10 @@ class PhraseCloneContainer extends Component
 				h = @createText 'txt', t, @font, @fcolor, npos, ypos
 				@add h, false
 				maxWidth = npos += h.getMeasuredWidth() + @margin
+
+			if t.charAt(0) in ['.', ',', '?', '!'] 
+				console.log 'coma'
+				h.x = h.x - @margin
 		@width = maxWidth
 		@setPosition @align
 		@observer.notify ComponentObserver.UPDATED
@@ -1990,7 +2024,7 @@ class ABCContainer extends Component
 				_x = i * (opts.uwidth + opts.margin)
 				_y = 0
 			if opts.clickable
-				lopts = {id:"abc_#{i}", x: _x, y: _y, index: letter, target: @target, eval: @eval, states:[{txt:{text:letter, font: opts.font, color: opts.fcolor}}]}
+				lopts = {id:"abc_#{i}", x: _x, y: _y, index: letter, target: @target, eval: @eval, states:[{txt:{text:letter,name:letter, font: opts.font, color: opts.fcolor}}]}
 				d = new ButtonContainer lopts
 			else
 				lopts = {id:"abc_#{i}", x: _x, y: _y, index: letter, target: @target, eval: @eval, text: letter, font: opts.font, color: opts.fcolor, afterSuccess: 'origin',afterFail: 'return'}
@@ -2154,7 +2188,10 @@ class ScrambledWordContainer extends Component
 					h = new TextCompleterContainer opts, @font, @fcolor, @bcolor, @scolor, @stroke, npos, 5
 					@droptargets.push h
 					@add h, false
-					npos += h.width + @margin
+					completerwidth = npos += h.width + @margin
+					if i is sentence.length - 1
+						@insertText "punto", '.', @font, @fcolor, h.x + h.width + 4,  5, 'center'
+
 				i++
 			@width = npos
 			@setPosition @align
@@ -2163,15 +2200,31 @@ class ScrambledWordContainer extends Component
 			for scrambledWord in scrambledSentence
 				#create drag
 				if scrambledWord isnt ' '
-					opts = {id:"l#{@name}#{i}", x: npos, y: -h.height - @distance, index: scrambledWord, target: @name, eval:@eval, text: scrambledWord, font: @font, color: @fcolor, afterSuccess: 'hide',afterFail: 'return'}
+					opts = {id:"l#{i}", x: npos, y: -h.height - @distance, index: scrambledWord, text: scrambledWord, font: @font, color: @fcolor, afterSuccess: 'hide',afterFail: 'return'}
+					d = new LetterDragContainer opts
+					wordswidth = npos += d.width +  @margin + @margin
+					i++
+			for scrambledWord in scrambledSentence
+					diferencia = (completerwidth - wordswidth) / 2
+					console.log  diferencia
+					i++
+			npos = 0
+			i = 0
+			for scrambledWord in scrambledSentence
+				#create drag
+				if scrambledWord isnt ' '
+					opts = {id:"l#{@name}#{i}", x: npos + diferencia, y: -h.height - @distance, index: scrambledWord, target: @name, eval:@eval, text: scrambledWord, font: @font, color: @fcolor, afterSuccess: 'hide',afterFail: 'return'}
 
 					d = new LetterDragContainer opts
 					@add d
 					if i < sentence.length - 1
-						@insertText "separator", '/', @font, @fcolor, npos + d.width + @margin,  -h.height - @distance, 'center'
+						@insertText "separator", '/', @font, @fcolor, d.x + d.width + @margin,  -h.height - @distance, 'center'
 
-					npos += d.width +  @margin + @margin
+					wordswidth = npos += d.width +  @margin + @margin
+
 					i++
+			
+
 		@observer.notify ComponentObserver.UPDATED
 		TweenLite.from @, 0.3, {alpha: 0, y: @y - 10}
 	onComplete: () ->

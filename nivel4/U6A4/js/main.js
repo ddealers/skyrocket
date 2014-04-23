@@ -78,7 +78,7 @@ NEW ODA
           x: 20,
           y: 500,
           init: 0,
-          total: 12,
+          total: 8,
           aimg: 'c1',
           acolor: '#333',
           bimg: 'c2',
@@ -128,7 +128,7 @@ NEW ODA
                 x: 70,
                 y: 260,
                 lineWidth: 330,
-                font: '14px Quicksand',
+                font: '14px Roboto',
                 align: 'left',
                 parrafo: true
               }, {
@@ -191,7 +191,7 @@ NEW ODA
                 id: 'lbl1',
                 x: 400,
                 y: 490,
-                font: '20px Quicksand',
+                font: '20px Roboto',
                 lineWidth: 600,
                 color: '#333',
                 align: 'center'
@@ -242,7 +242,7 @@ NEW ODA
                 x: 70,
                 y: 260,
                 lineWidth: 330,
-                font: '14px Quicksand',
+                font: '14px Roboto',
                 align: 'left',
                 parrafo: true
               }, {
@@ -305,7 +305,7 @@ NEW ODA
                 id: 'lbl2',
                 x: 400,
                 y: 490,
-                font: '20px Quicksand',
+                font: '20px Roboto',
                 lineWidth: 600,
                 color: '#333',
                 align: 'center'
@@ -349,7 +349,7 @@ NEW ODA
                 x: 70,
                 y: 260,
                 lineWidth: 330,
-                font: '14px Quicksand',
+                font: '14px Roboto',
                 align: 'left',
                 parrafo: true
               }, {
@@ -393,7 +393,7 @@ NEW ODA
                 id: 'lbl3',
                 x: 400,
                 y: 490,
-                font: '20px Quicksand',
+                font: '20px Roboto',
                 lineWidth: 600,
                 color: '#333',
                 align: 'center'
@@ -437,7 +437,7 @@ NEW ODA
                 x: 70,
                 y: 260,
                 lineWidth: 330,
-                font: '14px Quicksand',
+                font: '14px Roboto',
                 align: 'left',
                 parrafo: true
               }, {
@@ -481,7 +481,7 @@ NEW ODA
                 id: 'lbl4',
                 x: 400,
                 y: 490,
-                font: '20px Quicksand',
+                font: '20px Roboto',
                 lineWidth: 600,
                 color: '#333',
                 align: 'center'

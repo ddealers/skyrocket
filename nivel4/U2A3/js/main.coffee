@@ -39,7 +39,7 @@ class U2A3 extends Oda
 			lib.scene.success false
 		@game = 
 			header: 'header'
-			instructions: {x: 110, y: 130, states: [{text:'Read and listen. Then complete the sentences.', sound:'s/silence', played: false}]}
+			instructions: {x: 110, y: 130, states: [{text:'Read and listen. Then complete the sentences.', sound:'s/silence', played: false}, {text:'Listen and choose the correct sentences.', sound:'s/silence', played: false}]}
 			score:{type: 'points', x:20, y:500, init: 0, total: 14, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
 			scenes:[
 				
@@ -47,6 +47,8 @@ class U2A3 extends Oda
 					answers: {
 						collection: [ 
 							[
+								{name: 'snd', opts:{id:'s/travel'}}
+
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'family'}}
 								{name: 'pcct1', opts:{pattern:['We met in Africa ', '#tcpt',' years ago.'], targets: [{text:'on Christmas Day', success:'ten'}]}}
 								{name: 'pcct2', opts:{pattern:['We got married ', '#tcpt','.'], targets: [{text:'on Christmas Day', success:'in 2005'}]}}
@@ -54,7 +56,7 @@ class U2A3 extends Oda
 								{name: 'pcct4', opts:{pattern:['We started homeschooling Patrick when he was ', '#tcpt',' years old.'], targets: [{text:'on Christmas Day', success:'four'}]}}
 								{name: 'pcct5', opts:{pattern:['In 2011, a university gave us ', '#tcpt',' to study Pacific cultures.'], targets: [{text:'on Christmas Day', success:'money'}]}}
 								{name: 'pcct6', opts:{pattern:['We gave', '#tcpt','to say goodbye to our family and friends.'], targets: [{text:'on Christmas Day', success:'a party'}]}}
-								{name: 'pcct7', opts:{pattern:['We left Hawaii ', '#tcpt','.'], targets: [{text:'on Christmas Day', success:'on Christmas Day'}]}}
+								{name: 'pcct7', opts:{pattern:['We left Hawaii on', '#tcpt','.'], targets: [{text:'on Christmas Day', success:'on Christmas Day'}]}}
 								{name: 'pcct8', opts:{pattern:['Patrick is happy and he is making ', '#tcpt',' everywhere.'], targets: [{text:'on Christmas Day', success:'new friends'}]}}
 							]
 						]
@@ -63,14 +65,18 @@ class U2A3 extends Oda
 					containers:[
 						{type: 'img', id: 'caja', x: 144, y: 480}
 						{type: 'img', id: 'family', x: 28, y: 40}
-						{type: 'pcct', id: 'pcct1', x: 385, y: 190, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct2', x: 385, y: 225, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct3', x: 385, y: 260, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct4', x: 385, y: 295, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct5', x: 385, y: 330, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct6', x: 385, y: 365, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct7', x: 385, y: 400, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct8', x: 385, y: 435, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
+						{
+							type: 'btn', id: 'repeat', x: 750, y: 515, isRepeat: true
+							states:[img: {name:'repeat', x: 0, y: 0, align:'tc'}]
+						}
+						{type: 'pcct', id: 'pcct1', x: 385, y: 190, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct2', x: 385, y: 225, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct3', x: 385, y: 260, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct4', x: 385, y: 295, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct5', x: 385, y: 330, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct6', x: 385, y: 365, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct7', x: 385, y: 400, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct8', x: 385, y: 435, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
 						 
 
 						{type: 'ldrg', id: 'ldrg1', x: 240,  y: 510, index: 'a party', text:'a party', font:'15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
@@ -99,14 +105,14 @@ class U2A3 extends Oda
 								{name:'global', opts:{success:1}}
 								{
 									name: 'chs1', opts:{type: 'txt'
-									opt1: 'They met in Africa ten years ago.', opt2: 'They met in Africa last year'}
+									opt1: 'They met in Africa ten years ago.', opt2: 'They met in Africa last year.'}
 								}
 							]
 							[
-								{name:'global', opts:{success:2}}
+								{name:'global', opts:{success:1}}
 								{
 									name: 'chs1', opts:{type: 'txt'
-									opt1: 'They had a son 4 years ago.', opt2: 'They had a son 6 years ago.'}
+									opt2: 'They had a son 4 years ago.', opt1: 'They had a son 6 years ago.'}
 								}
 							]
 							[
@@ -117,10 +123,10 @@ class U2A3 extends Oda
 								}
 							]
 							[
-								{name:'global', opts:{success:2}}
+								{name:'global', opts:{success:1}}
 								{
 									name: 'chs1', opts:{type: 'txt'
-									opt1: 'They spent Christmas with her mom.', opt2: 'They had a party two weeks before Christmas.'}
+									opt2: 'They spent Christmas with her mom.', opt1: 'They had a party two weeks before Christmas.'}
 								}
 							]
 							[

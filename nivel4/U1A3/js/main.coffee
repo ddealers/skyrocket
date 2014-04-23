@@ -8,21 +8,21 @@ class U1A3 extends Oda
 		@manifest = [
 			{ id: 'c1', src: 'circulo1.png' }
 			{ id: 'c2', src: 'circulo2.png' }
-			{ id: 'artposters', src: 'art_posters.png' }
-			{ id: 'camera', src: 'camera.png' }
-			{ id: 'compass', src: 'compass.png' }
-			{ id: 'flipflops', src: 'flip_flops.png' }
-			{ id: 'globes', src: 'globes.png' }
-			{ id: 'guidebook', src: 'guide_book.png' }
+			{ id: 'artposters', src: '6.png' }
+			{ id: 'camera', src: '3.png' }
+			{ id: 'compass', src: 'd.png' }
+			{ id: 'flipflops', src: '5.png' }
+			{ id: 'globes', src: 'b.png' }
+			{ id: 'guidebook', src: '2.png' }
 			{ id: 'header', src: 'header.png' }
-			{ id: 'hikingboots', src: 'hiking_boots.png' }
-			{ id: 'map', src: 'map.png' }
-			{ id: 'parasol', src: 'parasol.png' }
+			{ id: 'hikingboots', src: 'c.png' }
+			{ id: 'map', src: 'a.png' }
+			{ id: 'parasol', src: '4.png' }
 			{ id: 'repeat', src: 'repeat.png' }
-			{ id: 'skigoggles', src: 'ski_goggles.png' }
-			{ id: 'skihat', src: 'ski_hat.png' }
+			{ id: 'skigoggles', src: 'f.png' }
+			{ id: 'skihat', src: 'e.png' }
 			{ id: 'summer', src: 'summer.png' }
-			{ id: 'sunscreen', src: 'sunscreen.png' }
+			{ id: 'sunscreen', src: '1.png' }
 			{ id: 'beach', src: 'the_beach.png' }
 			{ id: 'city', src: 'the_city.png' }
 			{ id: 'winter', src: 'winter.png' }
@@ -32,12 +32,12 @@ class U1A3 extends Oda
 			{ id: 's/4', src: '4.mp3' }
 			{ id: 's/5', src: '5.mp3' }
 			{ id: 's/6', src: '6.mp3' }
-			{ id: 's/a', src: 'a.mp3' }
-			{ id: 's/b', src: 'b.mp3' }
-			{ id: 's/c', src: 'c.mp3' }
-			{ id: 's/d', src: 'd.mp3' }
-			{ id: 's/e', src: 'e.mp3' }
-			{ id: 's/f', src: 'f.mp3' }
+			{ id: 's/a', src: 'A.mp3' }
+			{ id: 's/b', src: 'B.mp3' }
+			{ id: 's/c', src: 'C.mp3' }
+			{ id: 's/d', src: 'D.mp3' }
+			{ id: 's/e', src: 'E.mp3' }
+			{ id: 's/f', src: 'F.mp3' }
 			{ id: 's/silence', src: 'silence.mp3' }
 		]
 		@onDrop = (dispatcher, target) =>

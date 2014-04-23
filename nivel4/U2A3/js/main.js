@@ -91,6 +91,10 @@ NEW ODA
               text: 'Read and listen. Then complete the sentences.',
               sound: 's/silence',
               played: false
+            }, {
+              text: 'Listen and choose the correct sentences.',
+              sound: 's/silence',
+              played: false
             }
           ]
         },
@@ -111,6 +115,11 @@ NEW ODA
               collection: [
                 [
                   {
+                    name: 'snd',
+                    opts: {
+                      id: 's/travel'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -185,7 +194,7 @@ NEW ODA
                   }, {
                     name: 'pcct7',
                     opts: {
-                      pattern: ['We left Hawaii ', '#tcpt', '.'],
+                      pattern: ['We left Hawaii on', '#tcpt', '.'],
                       targets: [
                         {
                           text: 'on Christmas Day',
@@ -221,12 +230,28 @@ NEW ODA
                 x: 28,
                 y: 40
               }, {
+                type: 'btn',
+                id: 'repeat',
+                x: 750,
+                y: 515,
+                isRepeat: true,
+                states: [
+                  {
+                    img: {
+                      name: 'repeat',
+                      x: 0,
+                      y: 0,
+                      align: 'tc'
+                    }
+                  }
+                ]
+              }, {
                 type: 'pcct',
                 id: 'pcct1',
                 x: 385,
                 y: 190,
                 font: '12px Quicksand',
-                margin: 10,
+                margin: 2,
                 scolor: '#F9101A',
                 stroke: 2
               }, {
@@ -235,7 +260,7 @@ NEW ODA
                 x: 385,
                 y: 225,
                 font: '12px Quicksand',
-                margin: 10,
+                margin: 2,
                 scolor: '#F9101A',
                 stroke: 2
               }, {
@@ -244,7 +269,7 @@ NEW ODA
                 x: 385,
                 y: 260,
                 font: '12px Quicksand',
-                margin: 10,
+                margin: 2,
                 scolor: '#F9101A',
                 stroke: 2
               }, {
@@ -253,7 +278,7 @@ NEW ODA
                 x: 385,
                 y: 295,
                 font: '12px Quicksand',
-                margin: 10,
+                margin: 2,
                 scolor: '#F9101A',
                 stroke: 2
               }, {
@@ -262,7 +287,7 @@ NEW ODA
                 x: 385,
                 y: 330,
                 font: '12px Quicksand',
-                margin: 10,
+                margin: 2,
                 scolor: '#F9101A',
                 stroke: 2
               }, {
@@ -271,7 +296,7 @@ NEW ODA
                 x: 385,
                 y: 365,
                 font: '12px Quicksand',
-                margin: 10,
+                margin: 2,
                 scolor: '#F9101A',
                 stroke: 2
               }, {
@@ -280,7 +305,7 @@ NEW ODA
                 x: 385,
                 y: 400,
                 font: '12px Quicksand',
-                margin: 10,
+                margin: 2,
                 scolor: '#F9101A',
                 stroke: 2
               }, {
@@ -289,7 +314,7 @@ NEW ODA
                 x: 385,
                 y: 435,
                 font: '12px Quicksand',
-                margin: 10,
+                margin: 2,
                 scolor: '#F9101A',
                 stroke: 2
               }, {
@@ -425,21 +450,21 @@ NEW ODA
                     opts: {
                       type: 'txt',
                       opt1: 'They met in Africa ten years ago.',
-                      opt2: 'They met in Africa last year'
+                      opt2: 'They met in Africa last year.'
                     }
                   }
                 ], [
                   {
                     name: 'global',
                     opts: {
-                      success: 2
+                      success: 1
                     }
                   }, {
                     name: 'chs1',
                     opts: {
                       type: 'txt',
-                      opt1: 'They had a son 4 years ago.',
-                      opt2: 'They had a son 6 years ago.'
+                      opt2: 'They had a son 4 years ago.',
+                      opt1: 'They had a son 6 years ago.'
                     }
                   }
                 ], [
@@ -460,14 +485,14 @@ NEW ODA
                   {
                     name: 'global',
                     opts: {
-                      success: 2
+                      success: 1
                     }
                   }, {
                     name: 'chs1',
                     opts: {
                       type: 'txt',
-                      opt1: 'They spent Christmas with her mom.',
-                      opt2: 'They had a party two weeks before Christmas.'
+                      opt2: 'They spent Christmas with her mom.',
+                      opt1: 'They had a party two weeks before Christmas.'
                     }
                   }
                 ], [

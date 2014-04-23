@@ -71,6 +71,12 @@ NEW ODA
           id: 'couldnt',
           src: 'coludnt.png'
         }, {
+          id: 'couldnt2',
+          src: 'coludnt.png'
+        }, {
+          id: 'could2',
+          src: 'could.png'
+        }, {
           id: 'could',
           src: 'could.png'
         }, {
@@ -159,8 +165,7 @@ NEW ODA
                     }
                   }
                 ]
-              ],
-              type: 'steps'
+              ]
             },
             containers: [
               {
@@ -288,12 +293,12 @@ NEW ODA
               collection: [
                 [
                   {
-                    name: 'could',
+                    name: 'could2',
                     opts: {
                       success: ['1b', '2b', '4b', '7b']
                     }
                   }, {
-                    name: 'couldnt',
+                    name: 'couldnt2',
                     opts: {
                       success: ['3b', '5b', '6b']
                     }
@@ -304,8 +309,7 @@ NEW ODA
                     }
                   }
                 ]
-              ],
-              type: 'steps'
+              ]
             },
             containers: [
               {
@@ -315,13 +319,13 @@ NEW ODA
                 y: 230
               }, {
                 type: 'idc',
-                id: 'could',
+                id: 'could2',
                 x: 411,
                 y: 317,
                 align: 'mc'
               }, {
                 type: 'idc',
-                id: 'couldnt',
+                id: 'couldnt2',
                 x: 647,
                 y: 317,
                 align: 'mc'

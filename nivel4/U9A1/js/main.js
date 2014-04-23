@@ -97,7 +97,7 @@ NEW ODA
                   {
                     name: 'pcct1',
                     opts: {
-                      pattern: ['"Treasure Island Summer Camp ', '#rtn', '#rtn', 'Come and take part in all the fun', '#tcpt', 'we offer: sports, sailing, and more! Camp in ', '#rtn', 'big', '#tcpt', 'by the lake. Enjoy', '#tcpt', ': the mountains, the lake and the forest. ', '#rtn', 'Go', '#tcpt', 'and eat the fish you catch for dinner! Learn how to', '#tcpt', 'horses ', '#rtn', 'and to', '#tcpt', 'on the lake. Go', '#tcpt', 'in the forest with us and observe wild ', '#rtn', 'animals! If you like', '#tcpt', 'activities, you\'ll love Treasure Island Summer Camp! ', '#rtn', '#rtn', 'We have two', '#tcpt', 'this summer. Session 1: July 17 to 24. Session 2: August 1 to 8.', '#rtn', '#rtn', '#tcpt', 'now at registration@treasureislandcamp.com and receive a discount!'],
+                      pattern: ['Treasure Island Summer Camp ', '#rtn', '#rtn', 'Come and take part in all the fun', '#tcpt', 'we offer: sports, sailing, and more! Camp in ', '#rtn', 'big', '#tcpt', 'by the lake. Enjoy', '#tcpt', ': the mountains, the lake and the forest. ', '#rtn', 'Go', '#tcpt', 'and eat the fish you catch for dinner! Learn how to', '#tcpt', 'horses ', '#rtn', 'and to', '#tcpt', 'on the lake. Go', '#tcpt', 'in the forest with us and observe wild ', '#rtn', 'animals! If you like', '#tcpt', 'activities, you\'ll love Treasure Island Summer Camp! ', '#rtn', '#rtn', 'We have two', '#tcpt', 'this summer. Session 1: July 17 to 24. Session 2: August 1 to 8.', '#rtn', '#rtn', '#tcpt', 'now at registration@treasureislandcamp.com and receive a discount!'],
                       targets: [
                         {
                           text: '___________',
@@ -157,10 +157,10 @@ NEW ODA
               }, {
                 type: 'ldrg',
                 id: 'ldrg3',
-                x: 142,
+                x: 138,
                 y: 520,
-                index: 'experiments',
-                text: 'experiments',
+                index: 'tents',
+                text: 'tents',
                 font: '22px Quicksand',
                 color: '#333',
                 target: ['pcct1'],
@@ -170,7 +170,7 @@ NEW ODA
               }, {
                 type: 'ldrg',
                 id: 'ldrg1',
-                x: 315,
+                x: 245,
                 y: 520,
                 index: 'hiking',
                 text: 'hiking',
@@ -183,7 +183,7 @@ NEW ODA
               }, {
                 type: 'ldrg',
                 id: 'ldrg10',
-                x: 410,
+                x: 360,
                 y: 520,
                 index: 'ride',
                 text: 'ride',
@@ -196,7 +196,7 @@ NEW ODA
               }, {
                 type: 'ldrg',
                 id: 'ldrg6',
-                x: 480,
+                x: 450,
                 y: 520,
                 index: 'activities',
                 text: 'activities',

@@ -431,7 +431,7 @@ NEW ODA
                 x: 30,
                 y: 190,
                 font: '12px Quicksand',
-                margin: 10,
+                margin: 5,
                 scolor: '#F9101A',
                 stroke: 2
               }, {
@@ -440,7 +440,7 @@ NEW ODA
                 x: 30,
                 y: 213,
                 font: '12px Quicksand',
-                margin: 10,
+                margin: 5,
                 scolor: '#F9101A',
                 stroke: 2
               }, {
@@ -449,7 +449,7 @@ NEW ODA
                 x: 30,
                 y: 236,
                 font: '12px Quicksand',
-                margin: 10,
+                margin: 5,
                 scolor: '#F9101A',
                 stroke: 2
               }, {
@@ -458,7 +458,7 @@ NEW ODA
                 x: 30,
                 y: 259,
                 font: '12px Quicksand',
-                margin: 10,
+                margin: 5,
                 scolor: '#F9101A',
                 stroke: 2
               }, {
@@ -467,7 +467,7 @@ NEW ODA
                 x: 30,
                 y: 282,
                 font: '12px Quicksand',
-                margin: 10,
+                margin: 5,
                 scolor: '#F9101A',
                 stroke: 2
               }, {
@@ -476,7 +476,7 @@ NEW ODA
                 x: 30,
                 y: 305,
                 font: '12px Quicksand',
-                margin: 10,
+                margin: 5,
                 scolor: '#F9101A',
                 stroke: 2
               }, {
@@ -485,7 +485,7 @@ NEW ODA
                 x: 30,
                 y: 328,
                 font: '12px Quicksand',
-                margin: 10,
+                margin: 5,
                 scolor: '#F9101A',
                 stroke: 2
               }, {
@@ -494,7 +494,7 @@ NEW ODA
                 x: 30,
                 y: 351,
                 font: '12px Quicksand',
-                margin: 10,
+                margin: 5,
                 scolor: '#F9101A',
                 stroke: 2
               }, {
@@ -503,7 +503,7 @@ NEW ODA
                 x: 30,
                 y: 374,
                 font: '12px Quicksand',
-                margin: 10,
+                margin: 5,
                 scolor: '#F9101A',
                 stroke: 2
               }, {
@@ -512,7 +512,7 @@ NEW ODA
                 x: 30,
                 y: 397,
                 font: '12px Quicksand',
-                margin: 10,
+                margin: 5,
                 scolor: '#F9101A',
                 stroke: 2
               }, {

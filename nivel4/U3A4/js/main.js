@@ -53,7 +53,7 @@ NEW ODA
           src: 'header.png'
         }, {
           id: 'q1',
-          src: 'Question_1.png'
+          src: 'Question_2.png'
         }, {
           id: 'q2',
           src: 'Question_2.png'
@@ -174,7 +174,7 @@ NEW ODA
                   }, {
                     name: 'pcpt4',
                     opts: {
-                      pattern: ['Me? I', '#tcpt', 'in the park with my dog.'],
+                      pattern: ['Me? I', '#tcpt', 'in the park ', '#rtn', 'with my dog.'],
                       targets: [
                         {
                           text: 'was walking'
@@ -194,7 +194,7 @@ NEW ODA
                   }, {
                     name: 'pcpt6',
                     opts: {
-                      pattern: ['I think the thief was a woman. I heard her.', '#rtn', 'She ', '#tcpt', 'at the policeman.'],
+                      pattern: ['I think the thief was a woman.', '#rtn', 'I heard her.', '#rtn', 'She ', '#tcpt', 'at the policeman.'],
                       targets: [
                         {
                           text: 'was shouting'
@@ -204,7 +204,7 @@ NEW ODA
                   }, {
                     name: 'pcpt7',
                     opts: {
-                      pattern: ['I\'m not the thief!', '#rtn', 'I', '#tcpt', 'my grandmother in prison.'],
+                      pattern: ['I\'m not the thief!', '#rtn', 'I', '#tcpt', 'my grandmother ', '#rtn', 'in prison.'],
                       targets: [
                         {
                           text: 'was visiting'
@@ -436,7 +436,7 @@ NEW ODA
               }, {
                 type: 'pcpt',
                 id: 'pcpt1',
-                x: 113,
+                x: 130,
                 y: 195,
                 font: '11px Quicksand',
                 margin: 5,
@@ -459,7 +459,7 @@ NEW ODA
                 type: 'pcpt',
                 id: 'pcpt3',
                 x: 183,
-                y: 175,
+                y: 182,
                 font: '11px Quicksand',
                 margin: 5,
                 align: 'tl',
@@ -469,8 +469,8 @@ NEW ODA
               }, {
                 type: 'pcpt',
                 id: 'pcpt4',
-                x: 303,
-                y: 188,
+                x: 315,
+                y: 180,
                 font: '11px Quicksand',
                 margin: 5,
                 align: 'tl',
@@ -491,8 +491,8 @@ NEW ODA
               }, {
                 type: 'pcpt',
                 id: 'pcpt6',
-                x: 460,
-                y: 165,
+                x: 468,
+                y: 158,
                 font: '11px Quicksand',
                 margin: 5,
                 align: 'tl',
@@ -502,8 +502,8 @@ NEW ODA
               }, {
                 type: 'pcpt',
                 id: 'pcpt7',
-                x: 570,
-                y: 175,
+                x: 580,
+                y: 170,
                 font: '11px Quicksand',
                 margin: 5,
                 align: 'tl',

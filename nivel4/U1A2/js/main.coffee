@@ -65,12 +65,12 @@ class U1A2 extends Oda
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'oven'}}
 								{name: 'txt_grp', opts:{type: 'fadeIn', target: 't4'}}
-								{name: 'pcpt1', opts:{pattern:['Wait! You', '#tcpt','use the hot oven.', '#rtn', 'I\'ll do it.'], targets: [{text:'shouldn\'t', success:'shouldnt'}]}}
+								{name: 'pcpt1', opts:{pattern:['Wait! You', '#tcpt','use the ', '#rtn', 'hot oven. I\'ll do it.'], targets: [{text:'shouldn\'t', success:'shouldnt'}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'cat'}}
 								{name: 'txt_grp', opts:{type: 'fadeIn', target: 't5'}}
-								{name: 'pcpt1', opts:{pattern:['I\'ll clean it.But you', '#tcpt', '#rtn', 'brush the catmore often, Bobby.'], targets: [{text:'should'}]}}
+								{name: 'pcpt1', opts:{pattern:['I\'ll clean it. But you', '#tcpt', '#rtn', 'brush the catmore often, Bobby.'], targets: [{text:'should'}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'soda'}}
@@ -128,7 +128,7 @@ class U1A2 extends Oda
 						{type: 'img', id: 'globo2', x: 530, y: 520, align: 'mc'}
 						{type: 'txt', id: 't1', text:'Good dog! Have some of my cookie.', x: 165, y: 505, lineWidth: 200, font:'16px Quicksand', align: 'left'}
 						{type: 'txt', id: 't2', text:'It\'s nice to be outside.', x: 165, y: 505, lineWidth: 200, font:'16px Quicksand', align: 'left'}
-						{type: 'txt', id: 't3', text:'Dad it hurts!', x: 165, y: 505, lineWidth: 200, font:'16px Quicksand', align: 'left'}
+						{type: 'txt', id: 't3', text:'Dad, it hurts!', x: 165, y: 505, lineWidth: 200, font:'16px Quicksand', align: 'left'}
 						{type: 'txt', id: 't4', text:'Mom, the cookies are ready!', x: 165, y: 505, lineWidth: 200, font:'16px Quicksand', align: 'left'}
 						{type: 'txt', id: 't5', text:'Mom, there\'s a lot of cat hair on the sofa.', x: 165, y: 505, lineWidth: 200, font:'16px Quicksand', align: 'left'}
 						{type: 'txt', id: 't6', text:'I was thirsty, so I got a big soda!', x: 165, y: 505, lineWidth: 200, font:'16px Quicksand', align: 'left'}
@@ -137,7 +137,7 @@ class U1A2 extends Oda
 						{type: 'txt', id: 't9', text:'I feel terrible, Mom.', x: 165, y: 505, lineWidth: 200, font:'16px Quicksand', align: 'left'}
 						{type: 'txt', id: 't10', text:'I love this food!', x: 165, y: 505, lineWidth: 200, font:'16px Quicksand', align: 'left'}
 						{type: 'txt', id: 't11', text:'I don\'t have a lot of homework, Dad.', x: 165, y: 505, lineWidth: 200, font:'16px Quicksand', align: 'left'}
-						{type: 'txt', id: 't12', text:'Mom, can I swim now?.', x: 165, y: 505, lineWidth: 200, font:'16px Quicksand', align: 'left'}
+						{type: 'txt', id: 't12', text:'Mom, can I swim now?', x: 165, y: 505, lineWidth: 200, font:'16px Quicksand', align: 'left'}
 						{type: 'pcpt', id: 'pcpt1', x: 390, y: 510, font: '16px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A'}
 						{
 							type: 'btn', id: 'btn_1', x: 250, y: 160, index: 'should', target: 'pcpt1', eval: @btnClick

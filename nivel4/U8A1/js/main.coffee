@@ -113,16 +113,16 @@ class U8A1 extends Oda
 						{type: 'img', id: 'caja', x: 154, y: 510}
 						{type: 'img', id: 'superhero', x: 210, y:180}
 
-						{type: 'pcct', id: 'pcct1', x: 30, y: 190, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct2', x: 30, y: 213, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct3', x: 30, y: 236, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct4', x: 30, y: 259, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct5', x: 30, y: 282, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct6', x: 30, y:305, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct7', x: 30, y: 328, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct8', x: 30, y: 351, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct9', x: 30, y: 374, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct10', x: 30, y: 397, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct1', x: 30, y: 190, font: '12px Quicksand', margin: 5, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct2', x: 30, y: 213, font: '12px Quicksand', margin: 5, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct3', x: 30, y: 236, font: '12px Quicksand', margin: 5, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct4', x: 30, y: 259, font: '12px Quicksand', margin: 5, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct5', x: 30, y: 282, font: '12px Quicksand', margin: 5, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct6', x: 30, y:305, font: '12px Quicksand', margin: 5, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct7', x: 30, y: 328, font: '12px Quicksand', margin: 5, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct8', x: 30, y: 351, font: '12px Quicksand', margin: 5, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct9', x: 30, y: 374, font: '12px Quicksand', margin: 5, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct10', x: 30, y: 397, font: '12px Quicksand', margin: 5, scolor: '#F9101A', stroke: 2}
 
 					
 						{type: 'ldrg', id: 'electricity', x: 220,  y: 530, index: 'electricity', text:'electricity', font:'15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8', 'pcct9', 'pcct10'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}

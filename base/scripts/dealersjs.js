@@ -2542,7 +2542,7 @@ LIBRARY
     };
 
     ChooseAWordContainer.prototype.update = function(opts) {
-      var after, before, hito1, hito2, opt1, opt2, slash,
+      var after, before, hito1, hito2, margen, opt1, opt2, slash,
         _this = this;
       this.removeAllChildren();
       before = this.createText("" + this.name + "_before", opts.before, this.label.font, this.label.color, 0, 0);
@@ -2559,7 +2559,12 @@ LIBRARY
       hito2.graphics.beginFill('#000').drawRect(-5, -3, opt2.getMeasuredWidth() + 10, opt2.getMeasuredHeight() + 6);
       opt2.hitArea = hito2;
       opt2.index = 2;
-      after = this.createText("" + this.name + "_after", opts.after, this.label.font, this.label.color, opt2.x + opt2.getMeasuredWidth() + 10, 0);
+      if (opts.after === '.') {
+        margen = 0;
+      } else {
+        margen = 10;
+      }
+      after = this.createText("" + this.name + "_after", opts.after, this.label.font, this.label.color, opt2.x + opt2.getMeasuredWidth() + margen, 0);
       this.add(after);
       this.add(opt1);
       opt1.addEventListener('mouseover', function() {
@@ -2631,7 +2636,7 @@ LIBRARY
     };
 
     ChooseContainer.prototype.update = function(opts) {
-      var bmp, hito1, hito2, lineWidth, opt1, opt2,
+      var bmp, hito1, hito2, lineWidth, opt1, opt2, rand,
         _this = this;
       this.removeAllChildren();
       switch (opts.type) {
@@ -2650,22 +2655,42 @@ LIBRARY
           }
           lineWidth = this.bullets.lineWidth ? this.bullets.lineWidth : 200;
           this.insertText("separator", '/', this.bullets.font, this.bullets.color, 0, 400, 'center');
-          opt1 = this.createText("" + this.name + "_opt1", opts.opt1, this.bullets.font, this.bullets.color, -20, 400, 'right');
-          if (this.bullets.lineWidth) {
-            opt1.lineWidth = this.bullets.lineWidth;
+          rand = Math.round(Math.random());
+          if (rand === 1) {
+            opt1 = this.createText("" + this.name + "_opt1", opts.opt1, this.bullets.font, this.bullets.color, -20, 400, 'right');
+            if (this.bullets.lineWidth) {
+              opt1.lineWidth = this.bullets.lineWidth;
+            }
+            hito1 = new createjs.Shape();
+            hito1.graphics.beginFill('#000').drawRect(-opt1.getMeasuredWidth() - 5, -3, opt1.getMeasuredWidth() + 10, opt1.getMeasuredHeight() + 6);
+            opt1.hitArea = hito1;
+            opt1.index = 1;
+            opt2 = this.createText("" + this.name + "_opt2", opts.opt2, this.bullets.font, this.bullets.color, 20, 400, 'left');
+            if (this.bullets.lineWidth) {
+              opt2.lineWidth = this.bullets.lineWidth;
+            }
+            hito2 = new createjs.Shape();
+            hito2.graphics.beginFill('#000').drawRect(-5, -3, opt2.getMeasuredWidth() + 10, opt2.getMeasuredHeight() + 6);
+            opt2.hitArea = hito2;
+            opt2.index = 2;
+          } else {
+            opt1 = this.createText("" + this.name + "_opt1", opts.opt1, this.bullets.font, this.bullets.color, 20, 400, 'left');
+            if (this.bullets.lineWidth) {
+              opt1.lineWidth = this.bullets.lineWidth;
+            }
+            hito1 = new createjs.Shape();
+            hito1.graphics.beginFill('#000').drawRect(-5, -3, opt1.getMeasuredWidth() + 10, opt1.getMeasuredHeight() + 6);
+            opt1.hitArea = hito1;
+            opt1.index = 1;
+            opt2 = this.createText("" + this.name + "_opt2", opts.opt2, this.bullets.font, this.bullets.color, -20, 400, 'right');
+            if (this.bullets.lineWidth) {
+              opt2.lineWidth = this.bullets.lineWidth;
+            }
+            hito2 = new createjs.Shape();
+            hito2.graphics.beginFill('#000').drawRect(-opt2.getMeasuredWidth() - 5, -3, opt2.getMeasuredWidth() + 10, opt2.getMeasuredHeight() + 6);
+            opt2.hitArea = hito2;
+            opt2.index = 2;
           }
-          hito1 = new createjs.Shape();
-          hito1.graphics.beginFill('#000').drawRect(-opt1.getMeasuredWidth() - 5, -3, opt1.getMeasuredWidth() + 10, opt1.getMeasuredHeight() + 6);
-          opt1.hitArea = hito1;
-          opt1.index = 1;
-          opt2 = this.createText("" + this.name + "_opt2", opts.opt2, this.bullets.font, this.bullets.color, 20, 400, 'left');
-          if (this.bullets.lineWidth) {
-            opt2.lineWidth = this.bullets.lineWidth;
-          }
-          hito2 = new createjs.Shape();
-          hito2.graphics.beginFill('#000').drawRect(-5, -3, opt2.getMeasuredWidth() + 10, opt2.getMeasuredHeight() + 6);
-          opt2.hitArea = hito2;
-          opt2.index = 2;
       }
       this.add(opt1);
       opt1.addEventListener('mouseover', function() {
@@ -3118,13 +3143,14 @@ LIBRARY
       this.stroke = (_ref7 = opts.stroke) != null ? _ref7 : 3;
       this.name = (_ref8 = opts.name) != null ? _ref8 : opts.id;
       this.align = (_ref9 = opts.align) != null ? _ref9 : '';
+      this.uwidth = opts.uwidth;
       this.currentTarget = 0;
       this.observer = new ComponentObserver();
       return this.droptargets = new Array();
     };
 
     PhraseCompleterContainer.prototype.update = function(opts) {
-      var align, h, h2, i, maxWidth, npos, t, txt, ypos, _i, _len, _ref2, _ref3, _ref4;
+      var align, h, h2, hopts, i, maxWidth, npos, t, txt, ypos, _i, _len, _ref2, _ref3, _ref4;
       this.removeAllChildren();
       if (opts.h2) {
         align = (_ref2 = opts.h2.align) != null ? _ref2 : '';
@@ -3143,7 +3169,15 @@ LIBRARY
         t = _ref4[_i];
         if (t === '#tcpt') {
           txt = opts.targets[i];
-          h = new TextCompleterContainer(txt, this.font, this.fcolor, this.bcolor, this.scolor, this.stroke, npos, ypos);
+          if (this.uwidth) {
+            hopts = {
+              text: txt.text,
+              width: this.uwidth
+            };
+          } else {
+            hopts = txt;
+          }
+          h = new TextCompleterContainer(hopts, this.font, this.fcolor, this.bcolor, this.scolor, this.stroke, npos, ypos);
           this.droptargets.push(h);
           this.add(h, false);
           npos += h.width + this.margin;
@@ -3223,7 +3257,7 @@ LIBRARY
     };
 
     PhraseCloneContainer.prototype.update = function(opts) {
-      var align, h, h2, i, maxWidth, npos, t, txt, ypos, _i, _len, _ref2, _ref3, _ref4;
+      var align, h, h2, i, maxWidth, npos, t, txt, ypos, _i, _len, _ref2, _ref3, _ref4, _ref5;
       this.removeAllChildren();
       if (opts.h2) {
         align = (_ref2 = opts.h2.align) != null ? _ref2 : '';
@@ -3255,6 +3289,10 @@ LIBRARY
           h = this.createText('txt', t, this.font, this.fcolor, npos, ypos);
           this.add(h, false);
           maxWidth = npos += h.getMeasuredWidth() + this.margin;
+        }
+        if ((_ref5 = t.charAt(0)) === '.' || _ref5 === ',' || _ref5 === '?' || _ref5 === '!') {
+          console.log('coma');
+          h.x = h.x - this.margin;
         }
       }
       this.width = maxWidth;
@@ -3665,6 +3703,7 @@ LIBRARY
               {
                 txt: {
                   text: letter,
+                  name: letter,
                   font: opts.font,
                   color: opts.fcolor
                 }
@@ -3849,7 +3888,7 @@ LIBRARY
     };
 
     ScrambledWordContainer.prototype.update = function(opts) {
-      var anchoMax, d, h, i, letter, npos, scrambledLetter, scrambledSentence, scrambledWord, sentence, word, _i, _j, _k, _l, _len, _len1, _len2, _len3, _ref2;
+      var anchoMax, completerwidth, d, diferencia, h, i, letter, npos, scrambledLetter, scrambledSentence, scrambledWord, sentence, word, wordswidth, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _len5, _m, _n, _ref2;
       this.removeAllChildren();
       this.target = opts.target;
       this.fx = (_ref2 = opts.fx) != null ? _ref2 : 'fadeOut';
@@ -3928,7 +3967,10 @@ LIBRARY
             h = new TextCompleterContainer(opts, this.font, this.fcolor, this.bcolor, this.scolor, this.stroke, npos, 5);
             this.droptargets.push(h);
             this.add(h, false);
-            npos += h.width + this.margin;
+            completerwidth = npos += h.width + this.margin;
+            if (i === sentence.length - 1) {
+              this.insertText("punto", '.', this.font, this.fcolor, h.x + h.width + 4, 5, 'center');
+            }
           }
           i++;
         }
@@ -3940,8 +3982,35 @@ LIBRARY
           scrambledWord = scrambledSentence[_l];
           if (scrambledWord !== ' ') {
             opts = {
-              id: "l" + this.name + i,
+              id: "l" + i,
               x: npos,
+              y: -h.height - this.distance,
+              index: scrambledWord,
+              text: scrambledWord,
+              font: this.font,
+              color: this.fcolor,
+              afterSuccess: 'hide',
+              afterFail: 'return'
+            };
+            d = new LetterDragContainer(opts);
+            wordswidth = npos += d.width + this.margin + this.margin;
+            i++;
+          }
+        }
+        for (_m = 0, _len4 = scrambledSentence.length; _m < _len4; _m++) {
+          scrambledWord = scrambledSentence[_m];
+          diferencia = (completerwidth - wordswidth) / 2;
+          console.log(diferencia);
+          i++;
+        }
+        npos = 0;
+        i = 0;
+        for (_n = 0, _len5 = scrambledSentence.length; _n < _len5; _n++) {
+          scrambledWord = scrambledSentence[_n];
+          if (scrambledWord !== ' ') {
+            opts = {
+              id: "l" + this.name + i,
+              x: npos + diferencia,
               y: -h.height - this.distance,
               index: scrambledWord,
               target: this.name,
@@ -3955,9 +4024,9 @@ LIBRARY
             d = new LetterDragContainer(opts);
             this.add(d);
             if (i < sentence.length - 1) {
-              this.insertText("separator", '/', this.font, this.fcolor, npos + d.width + this.margin, -h.height - this.distance, 'center');
+              this.insertText("separator", '/', this.font, this.fcolor, d.x + d.width + this.margin, -h.height - this.distance, 'center');
             }
-            npos += d.width + this.margin + this.margin;
+            wordswidth = npos += d.width + this.margin + this.margin;
             i++;
           }
         }

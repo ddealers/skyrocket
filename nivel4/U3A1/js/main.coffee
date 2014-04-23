@@ -121,33 +121,48 @@ class U3A1 extends Oda
           answers: {
             collection: [ 
               [
+                {name: 'snd', opts:{id:'s/Hiro'}}
                 {
                   name: "b1"
                   opts:
                     success: ["Hiro"]
                 }
+              ]
+              [
+                {name: 'snd', opts:{id:'s/Barney'}}                
                 {
                   name: "b2"
                   opts:
                     success: ["Barney"]
                 }
+              ]
+              [
+                {name: 'snd', opts:{id:'s/Roger'}}
                 {
                   name: "b3"
                   opts:
                     success: ["Roger"]
                 }
+              ]
+              [
+                {name: 'snd', opts:{id:'s/Paul'}}
                 {
                   name: "b4"
                   opts:
                     success: ["Paul"]
                 }
+              ]
+              [
+                {name: 'snd', opts:{id:'s/Panchito'}}
                 {
                   name: "b5"
                   opts:
                     success: ["Panchito"]
                 }
               ]
+              
             ]
+            mixed: true
             type: 'steps'
           }
           containers:[
@@ -156,11 +171,11 @@ class U3A1 extends Oda
             {type: "idc", id: "b3", x: 367, y: 460, align: "bl",}
             {type: "idc", id: "b4", x: 457, y: 460, align: "bl",}
             {type: "idc", id: "b5", x: 577, y: 460, align: "bl",}
-            {type: "ldrg", id: "ldrb5", x: 170, y: 500, index: "Paul", text: "Paul", font: "26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop02_01, afterSuccess: "origin", afterFail: "return"}
-            {type: "ldrg", id: "ldrb3", x: 255, y: 500, index: "Hiro", text: "Hiro", font: "26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop02_01, afterSuccess: "origin", afterFail: "return"}
-            {type: "ldrg", id: "ldrb4", x: 335, y: 500, index: "Barney", text: "Barney", font: "26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop02_01, afterSuccess: "origin", afterFail: "return"}
-            {type: "ldrg", id: "ldrb1", x: 455, y: 500, index: "Panchito", text: "Panchito", font: "26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop02_01, afterSuccess: "origin", afterFail: "return"}
-            {type: "ldrg", id: "ldrb2", x: 600, y: 500, index: "Roger", text: "Roger", font: "26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop02_01, afterSuccess: "origin", afterFail: "return"}
+            {type: "ldrg", id: "ldrb5", x: 170, y: 500, index: "Paul", text: "Paul", font: "26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+            {type: "ldrg", id: "ldrb3", x: 255, y: 500, index: "Hiro", text: "Hiro", font: "26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+            {type: "ldrg", id: "ldrb4", x: 335, y: 500, index: "Barney", text: "Barney", font: "26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+            {type: "ldrg", id: "ldrb1", x: 455, y: 500, index: "Panchito", text: "Panchito", font: "26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+            {type: "ldrg", id: "ldrb2", x: 600, y: 500, index: "Roger", text: "Roger", font: "26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
             {
               type: "btn", id: "repeat", x: 740, y: 540, isRepeat: true
               states: [img: {name: "repeat", x: 0, y: 0, align: "mc"}]
@@ -170,7 +185,6 @@ class U3A1 extends Oda
                      
           ]
         }
-        
          
       ]
     super()

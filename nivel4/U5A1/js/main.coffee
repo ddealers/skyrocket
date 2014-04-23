@@ -32,6 +32,7 @@ class U5A1 extends Oda
 			header: 'header'
 			instructions: {x: 110, y: 130, states: [{text:'Read and choose the letters to complete the words.', sound:'s/silence', played: false}]}
 			score:{type: 'points', x:20, y:500, init: 0, total: 10, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
+
 			scenes:[
 				{
 					answers: {
@@ -42,56 +43,57 @@ class U5A1 extends Oda
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'goggles'}}
-								{name: 'pcpt2', opts:{pattern:['Swimmers use a swimsuit, a swimming cap and', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt','.'], targets: [{text:'g', width: 30},{text:'o', width: 30},{text:'g', width: 30},{text:'g', width: 30},{text:'l', width: 30},{text:'e', width: 30},{text:'s', width: 30}]}}
+								{name: 'pcpt1', opts:{pattern:['Swimmers use a swimsuit, a swimming cap and', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt','.'], targets: [{text:'g', width: 30},{text:'o', width: 30},{text:'g', width: 30},{text:'g', width: 30},{text:'l', width: 30},{text:'e', width: 30},{text:'s', width: 30}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'paddle'}}
-								{name: 'pcpt3', opts:{pattern:['You hit a table tennis ball with a', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt','.'], targets: [{text:'p', width: 30},{text:'a', width: 30},{text:'d', width: 30},{text:'d', width: 30},{text:'l', width: 30},{text:'e', width: 30}]}}
+								{name: 'pcpt1', opts:{pattern:['You hit a table tennis ball with a', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt','.'], targets: [{text:'p', width: 30},{text:'a', width: 30},{text:'d', width: 30},{text:'d', width: 30},{text:'l', width: 30},{text:'e', width: 30}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'pool'}}
-								{name: 'pcpt4', opts:{pattern:['Swimmers train in a', '#tcpt', '#tcpt', '#tcpt', '#tcpt','.'], targets: [{text:'p', width: 30},{text:'o', width: 30},{text:'o', width: 30},{text:'l', width: 30}]}}
+								{name: 'pcpt1', opts:{pattern:['Swimmers train in a', '#tcpt', '#tcpt', '#tcpt', '#tcpt','.'], targets: [{text:'p', width: 30},{text:'o', width: 30},{text:'o', width: 30},{text:'l', width: 30}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'team'}}
-								{name: 'pcpt5', opts:{pattern:['Volleyball and soccer are', '#tcpt', '#tcpt', '#tcpt', '#tcpt', 'sports.'], targets: [{text:'t', width: 30},{text:'e', width: 30},{text:'a', width: 30},{text:'m', width: 30}]}}
+								{name: 'pcpt1', opts:{pattern:['Volleyball and soccer are', '#tcpt', '#tcpt', '#tcpt', '#tcpt', 'sports.'], targets: [{text:'t', width: 30},{text:'e', width: 30},{text:'a', width: 30},{text:'m', width: 30}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'coach'}}
-								{name: 'pcpt6', opts:{pattern:['The', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', 'works with the team so they play well.'], targets: [{text:'c', width: 30},{text:'o', width: 30},{text:'a', width: 30},{text:'c', width: 30},{text:'h', width: 30}]}}
+								{name: 'pcpt1', opts:{pattern:['The', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', 'works with the team so they play well.'], targets: [{text:'c', width: 30},{text:'o', width: 30},{text:'a', width: 30},{text:'c', width: 30},{text:'h', width: 30}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'ball'}}
-								{name: 'pcpt7', opts:{pattern:['Many sports are played with a', '#tcpt', '#tcpt', '#tcpt', '#tcpt','.'], targets: [{text:'b', width: 30},{text:'a', width: 30},{text:'l', width: 30},{text:'l', width: 30}]}}
+								{name: 'pcpt1', opts:{pattern:['Many sports are played with a', '#tcpt', '#tcpt', '#tcpt', '#tcpt','.'], targets: [{text:'b', width: 30},{text:'a', width: 30},{text:'l', width: 30},{text:'l', width: 30}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'shoes'}}
-								{name: 'pcpt8', opts:{pattern:['Athletes wear running', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', 'on their feet.'], targets: [{text:'s', width: 30},{text:'h', width: 30},{text:'o', width: 30},{text:'e', width: 30},{text:'s', width: 30}]}}
+								{name: 'pcpt1', opts:{pattern:['Athletes wear running', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', 'on their feet.'], targets: [{text:'s', width: 30},{text:'h', width: 30},{text:'o', width: 30},{text:'e', width: 30},{text:'s', width: 30}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'medal'}}
-								{name: 'pcpt9', opts:{pattern:['The Chinese team won first place. They won the gold', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '.'], targets: [{text:'m', width: 30},{text:'e', width: 30},{text:'d', width: 30},{text:'a', width: 30},{text:'l', width: 30}]}}
+								{name: 'pcpt1', opts:{pattern:['The Chinese team won first place. They won the gold', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '.'], targets: [{text:'m', width: 30},{text:'e', width: 30},{text:'d', width: 30},{text:'a', width: 30},{text:'l', width: 30}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'diving'}}
-								{name: 'pcpt10', opts:{pattern:['This sport,', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt',', is  a combination of gymnastics and swimming.'], targets: [{text:'d', width: 30},{text:'i', width: 30},{text:'v', width: 30},{text:'i', width: 30},{text:'n', width: 30},{text:'g', width: 30}]}}
+								{name: 'pcpt1', opts:{pattern:['This sport,', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt',', is  a combination of gymnastics and swimming.'], targets: [{text:'d', width: 30},{text:'i', width: 30},{text:'v', width: 30},{text:'i', width: 30},{text:'n', width: 30},{text:'g', width: 30}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'train'}}
-								{name: 'pcpt11', opts:{pattern:['Athletes have to', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', 'every day to be faster and better.'], targets: [{text:'t', width: 30},{text:'r', width: 30},{text:'a', width: 30},{text:'i', width: 30},{text:'n', width: 30}]}}
+								{name: 'pcpt1', opts:{pattern:['Athletes have to', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', 'every day to be faster and better.'], targets: [{text:'t', width: 30},{text:'r', width: 30},{text:'a', width: 30},{text:'i', width: 30},{text:'n', width: 30}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'race'}}
-								{name: 'pcpt12', opts:{pattern:['Dimitri ran faster than Pedro and he won the', '#tcpt', '#tcpt', '#tcpt', '#tcpt','.'], targets: [{text:'r', width: 30},{text:'a', width: 30},{text:'c', width: 30},{text:'e', width: 30}]}}
+								{name: 'pcpt1', opts:{pattern:['Dimitri ran faster than Pedro and he won the', '#tcpt', '#tcpt', '#tcpt', '#tcpt','.'], targets: [{text:'r', width: 30},{text:'a', width: 30},{text:'c', width: 30},{text:'e', width: 30}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'match'}}
-								{name: 'pcpt13', opts:{pattern:['In karate, the American athletes kicked harder and won the', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '.'], targets: [{text:'m', width: 30},{text:'a', width: 30},{text:'t', width: 30},{text:'c', width: 30},{text:'h', width: 30}]}}
+								{name: 'pcpt1', opts:{pattern:['In karate, the American athletes kicked harder and won the', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '.'], targets: [{text:'m', width: 30},{text:'a', width: 30},{text:'t', width: 30},{text:'c', width: 30},{text:'h', width: 30}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'paddle'}}
-								{name: 'pcpt14', opts:{pattern:['You use a paddle in', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt',' ', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt','.'], targets: [{text:'t', width: 30},{text:'a', width: 30},{text:'b', width: 30},{text:'l', width: 30},{text:'e', width: 30},{text:'t', width: 30},{text:'e', width: 30},{text:'n', width: 30},{text:'i', width: 30},{text:'s', width: 30}]}}
+								{name: 'pcpt1', opts:{pattern:['You use a paddle in', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt',' ', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt','.'], targets: [{text:'t', width: 30},{text:'a', width: 30},{text:'b', width: 30},{text:'l', width: 30},{text:'e', width: 30},{text:'t', width: 30},{text:'e', width: 30},{text:'n', width: 30},{text:'i', width: 30},{text:'s', width: 30}]}}
 							]
+							
 						]
 						mixed: true
 						type: 'steps'
@@ -112,25 +114,8 @@ class U5A1 extends Oda
 						{type: 'img', id: 'train', x: 433, y: 328, align: 'mc'}
 
 						{type: 'pcpt', id: 'pcpt1', x: 433, y: 470, font: '20px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A'}
-						{type: 'pcpt', id: 'pcpt2', x: 433, y: 470, font: '20px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A'}
-						{type: 'pcpt', id: 'pcpt3', x: 433, y: 470, font: '20px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A'}
-						{type: 'pcpt', id: 'pcpt4', x: 433, y: 470, font: '20px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A'}
-						{type: 'pcpt', id: 'pcpt5', x: 433, y: 470, font: '20px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A'}
-						{type: 'pcpt', id: 'pcpt6', x: 433, y: 470, font: '20px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A'}
-						{type: 'pcpt', id: 'pcpt7', x: 433, y: 470, font: '20px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A'}
-						{type: 'pcpt', id: 'pcpt8', x: 433, y: 470, font: '20px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A'}
-						{type: 'pcpt', id: 'pcpt9', x: 433, y: 470, font: '20px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A'}
-						{type: 'pcpt', id: 'pcpt10', x: 433, y: 470, font: '20px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A'}
-						{type: 'pcpt', id: 'pcpt11', x: 433, y: 470, font: '20px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A'}
-						{type: 'pcpt', id: 'pcpt12', x: 433, y: 470, font: '20px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A'}
-						{type: 'pcpt', id: 'pcpt13', x: 433, y: 470, font: '20px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A'}
-						{type: 'pcpt', id: 'pcpt14', x: 433, y: 470, font: '20px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A'}
-
-						
-						{type: 'abc', id: 'abc1', x: 400, y: 540, font:'20px Quicksand', fcolor:'#333', uwidth: 22, uheight: 34, margin: 10, target:['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8','pcpt9','pcpt10','pcpt11','pcpt12','pcpt13','pcpt14'], eval: 'phrase_drop_03' }
-						
-
-
+						{type: 'abc', id: 'abc1', x: 400, y: 540, font:'20px Quicksand', fcolor:'#333', uwidth: 22, uheight: 34, margin: 10, target:'pcpt1', eval: 'click_O1', clickable:true }
+									
 					]
 					groups:[
 						{
@@ -154,7 +139,6 @@ class U5A1 extends Oda
 						}
 					]
 				}
-				
 			]
 		super()
 	window.U5A1 = U5A1

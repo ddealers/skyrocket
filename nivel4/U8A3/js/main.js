@@ -119,12 +119,12 @@ NEW ODA
               collection: [
                 [
                   {
-                    name: 'zone2',
+                    name: 'zone1',
                     opts: {
                       success: ['1', '2', '3', '4']
                     }
                   }, {
-                    name: 'zone1',
+                    name: 'zone2',
                     opts: {
                       success: ['5', '7', '6', '8']
                     }

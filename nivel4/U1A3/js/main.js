@@ -24,49 +24,49 @@ NEW ODA
           src: 'circulo2.png'
         }, {
           id: 'artposters',
-          src: 'art_posters.png'
+          src: '6.png'
         }, {
           id: 'camera',
-          src: 'camera.png'
+          src: '3.png'
         }, {
           id: 'compass',
-          src: 'compass.png'
+          src: 'd.png'
         }, {
           id: 'flipflops',
-          src: 'flip_flops.png'
+          src: '5.png'
         }, {
           id: 'globes',
-          src: 'globes.png'
+          src: 'b.png'
         }, {
           id: 'guidebook',
-          src: 'guide_book.png'
+          src: '2.png'
         }, {
           id: 'header',
           src: 'header.png'
         }, {
           id: 'hikingboots',
-          src: 'hiking_boots.png'
+          src: 'c.png'
         }, {
           id: 'map',
-          src: 'map.png'
+          src: 'a.png'
         }, {
           id: 'parasol',
-          src: 'parasol.png'
+          src: '4.png'
         }, {
           id: 'repeat',
           src: 'repeat.png'
         }, {
           id: 'skigoggles',
-          src: 'ski_goggles.png'
+          src: 'f.png'
         }, {
           id: 'skihat',
-          src: 'ski_hat.png'
+          src: 'e.png'
         }, {
           id: 'summer',
           src: 'summer.png'
         }, {
           id: 'sunscreen',
-          src: 'sunscreen.png'
+          src: '1.png'
         }, {
           id: 'beach',
           src: 'the_beach.png'
@@ -96,22 +96,22 @@ NEW ODA
           src: '6.mp3'
         }, {
           id: 's/a',
-          src: 'a.mp3'
+          src: 'A.mp3'
         }, {
           id: 's/b',
-          src: 'b.mp3'
+          src: 'B.mp3'
         }, {
           id: 's/c',
-          src: 'c.mp3'
+          src: 'C.mp3'
         }, {
           id: 's/d',
-          src: 'd.mp3'
+          src: 'D.mp3'
         }, {
           id: 's/e',
-          src: 'e.mp3'
+          src: 'E.mp3'
         }, {
           id: 's/f',
-          src: 'f.mp3'
+          src: 'F.mp3'
         }, {
           id: 's/silence',
           src: 'silence.mp3'

@@ -70,7 +70,7 @@ class U6A2 extends Oda
 							]
 							[
 								{name: 'grp1', opts:{type:'fadeIn', target: 'oldest'}}
-								{name: 'pcpt1', opts: {pattern:['Gaston is the _________', '#tcpt', '(old) trumpet player in France.','#rtn','He\'s 89 years old.'], targets: [{text: 'oldest', success:'oldest'}]}}
+								{name: 'pcpt1', opts: {pattern:['Gaston is the ', '#tcpt', '(old) trumpet player in France.','#rtn','He\'s 89 years old.'], targets: [{text: 'oldest', success:'oldest'}]}}
 							]
 							[
 								{name: 'grp1', opts:{type:'fadeIn', target: 'painting'}}

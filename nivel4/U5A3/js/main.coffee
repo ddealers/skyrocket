@@ -43,7 +43,7 @@ class U5A3 extends Oda
 							]
 							[
 								{name: 'grp1', opts:{type: 'blink', target: 't6'}}
-								{name: 'wcpt1', opts:{word:['The Polish players','are taller','than the','Argenitinian players'],target: 't6', sentence: true}}
+								{name: 'wcpt1', opts:{word:['The Polish players','are taller','than the','Argentinian players'],target: 't6', sentence: true}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'blink', target: 't7'}}

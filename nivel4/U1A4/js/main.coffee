@@ -45,7 +45,7 @@ class U1A4 extends Oda
 					}
 					containers:[
 						{type: 'img', id:'act4', x: 420, y: 230}
-						{type: 'txt', id: 't1', text:'My name is Hayden and I live in Florida. There a lot of crocodiles there. My parents have a large farm with a lot of swamps everyhere. Swamps are forests with a lot of water. I like to swim but there is one problem: crocodiles love swamps! My parents tell me not to go in the water because it\'s dangerous. One morning I was fishing in the river and I saw baby crocodiles. They were cute, but... if you see babies, there is a mother crocodile close by! I knew I shouldn\'t fish close to a crocodile and I went back to the house.', x: 70, y: 260, lineWidth: 330, font:'14px Quicksand', align: 'left'}
+						{type: 'txt', id: 't1', text:'My name is Hayden and I live in Florida. There a lot of crocodiles there. My parents have a large farm with a lot of swamps everyhere. Swamps are forests with a lot of water. I like to swim but there is one problem: crocodiles love swamps! My parents tell me not to go in the water because it\'s dangerous. One morning I was fishing in the river and I saw baby crocodiles. They were cute, but... if you see babies, there is a mother crocodile close by! I knew I shouldn\'t fish close to a crocodile and I went back to the house.', x: 70, y: 260, lineWidth: 330, font:'14px Roboto', align: 'left'}
 						{
 							type: 'btn', id: 'btnTrue', x: 340, y: 555, index: true, target: 'lbl1', eval: @onClick
 							states:[img: {name:'true', x: 0, y: 0, align:'mc'}]
@@ -75,7 +75,7 @@ class U1A4 extends Oda
 					}
 					containers:[
 						{type: 'img', id:'act4', name: 'act4_2', x: 420, y: 230}
-						{type: 'txt', id: 't2', text:'Many times the mother crocodile observed me from a distance. I called her Penelope. Penelope\'s baby crocodiles  got bigger and they started to move across the swamps. I wanted to make sure they were okay. I decided that I had to organize a registration system. My dad put put a tag on Penelope\'s back. (My dad is a trained biologist.) Penelope was number 1. When we finished, we had more than 20 crocodiles! Sometimes I could see the young crocodiles didn\'t have enough food and I wanted to feed them. But my mom said feeding wild crocodiles is illegal and very dangerous.', x: 70, y: 260, lineWidth: 330, font:'14px Quicksand', align: 'left'}
+						{type: 'txt', id: 't2', text:'Many times the mother crocodile observed me from a distance. I called her Penelope. Penelope\'s baby crocodiles  got bigger and they started to move across the swamps. I wanted to make sure they were okay. I decided that I had to organize a registration system. My dad put put a tag on Penelope\'s back. (My dad is a trained biologist.) Penelope was number 1. When we finished, we had more than 20 crocodiles! Sometimes I could see the young crocodiles didn\'t have enough food and I wanted to feed them. But my mom said feeding wild crocodiles is illegal and very dangerous.', x: 70, y: 260, lineWidth: 330, font:'14px Roboto', align: 'left'}
 						{
 							type: 'btn', id: 'btnTrue2', x: 340, y: 555, index: true, target: 'lbl2', eval: @onClick
 							states:[img: {name:'true', x: 0, y: 0, align:'mc'}]

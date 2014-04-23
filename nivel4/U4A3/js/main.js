@@ -666,7 +666,8 @@ NEW ODA
                 ]
               ],
               mixed: true,
-              type: 'steps'
+              type: 'limit',
+              limit: 10
             },
             containers: [
               {
@@ -767,7 +768,8 @@ NEW ODA
                 font: '20px Quicksand',
                 margin: 5,
                 align: 'tc',
-                scolor: '#F9101A'
+                scolor: '#F9101A',
+                uwidth: 90
               }, {
                 type: 'txt',
                 id: 'txt1',

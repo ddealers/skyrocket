@@ -145,189 +145,6 @@ NEW ODA
                   {
                     name: 'snd',
                     opts: {
-                      id: 's/WenLi'
-                    }
-                  }, {
-                    name: "g1",
-                    opts: {
-                      success: ["Wang Li"]
-                    }
-                  }
-                ], [
-                  {
-                    name: 'snd',
-                    opts: {
-                      id: 's/LiMin'
-                    }
-                  }, {
-                    name: "g2",
-                    opts: {
-                      success: ["Li Min"]
-                    }
-                  }
-                ], [
-                  {
-                    name: 'snd',
-                    opts: {
-                      id: 's/LiuYuan'
-                    }
-                  }, {
-                    name: "g3",
-                    opts: {
-                      success: ["Liu Yang"]
-                    }
-                  }
-                ], [
-                  {
-                    name: 'snd',
-                    opts: {
-                      id: 's/Lili'
-                    }
-                  }, {
-                    name: "g4",
-                    opts: {
-                      success: ["Li Li"]
-                    }
-                  }
-                ], [
-                  {
-                    name: 'snd',
-                    opts: {
-                      id: 's/ZhuMei'
-                    }
-                  }, {
-                    name: "g5",
-                    opts: {
-                      success: ["Zhang Min"]
-                    }
-                  }
-                ]
-              ],
-              mixed: true,
-              type: 'steps'
-            },
-            containers: [
-              {
-                type: "idc",
-                id: "g1",
-                x: 130,
-                y: 460,
-                align: "bl"
-              }, {
-                type: "idc",
-                id: "g2",
-                x: 235,
-                y: 460,
-                align: "bl"
-              }, {
-                type: "idc",
-                id: "g3",
-                x: 362,
-                y: 460,
-                align: "bl"
-              }, {
-                type: "idc",
-                id: "g4",
-                x: 438,
-                y: 460,
-                align: "bl"
-              }, {
-                type: "idc",
-                id: "g5",
-                x: 566,
-                y: 460,
-                align: "bl"
-              }, {
-                type: "ldrg",
-                id: "ldrg5",
-                x: 130,
-                y: 500,
-                index: "Liu Yang",
-                text: "Liu Yang",
-                font: "26px Quicksand",
-                color: "#333",
-                target: ["g1", "g2", "g3", "g4", "g5"],
-                "eval": this.evaluateDrop,
-                afterSuccess: "hide",
-                afterFail: "return"
-              }, {
-                type: "ldrg",
-                id: "ldrg3",
-                x: 265,
-                y: 500,
-                index: "Li Li",
-                text: "Li Li",
-                font: "26px Quicksand",
-                color: "#333",
-                target: ["g1", "g2", "g3", "g4", "g5"],
-                "eval": this.evaluateDrop,
-                afterSuccess: "hide",
-                afterFail: "return"
-              }, {
-                type: "ldrg",
-                id: "ldrg4",
-                x: 350,
-                y: 500,
-                index: "Wang Li",
-                text: "Wang Li",
-                font: "26px Quicksand",
-                color: "#333",
-                target: ["g1", "g2", "g3", "g4", "g5"],
-                "eval": this.evaluateDrop,
-                afterSuccess: "hide",
-                afterFail: "return"
-              }, {
-                type: "ldrg",
-                id: "ldrg1",
-                x: 485,
-                y: 500,
-                index: "Zhang Min",
-                text: "Zhang Min",
-                font: "26px Quicksand",
-                color: "#333",
-                target: ["g1", "g2", "g3", "g4", "g5"],
-                "eval": this.evaluateDrop,
-                afterSuccess: "hide",
-                afterFail: "return"
-              }, {
-                type: "ldrg",
-                id: "ldrg2",
-                x: 650,
-                y: 500,
-                index: "Li Min",
-                text: "Li Min",
-                font: "26px Quicksand",
-                color: "#333",
-                target: ["g1", "g2", "g3", "g4", "g5"],
-                "eval": this.evaluateDrop,
-                afterSuccess: "hide",
-                afterFail: "return"
-              }, {
-                type: "btn",
-                id: "repeat",
-                x: 740,
-                y: 540,
-                isRepeat: true,
-                states: [
-                  {
-                    img: {
-                      name: "repeat",
-                      x: 0,
-                      y: 0,
-                      align: "mc"
-                    }
-                  }
-                ]
-              }
-            ],
-            groups: []
-          }, {
-            answers: {
-              collection: [
-                [
-                  {
-                    name: 'snd',
-                    opts: {
                       id: 's/Dirk'
                     }
                   }, {
@@ -392,38 +209,38 @@ NEW ODA
               {
                 type: "idc",
                 id: "b1",
-                x: 130,
+                x: 130 + 20,
                 y: 460,
                 align: "bl"
               }, {
                 type: "idc",
                 id: "b2",
-                x: 264,
+                x: 227 + 20,
                 y: 460,
                 align: "bl"
               }, {
                 type: "idc",
                 id: "b3",
-                x: 367,
+                x: 307 + 20,
                 y: 460,
                 align: "bl"
               }, {
                 type: "idc",
                 id: "b4",
-                x: 457,
+                x: 414 + 20,
                 y: 460,
                 align: "bl"
               }, {
                 type: "idc",
                 id: "b5",
-                x: 577,
+                x: 520 + 20,
                 y: 460,
                 align: "bl"
               }, {
                 type: "ldrg",
                 id: "ldrb5",
                 x: 140,
-                y: 500,
+                y: 480,
                 index: "Jim",
                 text: "Jim",
                 font: "26px Quicksand",
@@ -436,7 +253,7 @@ NEW ODA
                 type: "ldrg",
                 id: "ldrb3",
                 x: 245,
-                y: 500,
+                y: 480,
                 index: "Simon",
                 text: "Simon",
                 font: "26px Quicksand",
@@ -449,7 +266,7 @@ NEW ODA
                 type: "ldrg",
                 id: "ldrb4",
                 x: 375,
-                y: 500,
+                y: 480,
                 index: "Kris",
                 text: "Kris",
                 font: "26px Quicksand",
@@ -462,7 +279,7 @@ NEW ODA
                 type: "ldrg",
                 id: "ldrb1",
                 x: 485,
-                y: 500,
+                y: 480,
                 index: "Frank",
                 text: "Frank",
                 font: "26px Quicksand",
@@ -475,12 +292,195 @@ NEW ODA
                 type: "ldrg",
                 id: "ldrb2",
                 x: 620,
-                y: 500,
+                y: 480,
                 index: "Dirk",
                 text: "Dirk",
                 font: "26px Quicksand",
                 color: "#333",
                 target: ["b1", "b2", "b3", "b4", "b5"],
+                "eval": this.evaluateDrop,
+                afterSuccess: "hide",
+                afterFail: "return"
+              }, {
+                type: "btn",
+                id: "repeat",
+                x: 740,
+                y: 540,
+                isRepeat: true,
+                states: [
+                  {
+                    img: {
+                      name: "repeat",
+                      x: 0,
+                      y: 0,
+                      align: "mc"
+                    }
+                  }
+                ]
+              }
+            ],
+            groups: []
+          }, {
+            answers: {
+              collection: [
+                [
+                  {
+                    name: 'snd',
+                    opts: {
+                      id: 's/WenLi'
+                    }
+                  }, {
+                    name: "g4",
+                    opts: {
+                      success: ["Wen Li"]
+                    }
+                  }
+                ], [
+                  {
+                    name: 'snd',
+                    opts: {
+                      id: 's/LiMin'
+                    }
+                  }, {
+                    name: "g3",
+                    opts: {
+                      success: ["Li Mei"]
+                    }
+                  }
+                ], [
+                  {
+                    name: 'snd',
+                    opts: {
+                      id: 's/LiuYuan'
+                    }
+                  }, {
+                    name: "g2",
+                    opts: {
+                      success: ["Liu Yuan"]
+                    }
+                  }
+                ], [
+                  {
+                    name: 'snd',
+                    opts: {
+                      id: 's/Lili'
+                    }
+                  }, {
+                    name: "g5",
+                    opts: {
+                      success: ["Li Li"]
+                    }
+                  }
+                ], [
+                  {
+                    name: 'snd',
+                    opts: {
+                      id: 's/ZhuMei'
+                    }
+                  }, {
+                    name: "g1",
+                    opts: {
+                      success: ["Zhu Mei"]
+                    }
+                  }
+                ]
+              ],
+              mixed: true,
+              type: 'steps'
+            },
+            containers: [
+              {
+                type: "idc",
+                id: "g1",
+                x: 168 - 3 + 5 - 40,
+                y: 460,
+                align: "bl"
+              }, {
+                type: "idc",
+                id: "g2",
+                x: 256 - 3 + 5 - 40,
+                y: 460,
+                align: "bl"
+              }, {
+                type: "idc",
+                id: "g3",
+                x: 362 - 3 - 40,
+                y: 460,
+                align: "bl"
+              }, {
+                type: "idc",
+                id: "g4",
+                x: 438 - 40,
+                y: 460,
+                align: "bl"
+              }, {
+                type: "idc",
+                id: "g5",
+                x: 602 - 40,
+                y: 460,
+                align: "bl"
+              }, {
+                type: "ldrg",
+                id: "ldrg5",
+                x: 130,
+                y: 480,
+                index: "Liu Yuan",
+                text: "Liu Yuan",
+                font: "26px Quicksand",
+                color: "#333",
+                target: ["g1", "g2", "g3", "g4", "g5"],
+                "eval": this.evaluateDrop,
+                afterSuccess: "hide",
+                afterFail: "return"
+              }, {
+                type: "ldrg",
+                id: "ldrg3",
+                x: 265,
+                y: 480,
+                index: "Li Li",
+                text: "Li Li",
+                font: "26px Quicksand",
+                color: "#333",
+                target: ["g1", "g2", "g3", "g4", "g5"],
+                "eval": this.evaluateDrop,
+                afterSuccess: "hide",
+                afterFail: "return"
+              }, {
+                type: "ldrg",
+                id: "ldrg4",
+                x: 350,
+                y: 480,
+                index: "Wen Li",
+                text: "Wen Li",
+                font: "26px Quicksand",
+                color: "#333",
+                target: ["g1", "g2", "g3", "g4", "g5"],
+                "eval": this.evaluateDrop,
+                afterSuccess: "hide",
+                afterFail: "return"
+              }, {
+                type: "ldrg",
+                id: "ldrg1",
+                x: 485,
+                y: 480,
+                index: "Zhu Mei",
+                text: "Zhu Mei",
+                font: "26px Quicksand",
+                color: "#333",
+                target: ["g1", "g2", "g3", "g4", "g5"],
+                "eval": this.evaluateDrop,
+                afterSuccess: "hide",
+                afterFail: "return"
+              }, {
+                type: "ldrg",
+                id: "ldrg2",
+                x: 650,
+                y: 480,
+                index: "Li Mei",
+                text: "Li Mei",
+                font: "26px Quicksand",
+                color: "#333",
+                target: ["g1", "g2", "g3", "g4", "g5"],
                 "eval": this.evaluateDrop,
                 afterSuccess: "hide",
                 afterFail: "return"

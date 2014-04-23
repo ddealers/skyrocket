@@ -76,7 +76,7 @@ NEW ODA
         header: 'header',
         instructions: {
           x: 110,
-          y: 180,
+          y: 130,
           states: [
             {
               text: 'Read the text. Then answer the questions, click on True or False.',
@@ -140,7 +140,7 @@ NEW ODA
                 type: 'img',
                 id: 'image',
                 x: 420,
-                y: 230
+                y: 195
               }, {
                 type: 'txt',
                 id: 't1',
@@ -148,7 +148,7 @@ NEW ODA
                 x: 70,
                 y: 260,
                 lineWidth: 330,
-                font: '14px Quicksand',
+                font: '14px Roboto',
                 align: 'left'
               }, {
                 type: 'btn',
@@ -261,7 +261,7 @@ NEW ODA
                 id: 'dance',
                 name: 'dance',
                 x: 420,
-                y: 230
+                y: 210
               }, {
                 type: 'txt',
                 id: 't2',
@@ -269,7 +269,7 @@ NEW ODA
                 x: 70,
                 y: 260,
                 lineWidth: 330,
-                font: '14px Quicksand',
+                font: '14px Roboto',
                 align: 'left'
               }, {
                 type: 'btn',
@@ -382,7 +382,7 @@ NEW ODA
                 id: 'nature',
                 name: 'nature',
                 x: 420,
-                y: 230
+                y: 210
               }, {
                 type: 'txt',
                 id: 't3',
@@ -390,7 +390,7 @@ NEW ODA
                 x: 70,
                 y: 260,
                 lineWidth: 330,
-                font: '14px Quicksand',
+                font: '14px Roboto',
                 align: 'left'
               }, {
                 type: 'btn',
@@ -503,7 +503,7 @@ NEW ODA
                 id: 'musical',
                 name: 'musical',
                 x: 420,
-                y: 230
+                y: 210
               }, {
                 type: 'txt',
                 id: 't4',
@@ -511,7 +511,7 @@ NEW ODA
                 x: 70,
                 y: 260,
                 lineWidth: 330,
-                font: '14px Quicksand',
+                font: '14px Roboto',
                 align: 'left'
               }, {
                 type: 'btn',
@@ -617,7 +617,7 @@ NEW ODA
                 id: 'course',
                 name: 'course',
                 x: 420,
-                y: 230
+                y: 210
               }, {
                 type: 'txt',
                 id: 't5',
@@ -625,7 +625,7 @@ NEW ODA
                 x: 70,
                 y: 260,
                 lineWidth: 330,
-                font: '14px Quicksand',
+                font: '14px Roboto',
                 align: 'left'
               }, {
                 type: 'btn',

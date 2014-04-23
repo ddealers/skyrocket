@@ -320,24 +320,57 @@ NEW ODA
               collection: [
                 [
                   {
+                    name: 'snd',
+                    opts: {
+                      id: 's/Hiro'
+                    }
+                  }, {
                     name: "b1",
                     opts: {
                       success: ["Hiro"]
+                    }
+                  }
+                ], [
+                  {
+                    name: 'snd',
+                    opts: {
+                      id: 's/Barney'
                     }
                   }, {
                     name: "b2",
                     opts: {
                       success: ["Barney"]
                     }
+                  }
+                ], [
+                  {
+                    name: 'snd',
+                    opts: {
+                      id: 's/Roger'
+                    }
                   }, {
                     name: "b3",
                     opts: {
                       success: ["Roger"]
                     }
+                  }
+                ], [
+                  {
+                    name: 'snd',
+                    opts: {
+                      id: 's/Paul'
+                    }
                   }, {
                     name: "b4",
                     opts: {
                       success: ["Paul"]
+                    }
+                  }
+                ], [
+                  {
+                    name: 'snd',
+                    opts: {
+                      id: 's/Panchito'
                     }
                   }, {
                     name: "b5",
@@ -347,6 +380,7 @@ NEW ODA
                   }
                 ]
               ],
+              mixed: true,
               type: 'steps'
             },
             containers: [
@@ -390,8 +424,8 @@ NEW ODA
                 font: "26px Quicksand",
                 color: "#333",
                 target: ["b1", "b2", "b3", "b4", "b5"],
-                "eval": this.evaluateDrop02_01,
-                afterSuccess: "origin",
+                "eval": this.evaluateDrop,
+                afterSuccess: "hide",
                 afterFail: "return"
               }, {
                 type: "ldrg",
@@ -403,8 +437,8 @@ NEW ODA
                 font: "26px Quicksand",
                 color: "#333",
                 target: ["b1", "b2", "b3", "b4", "b5"],
-                "eval": this.evaluateDrop02_01,
-                afterSuccess: "origin",
+                "eval": this.evaluateDrop,
+                afterSuccess: "hide",
                 afterFail: "return"
               }, {
                 type: "ldrg",
@@ -416,8 +450,8 @@ NEW ODA
                 font: "26px Quicksand",
                 color: "#333",
                 target: ["b1", "b2", "b3", "b4", "b5"],
-                "eval": this.evaluateDrop02_01,
-                afterSuccess: "origin",
+                "eval": this.evaluateDrop,
+                afterSuccess: "hide",
                 afterFail: "return"
               }, {
                 type: "ldrg",
@@ -429,8 +463,8 @@ NEW ODA
                 font: "26px Quicksand",
                 color: "#333",
                 target: ["b1", "b2", "b3", "b4", "b5"],
-                "eval": this.evaluateDrop02_01,
-                afterSuccess: "origin",
+                "eval": this.evaluateDrop,
+                afterSuccess: "hide",
                 afterFail: "return"
               }, {
                 type: "ldrg",
@@ -442,8 +476,8 @@ NEW ODA
                 font: "26px Quicksand",
                 color: "#333",
                 target: ["b1", "b2", "b3", "b4", "b5"],
-                "eval": this.evaluateDrop02_01,
-                afterSuccess: "origin",
+                "eval": this.evaluateDrop,
+                afterSuccess: "hide",
                 afterFail: "return"
               }, {
                 type: "btn",

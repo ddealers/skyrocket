@@ -413,7 +413,7 @@ NEW ODA
                 x: 505,
                 y: 200,
                 font: '16px Quicksand',
-                margin: 5,
+                margin: 1,
                 align: 'tl',
                 scolor: '#F9101A'
               }, {

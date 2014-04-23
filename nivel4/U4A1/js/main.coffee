@@ -24,6 +24,8 @@ class U4A1 extends Oda
 			{id:'7b', src:'7-1.png'}
 			{id:'7', src:'7.png'}
 			{id:'couldnt', src:'coludnt.png'}
+			{id:'couldnt2', src:'coludnt.png'}
+			{id:'could2', src:'could.png'}
 			{id:'could', src:'could.png'}
 			{id:'Joe', src:'Joe.png'}
 			{id:'Noam', src:'Noam.png'}
@@ -66,7 +68,6 @@ class U4A1 extends Oda
 								{name:'snd', opts:{id:'s/Noam'}}
 							]
 						]
-						type: 'steps'
 					}
 					containers:[
 						{type: 'img', id: 'Noam', x: 56, y: 230}
@@ -90,25 +91,23 @@ class U4A1 extends Oda
 					answers: {
 						collection: [
 							[
-								{name:'could', opts:{
+								{name:'could2', opts:{
 										success:['1b','2b','4b','7b']
 									}
 								}
 
-								{name:'couldnt', opts:{
+								{name:'couldnt2', opts:{
 										success:['3b','5b','6b']
 									}
 								}
 								{name:'snd', opts:{id:'s/Joe'}}
-
 							]
 						]
-						type: 'steps'
 					}
 					containers:[
 						{type: 'img', id: 'Joe', x: 56, y: 230}
-						{type: 'idc', id: 'could', x: 411, y: 317, align: 'mc'}
-						{type: 'idc', id: 'couldnt', x: 647, y: 317, align: 'mc'}
+						{type: 'idc', id: 'could2', x: 411, y: 317, align: 'mc'}
+						{type: 'idc', id: 'couldnt2', x: 647, y: 317, align: 'mc'}
 						{type: 'drg', id: '1b', x: 187+30, y: 510, align:'mc', index: '1b', target: ['could','couldnt'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
 						{type: 'drg', id: '2b', x: 187+30, y: 565, align:'mc', index: '2b', target: ['could','couldnt'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
 						{type: 'drg', id: '3b', x: 287+30, y: 510, align:'mc', index: '3b', target: ['could','couldnt'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}

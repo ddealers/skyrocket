@@ -140,7 +140,7 @@ NEW ODA
                       target: 'goggles'
                     }
                   }, {
-                    name: 'pcpt2',
+                    name: 'pcpt1',
                     opts: {
                       pattern: ['Swimmers use a swimsuit, a swimming cap and', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '.'],
                       targets: [
@@ -177,7 +177,7 @@ NEW ODA
                       target: 'paddle'
                     }
                   }, {
-                    name: 'pcpt3',
+                    name: 'pcpt1',
                     opts: {
                       pattern: ['You hit a table tennis ball with a', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '.'],
                       targets: [
@@ -211,7 +211,7 @@ NEW ODA
                       target: 'pool'
                     }
                   }, {
-                    name: 'pcpt4',
+                    name: 'pcpt1',
                     opts: {
                       pattern: ['Swimmers train in a', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '.'],
                       targets: [
@@ -239,7 +239,7 @@ NEW ODA
                       target: 'team'
                     }
                   }, {
-                    name: 'pcpt5',
+                    name: 'pcpt1',
                     opts: {
                       pattern: ['Volleyball and soccer are', '#tcpt', '#tcpt', '#tcpt', '#tcpt', 'sports.'],
                       targets: [
@@ -267,7 +267,7 @@ NEW ODA
                       target: 'coach'
                     }
                   }, {
-                    name: 'pcpt6',
+                    name: 'pcpt1',
                     opts: {
                       pattern: ['The', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', 'works with the team so they play well.'],
                       targets: [
@@ -298,7 +298,7 @@ NEW ODA
                       target: 'ball'
                     }
                   }, {
-                    name: 'pcpt7',
+                    name: 'pcpt1',
                     opts: {
                       pattern: ['Many sports are played with a', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '.'],
                       targets: [
@@ -326,7 +326,7 @@ NEW ODA
                       target: 'shoes'
                     }
                   }, {
-                    name: 'pcpt8',
+                    name: 'pcpt1',
                     opts: {
                       pattern: ['Athletes wear running', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', 'on their feet.'],
                       targets: [
@@ -357,7 +357,7 @@ NEW ODA
                       target: 'medal'
                     }
                   }, {
-                    name: 'pcpt9',
+                    name: 'pcpt1',
                     opts: {
                       pattern: ['The Chinese team won first place. They won the gold', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '.'],
                       targets: [
@@ -388,7 +388,7 @@ NEW ODA
                       target: 'diving'
                     }
                   }, {
-                    name: 'pcpt10',
+                    name: 'pcpt1',
                     opts: {
                       pattern: ['This sport,', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', ', is  a combination of gymnastics and swimming.'],
                       targets: [
@@ -422,7 +422,7 @@ NEW ODA
                       target: 'train'
                     }
                   }, {
-                    name: 'pcpt11',
+                    name: 'pcpt1',
                     opts: {
                       pattern: ['Athletes have to', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', 'every day to be faster and better.'],
                       targets: [
@@ -453,7 +453,7 @@ NEW ODA
                       target: 'race'
                     }
                   }, {
-                    name: 'pcpt12',
+                    name: 'pcpt1',
                     opts: {
                       pattern: ['Dimitri ran faster than Pedro and he won the', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '.'],
                       targets: [
@@ -481,7 +481,7 @@ NEW ODA
                       target: 'match'
                     }
                   }, {
-                    name: 'pcpt13',
+                    name: 'pcpt1',
                     opts: {
                       pattern: ['In karate, the American athletes kicked harder and won the', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '.'],
                       targets: [
@@ -512,7 +512,7 @@ NEW ODA
                       target: 'paddle'
                     }
                   }, {
-                    name: 'pcpt14',
+                    name: 'pcpt1',
                     opts: {
                       pattern: ['You use a paddle in', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', ' ', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '.'],
                       targets: [
@@ -644,123 +644,6 @@ NEW ODA
                 align: 'tc',
                 scolor: '#F9101A'
               }, {
-                type: 'pcpt',
-                id: 'pcpt2',
-                x: 433,
-                y: 470,
-                font: '20px Quicksand',
-                margin: 5,
-                align: 'tc',
-                scolor: '#F9101A'
-              }, {
-                type: 'pcpt',
-                id: 'pcpt3',
-                x: 433,
-                y: 470,
-                font: '20px Quicksand',
-                margin: 5,
-                align: 'tc',
-                scolor: '#F9101A'
-              }, {
-                type: 'pcpt',
-                id: 'pcpt4',
-                x: 433,
-                y: 470,
-                font: '20px Quicksand',
-                margin: 5,
-                align: 'tc',
-                scolor: '#F9101A'
-              }, {
-                type: 'pcpt',
-                id: 'pcpt5',
-                x: 433,
-                y: 470,
-                font: '20px Quicksand',
-                margin: 5,
-                align: 'tc',
-                scolor: '#F9101A'
-              }, {
-                type: 'pcpt',
-                id: 'pcpt6',
-                x: 433,
-                y: 470,
-                font: '20px Quicksand',
-                margin: 5,
-                align: 'tc',
-                scolor: '#F9101A'
-              }, {
-                type: 'pcpt',
-                id: 'pcpt7',
-                x: 433,
-                y: 470,
-                font: '20px Quicksand',
-                margin: 5,
-                align: 'tc',
-                scolor: '#F9101A'
-              }, {
-                type: 'pcpt',
-                id: 'pcpt8',
-                x: 433,
-                y: 470,
-                font: '20px Quicksand',
-                margin: 5,
-                align: 'tc',
-                scolor: '#F9101A'
-              }, {
-                type: 'pcpt',
-                id: 'pcpt9',
-                x: 433,
-                y: 470,
-                font: '20px Quicksand',
-                margin: 5,
-                align: 'tc',
-                scolor: '#F9101A'
-              }, {
-                type: 'pcpt',
-                id: 'pcpt10',
-                x: 433,
-                y: 470,
-                font: '20px Quicksand',
-                margin: 5,
-                align: 'tc',
-                scolor: '#F9101A'
-              }, {
-                type: 'pcpt',
-                id: 'pcpt11',
-                x: 433,
-                y: 470,
-                font: '20px Quicksand',
-                margin: 5,
-                align: 'tc',
-                scolor: '#F9101A'
-              }, {
-                type: 'pcpt',
-                id: 'pcpt12',
-                x: 433,
-                y: 470,
-                font: '20px Quicksand',
-                margin: 5,
-                align: 'tc',
-                scolor: '#F9101A'
-              }, {
-                type: 'pcpt',
-                id: 'pcpt13',
-                x: 433,
-                y: 470,
-                font: '20px Quicksand',
-                margin: 5,
-                align: 'tc',
-                scolor: '#F9101A'
-              }, {
-                type: 'pcpt',
-                id: 'pcpt14',
-                x: 433,
-                y: 470,
-                font: '20px Quicksand',
-                margin: 5,
-                align: 'tc',
-                scolor: '#F9101A'
-              }, {
                 type: 'abc',
                 id: 'abc1',
                 x: 400,
@@ -770,8 +653,9 @@ NEW ODA
                 uwidth: 22,
                 uheight: 34,
                 margin: 10,
-                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8', 'pcpt9', 'pcpt10', 'pcpt11', 'pcpt12', 'pcpt13', 'pcpt14'],
-                "eval": 'phrase_drop_03'
+                target: 'pcpt1',
+                "eval": 'click_O1',
+                clickable: true
               }
             ],
             groups: [

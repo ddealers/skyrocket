@@ -144,7 +144,7 @@ NEW ODA
                 x: 70,
                 y: 260,
                 lineWidth: 330,
-                font: '14px Quicksand',
+                font: '14px Roboto',
                 align: 'left'
               }, {
                 type: 'btn',
@@ -273,7 +273,7 @@ NEW ODA
                 x: 70,
                 y: 260,
                 lineWidth: 330,
-                font: '14px Quicksand',
+                font: '14px Roboto',
                 align: 'left'
               }, {
                 type: 'btn',

@@ -69,7 +69,7 @@ NEW ODA
           y: 130,
           states: [
             {
-              text: 'Read and listen. Then complete the sentences.',
+              text: 'Read and drag the words to complete the story.',
               sound: 's/silence',
               played: false
             }
@@ -80,7 +80,7 @@ NEW ODA
           x: 20,
           y: 500,
           init: 0,
-          total: 14,
+          total: 12,
           aimg: 'c1',
           acolor: '#333',
           bimg: 'c2',
@@ -94,7 +94,7 @@ NEW ODA
                   {
                     name: 'pcct1',
                     opts: {
-                      pattern: ['Last week my little sister Nadia got lost at the mall.', '#rtn', 'She is only six years old, so we were very scared. ', '#rtn', '#rtn', 'My mom called the store detective immediately. ', '#rtn', 'The store detective asked us a lot of questions. ', '#rtn', 'She filled out a form, a Missing Persons', '#tcpt', '.', '#rtn', '#rtn', ' \“What does she look like?\” the detective asked.', '#rtn', '#rtn', ' \“She is small,', '#tcpt', ', and has long, blond hair. ', '#rtn', 'She has gray eyes and a small,', '#tcpt', 'on her', '#rtn', 'knee. She fell down last week\”, answered Mom.', '#rtn', '#rtn', '\“What is she', '#tcpt', '?\”', '#rtn', '#rtn', '\“She’s wearing a pink blouse, a green ', '#tcpt', ', ', '#rtn', 'and blue sneakers. She likes', '#tcpt', 'colors,\”', '#rtn', ' said Mom. ', '#rtn', '#rtn', 'The detective wrote the information in a notebook.'],
+                      pattern: ['Last week my little sister Nadia got lost at the mall.', '#rtn', 'She is only six years old, so we were very scared.', '#rtn', '#rtn', 'My mom called the store detective immediately.', '#rtn', 'The store detective asked us a lot of questions.', '#rtn', 'She filled out a form, a Missing Persons', '#tcpt', '.', '#rtn', '#rtn', '\“What does she look like?\” the detective asked.', '#rtn', '#rtn', '\“She is small,', '#tcpt', ', and has long, blond hair.', '#rtn', 'She has gray eyes and a small', '#tcpt', 'on her', '#rtn', 'knee. She fell down last week,\” answered Mom.', '#rtn', '#rtn', '\“What is she', '#tcpt', '?\”', '#rtn', '#rtn', '\“She’s wearing a pink blouse, a green', '#tcpt', ',', '#rtn', 'and blue sneakers. She likes', '#tcpt', 'colors,\”', '#rtn', 'said Mom.', '#rtn', '#rtn', 'The detective wrote the information in a notebook.'],
                       targets: [
                         {
                           text: 'dancing',
@@ -214,8 +214,8 @@ NEW ODA
                 id: 'ldrg6',
                 x: 620,
                 y: 540,
-                index: 'were',
-                text: 'were',
+                index: 'wearing',
+                text: 'wearing',
                 font: '22px Quicksand',
                 color: '#333',
                 target: ['pcct1'],

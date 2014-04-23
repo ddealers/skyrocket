@@ -48,11 +48,11 @@ class U8A3 extends Oda
 					answers: {
 						collection: [
 							[
-								{name:'zone2', opts:{
+								{name:'zone1', opts:{
 										success:['1','2','3','4']
 									}
 								}
-								{name:'zone1', opts:{
+								{name:'zone2', opts:{
 										success:['5','7','6','8']
 									}
 								}

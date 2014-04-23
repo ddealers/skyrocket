@@ -121,7 +121,7 @@ class U9A2 extends Oda
 						{type: 'img', id: 'control', x: 170, y: 438, align: 'mc'}
 						{type: 'img', id: 'caja', x: 630, y: 240, align: 'mc'}
 
-						{type: 'pcpt', id: 'pcpt1', x: 505, y: 200, font: '16px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A'}
+						{type: 'pcpt', id: 'pcpt1', x: 505, y: 200, font: '16px Quicksand', margin: 1, align: 'tl', scolor: '#F9101A'}
 
 
 
