@@ -91,6 +91,10 @@ NEW ODA
               text: 'Read and listen. Then complete the sentences.',
               sound: 's/silence',
               played: false
+            }, {
+              text: 'Listen and choose the correct sentences.',
+              sound: 's/silence',
+              played: false
             }
           ]
         },
@@ -130,11 +134,11 @@ NEW ODA
                   }, {
                     name: 'pcct2',
                     opts: {
-                      pattern: ['We got married ', '#tcpt', '.'],
+                      pattern: ['We got married ', '#tcpt'],
                       targets: [
                         {
                           text: 'on Christmas Day',
-                          success: 'in 2005'
+                          success: 'in 2005.'
                         }
                       ]
                     }
@@ -185,10 +189,10 @@ NEW ODA
                   }, {
                     name: 'pcct7',
                     opts: {
-                      pattern: ['We left Hawaii ', '#tcpt', '.'],
+                      pattern: ['We left Hawaii ', '#tcpt'],
                       targets: [
                         {
-                          text: 'on Christmas Day',
+                          text: 'on Christmas Day.',
                           success: 'on Christmas Day'
                         }
                       ]
@@ -425,7 +429,7 @@ NEW ODA
                     opts: {
                       type: 'txt',
                       opt1: 'They met in Africa ten years ago.',
-                      opt2: 'They met in Africa last year'
+                      opt2: 'They met in Africa last year.'
                     }
                   }
                 ], [

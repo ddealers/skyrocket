@@ -144,7 +144,7 @@ NEW ODA
                   {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['It wasn\'t me. I', '#tcpt', 'a movie.', '#rtn', 'I was with my sister.'],
+                      pattern: ['It wasn\'t me. I', '#tcpt', 'a', '#rtn', 'movie. I was with my sister.'],
                       targets: [
                         {
                           text: 'was watching'
@@ -204,7 +204,7 @@ NEW ODA
                   }, {
                     name: 'pcpt7',
                     opts: {
-                      pattern: ['I\'m not the thief!', '#rtn', 'I', '#tcpt', 'my grandmother in prison.'],
+                      pattern: ['I\'m not the thief!', 'I', '#tcpt', '#rtn', 'my grandmother in  prison.'],
                       targets: [
                         {
                           text: 'was visiting'
@@ -388,7 +388,7 @@ NEW ODA
               }, {
                 type: 'img',
                 id: 'q1',
-                x: 110,
+                x: 95,
                 y: 170,
                 align: 'tl'
               }, {
@@ -424,7 +424,7 @@ NEW ODA
               }, {
                 type: 'img',
                 id: 'q7',
-                x: 563,
+                x: 550,
                 y: 150,
                 align: 'tl'
               }, {

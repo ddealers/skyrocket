@@ -76,7 +76,7 @@ NEW ODA
         header: 'header',
         instructions: {
           x: 110,
-          y: 180,
+          y: 140,
           states: [
             {
               text: 'Read the text. Then answer the questions, click on True or False.',

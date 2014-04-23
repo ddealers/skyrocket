@@ -58,13 +58,13 @@ class U3A4 extends Oda
 					answers: {
 						collection: [
 							[
-								{name: 'pcpt1', opts:{pattern:['It wasn\'t me. I', '#tcpt','a movie.','#rtn','I was with my sister.'], targets: [{text:'was watching'}]}}
+								{name: 'pcpt1', opts:{pattern:['It wasn\'t me. I', '#tcpt','a','#rtn','movie. I was with my sister.'], targets: [{text:'was watching'}]}}
 								{name: 'pcpt2', opts:{pattern:['No, you weren\'t. I saw your sister.','#rtn', 'She ', '#tcpt', 'mambo at the', '#rtn','dance school!'], targets: [{text:'was dancing'}]}}
 								{name: 'pcpt3', opts:{pattern:['He has two sisters. I saw him.','#rtn', 'He', '#tcpt', 'popcorn before', '#rtn', 'the movie.'], targets: [{text:'was buying'}]}}
 								{name: 'pcpt4', opts:{pattern:['Me? I', '#tcpt', 'in the park with my dog.'], targets: [{text:'was walking'}]}}
 								{name: 'pcpt5', opts:{pattern:['What', '#rtn', '#tcpt', '?'], targets: [{text:'were you doing'}]}}
 								{name: 'pcpt6', opts:{pattern:['I think the thief was a woman. I heard her.','#rtn', 'She ', '#tcpt', 'at the policeman.'], targets: [{text:'was shouting'}]}}
-								{name: 'pcpt7', opts:{pattern:['I\'m not the thief!','#rtn', 'I', '#tcpt', 'my grandmother in prison.'], targets: [{text:'was visiting'}]}}
+								{name: 'pcpt7', opts:{pattern:['I\'m not the thief!', 'I', '#tcpt', '#rtn', 'my grandmother in  prison.'], targets: [{text:'was visiting'}]}}
 								{name: 'pcpt8', opts:{pattern:['Oh… me? I was trying to get some exercise.','#rtn', 'I', '#tcpt', '!'], targets: [{text:'was running'}]}}
 							]
 							
@@ -106,13 +106,13 @@ class U3A4 extends Oda
 						}
 						{type: 'img', id: 'caja', x: 140, y: 490, align: 'tl'}
 
-						{type: 'img', id: 'q1', x: 110, y: 170, align: 'tl'}
+						{type: 'img', id: 'q1', x: 95, y: 170, align: 'tl'}
 						{type: 'img', id: 'q2', x: 193, y: 160, align: 'tl'}
 						{type: 'img', id: 'q3', x: 149, y: 160, align: 'tl'}
 						{type: 'img', id: 'q4', x: 299, y: 170, align: 'tl'}
 						{type: 'img', id: 'q5', x: 393, y: 150, align: 'tl'}
 						{type: 'img', id: 'q6', x: 453, y: 140, align: 'tl'}
-						{type: 'img', id: 'q7', x: 563, y: 150, align: 'tl'}
+						{type: 'img', id: 'q7', x: 550, y: 150, align: 'tl'}
 						{type: 'img', id: 'q8', x: 464, y: 160, align: 'tl'}
 
 						{type: 'pcpt', id: 'pcpt1', x: 113, y: 195,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', bcolor: 'rgba(255,255,255,0.01)', stroke: 1}

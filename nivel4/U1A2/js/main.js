@@ -206,7 +206,7 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['Wait! You', '#tcpt', 'use the hot oven.', '#rtn', 'I\'ll do it.'],
+                      pattern: ['Wait! You', '#tcpt', 'use the hot', '#rtn', 'oven. I\'ll do it.'],
                       targets: [
                         {
                           text: 'shouldn\'t',
@@ -231,7 +231,7 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['I\'ll clean it.But you', '#tcpt', '#rtn', 'brush the catmore often, Bobby.'],
+                      pattern: ['I\'ll clean it. But you', '#tcpt', '#rtn', 'brush the catmore often, Bobby.'],
                       targets: [
                         {
                           text: 'should'
@@ -523,7 +523,7 @@ NEW ODA
               }, {
                 type: 'txt',
                 id: 't3',
-                text: 'Dad it hurts!',
+                text: 'Dad, it hurts!',
                 x: 165,
                 y: 505,
                 lineWidth: 200,
@@ -604,7 +604,7 @@ NEW ODA
               }, {
                 type: 'txt',
                 id: 't12',
-                text: 'Mom, can I swim now?.',
+                text: 'Mom, can I swim now?',
                 x: 165,
                 y: 505,
                 lineWidth: 200,

@@ -82,7 +82,7 @@ NEW ODA
           id: 's/Lili',
           src: 'Lili.mp3'
         }, {
-          id: 's/LiMin',
+          id: 's/LiMei',
           src: 'LiMin.mp3'
         }, {
           id: 's/LiuYuan',
@@ -150,19 +150,19 @@ NEW ODA
                   }, {
                     name: "g1",
                     opts: {
-                      success: ["Wang Li"]
+                      success: ["Wen Li"]
                     }
                   }
                 ], [
                   {
                     name: 'snd',
                     opts: {
-                      id: 's/LiMin'
+                      id: 's/LiMei'
                     }
                   }, {
                     name: "g2",
                     opts: {
-                      success: ["Li Min"]
+                      success: ["Li Mei"]
                     }
                   }
                 ], [
@@ -174,7 +174,7 @@ NEW ODA
                   }, {
                     name: "g3",
                     opts: {
-                      success: ["Liu Yang"]
+                      success: ["Liu Yuan"]
                     }
                   }
                 ], [
@@ -198,7 +198,7 @@ NEW ODA
                   }, {
                     name: "g5",
                     opts: {
-                      success: ["Zhang Min"]
+                      success: ["Zhu Mei"]
                     }
                   }
                 ]
@@ -216,25 +216,25 @@ NEW ODA
               }, {
                 type: "idc",
                 id: "g2",
-                x: 235,
+                x: 214,
                 y: 460,
                 align: "bl"
               }, {
                 type: "idc",
                 id: "g3",
-                x: 362,
+                x: 318,
                 y: 460,
                 align: "bl"
               }, {
                 type: "idc",
                 id: "g4",
-                x: 438,
+                x: 397,
                 y: 460,
                 align: "bl"
               }, {
                 type: "idc",
                 id: "g5",
-                x: 566,
+                x: 562,
                 y: 460,
                 align: "bl"
               }, {
@@ -242,8 +242,8 @@ NEW ODA
                 id: "ldrg5",
                 x: 130,
                 y: 500,
-                index: "Liu Yang",
-                text: "Liu Yang",
+                index: "Zhu Mei",
+                text: "Zhu Mei",
                 font: "26px Quicksand",
                 color: "#333",
                 target: ["g1", "g2", "g3", "g4", "g5"],
@@ -253,10 +253,10 @@ NEW ODA
               }, {
                 type: "ldrg",
                 id: "ldrg3",
-                x: 265,
+                x: 270,
                 y: 500,
-                index: "Li Li",
-                text: "Li Li",
+                index: "Liu Yuan",
+                text: "Liu Yuan",
                 font: "26px Quicksand",
                 color: "#333",
                 target: ["g1", "g2", "g3", "g4", "g5"],
@@ -266,10 +266,10 @@ NEW ODA
               }, {
                 type: "ldrg",
                 id: "ldrg4",
-                x: 350,
+                x: 408,
                 y: 500,
-                index: "Wang Li",
-                text: "Wang Li",
+                index: "Li Mei",
+                text: "Li Mei",
                 font: "26px Quicksand",
                 color: "#333",
                 target: ["g1", "g2", "g3", "g4", "g5"],
@@ -279,10 +279,10 @@ NEW ODA
               }, {
                 type: "ldrg",
                 id: "ldrg1",
-                x: 485,
+                x: 515,
                 y: 500,
-                index: "Zhang Min",
-                text: "Zhang Min",
+                index: "Wen Li",
+                text: "Wen Li",
                 font: "26px Quicksand",
                 color: "#333",
                 target: ["g1", "g2", "g3", "g4", "g5"],
@@ -292,10 +292,10 @@ NEW ODA
               }, {
                 type: "ldrg",
                 id: "ldrg2",
-                x: 650,
+                x: 638,
                 y: 500,
-                index: "Li Min",
-                text: "Li Min",
+                index: "Li Li",
+                text: "Li Li",
                 font: "26px Quicksand",
                 color: "#333",
                 target: ["g1", "g2", "g3", "g4", "g5"],

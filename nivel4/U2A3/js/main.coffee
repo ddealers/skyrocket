@@ -39,7 +39,7 @@ class U2A3 extends Oda
 			lib.scene.success false
 		@game = 
 			header: 'header'
-			instructions: {x: 110, y: 130, states: [{text:'Read and listen. Then complete the sentences.', sound:'s/silence', played: false}]}
+			instructions: {x: 110, y: 130, states: [{text:'Read and listen. Then complete the sentences.', sound:'s/silence', played: false},{text:'Listen and choose the correct sentences.', sound:'s/silence', played: false}]}
 			score:{type: 'points', x:20, y:500, init: 0, total: 14, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
 			scenes:[
 				
@@ -49,12 +49,12 @@ class U2A3 extends Oda
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'family'}}
 								{name: 'pcct1', opts:{pattern:['We met in Africa ', '#tcpt',' years ago.'], targets: [{text:'on Christmas Day', success:'ten'}]}}
-								{name: 'pcct2', opts:{pattern:['We got married ', '#tcpt','.'], targets: [{text:'on Christmas Day', success:'in 2005'}]}}
+								{name: 'pcct2', opts:{pattern:['We got married ', '#tcpt'], targets: [{text:'on Christmas Day', success:'in 2005.'}]}}
 								{name: 'pcct3', opts:{pattern:['In 2007, ', '#tcpt',' was born.'], targets: [{text:'on Christmas Day', success:'Patrick'}]}}
 								{name: 'pcct4', opts:{pattern:['We started homeschooling Patrick when he was ', '#tcpt',' years old.'], targets: [{text:'on Christmas Day', success:'four'}]}}
 								{name: 'pcct5', opts:{pattern:['In 2011, a university gave us ', '#tcpt',' to study Pacific cultures.'], targets: [{text:'on Christmas Day', success:'money'}]}}
 								{name: 'pcct6', opts:{pattern:['We gave', '#tcpt','to say goodbye to our family and friends.'], targets: [{text:'on Christmas Day', success:'a party'}]}}
-								{name: 'pcct7', opts:{pattern:['We left Hawaii ', '#tcpt','.'], targets: [{text:'on Christmas Day', success:'on Christmas Day'}]}}
+								{name: 'pcct7', opts:{pattern:['We left Hawaii ', '#tcpt'], targets: [{text:'on Christmas Day.', success:'on Christmas Day'}]}}
 								{name: 'pcct8', opts:{pattern:['Patrick is happy and he is making ', '#tcpt',' everywhere.'], targets: [{text:'on Christmas Day', success:'new friends'}]}}
 							]
 						]
@@ -99,7 +99,7 @@ class U2A3 extends Oda
 								{name:'global', opts:{success:1}}
 								{
 									name: 'chs1', opts:{type: 'txt'
-									opt1: 'They met in Africa ten years ago.', opt2: 'They met in Africa last year'}
+									opt1: 'They met in Africa ten years ago.', opt2: 'They met in Africa last year.'}
 								}
 							]
 							[

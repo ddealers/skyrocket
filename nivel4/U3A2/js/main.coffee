@@ -30,7 +30,7 @@ class U3A2 extends Oda
 			lib.scene.success false
 		@game = 
 			header: 'header'
-			instructions: {x: 110, y: 130, states: [{text:'Read and listen. Then complete the sentences.', sound:'s/silence', played: false}]}
+			instructions: {x: 110, y: 130, states: [{text:'Read and drag the words to the complete the story.', sound:'s/silence', played: false}]}
 			score:{type: 'points', x:20, y:500, init: 0, total: 14, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
 			scenes:[
 				
@@ -41,8 +41,8 @@ class U3A2 extends Oda
 								{
 									name: 'pcct1'
 									opts:{
-										pattern:['Last week my little sister Nadia got lost at the mall.', '#rtn', 'She is only six years old, so we were very scared. ', '#rtn', '#rtn', 'My mom called the store detective immediately. ', '#rtn', 'The store detective asked us a lot of questions. ', '#rtn', 'She filled out a form, a Missing Persons', '#tcpt', '.', '#rtn', '#rtn', ' \“What does she look like?\” the detective asked.', '#rtn', '#rtn', ' \“She is small,', '#tcpt', ', and has long, blond hair. ', '#rtn', 'She has gray eyes and a small,', '#tcpt', 'on her', '#rtn', 'knee. She fell down last week\”, answered Mom.', '#rtn', '#rtn', '\“What is she', '#tcpt', '?\”', '#rtn', '#rtn', '\“She’s wearing a pink blouse, a green ', '#tcpt', ', ', '#rtn', 'and blue sneakers. She likes', '#tcpt', 'colors,\”', '#rtn', ' said Mom. ', '#rtn', '#rtn', 'The detective wrote the information in a notebook.']
-										targets: [{text: 'dancing' , success: 'Report'},{  text: 'dancing',  success: 'thin'},{  text: 'dancing',  success: 'scar'},{  text: 'dancing',  success: 'wearing'},{  text: 'dancing',  success: 'skirt'},{text: 'dancing',  success: 'bright'}]
+										pattern:['Last week my little sister Nadia got lost at the mall.', '#rtn', 'She is only six years old, so we were very scared. ', '#rtn', '#rtn', 'My mom called the store detective immediately. ', '#rtn', 'The store detective asked us a lot of questions. ', '#rtn', 'She filled out a form, a Missing Persons', '#tcpt', '#rtn', '#rtn', '\“What does she look like?\” the detective asked.', '#rtn', '#rtn', '\“She is small,', '#tcpt', ', and has long, blond hair. ', '#rtn', 'She has gray eyes and a small', '#tcpt', 'on her', '#rtn', 'knee. She fell down last week\,” answered Mom.', '#rtn', '#rtn', '\“What is she', '#tcpt', '?\”', '#rtn', '#rtn', '\“She’s wearing a pink blouse, a green', '#tcpt', ', ', '#rtn', 'and blue sneakers. She likes', '#tcpt', 'colors,\”', '#rtn', 'said Mom. ', '#rtn', '#rtn', 'The detective wrote the information in a notebook.']
+										targets: [{text: 'dancing' , success: 'Report.'},{  text: 'dancing',  success: 'thin'},{  text: 'dancing',  success: 'scar?'},{  text: 'dancing',  success: 'wearing?'},{  text: 'dancing',  success: 'skirt'},{text: 'dancing',  success: 'bright'}]
 										ypos: 0
 									}
 								}
@@ -60,7 +60,7 @@ class U3A2 extends Oda
 						{type: 'ldrg', id: 'ldrg3', x: 360, y: 540, index: 'scar', text: 'scar', font: '22px Quicksand', color: '#333', target: ['pcct1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return' }
 						{type: 'ldrg', id: 'ldrg4', x: 450, y: 540, index: 'skirt', text: 'skirt', font: '22px Quicksand', color: '#333', target: ['pcct1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return' }
 						{type: 'ldrg', id: 'ldrg5', x: 540, y: 540, index: 'thin', text: 'thin', font: '22px Quicksand', color: '#333', target: ['pcct1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg6', x: 620, y: 540, index: 'were', text: 'were', font:'22px Quicksand', color: '#333', target: ['pcct1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg6', x: 620, y: 540, index: 'wearing', text: 'wearing', font:'22px Quicksand', color: '#333', target: ['pcct1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
 						
 					]
 					groups: [
@@ -70,7 +70,7 @@ class U3A2 extends Oda
 					answers: {
 						collection: [ 
 							[
-								{name: 'pcct2', opts:{pattern:['\“Where did you last see her?\” asked the detective.', '#rtn', '\“Right here. I was sitting right here and she was', '#tcpt', '#rtn', 'next to me.\”', '#rtn', '#rtn', '\“What', '#tcpt', 'you doing?\”', '#rtn', '#rtn', '\“I was trying on a pair of shoes. Nadia was', '#tcpt', '#rtn', 'with her doll. Then I looked up and she wasn’t there!\”', '#rtn', 'My mom started to cry a little.', '#rtn', '#rtn', '\“Was she talking to anybody?\” asked the detective.', '#rtn', '#rtn', '\“Yes, she was', '#tcpt', 'to an old lady. She was wearing', '#rtn', 'a pale blue blouse and a brown skirt.\”', '#rtn', '#rtn', 'The store assistants were', '#tcpt', 'everywhere and', '#rtn', 'people were calling Nadia\’s name.', '#rtn', '#rtn', '\“Please wait here,\” ordered the detective. He came', '#rtn', ' back ten minutes later with Nadia.', '#rtn', '#rtn', 'They found Nadia in a clothing store. She was wearing', '#rtn', 'a dress from the store. She was', '#tcpt', 'to music', '#rtn', 'in front of a mirror!'], targets: [{text: 'dancing',  success: 'sitting'}, {text: 'dancing',  success: 'were'}, {text: 'dancing',  success: 'playing'}, {text: 'dancing',  success: 'talking'}, {text: 'dancing',  success: 'looking'}, {text: 'dancing',  success: 'dancing'}]}}
+								{name: 'pcct2', opts:{pattern:['\“Where did you last see her?\” asked the detective.', '#rtn', '\“Right here. I was sitting right here and she was', '#tcpt', '#rtn', 'next to me.\”', '#rtn', '#rtn', '\“What', '#tcpt', 'you doing?\”', '#rtn', '#rtn', '\“I was trying on a pair of shoes. Nadia was', '#tcpt', '#rtn', 'with her doll. Then I looked up and she wasn’t there!\”', '#rtn', 'My mom started to cry a little.', '#rtn', '#rtn', '\“Was she talking to anybody?\” asked the detective.', '#rtn', '#rtn', '\“Yes, she was', '#tcpt', 'to an old lady. She was wearing', '#rtn', 'a pale blue blouse and a brown skirt.\”', '#rtn', '#rtn', 'The store assistants were', '#tcpt', 'everywhere and', '#rtn', 'people were calling Nadia\’s name.', '#rtn', '#rtn', '\“Please wait here,\” ordered the detective. He came', '#rtn', 'back ten minutes later with Nadia.', '#rtn', '#rtn', 'They found Nadia in a clothing store. She was wearing', '#rtn', 'a dress from the store. She was', '#tcpt', 'to music', '#rtn', 'in front of a mirror!'], targets: [{text: 'dancing',  success: 'sitting'}, {text: 'dancing',  success: 'were'}, {text: 'dancing',  success: 'playing'}, {text: 'dancing',  success: 'talking'}, {text: 'dancing',  success: 'looking'}, {text: 'dancing',  success: 'dancing'}]}}
 
 							]
 						]

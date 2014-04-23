@@ -125,7 +125,7 @@ class U4A3 extends Oda
 								{name: 'grpizq', opts:{type: 'fadeIn', target: 'playbtn'}}
 								{name: 'grpmid', opts:{type: 'fadeIn', target: 'saybtn'}}
 								{name: 'grpder', opts:{type: 'fadeIn', target: 'standbtn'}}
-								{name: 'pcpt1', opts:{pattern:['Gary could', '#tcpt', 'the word "cat" when he was 14 months old. '], targets: [{text:'say'}]}}
+								{name: 'pcpt1', opts:{pattern:['Gary could', '#tcpt', 'the word "cat" when he was 14 months old. '], targets: [{text:'say', success:}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'write'}}

@@ -30,7 +30,7 @@ class U5A2 extends Oda
       {id:'s/Simon', src: 'Simon.mp3'}
 
       {id:'s/Lili', src: 'Lili.mp3'}
-      {id:'s/LiMin', src: 'LiMin.mp3'}
+      {id:'s/LiMei', src: 'LiMin.mp3'}
       {id:'s/LiuYuan', src: 'LiuYuan.mp3'}
       {id:'s/WenLi', src: 'WenLi.mp3'}
       {id:'s/ZhuMei', src: 'ZhuMei.mp3'}
@@ -63,15 +63,15 @@ class U5A2 extends Oda
                 {
                   name: "g1"
                   opts:
-                    success: ["Wang Li"]
+                    success: ["Wen Li"]
                 }
               ]
               [
-                {name: 'snd', opts:{id:'s/LiMin'}}
+                {name: 'snd', opts:{id:'s/LiMei'}}
                 {
                   name: "g2"
                   opts:
-                    success: ["Li Min"]
+                    success: ["Li Mei"]
                 }
               ]
               [
@@ -79,7 +79,7 @@ class U5A2 extends Oda
                 {
                   name: "g3"
                   opts:
-                    success: ["Liu Yang"]
+                    success: ["Liu Yuan"]
                 }
               ]
               [
@@ -95,7 +95,7 @@ class U5A2 extends Oda
                 {
                   name: "g5"
                   opts:
-                    success: ["Zhang Min"]
+                    success: ["Zhu Mei"]
                 }
               ]
             ]
@@ -104,15 +104,15 @@ class U5A2 extends Oda
           }
           containers:[
             {type: "idc", id: "g1", x: 130, y: 460, align: "bl",}
-            {type: "idc", id: "g2", x: 235, y: 460, align: "bl",}
-            {type: "idc", id: "g3", x: 362, y: 460, align: "bl",}
-            {type: "idc", id: "g4", x: 438, y: 460, align: "bl",}
-            {type: "idc", id: "g5", x: 566, y: 460, align: "bl",}
-            {type: "ldrg", id: "ldrg5", x: 130, y: 500, index: "Liu Yang", text: "Liu Yang", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
-            {type: "ldrg", id: "ldrg3", x: 265, y: 500, index: "Li Li", text: "Li Li", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
-            {type: "ldrg", id: "ldrg4", x: 350, y: 500, index: "Wang Li", text: "Wang Li", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
-            {type: "ldrg", id: "ldrg1", x: 485, y: 500, index: "Zhang Min", text: "Zhang Min", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
-            {type: "ldrg", id: "ldrg2", x: 650, y: 500, index: "Li Min", text: "Li Min", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+            {type: "idc", id: "g2", x: 214, y: 460, align: "bl",}
+            {type: "idc", id: "g3", x: 318, y: 460, align: "bl",}
+            {type: "idc", id: "g4", x: 397, y: 460, align: "bl",}
+            {type: "idc", id: "g5", x: 562, y: 460, align: "bl",}
+            {type: "ldrg", id: "ldrg5", x: 130, y: 500, index: "Zhu Mei", text: "Zhu Mei", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+            {type: "ldrg", id: "ldrg3", x: 270, y: 500, index: "Liu Yuan", text: "Liu Yuan", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+            {type: "ldrg", id: "ldrg4", x: 408, y: 500, index: "Li Mei", text: "Li Mei", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+            {type: "ldrg", id: "ldrg1", x: 515, y: 500, index: "Wen Li", text: "Wen Li", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+            {type: "ldrg", id: "ldrg2", x: 638, y: 500, index: "Li Li", text: "Li Li", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
             {
               type: "btn", id: "repeat", x: 740, y: 540, isRepeat: true
               states: [img: {name: "repeat", x: 0, y: 0, align: "mc"}]
