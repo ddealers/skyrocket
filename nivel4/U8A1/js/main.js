@@ -166,7 +166,7 @@ NEW ODA
                   {
                     name: 'pcct3',
                     opts: {
-                      pattern: ['Some live in the sea. They can speak under water and', '#tcpt', 'with all the ocean\'s creatures.'],
+                      pattern: ['Some live in the sea. They can speak under water and', '#rtn', '#tcpt', 'with all the ocean\'s creatures.'],
                       targets: [
                         {
                           text: '___________',
@@ -423,7 +423,7 @@ NEW ODA
               }, {
                 type: 'img',
                 id: 'superhero',
-                x: 210,
+                x: 220,
                 y: 180
               }, {
                 type: 'pcct',
@@ -456,7 +456,7 @@ NEW ODA
                 type: 'pcct',
                 id: 'pcct4',
                 x: 30,
-                y: 259,
+                y: 271,
                 font: '12px Quicksand',
                 margin: 10,
                 scolor: '#F9101A',
@@ -465,7 +465,7 @@ NEW ODA
                 type: 'pcct',
                 id: 'pcct5',
                 x: 30,
-                y: 282,
+                y: 294,
                 font: '12px Quicksand',
                 margin: 10,
                 scolor: '#F9101A',
@@ -474,7 +474,7 @@ NEW ODA
                 type: 'pcct',
                 id: 'pcct6',
                 x: 30,
-                y: 305,
+                y: 317,
                 font: '12px Quicksand',
                 margin: 10,
                 scolor: '#F9101A',
@@ -483,7 +483,7 @@ NEW ODA
                 type: 'pcct',
                 id: 'pcct7',
                 x: 30,
-                y: 328,
+                y: 340,
                 font: '12px Quicksand',
                 margin: 10,
                 scolor: '#F9101A',
@@ -492,7 +492,7 @@ NEW ODA
                 type: 'pcct',
                 id: 'pcct8',
                 x: 30,
-                y: 351,
+                y: 363,
                 font: '12px Quicksand',
                 margin: 10,
                 scolor: '#F9101A',
@@ -501,7 +501,7 @@ NEW ODA
                 type: 'pcct',
                 id: 'pcct9',
                 x: 30,
-                y: 374,
+                y: 386,
                 font: '12px Quicksand',
                 margin: 10,
                 scolor: '#F9101A',
@@ -510,7 +510,7 @@ NEW ODA
                 type: 'pcct',
                 id: 'pcct10',
                 x: 30,
-                y: 397,
+                y: 409,
                 font: '12px Quicksand',
                 margin: 10,
                 scolor: '#F9101A',

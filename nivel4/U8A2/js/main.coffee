@@ -75,7 +75,7 @@ class U8A2 extends Oda
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'swing'}}
-								{name:'pcpt1', opts:{pattern:['Oh no! The swing','#tcpt','and then the child is going to fall.'], targets:[{text:'is going to break', success:'break'}]}}
+								{name:'pcpt1', opts:{pattern:['Oh no! The swing','#tcpt','and then','#rtn',' the child is going to fall.'], targets:[{text:'is going to break', success:'break'}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'car2'}}
@@ -114,7 +114,7 @@ class U8A2 extends Oda
 						{type: 'img', id: 'swimmer', x: 380, y: 338, align: 'mc'}
 						
 
-						{type: 'pcpt', id: 'pcpt1', x: 385, y: 510, font: '24px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A'}
+						{type: 'pcpt', id: 'pcpt1', x: 420, y: 510, font: '24px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A'}
 						{
 							type: 'btn', id: 'btn_1', x: 690, y: 220, index: 'break', target: 'pcpt1', eval: @btnClick
 							states: [{txt: {text:'break', name:'break', x:0, y:0, align:'center', font:'20px Quicksand'}}]

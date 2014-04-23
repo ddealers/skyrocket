@@ -117,7 +117,7 @@ NEW ODA
           y: 130,
           states: [
             {
-              text: 'Read and write the correct words.',
+              text: 'Change the channels, listen and drag the correct options.',
               sound: 's/silence',
               played: false
             }

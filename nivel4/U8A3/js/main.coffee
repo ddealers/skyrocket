@@ -49,11 +49,11 @@ class U8A3 extends Oda
 						collection: [
 							[
 								{name:'zone2', opts:{
-										success:['1','2','3','4']
+										success:['5','7','6','8']
 									}
 								}
 								{name:'zone1', opts:{
-										success:['5','7','6','8']
+										success:['1','2','3','4']
 									}
 								}
 								{name:'snd', opts:{id:'s/superheroes'}}

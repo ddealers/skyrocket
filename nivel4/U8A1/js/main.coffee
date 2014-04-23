@@ -58,7 +58,7 @@ class U8A1 extends Oda
 								{name: 'grpder', opts:{type: 'fadeIn', target: 'wings'}}
 							]
 							[
-								{name: 'pcct3', opts:{pattern:['Some live in the sea. They can speak under water and','#tcpt','with all the ocean\'s creatures.'], targets: [{text:'___________', success:'communicate'}]}}
+								{name: 'pcct3', opts:{pattern:['Some live in the sea. They can speak under water and','#rtn','#tcpt','with all the ocean\'s creatures.'], targets: [{text:'___________', success:'communicate'}]}}
 								{name: 'grpizq', opts:{type: 'fadeIn', target: 'walk'}}
 								{name: 'grpmid', opts:{type: 'fadeIn', target: 'communicate'}}
 								{name: 'grpder', opts:{type: 'fadeIn', target: 'dance'}}
@@ -111,18 +111,18 @@ class U8A1 extends Oda
 					}
 					containers:[
 						{type: 'img', id: 'caja', x: 154, y: 510}
-						{type: 'img', id: 'superhero', x: 210, y:180}
+						{type: 'img', id: 'superhero', x: 220, y:180}
 
 						{type: 'pcct', id: 'pcct1', x: 30, y: 190, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
 						{type: 'pcct', id: 'pcct2', x: 30, y: 213, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
 						{type: 'pcct', id: 'pcct3', x: 30, y: 236, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct4', x: 30, y: 259, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct5', x: 30, y: 282, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct6', x: 30, y:305, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct7', x: 30, y: 328, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct8', x: 30, y: 351, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct9', x: 30, y: 374, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct10', x: 30, y: 397, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct4', x: 30, y: 271, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct5', x: 30, y: 294, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct6', x: 30, y: 317, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct7', x: 30, y: 340, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct8', x: 30, y: 363, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct9', x: 30, y: 386, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct10', x: 30, y: 409, font: '12px Quicksand', margin: 10, scolor: '#F9101A', stroke: 2}
 
 					
 						{type: 'ldrg', id: 'electricity', x: 220,  y: 530, index: 'electricity', text:'electricity', font:'15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8', 'pcct9', 'pcct10'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}

@@ -121,12 +121,12 @@ NEW ODA
                   {
                     name: 'zone2',
                     opts: {
-                      success: ['1', '2', '3', '4']
+                      success: ['5', '7', '6', '8']
                     }
                   }, {
                     name: 'zone1',
                     opts: {
-                      success: ['5', '7', '6', '8']
+                      success: ['1', '2', '3', '4']
                     }
                   }, {
                     name: 'snd',

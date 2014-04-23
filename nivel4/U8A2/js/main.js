@@ -223,7 +223,7 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['Oh no! The swing', '#tcpt', 'and then the child is going to fall.'],
+                      pattern: ['Oh no! The swing', '#tcpt', 'and then', '#rtn', ' the child is going to fall.'],
                       targets: [
                         {
                           text: 'is going to break',
@@ -378,7 +378,7 @@ NEW ODA
               }, {
                 type: 'pcpt',
                 id: 'pcpt1',
-                x: 385,
+                x: 420,
                 y: 510,
                 font: '24px Quicksand',
                 margin: 5,
