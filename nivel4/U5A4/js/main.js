@@ -167,7 +167,7 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['Lizzy is ', '#tcpt', '#tcpt', ' her sister'],
+                      pattern: ['Lizzy is ', '#tcpt', '#tcpt', ' her sister.'],
                       targets: [
                         {
                           text: 'older',
@@ -190,7 +190,7 @@ NEW ODA
                     name: 'grp2',
                     opts: {
                       type: 'fadeIn',
-                      target: 'text1'
+                      target: 'text2'
                     }
                   }, {
                     name: 'pcpt1',
@@ -218,7 +218,7 @@ NEW ODA
                     name: 'grp2',
                     opts: {
                       type: 'fadeIn',
-                      target: 'text1'
+                      target: 'text3'
                     }
                   }, {
                     name: 'pcpt1',
@@ -246,12 +246,12 @@ NEW ODA
                     name: 'grp2',
                     opts: {
                       type: 'fadeIn',
-                      target: 'text2'
+                      target: 'text4'
                     }
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['This movie is', '#tcpt', '#tcpt', '#rtn', 'the other one.'],
+                      pattern: ['This movie is', '#tcpt', '#tcpt', '#rtn', 'the oder one.'],
                       targets: [
                         {
                           text: 'funnier',
@@ -274,7 +274,7 @@ NEW ODA
                     name: 'grp2',
                     opts: {
                       type: 'fadeIn',
-                      target: 'text3'
+                      target: 'text5'
                     }
                   }, {
                     name: 'pcpt1',
@@ -302,7 +302,7 @@ NEW ODA
                     name: 'grp2',
                     opts: {
                       type: 'fadeIn',
-                      target: 'text4'
+                      target: 'text6'
                     }
                   }, {
                     name: 'pcpt1',
@@ -330,7 +330,7 @@ NEW ODA
                     name: 'grp2',
                     opts: {
                       type: 'fadeIn',
-                      target: 'text5'
+                      target: 'text7'
                     }
                   }, {
                     name: 'pcpt1',
@@ -358,7 +358,7 @@ NEW ODA
                     name: 'grp2',
                     opts: {
                       type: 'fadeIn',
-                      target: 'text6'
+                      target: 'text8'
                     }
                   }, {
                     name: 'pcpt1',
@@ -386,7 +386,7 @@ NEW ODA
                     name: 'grp2',
                     opts: {
                       type: 'fadeIn',
-                      target: 'text7'
+                      target: 'text9'
                     }
                   }, {
                     name: 'pcpt1',
@@ -414,7 +414,7 @@ NEW ODA
                     name: 'grp2',
                     opts: {
                       type: 'fadeIn',
-                      target: 'text8'
+                      target: 'text10'
                     }
                   }, {
                     name: 'pcpt1',
@@ -513,7 +513,7 @@ NEW ODA
               }, {
                 type: 'txt',
                 id: 'text1',
-                text: 'Patrick is thin. Louis is not thin.',
+                text: 'Lizzy is 10 years old and her sister is 3.',
                 x: 256,
                 y: 505,
                 font: '14px Quicksand',
@@ -522,7 +522,7 @@ NEW ODA
               }, {
                 type: 'txt',
                 id: 'text2',
-                text: 'It\'s hot today, 32 degrees!',
+                text: 'Patrick is thin. Louis is not thin.',
                 '#rtn': '#rtn',
                 'Yesterday it was 25 degrees.': 'Yesterday it was 25 degrees.',
                 x: 256,
@@ -533,9 +533,7 @@ NEW ODA
               }, {
                 type: 'txt',
                 id: 'text3',
-                text: 'This movie is very funny.',
-                '#rtn': '#rtn',
-                'The one we saw yesterday wasn\'t.': 'The one we saw yesterday wasn\'t.',
+                text: 'It\'s hot today, 32 degrees! Yesterday it was 25 degrees.',
                 x: 256,
                 y: 505,
                 font: '14px Quicksand',
@@ -544,7 +542,7 @@ NEW ODA
               }, {
                 type: 'txt',
                 id: 'text4',
-                text: 'Roger\'s book is long, 300 pages! ',
+                text: 'This movie is very funny. The one we saw yesterday wasn\'t.',
                 '#rtn': '#rtn',
                 'Paul\'s book is only 200 pages.': 'Paul\'s book is only 200 pages.',
                 x: 256,
@@ -555,7 +553,7 @@ NEW ODA
               }, {
                 type: 'txt',
                 id: 'text5',
-                text: 'I am strong, but my big brother is very strong.',
+                text: 'Roger\'s book is long, 300 pages! Paul\'s book is only 200 pages.',
                 x: 256,
                 y: 505,
                 font: '14px Quicksand',
@@ -564,7 +562,7 @@ NEW ODA
               }, {
                 type: 'txt',
                 id: 'text6',
-                text: 'My mom is a dancer. She jumps really high.',
+                text: 'I am strong, but my big brother is very strong.',
                 x: 256,
                 y: 505,
                 font: '14px Quicksand',
@@ -573,7 +571,7 @@ NEW ODA
               }, {
                 type: 'txt',
                 id: 'text7',
-                text: 'Laura got a 9 on her exam. Samuel got a 7.',
+                text: 'My mom is a dancer. She jumps really high.',
                 x: 256,
                 y: 505,
                 font: '14px Quicksand',
@@ -582,7 +580,25 @@ NEW ODA
               }, {
                 type: 'txt',
                 id: 'text8',
-                text: 'Dennis scored a goal. He kicked the ball hard.',
+                text: 'Laura got 9 on her exam. Samuel got a 7.',
+                x: 256,
+                y: 505,
+                font: '14px Quicksand',
+                align: 'center',
+                lineWidth: 250
+              }, {
+                type: 'txt',
+                id: 'text9',
+                text: 'Dennis scored a goal. He Kicked the ball hard.',
+                x: 256,
+                y: 505,
+                font: '14px Quicksand',
+                align: 'center',
+                lineWidth: 250
+              }, {
+                type: 'txt',
+                id: 'text10',
+                text: 'Liz lives next door to the school. Andrew lives five kilometers away.',
                 x: 256,
                 y: 505,
                 font: '14px Quicksand',
@@ -609,7 +625,7 @@ NEW ODA
                 type: 'grp',
                 id: 'grp2',
                 invisible: true,
-                group: ['text1', 'text2', 'text3', 'text4', 'text5', 'text6', 'text7', 'text8']
+                group: ['text1', 'text2', 'text3', 'text4', 'text5', 'text6', 'text7', 'text8', 'text9', 'text10']
               }
             ]
           }

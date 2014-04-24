@@ -147,7 +147,7 @@ NEW ODA
                   }, {
                     name: 'wcpt1',
                     opts: {
-                      word: ['The Polish players', 'are taller', 'than the', 'Argentinian players'],
+                      word: ['The Polish players', 'are taller', 'than the', 'Argentinean players'],
                       target: 't6',
                       sentence: true
                     }

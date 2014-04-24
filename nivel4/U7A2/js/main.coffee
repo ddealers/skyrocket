@@ -43,7 +43,7 @@ class U2A3 extends Oda
 			lib.scene.success false
 		@game = 
 			header: 'header'
-			instructions: {x: 110, y: 130, states: [{text:'Read and listen. Then complete the sentences.', sound:'s/silence', played: false}]}
+			instructions: {x: 110, y: 130, states: [{text:'Drag the correct words to complete the text.', sound:'s/silence', played: false}]}
 			score:{type: 'points', x:20, y:500, init: 0, total: 14, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
 			scenes:[
 				

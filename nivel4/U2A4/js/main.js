@@ -96,8 +96,7 @@ NEW ODA
                     opts: {
                       before: 'Put on all your clothes to stay',
                       opt1: 'warm',
-                      opt2: 'wet',
-                      after: '.'
+                      opt2: 'wet.'
                     }
                   }
                 ], [
@@ -291,8 +290,7 @@ NEW ODA
                     opts: {
                       before: 'You can survive without food for a few days, but you need',
                       opt1: 'fire',
-                      opt2: 'water',
-                      after: '.'
+                      opt2: 'water'
                     }
                   }
                 ], [
@@ -351,8 +349,7 @@ NEW ODA
                     opts: {
                       before: 'Stay with your group; don\'t walk',
                       opt1: 'alone',
-                      opt2: 'fast',
-                      after: '.'
+                      opt2: 'fast.'
                     }
                   }
                 ], [
@@ -366,8 +363,7 @@ NEW ODA
                     opts: {
                       before: 'Tell your mom and dad where you are',
                       opt1: 'going',
-                      opt2: 'left',
-                      after: '.'
+                      opt2: 'left.'
                     }
                   }
                 ], [
@@ -415,8 +411,8 @@ NEW ODA
               }, {
                 type: 'caw',
                 id: 'caw1',
-                x: 440,
-                y: 530,
+                x: 430,
+                y: 510,
                 align: 'tc',
                 target: 'global',
                 "eval": this.onChoose,

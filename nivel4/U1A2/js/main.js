@@ -206,7 +206,7 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['Wait! You', '#tcpt', 'use the ', '#rtn', 'hot oven. I\'ll do it.'],
+                      pattern: ['Wait! You', '#tcpt', 'use the hot', '#rtn', 'oven. I\'ll do it.'],
                       targets: [
                         {
                           text: 'shouldn\'t',

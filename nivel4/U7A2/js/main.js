@@ -97,7 +97,7 @@ NEW ODA
           y: 130,
           states: [
             {
-              text: 'Read and listen. Then complete the sentences.',
+              text: 'Drag the correct words to complete the text.',
               sound: 's/silence',
               played: false
             }

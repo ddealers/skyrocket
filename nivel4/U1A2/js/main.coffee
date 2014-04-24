@@ -40,7 +40,7 @@ class U1A2 extends Oda
 			else
 				lib.scene.fail()
 		@game = 
-			header: 'header'
+			header: 'header' 
 			instructions: {x: 110, y: 130, states: [{text:'Read and write should or shouldn\'t.', sound:'s/silence', played: false}]}
 			score:{type: 'points', x:20, y:500, init: 0, total: 12, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
 			scenes:[
@@ -65,7 +65,8 @@ class U1A2 extends Oda
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'oven'}}
 								{name: 'txt_grp', opts:{type: 'fadeIn', target: 't4'}}
-								{name: 'pcpt1', opts:{pattern:['Wait! You', '#tcpt','use the ', '#rtn', 'hot oven. I\'ll do it.'], targets: [{text:'shouldn\'t', success:'shouldnt'}]}}
+
+								{name: 'pcpt1', opts:{pattern:['Wait! You', '#tcpt','use the hot', '#rtn', 'oven. I\'ll do it.'], targets: [{text:'shouldn\'t', success:'shouldnt'}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'cat'}}

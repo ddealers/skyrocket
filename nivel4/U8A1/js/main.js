@@ -166,7 +166,7 @@ NEW ODA
                   {
                     name: 'pcct3',
                     opts: {
-                      pattern: ['Some live in the sea. They can speak under water and', '#tcpt', 'with all the ocean\'s creatures.'],
+                      pattern: ['Some live in the sea. They can speak under water and', '#rtn', '#tcpt', 'with all the ocean\'s creatures.'],
                       targets: [
                         {
                           text: '___________',
@@ -423,7 +423,7 @@ NEW ODA
               }, {
                 type: 'img',
                 id: 'superhero',
-                x: 210,
+                x: 220,
                 y: 180
               }, {
                 type: 'pcct',

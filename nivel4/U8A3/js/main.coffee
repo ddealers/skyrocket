@@ -54,6 +54,7 @@ class U8A3 extends Oda
 								}
 								{name:'zone2', opts:{
 										success:['5','7','6','8']
+
 									}
 								}
 								{name:'snd', opts:{id:'s/superheroes'}}

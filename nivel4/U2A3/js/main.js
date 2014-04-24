@@ -139,11 +139,11 @@ NEW ODA
                   }, {
                     name: 'pcct2',
                     opts: {
-                      pattern: ['We got married ', '#tcpt', '.'],
+                      pattern: ['We got married ', '#tcpt'],
                       targets: [
                         {
                           text: 'on Christmas Day',
-                          success: 'in 2005'
+                          success: 'in 2005.'
                         }
                       ]
                     }

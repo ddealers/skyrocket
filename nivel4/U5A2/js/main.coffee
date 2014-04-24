@@ -55,7 +55,73 @@ class U5A2 extends Oda
       score:{type: 'points', x:20, y:500, init: 0, total: 10, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
       scenes:[
         
-        
+        {
+          answers: {
+            collection: [ 
+              [
+                {name: 'snd', opts:{id:'s/WenLi'}}
+                {
+                  name: "g4"
+                  opts:
+                    success: ["Wen Li"]
+                }
+              ]
+              [
+                {name: 'snd', opts:{id:'s/LiMin'}}
+                {
+                  name: "g3"
+                  opts:
+                    success: ["Li Mei"]
+                }
+              ]
+              [
+                {name: 'snd', opts:{id:'s/LiuYuan'}}
+                {
+                  name: "g2"
+                  opts:
+                    success: ["Liu Yuan"]
+                }
+              ]
+              [
+                {name: 'snd', opts:{id:'s/Lili'}}
+                {
+                  name: "g5"
+                  opts:
+                    success: ["Li Li"]
+                }
+              ]
+              [
+                {name: 'snd', opts:{id:'s/ZhuMei'}}
+                {
+                  name: "g1"
+                  opts:
+                    success: ["Zhu Mei"]
+                }
+              ]
+            ]
+            mixed: true
+            type: 'steps'
+          }
+          containers:[
+            {type: "idc", id: "g1", x: 168-3+5-40, y: 460, align: "bl",}
+            {type: "idc", id: "g2", x: 256-3+5-40, y: 460, align: "bl",}
+            {type: "idc", id: "g3", x: 362-3-40, y: 460, align: "bl",}
+            {type: "idc", id: "g4", x: 438-40, y: 460, align: "bl",}
+            {type: "idc", id: "g5", x: 602-40, y: 460, align: "bl",}
+            {type: "ldrg", id: "ldrg5", x: 130, y: 480, index: "Liu Yuan", text: "Liu Yuan", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+            {type: "ldrg", id: "ldrg3", x: 265, y: 480, index: "Li Li", text: "Li Li", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+            {type: "ldrg", id: "ldrg4", x: 350, y: 480, index: "Wen Li", text: "Wen Li", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+            {type: "ldrg", id: "ldrg1", x: 485, y: 480, index: "Zhu Mei", text: "Zhu Mei", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+            {type: "ldrg", id: "ldrg2", x: 650, y: 480, index: "Li Mei", text: "Li Mei", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+            {
+              type: "btn", id: "repeat", x: 740, y: 540, isRepeat: true
+              states: [img: {name: "repeat", x: 0, y: 0, align: "mc"}]
+            }
+          ] 
+          groups: [
+
+          ]
+        }
         {
           answers: {
             collection: [ 
@@ -122,73 +188,7 @@ class U5A2 extends Oda
                      
           ]
         }
-        {
-          answers: {
-            collection: [ 
-              [
-                {name: 'snd', opts:{id:'s/WenLi'}}
-                {
-                  name: "g4"
-                  opts:
-                    success: ["Wen Li"]
-                }
-              ]
-              [
-                {name: 'snd', opts:{id:'s/LiMin'}}
-                {
-                  name: "g3"
-                  opts:
-                    success: ["Li Mei"]
-                }
-              ]
-              [
-                {name: 'snd', opts:{id:'s/LiuYuan'}}
-                {
-                  name: "g2"
-                  opts:
-                    success: ["Liu Yuan"]
-                }
-              ]
-              [
-                {name: 'snd', opts:{id:'s/Lili'}}
-                {
-                  name: "g5"
-                  opts:
-                    success: ["Li Li"]
-                }
-              ]
-              [
-                {name: 'snd', opts:{id:'s/ZhuMei'}}
-                {
-                  name: "g1"
-                  opts:
-                    success: ["Zhu Mei"]
-                }
-              ]
-            ]
-            mixed: true
-            type: 'steps'
-          }
-          containers:[
-            {type: "idc", id: "g1", x: 168-3+5-40, y: 460, align: "bl",}
-            {type: "idc", id: "g2", x: 256-3+5-40, y: 460, align: "bl",}
-            {type: "idc", id: "g3", x: 362-3-40, y: 460, align: "bl",}
-            {type: "idc", id: "g4", x: 438-40, y: 460, align: "bl",}
-            {type: "idc", id: "g5", x: 602-40, y: 460, align: "bl",}
-            {type: "ldrg", id: "ldrg5", x: 130, y: 480, index: "Liu Yuan", text: "Liu Yuan", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
-            {type: "ldrg", id: "ldrg3", x: 265, y: 480, index: "Li Li", text: "Li Li", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
-            {type: "ldrg", id: "ldrg4", x: 350, y: 480, index: "Wen Li", text: "Wen Li", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
-            {type: "ldrg", id: "ldrg1", x: 485, y: 480, index: "Zhu Mei", text: "Zhu Mei", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
-            {type: "ldrg", id: "ldrg2", x: 650, y: 480, index: "Li Mei", text: "Li Mei", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
-            {
-              type: "btn", id: "repeat", x: 740, y: 540, isRepeat: true
-              states: [img: {name: "repeat", x: 0, y: 0, align: "mc"}]
-            }
-          ]
-          groups: [
-
-          ]
-        }
+        
         
          
       ]

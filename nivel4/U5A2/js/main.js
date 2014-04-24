@@ -145,188 +145,6 @@ NEW ODA
                   {
                     name: 'snd',
                     opts: {
-                      id: 's/Dirk'
-                    }
-                  }, {
-                    name: "b1",
-                    opts: {
-                      success: ["Dirk"]
-                    }
-                  }
-                ], [
-                  {
-                    name: 'snd',
-                    opts: {
-                      id: 's/Kris'
-                    }
-                  }, {
-                    name: "b2",
-                    opts: {
-                      success: ["Kris"]
-                    }
-                  }
-                ], [
-                  {
-                    name: 'snd',
-                    opts: {
-                      id: 's/Jim'
-                    }
-                  }, {
-                    name: "b3",
-                    opts: {
-                      success: ["Jim"]
-                    }
-                  }
-                ], [
-                  {
-                    name: 'snd',
-                    opts: {
-                      id: 's/Simon'
-                    }
-                  }, {
-                    name: "b4",
-                    opts: {
-                      success: ["Simon"]
-                    }
-                  }
-                ], [
-                  {
-                    name: 'snd',
-                    opts: {
-                      id: 's/Frank'
-                    }
-                  }, {
-                    name: "b5",
-                    opts: {
-                      success: ["Frank"]
-                    }
-                  }
-                ]
-              ],
-              type: 'steps'
-            },
-            containers: [
-              {
-                type: "idc",
-                id: "b1",
-                x: 130 + 20,
-                y: 460,
-                align: "bl"
-              }, {
-                type: "idc",
-                id: "b2",
-                x: 227 + 20,
-                y: 460,
-                align: "bl"
-              }, {
-                type: "idc",
-                id: "b3",
-                x: 307 + 20,
-                y: 460,
-                align: "bl"
-              }, {
-                type: "idc",
-                id: "b4",
-                x: 414 + 20,
-                y: 460,
-                align: "bl"
-              }, {
-                type: "idc",
-                id: "b5",
-                x: 520 + 20,
-                y: 460,
-                align: "bl"
-              }, {
-                type: "ldrg",
-                id: "ldrb5",
-                x: 140,
-                y: 480,
-                index: "Jim",
-                text: "Jim",
-                font: "26px Quicksand",
-                color: "#333",
-                target: ["b1", "b2", "b3", "b4", "b5"],
-                "eval": this.evaluateDrop,
-                afterSuccess: "hide",
-                afterFail: "return"
-              }, {
-                type: "ldrg",
-                id: "ldrb3",
-                x: 245,
-                y: 480,
-                index: "Simon",
-                text: "Simon",
-                font: "26px Quicksand",
-                color: "#333",
-                target: ["b1", "b2", "b3", "b4", "b5"],
-                "eval": this.evaluateDrop,
-                afterSuccess: "hide",
-                afterFail: "return"
-              }, {
-                type: "ldrg",
-                id: "ldrb4",
-                x: 375,
-                y: 480,
-                index: "Kris",
-                text: "Kris",
-                font: "26px Quicksand",
-                color: "#333",
-                target: ["b1", "b2", "b3", "b4", "b5"],
-                "eval": this.evaluateDrop,
-                afterSuccess: "hide",
-                afterFail: "return"
-              }, {
-                type: "ldrg",
-                id: "ldrb1",
-                x: 485,
-                y: 480,
-                index: "Frank",
-                text: "Frank",
-                font: "26px Quicksand",
-                color: "#333",
-                target: ["b1", "b2", "b3", "b4", "b5"],
-                "eval": this.evaluateDrop,
-                afterSuccess: "hide",
-                afterFail: "return"
-              }, {
-                type: "ldrg",
-                id: "ldrb2",
-                x: 620,
-                y: 480,
-                index: "Dirk",
-                text: "Dirk",
-                font: "26px Quicksand",
-                color: "#333",
-                target: ["b1", "b2", "b3", "b4", "b5"],
-                "eval": this.evaluateDrop,
-                afterSuccess: "hide",
-                afterFail: "return"
-              }, {
-                type: "btn",
-                id: "repeat",
-                x: 740,
-                y: 540,
-                isRepeat: true,
-                states: [
-                  {
-                    img: {
-                      name: "repeat",
-                      x: 0,
-                      y: 0,
-                      align: "mc"
-                    }
-                  }
-                ]
-              }
-            ],
-            groups: []
-          }, {
-            answers: {
-              collection: [
-                [
-                  {
-                    name: 'snd',
-                    opts: {
                       id: 's/WenLi'
                     }
                   }, {
@@ -481,6 +299,188 @@ NEW ODA
                 font: "26px Quicksand",
                 color: "#333",
                 target: ["g1", "g2", "g3", "g4", "g5"],
+                "eval": this.evaluateDrop,
+                afterSuccess: "hide",
+                afterFail: "return"
+              }, {
+                type: "btn",
+                id: "repeat",
+                x: 740,
+                y: 540,
+                isRepeat: true,
+                states: [
+                  {
+                    img: {
+                      name: "repeat",
+                      x: 0,
+                      y: 0,
+                      align: "mc"
+                    }
+                  }
+                ]
+              }
+            ],
+            groups: []
+          }, {
+            answers: {
+              collection: [
+                [
+                  {
+                    name: 'snd',
+                    opts: {
+                      id: 's/Dirk'
+                    }
+                  }, {
+                    name: "b1",
+                    opts: {
+                      success: ["Dirk"]
+                    }
+                  }
+                ], [
+                  {
+                    name: 'snd',
+                    opts: {
+                      id: 's/Kris'
+                    }
+                  }, {
+                    name: "b2",
+                    opts: {
+                      success: ["Kris"]
+                    }
+                  }
+                ], [
+                  {
+                    name: 'snd',
+                    opts: {
+                      id: 's/Jim'
+                    }
+                  }, {
+                    name: "b3",
+                    opts: {
+                      success: ["Jim"]
+                    }
+                  }
+                ], [
+                  {
+                    name: 'snd',
+                    opts: {
+                      id: 's/Simon'
+                    }
+                  }, {
+                    name: "b4",
+                    opts: {
+                      success: ["Simon"]
+                    }
+                  }
+                ], [
+                  {
+                    name: 'snd',
+                    opts: {
+                      id: 's/Frank'
+                    }
+                  }, {
+                    name: "b5",
+                    opts: {
+                      success: ["Frank"]
+                    }
+                  }
+                ]
+              ],
+              type: 'steps'
+            },
+            containers: [
+              {
+                type: "idc",
+                id: "b1",
+                x: 130 + 20,
+                y: 460,
+                align: "bl"
+              }, {
+                type: "idc",
+                id: "b2",
+                x: 227 + 20,
+                y: 460,
+                align: "bl"
+              }, {
+                type: "idc",
+                id: "b3",
+                x: 307 + 20,
+                y: 460,
+                align: "bl"
+              }, {
+                type: "idc",
+                id: "b4",
+                x: 414 + 20,
+                y: 460,
+                align: "bl"
+              }, {
+                type: "idc",
+                id: "b5",
+                x: 520 + 20,
+                y: 460,
+                align: "bl"
+              }, {
+                type: "ldrg",
+                id: "ldrb5",
+                x: 140,
+                y: 480,
+                index: "Jim",
+                text: "Jim",
+                font: "26px Quicksand",
+                color: "#333",
+                target: ["b1", "b2", "b3", "b4", "b5"],
+                "eval": this.evaluateDrop,
+                afterSuccess: "hide",
+                afterFail: "return"
+              }, {
+                type: "ldrg",
+                id: "ldrb3",
+                x: 245,
+                y: 480,
+                index: "Simon",
+                text: "Simon",
+                font: "26px Quicksand",
+                color: "#333",
+                target: ["b1", "b2", "b3", "b4", "b5"],
+                "eval": this.evaluateDrop,
+                afterSuccess: "hide",
+                afterFail: "return"
+              }, {
+                type: "ldrg",
+                id: "ldrb4",
+                x: 375,
+                y: 480,
+                index: "Kris",
+                text: "Kris",
+                font: "26px Quicksand",
+                color: "#333",
+                target: ["b1", "b2", "b3", "b4", "b5"],
+                "eval": this.evaluateDrop,
+                afterSuccess: "hide",
+                afterFail: "return"
+              }, {
+                type: "ldrg",
+                id: "ldrb1",
+                x: 485,
+                y: 480,
+                index: "Frank",
+                text: "Frank",
+                font: "26px Quicksand",
+                color: "#333",
+                target: ["b1", "b2", "b3", "b4", "b5"],
+                "eval": this.evaluateDrop,
+                afterSuccess: "hide",
+                afterFail: "return"
+              }, {
+                type: "ldrg",
+                id: "ldrb2",
+                x: 620,
+                y: 480,
+                index: "Dirk",
+                text: "Dirk",
+                font: "26px Quicksand",
+                color: "#333",
+                target: ["b1", "b2", "b3", "b4", "b5"],
                 "eval": this.evaluateDrop,
                 afterSuccess: "hide",
                 afterFail: "return"

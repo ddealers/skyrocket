@@ -34,7 +34,7 @@ class U2A4 extends Oda
 						collection: [
 							[
 								{name:'global', opts:{success:1}}
-								{name: 'caw1', opts: {before:'Put on all your clothes to stay', opt1:'warm', opt2:'wet', after:'.'}}
+								{name: 'caw1', opts: {before:'Put on all your clothes to stay', opt1:'warm', opt2:'wet.'}}
 							]
 							[
 								{name:'global', opts:{success:2}}
@@ -86,7 +86,7 @@ class U2A4 extends Oda
 							]
 							[
 								{name:'global', opts:{success:2}}
-								{name: 'caw1', opts: {before:'You can survive without food for a few days, but you need', opt1:'fire', opt2:'water', after:'.'}}
+								{name: 'caw1', opts: {before:'You can survive without food for a few days, but you need', opt1:'fire', opt2:'water', }}
 							]
 							[
 								{name:'global', opts:{success:2}}
@@ -102,11 +102,11 @@ class U2A4 extends Oda
 							]
 							[
 								{name:'global', opts:{success:1}}
-								{name: 'caw1', opts: {before:'Stay with your group; don\'t walk', opt1:'alone', opt2:'fast', after:'.'}}
+								{name: 'caw1', opts: {before:'Stay with your group; don\'t walk', opt1:'alone', opt2:'fast.'}}
 							]
 							[
 								{name:'global', opts:{success:1}}
-								{name: 'caw1', opts: {before:'Tell your mom and dad where you are', opt1:'going', opt2:'left', after:'.'}}
+								{name: 'caw1', opts: {before:'Tell your mom and dad where you are', opt1:'going', opt2:'left.'}}
 							]
 							[
 								{name:'global', opts:{success:1}}
@@ -126,7 +126,7 @@ class U2A4 extends Oda
 							animations: {init:[0,22, false], uno:[23,47, false], dos:[48,71, false], tres:[72,95, false], cuatro:[96,118, false], cinco:[119,144, false], seis:[145,168, false], siete:[169,193, false], ocho:[194,206, false], nueve:[207,244, false]}
 						}	
 						{
-							type: 'caw', id: 'caw1', x: 440, y: 530, align: 'tc', target: 'global', eval: @onChoose
+							type: 'caw', id: 'caw1', x: 430, y: 510, align: 'tc', target: 'global', eval: @onChoose
 							label:{font:'18px Quicksand', color:'#444'}
 							bullets:{font:'18px Quicksand', color: '#000'}
 						}

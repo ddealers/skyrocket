@@ -100,7 +100,7 @@ NEW ODA
                     name: 'wcpt1',
                     opts: {
                       word: ['Mozart', 'couldn\'t', 'get on a', 'carriage'],
-                      target: 'carriage',
+                      target: 'carriage.',
                       sentence: true
                     }
                   }
@@ -115,7 +115,7 @@ NEW ODA
                     name: 'wcpt1',
                     opts: {
                       word: ['He couldn\'t', 'sleep', ' when he', 'traveled'],
-                      target: 'sleep',
+                      target: 'sleep.',
                       sentence: true
                     }
                   }
@@ -129,7 +129,7 @@ NEW ODA
                   }, {
                     name: 'wcpt1',
                     opts: {
-                      word: ['His sister', 'couldn\'t play', 'for the king because', 'she was sick'],
+                      word: ['His sister', 'couldn\'t play', 'for the king because', 'she was sick.'],
                       target: 'sick',
                       sentence: true
                     }
@@ -144,7 +144,7 @@ NEW ODA
                   }, {
                     name: 'wcpt1',
                     opts: {
-                      word: ['Mozart could', 'play', 'all the music', 'from memory'],
+                      word: ['Mozart could', 'play', 'all the music', 'from memory.'],
                       target: 'piano',
                       sentence: true
                     }
@@ -159,7 +159,7 @@ NEW ODA
                   }, {
                     name: 'wcpt1',
                     opts: {
-                      word: ['He', 'could play', 'four different', 'instruments'],
+                      word: ['He', 'could play', 'four different', 'instruments.'],
                       target: 'instruments',
                       sentence: true
                     }
@@ -174,7 +174,7 @@ NEW ODA
                   }, {
                     name: 'wcpt1',
                     opts: {
-                      word: ['His father', 'couldn\'t', 'play', 'the violin'],
+                      word: ['His father', 'couldn\'t', 'play', 'the violin.'],
                       target: 'concert',
                       sentence: true
                     }
@@ -189,7 +189,7 @@ NEW ODA
                   }, {
                     name: 'wcpt1',
                     opts: {
-                      word: ['His brother', 'could', 'do', 'math'],
+                      word: ['His brother', 'could', 'do', 'math.'],
                       target: 'accounts',
                       sentence: true
                     }
@@ -204,7 +204,7 @@ NEW ODA
                   }, {
                     name: 'wcpt1',
                     opts: {
-                      word: ['His sister', 'couldn\’t', 'compose', 'music'],
+                      word: ['His sister', 'couldn\’t', 'compose', 'music.'],
                       target: 'composer',
                       sentence: true
                     }
@@ -219,7 +219,7 @@ NEW ODA
                   }, {
                     name: 'wcpt1',
                     opts: {
-                      word: ['Mozart', 'could', 'speak several', 'different languages'],
+                      word: ['Mozart', 'could', 'speak several', 'different languages.'],
                       target: 'languages',
                       sentence: true
                     }
