@@ -10,6 +10,8 @@ class U6A1 extends Oda
 			{id:'caja', src:'caja_1.png'}
 			{id:'c2', src:'circulo2.png'}
 			{id:'c1', src:'cirulo1.png'}
+			{id:'startgame', src:'start_game.png'}
+
 			{id:'bass', src:'clarinet.png'}
 			{id:'clarinet', src:'clarinet.png'}
 			{id:'comedian', src:'comedian.png'}
@@ -53,6 +55,9 @@ class U6A1 extends Oda
 				lib.scene.success()
 			else
 				lib.scene.fail()
+		@continue = (dispatcher) =>
+			d = lib[dispatcher]
+			lib.scene.nextStep()
 		
 		@game = 
 			header: 'header'
@@ -60,7 +65,6 @@ class U6A1 extends Oda
 			score:{type: 'points', x:20, y:500, init: 0, total: 12, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
 			scenes:[
 				{
-
 					answers: {
 						collection: [
 							[
@@ -88,83 +92,23 @@ class U6A1 extends Oda
                 				{name: 'snd', opts:{id:'s/tuba'}}
               				]			
 						]
-						mixed: true
-						type: 'steps'
+						mixed: false
+						type: 'limit'
+						limit: 6
 						
 					}
 					containers:[
 						{
-							type: 'btn', id: 'btn1', x: 250, y: 260, index: 'banjo', target: 'global', eval: 'global_03'
-							states: [
-								{
-									img: {name: 'caja', x: 0, y: 0, align: 'mc'}
-								}
-								{
-									img: {name: 'banjo', x: 0, y: 0, align: 'mc'}
-									removeListeners: true
-								}
+							type: 'crd', id: 'btn1', x: 200, y: 260, index: '', target: 'global', card:'caja', eval: 'global_03', distx: 200, disty: 150, cols: 3
+							cartas: [
+								 'banjo', 'clarinet', 'trumpet', 'trombone', 'piano', 'tuba', 'saxophone', 'jazzband'			
 							]
 						}	
 						{
-							type: 'btn', id: 'btn2', x: 450, y: 260, index: 'clarinet', target: 'global', eval: 'global_03'
-							states: [
-								{
-									img: {name: 'caja', x: 0, y: 0, align: 'mc'}
-								}
-								{
-									img: {name: 'clarinet', x: 0, y: 0, align: 'mc'}
-									removeListeners: true
-								}
-							]
-						}	
-						{
-							type: 'btn', id: 'btn3', x: 650, y: 260, index: 'trumpet', target: 'global', eval: 'global_03'
-							states: [
-								{
-									img: {name: 'caja', x: 0, y: 0, align: 'mc'}
-								}
-								{
-									img: {name: 'trumpet', x: 0, y: 0, align: 'mc'}
-									removeListeners: true
-								}
-							]
-						}	
-						{
-							type: 'btn', id: 'btn4', x: 250, y: 420, index: 'trombone', target: 'global', eval: 'global_03'
-							states: [
-								{
-									img: {name: 'caja', x: 0, y: 0, align: 'mc'}
-								}
-								{
-									img: {name: 'trombone', x: 0, y: 0, align: 'mc'}
-									removeListeners: true
-								}
-							]
-						}	
-						{
-							type: 'btn', id: 'btn5', x: 450, y: 420, index: 'piano', target: 'global', eval: 'global_03'
-							states: [
-								{
-									img: {name: 'caja', x: 0, y: 0, align: 'mc'}
-								}
-								{
-									img: {name: 'piano', x: 0, y: 0, align: 'mc'}
-									removeListeners: true
-								}
-							]
-						}	
-						{
-							type: 'btn', id: 'btn6', x: 650, y: 420, index: 'tuba', target: 'global', eval: 'global_03'
-							states: [
-								{
-									img: {name: 'caja', x: 0, y: 0, align: 'mc'}
-								}
-								{
-									img: {name: 'tuba', x: 0, y: 0, align: 'mc'}
-									removeListeners: true
-								}
-							]
-						}	
+							type: 'btn', id: 'repeat', x: 400, y: 550, align: '', isRepeat: true, visible: false
+							states:[{img: {name:'repeat', x: 0, y: 0,align: 'mc'}}]
+						}
+						
 					]
 					groups:[
 					]

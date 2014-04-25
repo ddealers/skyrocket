@@ -13,6 +13,7 @@ NEW ODA
     __extends(U6A1, _super);
 
     function U6A1() {
+      var _this = this;
       this.manifest = [
         {
           id: 'banjo',
@@ -26,6 +27,9 @@ NEW ODA
         }, {
           id: 'c1',
           src: 'cirulo1.png'
+        }, {
+          id: 'startgame',
+          src: 'start_game.png'
         }, {
           id: 'bass',
           src: 'clarinet.png'
@@ -138,6 +142,11 @@ NEW ODA
           return lib.scene.fail();
         }
       };
+      this["continue"] = function(dispatcher) {
+        var d;
+        d = lib[dispatcher];
+        return lib.scene.nextStep();
+      };
       this.game = {
         header: 'header',
         instructions: {
@@ -240,164 +249,40 @@ NEW ODA
                   }
                 ]
               ],
-              mixed: true,
-              type: 'steps'
+              mixed: false,
+              type: 'limit',
+              limit: 6
             },
             containers: [
               {
-                type: 'btn',
+                type: 'crd',
                 id: 'btn1',
-                x: 250,
+                x: 200,
                 y: 260,
-                index: 'banjo',
+                index: '',
                 target: 'global',
+                card: 'caja',
                 "eval": 'global_03',
-                states: [
-                  {
-                    img: {
-                      name: 'caja',
-                      x: 0,
-                      y: 0,
-                      align: 'mc'
-                    }
-                  }, {
-                    img: {
-                      name: 'banjo',
-                      x: 0,
-                      y: 0,
-                      align: 'mc'
-                    },
-                    removeListeners: true
-                  }
-                ]
+                distx: 200,
+                disty: 150,
+                cols: 3,
+                cartas: ['banjo', 'clarinet', 'trumpet', 'trombone', 'piano', 'tuba', 'saxophone', 'jazzband']
               }, {
                 type: 'btn',
-                id: 'btn2',
-                x: 450,
-                y: 260,
-                index: 'clarinet',
-                target: 'global',
-                "eval": 'global_03',
+                id: 'repeat',
+                x: 400,
+                y: 550,
+                align: '',
+                isRepeat: true,
+                visible: false,
                 states: [
                   {
                     img: {
-                      name: 'caja',
+                      name: 'repeat',
                       x: 0,
                       y: 0,
                       align: 'mc'
                     }
-                  }, {
-                    img: {
-                      name: 'clarinet',
-                      x: 0,
-                      y: 0,
-                      align: 'mc'
-                    },
-                    removeListeners: true
-                  }
-                ]
-              }, {
-                type: 'btn',
-                id: 'btn3',
-                x: 650,
-                y: 260,
-                index: 'trumpet',
-                target: 'global',
-                "eval": 'global_03',
-                states: [
-                  {
-                    img: {
-                      name: 'caja',
-                      x: 0,
-                      y: 0,
-                      align: 'mc'
-                    }
-                  }, {
-                    img: {
-                      name: 'trumpet',
-                      x: 0,
-                      y: 0,
-                      align: 'mc'
-                    },
-                    removeListeners: true
-                  }
-                ]
-              }, {
-                type: 'btn',
-                id: 'btn4',
-                x: 250,
-                y: 420,
-                index: 'trombone',
-                target: 'global',
-                "eval": 'global_03',
-                states: [
-                  {
-                    img: {
-                      name: 'caja',
-                      x: 0,
-                      y: 0,
-                      align: 'mc'
-                    }
-                  }, {
-                    img: {
-                      name: 'trombone',
-                      x: 0,
-                      y: 0,
-                      align: 'mc'
-                    },
-                    removeListeners: true
-                  }
-                ]
-              }, {
-                type: 'btn',
-                id: 'btn5',
-                x: 450,
-                y: 420,
-                index: 'piano',
-                target: 'global',
-                "eval": 'global_03',
-                states: [
-                  {
-                    img: {
-                      name: 'caja',
-                      x: 0,
-                      y: 0,
-                      align: 'mc'
-                    }
-                  }, {
-                    img: {
-                      name: 'piano',
-                      x: 0,
-                      y: 0,
-                      align: 'mc'
-                    },
-                    removeListeners: true
-                  }
-                ]
-              }, {
-                type: 'btn',
-                id: 'btn6',
-                x: 650,
-                y: 420,
-                index: 'tuba',
-                target: 'global',
-                "eval": 'global_03',
-                states: [
-                  {
-                    img: {
-                      name: 'caja',
-                      x: 0,
-                      y: 0,
-                      align: 'mc'
-                    }
-                  }, {
-                    img: {
-                      name: 'tuba',
-                      x: 0,
-                      y: 0,
-                      align: 'mc'
-                    },
-                    removeListeners: true
                   }
                 ]
               }

@@ -1332,7 +1332,6 @@ class ButtonContainer extends Component
 	isComplete: ->
 		true
 
-
 class CardContainer extends Component
 	CardContainer.prototype = new createjs.Container()
 	CardContainer::Container_initialize = CardContainer::initialize
@@ -1344,33 +1343,43 @@ class CardContainer extends Component
 		@x = opts.x
 		@y = opts.y
 		@name = opts.name ? opts.id
-		@cartas = opts.cartas
+		cartas = opts.cartas
 		@fila = 0
+
 		@card = opts.card
 		@cols = opts.cols 
 		@distx = opts.distx
 		@disty = opts.disty
+		@target = opts.target ? 'global'
+		@eval = opts.eval
 		@currentX = 0
 		@currentCard = 0
 		i = 0
-		@cardcollection = new Array()
+		cardcollection = new Array()
 
-		
-		lopts = {id:"carta_#{@currentCard}", x: @x, y: @y, index: '', target: '', eval: '', states:[{img: {name: @card, x: 0, y: 0, align: ''}},{img: {name: carta, x: 0, y: 0, align: ''}}]}
-		d = new ButtonContainer lopts
-		@cardcollection.push d
-		@add d
-		i++
-		@currentCard++ 
-		@currentX++
-		if @currentX > @cols - 1
-			@currentX = 0 
-			@fila = 1
+		shucartas = d2oda.utilities.shuffleNoRepeat cartas, 6
+		console.log lib[0]
+
+		for carta in cartas	
+			x = @currentX * @distx 
+			y = @fila * @disty
+			lopts = {id:"carta_#{@currentCard}", x: x, y: y, index: carta, target: @target, eval: @eval, states:[{img: {name: carta, x: 0, y: 0, align: 'mc'}},{img: {name: @card, x: 0, y: 0, align: 'mc'}},{img: {name: carta, x: 0, y: 0, align: 'mc'}}]}
+			d = new ButtonContainer lopts
+			cardcollection.push d
+			@add d
+			console.log d
+
+			@currentCard++ 
+			@currentX++
+			i++
+			if @currentX > @cols - 1
+				@currentX = 0 
+				@fila++
+	
+		@delay 7000, ->
+			for card in cardcollection
+				card.updateState()
 			
-	updateState: () ->
-
-		console.log  "asd"	
-
 	isComplete: ->
 		true
 

@@ -2541,61 +2541,83 @@ LIBRARY
     }
 
     CardContainer.prototype.initialize = function(opts) {
-      var d, i, lopts, _ref2;
+      var cardcollection, carta, cartas, d, i, lopts, shucartas, x, y, _i, _len, _ref2, _ref3;
       this.Container_initialize();
       Module.extend(this, d2oda.methods);
       this.x = opts.x;
       this.y = opts.y;
       this.name = (_ref2 = opts.name) != null ? _ref2 : opts.id;
-      this.cartas = opts.cartas;
+      cartas = opts.cartas;
       this.fila = 0;
       this.card = opts.card;
       this.cols = opts.cols;
       this.distx = opts.distx;
       this.disty = opts.disty;
+      this.target = (_ref3 = opts.target) != null ? _ref3 : 'global';
+      this["eval"] = opts["eval"];
       this.currentX = 0;
       this.currentCard = 0;
       i = 0;
-      this.cardcollection = new Array();
-      lopts = {
-        id: "carta_" + this.currentCard,
-        x: this.x,
-        y: this.y,
-        index: '',
-        target: '',
-        "eval": '',
-        states: [
-          {
-            img: {
-              name: this.card,
-              x: 0,
-              y: 0,
-              align: ''
+      cardcollection = new Array();
+      shucartas = d2oda.utilities.shuffleNoRepeat(cartas, 6);
+      console.log(lib[0]);
+      for (_i = 0, _len = cartas.length; _i < _len; _i++) {
+        carta = cartas[_i];
+        x = this.currentX * this.distx;
+        y = this.fila * this.disty;
+        lopts = {
+          id: "carta_" + this.currentCard,
+          x: x,
+          y: y,
+          index: carta,
+          target: this.target,
+          "eval": this["eval"],
+          states: [
+            {
+              img: {
+                name: carta,
+                x: 0,
+                y: 0,
+                align: 'mc'
+              }
+            }, {
+              img: {
+                name: this.card,
+                x: 0,
+                y: 0,
+                align: 'mc'
+              }
+            }, {
+              img: {
+                name: carta,
+                x: 0,
+                y: 0,
+                align: 'mc'
+              }
             }
-          }, {
-            img: {
-              name: carta,
-              x: 0,
-              y: 0,
-              align: ''
-            }
-          }
-        ]
-      };
-      d = new ButtonContainer(lopts);
-      this.cardcollection.push(d);
-      this.add(d);
-      i++;
-      this.currentCard++;
-      this.currentX++;
-      if (this.currentX > this.cols - 1) {
-        this.currentX = 0;
-        return this.fila = 1;
+          ]
+        };
+        d = new ButtonContainer(lopts);
+        cardcollection.push(d);
+        this.add(d);
+        console.log(d);
+        this.currentCard++;
+        this.currentX++;
+        i++;
+        if (this.currentX > this.cols - 1) {
+          this.currentX = 0;
+          this.fila++;
+        }
       }
-    };
-
-    CardContainer.prototype.updateState = function() {
-      return console.log("asd");
+      return this.delay(7000, function() {
+        var card, _j, _len1, _results;
+        _results = [];
+        for (_j = 0, _len1 = cardcollection.length; _j < _len1; _j++) {
+          card = cardcollection[_j];
+          _results.push(card.updateState());
+        }
+        return _results;
+      });
     };
 
     CardContainer.prototype.isComplete = function() {
