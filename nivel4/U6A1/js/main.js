@@ -13,6 +13,7 @@ NEW ODA
     __extends(U6A1, _super);
 
     function U6A1() {
+      var _this = this;
       this.manifest = [
         {
           id: 'banjo',
@@ -26,6 +27,12 @@ NEW ODA
         }, {
           id: 'c1',
           src: 'cirulo1.png'
+        }, {
+          id: 'startgame',
+          src: 'start_game.png'
+        }, {
+          id: 'bass',
+          src: 'clarinet.png'
         }, {
           id: 'clarinet',
           src: 'clarinet.png'
@@ -75,10 +82,71 @@ NEW ODA
           id: 'tuba',
           src: 'tuba.png'
         }, {
+          id: 's/banjo',
+          src: 'banjo.mp3'
+        }, {
+          id: 's/bass',
+          src: 'bass.mp3'
+        }, {
+          id: 's/clarinet',
+          src: 'clarinet.mp3'
+        }, {
+          id: 's/comedian',
+          src: 'comedian.mp3'
+        }, {
+          id: 's/dancers',
+          src: 'dancers.mp3'
+        }, {
+          id: 's/jazzband',
+          src: 'jazzband.mp3'
+        }, {
+          id: 's/lista',
+          src: 'lista.txt'
+        }, {
+          id: 's/musician',
+          src: 'musician.mp3'
+        }, {
+          id: 's/painter',
+          src: 'painter.mp3'
+        }, {
+          id: 's/piano',
+          src: 'piano.mp3'
+        }, {
+          id: 's/saxophone',
+          src: 'saxophone.mp3'
+        }, {
+          id: 's/sculptor',
+          src: 'sculptor.mp3'
+        }, {
+          id: 's/singers',
+          src: 'singers.mp3'
+        }, {
+          id: 's/trombone',
+          src: 'trombone.mp3'
+        }, {
+          id: 's/trumpet',
+          src: 'trumpet.mp3'
+        }, {
+          id: 's/tuba',
+          src: 'tuba.mp3'
+        }, {
           id: 's/silence',
           src: 'silence.mp3'
         }
       ];
+      this.evaluateGlobal01 = function(dispatcher, target) {
+        console.log(lib[dispatcher].index, target.opts);
+        if (lib[dispatcher].index === this.success) {
+          return lib.scene.success();
+        } else {
+          return lib.scene.fail();
+        }
+      };
+      this["continue"] = function(dispatcher) {
+        var d;
+        d = lib[dispatcher];
+        return lib.scene.nextStep();
+      };
       this.game = {
         header: 'header',
         instructions: {
@@ -106,12 +174,119 @@ NEW ODA
         scenes: [
           {
             answers: {
-              collection: [['banjo', 'clarinet', 'comedian', 'dancers', 'header', 'jazzband', 'musician', 'painter', 'piano', 'saxophone', 'sculptor', 'singers', 'trombone', 'trumpet', 'tuba']],
-              mixed: true,
+              collection: [
+                [
+                  {
+                    name: 'global',
+                    opts: {
+                      success: 'banjo'
+                    }
+                  }, {
+                    name: 'snd',
+                    opts: {
+                      id: 's/banjo'
+                    }
+                  }
+                ], [
+                  {
+                    name: 'global',
+                    opts: {
+                      success: 'clarinet'
+                    }
+                  }, {
+                    name: 'snd',
+                    opts: {
+                      id: 's/clarinet'
+                    }
+                  }
+                ], [
+                  {
+                    name: 'global',
+                    opts: {
+                      success: 'trumpet'
+                    }
+                  }, {
+                    name: 'snd',
+                    opts: {
+                      id: 's/trumpet'
+                    }
+                  }
+                ], [
+                  {
+                    name: 'global',
+                    opts: {
+                      success: 'trombone'
+                    }
+                  }, {
+                    name: 'snd',
+                    opts: {
+                      id: 's/trombone'
+                    }
+                  }
+                ], [
+                  {
+                    name: 'global',
+                    opts: {
+                      success: 'piano'
+                    }
+                  }, {
+                    name: 'snd',
+                    opts: {
+                      id: 's/piano'
+                    }
+                  }
+                ], [
+                  {
+                    name: 'global',
+                    opts: {
+                      success: 'tuba'
+                    }
+                  }, {
+                    name: 'snd',
+                    opts: {
+                      id: 's/tuba'
+                    }
+                  }
+                ]
+              ],
+              mixed: false,
               type: 'limit',
-              limit: 8
+              limit: 6
             },
-            containers: [],
+            containers: [
+              {
+                type: 'crd',
+                id: 'btn1',
+                x: 200,
+                y: 260,
+                index: '',
+                target: 'global',
+                card: 'caja',
+                "eval": 'global_03',
+                distx: 200,
+                disty: 150,
+                cols: 3,
+                cartas: ['banjo', 'clarinet', 'trumpet', 'trombone', 'piano', 'tuba', 'saxophone', 'jazzband']
+              }, {
+                type: 'btn',
+                id: 'repeat',
+                x: 400,
+                y: 550,
+                align: '',
+                isRepeat: true,
+                visible: false,
+                states: [
+                  {
+                    img: {
+                      name: 'repeat',
+                      x: 0,
+                      y: 0,
+                      align: 'mc'
+                    }
+                  }
+                ]
+              }
+            ],
             groups: []
           }
         ]
