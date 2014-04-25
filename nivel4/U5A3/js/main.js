@@ -73,8 +73,7 @@ NEW ODA
                     name: 'wcpt1',
                     opts: {
                       word: ['The World\'s Sports Competition', 'is better', 'than', 'the other competitions'],
-                      target: 't1',
-                      sentence: true
+                      target: 't1'
                     }
                   }
                 ], [

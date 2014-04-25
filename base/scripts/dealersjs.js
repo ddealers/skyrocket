@@ -1993,6 +1993,9 @@ LIBRARY
         if (opts.lineWidth) {
           this.t.lineWidth = opts.lineWidth;
         }
+        if (opts.lineHeight) {
+          this.t.lineHeight = opts.lineHeight;
+        }
         this.width = this.t.getMeasuredWidth();
         this.height = this.t.getMeasuredHeight();
         this.mouseEnabled = true;
@@ -3144,6 +3147,7 @@ LIBRARY
       this.name = (_ref8 = opts.name) != null ? _ref8 : opts.id;
       this.align = (_ref9 = opts.align) != null ? _ref9 : '';
       this.uwidth = opts.uwidth;
+      this.lineHeight = opts.lineHeight;
       this.currentTarget = 0;
       this.observer = new ComponentObserver();
       return this.droptargets = new Array();
@@ -3186,12 +3190,17 @@ LIBRARY
           }
           i++;
         } else if (t === '#rtn') {
-          h = this.createText('txt', 'BLANK', this.font, this.fcolor, npos, 0);
-          if (npos > maxWidth) {
-            maxWidth = npos;
+          if (this.lineHeight) {
+            npos = 0;
+            ypos += this.lineHeight;
+          } else {
+            h = this.createText('txt', 'BLANK', this.font, this.fcolor, npos, 0);
+            if (npos > maxWidth) {
+              maxWidth = npos;
+            }
+            npos = 0;
+            ypos += h.getMeasuredHeight() + h.getMeasuredHeight() * 0.1;
           }
-          npos = 0;
-          ypos += h.getMeasuredHeight() + h.getMeasuredHeight() * 0.1;
         } else {
           h = this.createText('txt', t, this.font, this.fcolor, npos, ypos);
           this.add(h, false);
@@ -4076,12 +4085,12 @@ LIBRARY
       this.x = x;
       this.y = y;
       this.success = (_ref2 = opts.success) != null ? _ref2 : opts.text;
-      this.text = this.createText('txt', opts.text, font, fcolor, 0, -1);
+      this.text = this.createText('txt', opts.text, font, fcolor, 0, 0);
       this.width = (_ref3 = opts.width) != null ? _ref3 : this.text.getMeasuredWidth();
       this.height = (_ref4 = opts.height) != null ? _ref4 : this.text.getMeasuredHeight();
       this.complete = false;
       this.back = new createjs.Shape();
-      this.back.graphics.f(bcolor).dr(0, 0, this.width, this.height).ss(stroke).s(scolor).mt(0, this.height).lt(this.width, this.height);
+      this.back.graphics.f(bcolor).dr(0, 0, this.width, this.height).ss(stroke).s(scolor).mt(0, this.height + 5).lt(this.width, this.height + 5);
       return this.add(this.back, false);
     };
 

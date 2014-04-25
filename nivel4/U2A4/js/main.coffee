@@ -126,7 +126,7 @@ class U2A4 extends Oda
 							animations: {init:[0,22, false], uno:[23,47, false], dos:[48,71, false], tres:[72,95, false], cuatro:[96,118, false], cinco:[119,144, false], seis:[145,168, false], siete:[169,193, false], ocho:[194,206, false], nueve:[207,244, false]}
 						}	
 						{
-							type: 'caw', id: 'caw1', x: 430, y: 510, align: 'tc', target: 'global', eval: @onChoose
+							type: 'caw', id: 'caw1', x: 470, y: 510, align: 'tc', target: 'global', eval: @onChoose
 							label:{font:'18px Quicksand', color:'#444'}
 							bullets:{font:'18px Quicksand', color: '#000'}
 						}

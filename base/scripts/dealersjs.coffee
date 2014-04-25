@@ -1021,6 +1021,7 @@ class TextContainer extends Component
 		if @parrafo is false 
 			@t = @createText @name, opts.text, font, fcolor, 0, 0, align
 			if opts.lineWidth then @t.lineWidth = opts.lineWidth
+			if opts.lineHeight then @t.lineHeight = opts.lineHeight
 			@width = @t.getMeasuredWidth()
 			@height = @t.getMeasuredHeight()
 			@mouseEnabled = true
@@ -1700,6 +1701,7 @@ class PhraseCompleterContainer extends Component
 		@name = opts.name ? opts.id
 		@align = opts.align ? ''
 		@uwidth = opts.uwidth
+		@lineHeight= opts.lineHeight
 		@currentTarget = 0
 		@observer = new ComponentObserver()
 		@droptargets = new Array()
@@ -1729,10 +1731,14 @@ class PhraseCompleterContainer extends Component
 				maxWidth = npos if npos > maxWidth
 				i++
 			else if t is '#rtn'
-				h = @createText 'txt', 'BLANK', @font, @fcolor, npos, 0
-				maxWidth = npos if npos > maxWidth
-				npos = 0
-				ypos += h.getMeasuredHeight() + h.getMeasuredHeight() * 0.1
+				if @lineHeight
+					npos = 0
+					ypos += @lineHeight
+				else
+					h = @createText 'txt', 'BLANK', @font, @fcolor, npos, 0
+					maxWidth = npos if npos > maxWidth
+					npos = 0
+					ypos += h.getMeasuredHeight() + h.getMeasuredHeight() * 0.1
 			else
 				h = @createText 'txt', t, @font, @fcolor, npos, ypos
 				@add h, false
@@ -2246,12 +2252,12 @@ class TextCompleterContainer extends Component
 		@x = x
 		@y = y
 		@success = opts.success ? opts.text
-		@text = @createText 'txt', opts.text, font, fcolor, 0, -1
+		@text = @createText 'txt', opts.text, font, fcolor, 0, 0
 		@width = opts.width ? @text.getMeasuredWidth()
 		@height = opts.height ? @text.getMeasuredHeight()
 		@complete = false
 		@back = new createjs.Shape()
-		@back.graphics.f(bcolor).dr(0, 0, @width, @height).ss(stroke).s(scolor).mt(0, @height).lt(@width, @height)
+		@back.graphics.f(bcolor).dr(0, 0, @width, @height).ss(stroke).s(scolor).mt(0, @height+5).lt(@width, @height+5)
 		@add @back, false
 	setRectOutline: (bcolor, stroke, scolor) ->
 		@back.graphics.f(bcolor).ss(stroke).s(scolor).dr(0, 0, @width, @height)

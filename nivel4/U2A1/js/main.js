@@ -71,7 +71,7 @@ NEW ODA
           y: 130,
           states: [
             {
-              text: 'Look and drag the letters to complete the crossword.',
+              text: 'Click on the number and write to the correct answer.',
               sound: 's/silence',
               played: false
             }
@@ -245,18 +245,6 @@ NEW ODA
                 uheight: 25,
                 stroke: 1,
                 scolor: '#000'
-              }, {
-                type: 'abc',
-                id: 'abc1',
-                x: 400,
-                y: 560,
-                font: '24px Quicksand',
-                fcolor: '#333',
-                uwidth: 22,
-                uheight: 34,
-                margin: 10,
-                target: 'cwd1',
-                "eval": 'drop_04'
               }
             ],
             groups: [

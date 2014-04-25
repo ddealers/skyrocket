@@ -223,7 +223,7 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['Mozart could', '#tcpt', 'the piano when he was 3 years old.'],
+                      pattern: ['Mozart could  ', '#tcpt', '  the piano when he was 3 years old.'],
                       targets: [
                         {
                           text: 'play'
@@ -295,7 +295,7 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['Ray could', '#tcpt', 'his shirt when he was 5 years old.'],
+                      pattern: ['Ray could ', '#tcpt', ' his shirt when he was 5 years old.'],
                       targets: [
                         {
                           text: 'button up'
@@ -763,7 +763,7 @@ NEW ODA
               }, {
                 type: 'pcpt',
                 id: 'pcpt1',
-                x: 433,
+                x: 475,
                 y: 540,
                 font: '20px Quicksand',
                 margin: 5,
@@ -851,7 +851,7 @@ NEW ODA
               }, {
                 type: 'btn',
                 id: 'buttonupbtn',
-                x: 300,
+                x: 280,
                 y: 460,
                 index: 'button up',
                 target: 'pcpt1',
@@ -1131,7 +1131,7 @@ NEW ODA
               }, {
                 type: 'btn',
                 id: 'count3btn',
-                x: 540,
+                x: 530,
                 y: 460,
                 index: 'count',
                 target: 'pcpt1',

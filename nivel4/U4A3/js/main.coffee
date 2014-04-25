@@ -68,7 +68,7 @@ class U4A3 extends Oda
 								{name: 'grpizq', opts:{type: 'fadeIn', target: 'playbtn'}}
 								{name: 'grpmid', opts:{type: 'fadeIn', target: 'cookbtn'}}
 								{name: 'grpder', opts:{type: 'fadeIn', target: 'standbtn'}}
-								{name: 'pcpt1', opts:{pattern:['Mozart could', '#tcpt', 'the piano when he was 3 years old.'], targets: [{text:'play'}]}}
+								{name: 'pcpt1', opts:{pattern:['Mozart could  ', '#tcpt', '  the piano when he was 3 years old.'], targets: [{text:'play'}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'cook'}}
@@ -82,7 +82,7 @@ class U4A3 extends Oda
 								{name: 'grpizq', opts:{type: 'fadeIn', target: 'buttonupbtn'}}
 								{name: 'grpmid', opts:{type: 'fadeIn', target: 'cookbtn'}}
 								{name: 'grpder', opts:{type: 'fadeIn', target: 'turnonbtn'}}
-								{name: 'pcpt1', opts:{pattern:['Ray could', '#tcpt', 'his shirt when he was 5 years old.'], targets: [{text:'button up'}]}}
+								{name: 'pcpt1', opts:{pattern:['Ray could ', '#tcpt', ' his shirt when he was 5 years old.'], targets: [{text:'button up'}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'computer'}}
@@ -125,7 +125,7 @@ class U4A3 extends Oda
 								{name: 'grpizq', opts:{type: 'fadeIn', target: 'playbtn'}}
 								{name: 'grpmid', opts:{type: 'fadeIn', target: 'saybtn'}}
 								{name: 'grpder', opts:{type: 'fadeIn', target: 'standbtn'}}
-								{name: 'pcpt1', opts:{pattern:['Gary could', '#tcpt', 'the word "cat" when he was 14 months old. '], targets: [{text:'say', success:}]}}
+								{name: 'pcpt1', opts:{pattern:['Gary could', '#tcpt', 'the word "cat" when he was 14 months old. '], targets: [{text:'say'}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'write'}}
@@ -179,7 +179,7 @@ class U4A3 extends Oda
 						{type: 'img',  id:'walk' , x: 400, y: 308, align: 'mc'}
 						{type: 'img',  id:'write' , x: 400, y: 308, align: 'mc'}
 
-						{type: 'pcpt', id: 'pcpt1', x: 433, y: 540, font: '20px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A', uwidth: 90}
+						{type: 'pcpt', id: 'pcpt1', x: 475, y: 540, font: '20px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A', uwidth: 90}
 						{type: 'txt', id: 'txt1', text:'/', x: 356, y: 460, font:'20px Quicksand', align: 'center', lineWidth: 250}
 						{type: 'txt', id: 'txt1', text:'/', x: 480, y: 460, font:'20px Quicksand', align: 'center', lineWidth: 250}
 
@@ -196,7 +196,7 @@ class U4A3 extends Oda
 							states: [{txt: {text:'walk', name:'walk', x:0, y:0, align:'center', font: '20px Quicksand'}}]
 						}
 						{
-							type: 'btn', id: 'buttonupbtn', x: 300, y: 460,  index: 'button up', target: 'pcpt1', eval: @btnClick
+							type: 'btn', id: 'buttonupbtn', x: 280, y: 460,  index: 'button up', target: 'pcpt1', eval: @btnClick
 							states: [{txt: {text:'button up', name:'button up', x:0, y:0, align:'center', font: '20px Quicksand'}}]
 						}
 						{
@@ -252,7 +252,7 @@ class U4A3 extends Oda
 							states: [{txt: {text:'turn on', name:'turn on', x:0, y:0, align:'center', font: '20px Quicksand'}}]
 						}
 						{
-							type: 'btn', id: 'count3btn', x: 540, y: 460,  index: 'count', target: 'pcpt1', eval: @btnClick
+							type: 'btn', id: 'count3btn', x: 530, y: 460,  index: 'count', target: 'pcpt1', eval: @btnClick
 							states: [{txt: {text:'count', name:'count', x:0, y:0, align:'center', font: '20px Quicksand'}}]
 						}
 					]

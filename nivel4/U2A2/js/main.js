@@ -1362,7 +1362,7 @@ NEW ODA
               }, {
                 type: 'caw',
                 id: 'caw1',
-                x: 400,
+                x: 415,
                 y: 530,
                 align: 'tc',
                 target: 'global',

@@ -25,7 +25,7 @@ class U2A1 extends Oda
 		]
 		@game = 
 			header: 'header'
-			instructions: {x: 110, y: 130, states: [{text:'Look and drag the letters to complete the crossword.', sound:'s/silence', played: false}]}
+			instructions: {x: 110, y: 130, states: [{text:'Click on the number and write to the correct answer.', sound:'s/silence', played: false}]}
 			score:{type: 'points', x:20, y:500, init: 0, total: 8, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
 			scenes:[
 				{
@@ -99,7 +99,6 @@ class U2A1 extends Oda
 						{type: 'img', id: 'q7', x: 525, y: 160}
 						{type: 'img', id: 'q8', x: 290, y: 170}
 						{type:'cwd', id: 'cwd1', x: 280, y: 275, font: '24px Quicksand', fcolor:'#333', uwidth: 25, uheight: 25, stroke: 1, scolor: '#000'}
-						{type: 'abc', id: 'abc1', x: 400, y: 560, font:'24px Quicksand', fcolor:'#333', uwidth: 22, uheight: 34, margin: 10, target:'cwd1', eval:'drop_04'}
 					]
 					groups:[
 						{

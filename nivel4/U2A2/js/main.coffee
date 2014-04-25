@@ -317,7 +317,7 @@ class U2A2 extends Oda
 						{type: 'txt', id: 'tazul', text:'0', x: 178, y: 275, font:'24px Quicksand', align: 'center'}
 						{type: 'txt', id: 'tverde', text:'0', x: 182, y: 375, font:'24px Quicksand', align: 'center'}
 						{
-							type: 'caw', id: 'caw1', x: 400, y: 530, align: 'tc', target: 'global', eval: @onChoose
+							type: 'caw', id: 'caw1', x: 415, y: 530, align: 'tc', target: 'global', eval: @onChoose
 							label:{font:'18px Quicksand', color:'#444'}
 							bullets:{font:'18px Quicksand', color: '#000'}
 						}

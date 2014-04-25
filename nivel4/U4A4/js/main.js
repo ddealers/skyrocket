@@ -148,7 +148,8 @@ NEW ODA
                 x: 70,
                 y: 260,
                 lineWidth: 330,
-                font: '14px Roboto',
+                font: '14px Dosis',
+                lineHeight: 25,
                 align: 'left'
               }, {
                 type: 'btn',
@@ -269,7 +270,8 @@ NEW ODA
                 x: 70,
                 y: 260,
                 lineWidth: 330,
-                font: '14px Roboto',
+                font: '14px Dosis',
+                lineHeight: 25,
                 align: 'left'
               }, {
                 type: 'btn',
@@ -330,7 +332,7 @@ NEW ODA
                 type: 'lbl',
                 id: 'lbl2',
                 x: 400,
-                y: 490,
+                y: 480,
                 font: '20px Quicksand',
                 lineWidth: 600,
                 color: '#333',
@@ -390,7 +392,8 @@ NEW ODA
                 x: 70,
                 y: 260,
                 lineWidth: 330,
-                font: '14px Roboto',
+                font: '14px Dosis',
+                lineHeight: 25,
                 align: 'left'
               }, {
                 type: 'btn',
@@ -451,7 +454,7 @@ NEW ODA
                 type: 'lbl',
                 id: 'lbl3',
                 x: 400,
-                y: 490,
+                y: 480,
                 font: '20px Quicksand',
                 lineWidth: 600,
                 color: '#333',
@@ -511,7 +514,8 @@ NEW ODA
                 x: 70,
                 y: 260,
                 lineWidth: 330,
-                font: '14px Roboto',
+                font: '14px Dosis',
+                lineHeight: 25,
                 align: 'left'
               }, {
                 type: 'btn',
@@ -572,7 +576,7 @@ NEW ODA
                 type: 'lbl',
                 id: 'lbl4',
                 x: 400,
-                y: 490,
+                y: 480,
                 font: '20px Quicksand',
                 lineWidth: 600,
                 color: '#333',
@@ -625,7 +629,8 @@ NEW ODA
                 x: 70,
                 y: 260,
                 lineWidth: 330,
-                font: '14px Roboto',
+                font: '14px Dosis',
+                lineHeight: 25,
                 align: 'left'
               }, {
                 type: 'btn',

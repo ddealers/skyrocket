@@ -23,7 +23,7 @@ class U5A3 extends Oda
 						collection: [
 							[
 								{name: 'grp1', opts:{type: 'blink', target: 't1'}}
-								{name: 'wcpt1', opts:{word:['The World\'s Sports Competition','is better','than','the other competitions'],target: 't1', sentence: true}}
+								{name: 'wcpt1', opts:{word:['The World\'s Sports Competition','is better','than','the other competitions'],target: 't1',}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'blink', target: 't2'}}
