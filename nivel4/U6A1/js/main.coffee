@@ -10,6 +10,7 @@ class U6A1 extends Oda
 			{id:'caja', src:'caja_1.png'}
 			{id:'c2', src:'circulo2.png'}
 			{id:'c1', src:'cirulo1.png'}
+			{id:'bass', src:'clarinet.png'}
 			{id:'clarinet', src:'clarinet.png'}
 			{id:'comedian', src:'comedian.png'}
 			{id:'dancers', src:'dancers.png'}
@@ -26,25 +27,32 @@ class U6A1 extends Oda
 			{id:'trombone', src:'trombone.png'}
 			{id:'trumpet', src:'trumpet.png'}
 			{id:'tuba', src:'tuba.png'}
-			{id:'s/banjo' src:'banjo.mp3'}
-			{id:'s/bass' src:'bass.mp3'}
-			{id:'s/clarinet' src:'clarinet.mp3'}
-			{id:'s/comedian' src:'comedian.mp3'}
-			{id:'s/dancers' src:'dancers.mp3'}
-			{id:'s/jazzband' src:'jazzband.mp3'}
-			{id:'s/lista' src:'lista.txt'}
-			{id:'s/musician' src:'musician.mp3'}
-			{id:'s/painter' src:'painter.mp3'}
-			{id:'s/piano' src:'piano.mp3'}
-			{id:'s/saxophone' src:'saxophone.mp3'}
-			{id:'s/sculptor' src:'sculptor.mp3'}
-			{id:'s/singers' src:'singers.mp3'}
-			{id:'s/trombone' src:'trombone.mp3'}
-			{id:'s/trumpet' src:'trumpet.mp3'}
-			{id:'s/tuba' src:'tuba.mp3'}
+			{id:'s/banjo', src:'banjo.mp3'}
+			{id:'s/bass', src:'bass.mp3'}
+			{id:'s/clarinet', src:'clarinet.mp3'}
+			{id:'s/comedian', src:'comedian.mp3'}
+			{id:'s/dancers', src:'dancers.mp3'}
+			{id:'s/jazzband', src:'jazzband.mp3'}
+			{id:'s/lista', src:'lista.txt'}
+			{id:'s/musician', src:'musician.mp3'}
+			{id:'s/painter', src:'painter.mp3'}
+			{id:'s/piano', src:'piano.mp3'}
+			{id:'s/saxophone', src:'saxophone.mp3'}
+			{id:'s/sculptor', src:'sculptor.mp3'}
+			{id:'s/singers', src:'singers.mp3'}
+			{id:'s/trombone', src:'trombone.mp3'}
+			{id:'s/trumpet' , src:'trumpet.mp3'}
+			{id:'s/tuba', src:'tuba.mp3'}
 			{ id: 's/silence' , src: 'silence.mp3' }
 
 		]
+		@evaluateGlobal01 = (dispatcher, target) ->
+			console.log  lib[dispatcher].index,  target.opts
+
+			if lib[dispatcher].index is @success
+				lib.scene.success()
+			else
+				lib.scene.fail()
 		
 		@game = 
 			header: 'header'
@@ -52,31 +60,111 @@ class U6A1 extends Oda
 			score:{type: 'points', x:20, y:500, init: 0, total: 12, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
 			scenes:[
 				{
+
 					answers: {
 						collection: [
 							[
-								'banjo'
-								'clarinet'
-								'comedian'
-								'dancers'
-								'header'
-								'jazzband'
-								'musician'
-								'painter'
-								'piano'
-								'saxophone'
-								'sculptor'
-								'singers'
-								'trombone'
-								'trumpet'
-								'tuba'
-							]		
+                				{name: 'global', opts:{success:'banjo'}}
+                				{name: 'snd', opts:{id:'s/banjo'}}
+              				]	
+              				[
+                				{name: 'global', opts:{success:'clarinet'}}
+                				{name: 'snd', opts:{id:'s/clarinet'}}
+              				]
+              				[
+                				{name: 'global', opts:{success:'trumpet'}}
+                				{name: 'snd', opts:{id:'s/trumpet'}}
+              				]
+              				[
+                				{name: 'global', opts:{success:'trombone'}}
+                				{name: 'snd', opts:{id:'s/trombone'}}
+              				]
+              				[
+                				{name: 'global', opts:{success:'piano'}}
+                				{name: 'snd', opts:{id:'s/piano'}}
+              				]
+              				[
+                				{name: 'global', opts:{success:'tuba'}}
+                				{name: 'snd', opts:{id:'s/tuba'}}
+              				]			
 						]
 						mixed: true
-						type: 'limit'
-						limit: 8
+						type: 'steps'
+						
 					}
 					containers:[
+						{
+							type: 'btn', id: 'btn1', x: 250, y: 260, index: 'banjo', target: 'global', eval: 'global_03'
+							states: [
+								{
+									img: {name: 'caja', x: 0, y: 0, align: 'mc'}
+								}
+								{
+									img: {name: 'banjo', x: 0, y: 0, align: 'mc'}
+									removeListeners: true
+								}
+							]
+						}	
+						{
+							type: 'btn', id: 'btn2', x: 450, y: 260, index: 'clarinet', target: 'global', eval: 'global_03'
+							states: [
+								{
+									img: {name: 'caja', x: 0, y: 0, align: 'mc'}
+								}
+								{
+									img: {name: 'clarinet', x: 0, y: 0, align: 'mc'}
+									removeListeners: true
+								}
+							]
+						}	
+						{
+							type: 'btn', id: 'btn3', x: 650, y: 260, index: 'trumpet', target: 'global', eval: 'global_03'
+							states: [
+								{
+									img: {name: 'caja', x: 0, y: 0, align: 'mc'}
+								}
+								{
+									img: {name: 'trumpet', x: 0, y: 0, align: 'mc'}
+									removeListeners: true
+								}
+							]
+						}	
+						{
+							type: 'btn', id: 'btn4', x: 250, y: 420, index: 'trombone', target: 'global', eval: 'global_03'
+							states: [
+								{
+									img: {name: 'caja', x: 0, y: 0, align: 'mc'}
+								}
+								{
+									img: {name: 'trombone', x: 0, y: 0, align: 'mc'}
+									removeListeners: true
+								}
+							]
+						}	
+						{
+							type: 'btn', id: 'btn5', x: 450, y: 420, index: 'piano', target: 'global', eval: 'global_03'
+							states: [
+								{
+									img: {name: 'caja', x: 0, y: 0, align: 'mc'}
+								}
+								{
+									img: {name: 'piano', x: 0, y: 0, align: 'mc'}
+									removeListeners: true
+								}
+							]
+						}	
+						{
+							type: 'btn', id: 'btn6', x: 650, y: 420, index: 'tuba', target: 'global', eval: 'global_03'
+							states: [
+								{
+									img: {name: 'caja', x: 0, y: 0, align: 'mc'}
+								}
+								{
+									img: {name: 'tuba', x: 0, y: 0, align: 'mc'}
+									removeListeners: true
+								}
+							]
+						}	
 					]
 					groups:[
 					]

@@ -5,7 +5,7 @@ LIBRARY
 
 
 (function() {
-  var ABCContainer, Actions, Behaviors, ButtonContainer, ChooseAWordContainer, ChooseContainer, CloneCompleterContainer, CloneContainer, Component, ComponentGroup, ComponentObserver, CrossWordsContainer, DragContainer, Evaluator, Game, GameObserver, GridContainer, ImageCompleterContainer, ImageContainer, ImageDropContainer, ImageWordCompleterContainer, Instructions, LabelContainer, LetterContainer, LetterDragContainer, MainContainer, Methods, Mobile, Module, Observer, Oda, PhraseCloneContainer, PhraseCompleterContainer, Preloader, Scene, SceneFactory, SceneObserver, SceneStack, Score, ScrambledWordContainer, SpriteAnimContainer, SpriteContainer, StepContainer, StepsContainer, TextCloneContainer, TextCompleterContainer, TextContainer, Utilities, WordCompleterContainer, WordSearchContainer, WriteContainer, moduleKeywords, _base, _base1, _base2, _base3, _base4, _base5, _base6, _ref, _ref1, _ref2,
+  var ABCContainer, Actions, Behaviors, ButtonContainer, CardContainer, ChooseAWordContainer, ChooseContainer, CloneCompleterContainer, CloneContainer, Component, ComponentGroup, ComponentObserver, CrossWordsContainer, DragContainer, Evaluator, Game, GameObserver, GridContainer, ImageCompleterContainer, ImageContainer, ImageDropContainer, ImageWordCompleterContainer, Instructions, LabelContainer, LetterContainer, LetterDragContainer, MainContainer, Methods, Mobile, Module, Observer, Oda, PhraseCloneContainer, PhraseCompleterContainer, Preloader, Scene, SceneFactory, SceneObserver, SceneStack, Score, ScrambledWordContainer, SpriteAnimContainer, SpriteContainer, StepContainer, StepsContainer, TextCloneContainer, TextCompleterContainer, TextContainer, Utilities, WordCompleterContainer, WordSearchContainer, WriteContainer, moduleKeywords, _base, _base1, _base2, _base3, _base4, _base5, _base6, _ref, _ref1, _ref2,
     __slice = [].slice,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
@@ -494,6 +494,8 @@ LIBRARY
             return this.evaluateFinish(target);
           case 'global_01':
             return this.evaluateGlobal01(dispatcher);
+          case 'global_03':
+            return this.evaluateGlobal03(dispatcher, target);
           case 'click_O1':
             return this.evaluateClick01(dispatcher, target);
           case 'click_O1_01':
@@ -573,6 +575,16 @@ LIBRARY
       Evaluator.evaluateGlobal01 = function(dispatcher) {
         if (lib[dispatcher].index === this.success) {
           return lib.scene.success();
+        } else {
+          return lib.scene.fail();
+        }
+      };
+
+      Evaluator.evaluateGlobal03 = function(dispatcher, target) {
+        console.log(target);
+        if (lib[dispatcher].index === this.success) {
+          lib.scene.success();
+          return lib[dispatcher].updateState();
         } else {
           return lib.scene.fail();
         }
@@ -2514,6 +2526,83 @@ LIBRARY
     };
 
     return ButtonContainer;
+
+  })(Component);
+
+  CardContainer = (function(_super) {
+    __extends(CardContainer, _super);
+
+    CardContainer.prototype = new createjs.Container();
+
+    CardContainer.prototype.Container_initialize = CardContainer.prototype.initialize;
+
+    function CardContainer(opts) {
+      this.initialize(opts);
+    }
+
+    CardContainer.prototype.initialize = function(opts) {
+      var d, i, lopts, _ref2;
+      this.Container_initialize();
+      Module.extend(this, d2oda.methods);
+      this.x = opts.x;
+      this.y = opts.y;
+      this.name = (_ref2 = opts.name) != null ? _ref2 : opts.id;
+      this.cartas = opts.cartas;
+      this.fila = 0;
+      this.card = opts.card;
+      this.cols = opts.cols;
+      this.distx = opts.distx;
+      this.disty = opts.disty;
+      this.currentX = 0;
+      this.currentCard = 0;
+      i = 0;
+      this.cardcollection = new Array();
+      lopts = {
+        id: "carta_" + this.currentCard,
+        x: this.x,
+        y: this.y,
+        index: '',
+        target: '',
+        "eval": '',
+        states: [
+          {
+            img: {
+              name: this.card,
+              x: 0,
+              y: 0,
+              align: ''
+            }
+          }, {
+            img: {
+              name: carta,
+              x: 0,
+              y: 0,
+              align: ''
+            }
+          }
+        ]
+      };
+      d = new ButtonContainer(lopts);
+      this.cardcollection.push(d);
+      this.add(d);
+      i++;
+      this.currentCard++;
+      this.currentX++;
+      if (this.currentX > this.cols - 1) {
+        this.currentX = 0;
+        return this.fila = 1;
+      }
+    };
+
+    CardContainer.prototype.updateState = function() {
+      return console.log("asd");
+    };
+
+    CardContainer.prototype.isComplete = function() {
+      return true;
+    };
+
+    return CardContainer;
 
   })(Component);
 
@@ -4599,6 +4688,8 @@ LIBRARY
           return new PhraseCompleterContainer(opts);
         case 'iwcpt':
           return new ImageWordCompleterContainer(opts);
+        case 'crd':
+          return new CardContainer(opts);
         case 'grp':
           return new ComponentGroup(opts);
       }

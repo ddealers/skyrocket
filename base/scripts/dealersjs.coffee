@@ -5,7 +5,7 @@ LIBRARY
 ###
 window.dealersjs ?= {}
 window.d2oda ?= {}
-window.lib ?= {}
+window.lib ?= {} 
 
 window.dealersjs.mobile ?= class Mobile
 	@user_agent = navigator.userAgent.toLowerCase()
@@ -200,6 +200,7 @@ window.d2oda.evaluator ?= class Evaluator
 			when 'repeat' then @evaluateRepeat()
 			when 'finish' then @evaluateFinish(target)
 			when 'global_01' then @evaluateGlobal01(dispatcher)
+			when 'global_03' then @evaluateGlobal03(dispatcher, target)
 			when 'click_O1' then @evaluateClick01(dispatcher, target)
 			when 'click_O1_01' then @evaluateClick01_01(dispatcher, target)
 			when 'click_02' then @evaluateClick02(dispatcher, target)
@@ -240,6 +241,14 @@ window.d2oda.evaluator ?= class Evaluator
 	@evaluateGlobal01 = (dispatcher) ->
 		if lib[dispatcher].index is @success
 			lib.scene.success()
+		else
+			lib.scene.fail()
+	@evaluateGlobal03 = (dispatcher, target) ->
+		console.log target
+		if lib[dispatcher].index is @success
+			lib.scene.success()
+			lib[dispatcher].updateState()
+
 		else
 			lib.scene.fail()
 	@evaluateGlobal02 = (dispatcher) ->
@@ -1256,6 +1265,7 @@ class ButtonContainer extends Component
 		@scale = opts.scale ? 1
 		@states = opts.states
 		@currentState = 0
+
 		@setImageText @states[@currentState].img, @states[@currentState].txt
 		if @isArray opts.target 
 			@target = opts.target
@@ -1319,6 +1329,48 @@ class ButtonContainer extends Component
 		if opts.img or opts.txt then @setImageText opts.img, opts.txt
 		if opts.visible then @visible = opts.visible
 		TweenLite.from @, 0.5, {alpha: 0}
+	isComplete: ->
+		true
+
+
+class CardContainer extends Component
+	CardContainer.prototype = new createjs.Container()
+	CardContainer::Container_initialize = CardContainer::initialize
+	constructor: (opts) ->
+		@initialize opts
+	CardContainer::initialize = (opts) ->
+		@Container_initialize()
+		Module.extend @, d2oda.methods
+		@x = opts.x
+		@y = opts.y
+		@name = opts.name ? opts.id
+		@cartas = opts.cartas
+		@fila = 0
+		@card = opts.card
+		@cols = opts.cols 
+		@distx = opts.distx
+		@disty = opts.disty
+		@currentX = 0
+		@currentCard = 0
+		i = 0
+		@cardcollection = new Array()
+
+		
+		lopts = {id:"carta_#{@currentCard}", x: @x, y: @y, index: '', target: '', eval: '', states:[{img: {name: @card, x: 0, y: 0, align: ''}},{img: {name: carta, x: 0, y: 0, align: ''}}]}
+		d = new ButtonContainer lopts
+		@cardcollection.push d
+		@add d
+		i++
+		@currentCard++ 
+		@currentX++
+		if @currentX > @cols - 1
+			@currentX = 0 
+			@fila = 1
+			
+	updateState: () ->
+
+		console.log  "asd"	
+
 	isComplete: ->
 		true
 
@@ -2527,6 +2579,7 @@ class SceneFactory
 			when 'ccpt' then new CloneCompleterContainer opts
 			when 'pcpt' then new PhraseCompleterContainer opts
 			when 'iwcpt' then new ImageWordCompleterContainer opts
+			when 'crd' then new CardContainer opts
 
 			#groups
 			when 'grp' then new ComponentGroup opts
