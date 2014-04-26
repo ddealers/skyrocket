@@ -147,7 +147,10 @@ NEW ODA
                       pattern: ['It wasn\'t me. I', '#tcpt', 'a', '#rtn', 'movie. I was with my sister.'],
                       targets: [
                         {
-                          text: 'was watching'
+                          text: 'was watching',
+                          underline: {
+                            y: 0
+                          }
                         }
                       ]
                     }
@@ -157,7 +160,10 @@ NEW ODA
                       pattern: ['No, you weren\'t. I saw your sister.', '#rtn', 'She ', '#tcpt', 'mambo at the', '#rtn', 'dance school!'],
                       targets: [
                         {
-                          text: 'was dancing'
+                          text: 'was dancing',
+                          underline: {
+                            y: 0
+                          }
                         }
                       ]
                     }
@@ -167,7 +173,10 @@ NEW ODA
                       pattern: ['He has two sisters. I saw him.', '#rtn', 'He', '#tcpt', 'popcorn before', '#rtn', 'the movie.'],
                       targets: [
                         {
-                          text: 'was buying'
+                          text: 'was buying',
+                          underline: {
+                            y: 0
+                          }
                         }
                       ]
                     }
@@ -177,7 +186,10 @@ NEW ODA
                       pattern: ['Me? I', '#tcpt', 'in the park ', '#rtn', 'with my dog.'],
                       targets: [
                         {
-                          text: 'was walking'
+                          text: 'was walking',
+                          underline: {
+                            y: 0
+                          }
                         }
                       ]
                     }
@@ -187,7 +199,10 @@ NEW ODA
                       pattern: ['What', '#rtn', '#tcpt', '?'],
                       targets: [
                         {
-                          text: 'were you doing'
+                          text: 'were you doing',
+                          underline: {
+                            y: 0
+                          }
                         }
                       ]
                     }
@@ -197,7 +212,10 @@ NEW ODA
                       pattern: ['I think the thief was a woman.', '#rtn', 'I heard her.', '#rtn', 'She ', '#tcpt', 'at the policeman.'],
                       targets: [
                         {
-                          text: 'was shouting'
+                          text: 'was shouting',
+                          underline: {
+                            y: 0
+                          }
                         }
                       ]
                     }
@@ -207,7 +225,10 @@ NEW ODA
                       pattern: ['I\'m not the thief!', '#rtn', 'I', '#tcpt', 'my grandmother ', '#rtn', 'in prison.'],
                       targets: [
                         {
-                          text: 'was visiting'
+                          text: 'was visiting',
+                          underline: {
+                            y: 0
+                          }
                         }
                       ]
                     }
@@ -217,7 +238,10 @@ NEW ODA
                       pattern: ['Oh… me? I was trying to get some exercise.', '#rtn', 'I', '#tcpt', '!'],
                       targets: [
                         {
-                          text: 'was running'
+                          text: 'was running',
+                          underline: {
+                            y: 0
+                          }
                         }
                       ]
                     }
@@ -442,28 +466,31 @@ NEW ODA
                 margin: 5,
                 align: 'tl',
                 scolor: '#F9101A',
+                lineHeight: 17,
                 bcolor: 'rgba(255,255,255,0.01)',
                 stroke: 1
               }, {
                 type: 'pcpt',
                 id: 'pcpt2',
                 x: 230,
-                y: 180,
+                y: 175,
                 font: '11px Quicksand',
                 margin: 5,
                 align: 'tl',
                 scolor: '#F9101A',
+                lineHeight: 17,
                 bcolor: 'rgba(255,255,255,0.01)',
                 stroke: 1
               }, {
                 type: 'pcpt',
                 id: 'pcpt3',
                 x: 183,
-                y: 182,
+                y: 177,
                 font: '11px Quicksand',
                 margin: 5,
                 align: 'tl',
                 scolor: '#F9101A',
+                lineHeight: 17,
                 bcolor: 'rgba(255,255,255,0.01)',
                 stroke: 1
               }, {
@@ -475,39 +502,43 @@ NEW ODA
                 margin: 5,
                 align: 'tl',
                 scolor: '#F9101A',
+                lineHeight: 17,
                 bcolor: 'rgba(255,255,255,0.01)',
                 stroke: 1
               }, {
                 type: 'pcpt',
                 id: 'pcpt5',
                 x: 410,
-                y: 165,
+                y: 160,
                 font: '11px Quicksand',
                 margin: 5,
                 align: 'tl',
                 scolor: '#F9101A',
+                lineHeight: 17,
                 bcolor: 'rgba(255,255,255,0.01)',
                 stroke: 1
               }, {
                 type: 'pcpt',
                 id: 'pcpt6',
                 x: 468,
-                y: 158,
+                y: 153,
                 font: '11px Quicksand',
                 margin: 5,
                 align: 'tl',
                 scolor: '#F9101A',
+                lineHeight: 17,
                 bcolor: 'rgba(255,255,255,0.01)',
                 stroke: 1
               }, {
                 type: 'pcpt',
                 id: 'pcpt7',
                 x: 580,
-                y: 170,
+                y: 165,
                 font: '11px Quicksand',
                 margin: 5,
                 align: 'tl',
                 scolor: '#F9101A',
+                lineHeight: 17,
                 bcolor: 'rgba(255,255,255,0.01)',
                 stroke: 1
               }, {
@@ -519,6 +550,7 @@ NEW ODA
                 margin: 5,
                 align: 'tl',
                 scolor: '#F9101A',
+                lineHeight: 17,
                 bcolor: 'rgba(255,255,255,0.01)',
                 stroke: 1
               }, {

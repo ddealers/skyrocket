@@ -43,7 +43,7 @@ class U4A1 extends Oda
 			if a in t.success
 				t.success.remove a
 				d.afterSuccess()
-				lib.scene.success()
+				lib.scene.success true, false
 				TweenLite.to d, 0.3, {scaleX:0.7, scaleY:0.7}
 			else
 				d.afterFail()
@@ -51,7 +51,7 @@ class U4A1 extends Oda
 		@game = 
 			header: 'header'
 			instructions: {x: 110, y: 130, states: [{text:'Listen, look and drag the pictures to the correct column.', sound:'s/silence', played: false}]}
-			score:{type: 'points', x:20, y:500, init: 0, total: 7, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
+			score:{type: 'points', x:20, y:500, init: 0, total: 14, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
 			scenes:[
 				{
 					answers: {
@@ -68,6 +68,7 @@ class U4A1 extends Oda
 								{name:'snd', opts:{id:'s/Noam'}}
 							]
 						]
+						type: 'steps'
 					}
 					containers:[
 						{type: 'img', id: 'Noam', x: 56, y: 230}
@@ -103,18 +104,19 @@ class U4A1 extends Oda
 								{name:'snd', opts:{id:'s/Joe'}}
 							]
 						]
+						type: 'steps'
 					}
 					containers:[
 						{type: 'img', id: 'Joe', x: 56, y: 230}
 						{type: 'idc', id: 'could2', x: 411, y: 317, align: 'mc'}
 						{type: 'idc', id: 'couldnt2', x: 647, y: 317, align: 'mc'}
-						{type: 'drg', id: '1b', x: 187+30, y: 510, align:'mc', index: '1b', target: ['could','couldnt'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
-						{type: 'drg', id: '2b', x: 187+30, y: 565, align:'mc', index: '2b', target: ['could','couldnt'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
-						{type: 'drg', id: '3b', x: 287+30, y: 510, align:'mc', index: '3b', target: ['could','couldnt'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
-						{type: 'drg', id: '4b', x: 287+30, y: 565, align:'mc', index: '4b', target: ['could','couldnt'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
-						{type: 'drg', id: '5b', x: 387+30, y: 510, align:'mc', index: '5b', target: ['could','couldnt'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
-						{type: 'drg', id: '6b', x: 387+30, y: 565, align:'mc', index: '6b', target: ['could','couldnt'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
-						{type: 'drg', id: '7b', x: 487+30, y: 510, align:'mc', index: '7b', target: ['could','couldnt'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: '1b', x: 187+30, y: 510, align:'mc', index: '1b', target: ['could2','couldnt2'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: '2b', x: 187+30, y: 565, align:'mc', index: '2b', target: ['could2','couldnt2'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: '3b', x: 287+30, y: 510, align:'mc', index: '3b', target: ['could2','couldnt2'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: '4b', x: 287+30, y: 565, align:'mc', index: '4b', target: ['could2','couldnt2'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: '5b', x: 387+30, y: 510, align:'mc', index: '5b', target: ['could2','couldnt2'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: '6b', x: 387+30, y: 565, align:'mc', index: '6b', target: ['could2','couldnt2'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: '7b', x: 487+30, y: 510, align:'mc', index: '7b', target: ['could2','couldnt2'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
 						{
 							type: 'btn', id: 'repeat', x: 710, y: 540, isRepeat: true
 							states:[img: {name:'repeat', x: 0, y: 0, align:'mc'}]

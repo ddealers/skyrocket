@@ -69,28 +69,49 @@ NEW ODA
         }
       ];
       this.btnClick = function(dispatcher, target) {
-        var a, b, c, d, t, verb;
-        d = lib[dispatcher];
-        t = lib[target];
-        a = d.index;
-        b = t.droptargets;
-        c = t.currentTarget;
-        console.log(d, t, a, b, c);
-        console.log(a, b[c].success);
-        if (a === b[c].success) {
-          verb = prompt("Enter the correct form of " + d.index);
-          if (verb === b[c].text.text) {
-            b[c].complete = true;
-            b[c].update();
-            t.currentTarget++;
-          }
-          if (t.currentTarget === b.length) {
-            return lib.scene.success();
+        /*
+        			d = lib[dispatcher]
+        			t = lib[target]
+        			a = d.index
+        			b = t.droptargets
+        			c = t.currentTarget
+        			console.log d,t,a,b,c
+        			console.log a, b[c].success
+        			if a is b[c].success
+        				verb = prompt "Enter the correct form of #{d.index}"
+        				if verb is b[c].text.text
+        					b[c].complete = true
+        					b[c].update()
+        					t.currentTarget++
+        				if t.currentTarget is b.length
+        					lib.scene.success()
+        				else
+        					lib.scene.fail()
+        			else
+        				lib.scene.fail false
+        */
+
+      };
+      this.onkeydown = function(e) {
+        var keycode, pattern, str, target, word;
+        e.preventDefault();
+        e.stopPropagation();
+        word = '';
+        keycode = e.keyCode || e.which;
+        pattern = /[a-z]/i;
+        str = String.fromCharCode(keycode);
+        target = lib[window.target].getEnabledTarget();
+        if (keycode === 8) {
+          return target.write('<-');
+        } else if (keycode === 13) {
+          if (target.success === target.write()) {
+            target.complete = true;
+            return lib.scene.success(true, false);
           } else {
             return lib.scene.fail();
           }
-        } else {
-          return lib.scene.fail(false);
+        } else if (pattern.test(str)) {
+          return target.write(str.toLowerCase());
         }
       };
       this.game = {
@@ -123,6 +144,12 @@ NEW ODA
               collection: [
                 [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -134,14 +161,19 @@ NEW ODA
                       pattern: ['What was Tracy', '#tcpt', 'last night? ', '#rtn', 'Grasshoppers! It\'s a Mexican delicacy.'],
                       targets: [
                         {
-                          text: 'eating',
-                          success: 'eat'
+                          text: 'eating'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -153,14 +185,19 @@ NEW ODA
                       pattern: ['At 3 p.m., the dog was', '#tcpt', '#rtn', 'under the table in the yard.'],
                       targets: [
                         {
-                          text: 'sleeping',
-                          success: 'sleep'
+                          text: 'sleeping'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -172,14 +209,19 @@ NEW ODA
                       pattern: ['Was he', '#tcpt', 'soda at 7 o\'clock? '],
                       targets: [
                         {
-                          text: 'drinking',
-                          success: 'drink'
+                          text: 'drinking'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -191,14 +233,19 @@ NEW ODA
                       pattern: ['At 10 a.m., the cat was', '#tcpt', 'with a ball of wool.'],
                       targets: [
                         {
-                          text: 'playing',
-                          success: 'play'
+                          text: 'playing'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -210,14 +257,19 @@ NEW ODA
                       pattern: ['At 2 o\'clock, Jack was', '#tcpt', 'a blue cap.'],
                       targets: [
                         {
-                          text: 'wearing',
-                          success: 'wear'
+                          text: 'wearing'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -229,14 +281,19 @@ NEW ODA
                       pattern: ['She wasn\'t', '#tcpt', 'TV at 6 p.m. ', '#rtn', 'She was riding her bike!'],
                       targets: [
                         {
-                          text: 'watching',
-                          success: 'watch'
+                          text: 'watching'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -248,14 +305,19 @@ NEW ODA
                       pattern: ['Mom wasn\'t making dinner at 4 p.m.', '#rtn', 'She was', '#tcpt', 'cookies!'],
                       targets: [
                         {
-                          text: 'making',
-                          success: 'make'
+                          text: 'making'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -267,8 +329,7 @@ NEW ODA
                       pattern: ['What were you', '#tcpt', 'at 5 p.m.? I was in the ', '#rtn', 'aquarium, looking at the shark.'],
                       targets: [
                         {
-                          text: 'doing',
-                          success: 'do'
+                          text: 'doing'
                         }
                       ]
                     }
@@ -286,14 +347,19 @@ NEW ODA
                       pattern: ['What was Carla', '#tcpt', 'at 2 o\'clock? She ', '#rtn', 'was Observing birds with her binoculars.'],
                       targets: [
                         {
-                          text: 'doing',
-                          success: 'do'
+                          text: 'doing'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -305,14 +371,19 @@ NEW ODA
                       pattern: ['Dad was', '#tcpt', 'with Mom today. They  ', '#rtn', 'took tango classes and they are good!'],
                       targets: [
                         {
-                          text: 'dancing',
-                          success: 'dance'
+                          text: 'dancing'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -324,14 +395,19 @@ NEW ODA
                       pattern: ['I was', '#tcpt', 'a great book at 7 p.m. Today. ', '#rtn', 'Let me tell you about it!'],
                       targets: [
                         {
-                          text: 'reading',
-                          success: 'read'
+                          text: 'reading'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -343,8 +419,7 @@ NEW ODA
                       pattern: ['Marty was', '#tcpt', 'in the school theater ', '#rtn', 'play at four o\'clock today. He was very funny!'],
                       targets: [
                         {
-                          text: 'acting',
-                          success: 'act'
+                          text: 'acting'
                         }
                       ]
                     }

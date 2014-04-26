@@ -109,7 +109,7 @@ NEW ODA
         if (__indexOf.call(t.success, a) >= 0) {
           t.success.remove(a);
           d.afterSuccess();
-          lib.scene.success();
+          lib.scene.success(true, false);
           return TweenLite.to(d, 0.3, {
             scaleX: 0.7,
             scaleY: 0.7
@@ -137,7 +137,7 @@ NEW ODA
           x: 20,
           y: 500,
           init: 0,
-          total: 7,
+          total: 14,
           aimg: 'c1',
           acolor: '#333',
           bimg: 'c2',
@@ -165,7 +165,8 @@ NEW ODA
                     }
                   }
                 ]
-              ]
+              ],
+              type: 'steps'
             },
             containers: [
               {
@@ -309,7 +310,8 @@ NEW ODA
                     }
                   }
                 ]
-              ]
+              ],
+              type: 'steps'
             },
             containers: [
               {
@@ -336,7 +338,7 @@ NEW ODA
                 y: 510,
                 align: 'mc',
                 index: '1b',
-                target: ['could', 'couldnt'],
+                target: ['could2', 'couldnt2'],
                 "eval": this.onDrop,
                 click: this.onClick,
                 afterSuccess: 'drop',
@@ -348,7 +350,7 @@ NEW ODA
                 y: 565,
                 align: 'mc',
                 index: '2b',
-                target: ['could', 'couldnt'],
+                target: ['could2', 'couldnt2'],
                 "eval": this.onDrop,
                 click: this.onClick,
                 afterSuccess: 'drop',
@@ -360,7 +362,7 @@ NEW ODA
                 y: 510,
                 align: 'mc',
                 index: '3b',
-                target: ['could', 'couldnt'],
+                target: ['could2', 'couldnt2'],
                 "eval": this.onDrop,
                 click: this.onClick,
                 afterSuccess: 'drop',
@@ -372,7 +374,7 @@ NEW ODA
                 y: 565,
                 align: 'mc',
                 index: '4b',
-                target: ['could', 'couldnt'],
+                target: ['could2', 'couldnt2'],
                 "eval": this.onDrop,
                 click: this.onClick,
                 afterSuccess: 'drop',
@@ -384,7 +386,7 @@ NEW ODA
                 y: 510,
                 align: 'mc',
                 index: '5b',
-                target: ['could', 'couldnt'],
+                target: ['could2', 'couldnt2'],
                 "eval": this.onDrop,
                 click: this.onClick,
                 afterSuccess: 'drop',
@@ -396,7 +398,7 @@ NEW ODA
                 y: 565,
                 align: 'mc',
                 index: '6b',
-                target: ['could', 'couldnt'],
+                target: ['could2', 'couldnt2'],
                 "eval": this.onDrop,
                 click: this.onClick,
                 afterSuccess: 'drop',
@@ -408,7 +410,7 @@ NEW ODA
                 y: 510,
                 align: 'mc',
                 index: '7b',
-                target: ['could', 'couldnt'],
+                target: ['could2', 'couldnt2'],
                 "eval": this.onDrop,
                 click: this.onClick,
                 afterSuccess: 'drop',

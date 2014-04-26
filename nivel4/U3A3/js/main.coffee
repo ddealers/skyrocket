@@ -27,6 +27,7 @@ class U3A3 extends Oda
 
 		]
 		@btnClick = (dispatcher, target) =>
+			###
 			d = lib[dispatcher]
 			t = lib[target]
 			a = d.index
@@ -46,6 +47,25 @@ class U3A3 extends Oda
 					lib.scene.fail()
 			else
 				lib.scene.fail false 
+			###
+		@onkeydown = (e) ->
+			e.preventDefault()
+			e.stopPropagation()
+			word = ''
+			keycode = e.keyCode || e.which
+			pattern = /[a-z]/i
+			str = String.fromCharCode keycode
+			target = lib[window.target].getEnabledTarget()
+			if keycode is 8
+				target.write '<-'
+			else if keycode is 13
+				if target.success is target.write()
+					target.complete = true
+					lib.scene.success true,false
+				else 
+					lib.scene.fail()
+			else if pattern.test str
+				target.write str.toLowerCase()
 		@game = 
 			header: 'header'
 			instructions: {x: 110, y: 130, states: [{text:'Choose the verb and write it in the correct form.', sound:'s/silence', played: false}]}
@@ -55,52 +75,63 @@ class U3A3 extends Oda
 					answers: {
 						collection: [
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'chapulines'}}
-								{name: 'pcpt1', opts: {pattern:['What was Tracy', '#tcpt','last night? ','#rtn', 'Grasshoppers! It\'s a Mexican delicacy.'], targets: [{text: 'eating', success:'eat'}]}}
+								{name: 'pcpt1', opts: {pattern:['What was Tracy', '#tcpt','last night? ','#rtn', 'Grasshoppers! It\'s a Mexican delicacy.'], targets: [{text: 'eating'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'sleeping'}}
-								{name: 'pcpt1', opts: {pattern:['At 3 p.m., the dog was', '#tcpt','#rtn', 'under the table in the yard.'], targets: [{text: 'sleeping', success:'sleep'}]}}
+								{name: 'pcpt1', opts: {pattern:['At 3 p.m., the dog was', '#tcpt','#rtn', 'under the table in the yard.'], targets: [{text: 'sleeping'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'soda'}}
-								{name: 'pcpt1', opts: {pattern:['Was he', '#tcpt','soda at 7 o\'clock? '], targets: [{text: 'drinking', success:'drink'}]}}
+								{name: 'pcpt1', opts: {pattern:['Was he', '#tcpt','soda at 7 o\'clock? '], targets: [{text: 'drinking'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'cat'}}
-								{name: 'pcpt1', opts: {pattern:['At 10 a.m., the cat was', '#tcpt', 'with a ball of wool.'], targets: [{text: 'playing', success:'play'}]}}
+								{name: 'pcpt1', opts: {pattern:['At 10 a.m., the cat was', '#tcpt', 'with a ball of wool.'], targets: [{text: 'playing'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'cap'}}
-								{name: 'pcpt1', opts: {pattern:['At 2 o\'clock, Jack was', '#tcpt','a blue cap.'], targets: [{text: 'wearing', success:'wear'}]}}
+								{name: 'pcpt1', opts: {pattern:['At 2 o\'clock, Jack was', '#tcpt','a blue cap.'], targets: [{text: 'wearing'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'cycling'}}
-								{name: 'pcpt1', opts: {pattern:['She wasn\'t', '#tcpt','TV at 6 p.m. ','#rtn', 'She was riding her bike!'], targets: [{text: 'watching', success:'watch'}]}}
+								{name: 'pcpt1', opts: {pattern:['She wasn\'t', '#tcpt','TV at 6 p.m. ','#rtn', 'She was riding her bike!'], targets: [{text: 'watching'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'cake'}}
-								{name: 'pcpt1', opts: {pattern:['Mom wasn\'t making dinner at 4 p.m.','#rtn', 'She was', '#tcpt','cookies!'], targets: [{text: 'making', success:'make'}]}}
+								{name: 'pcpt1', opts: {pattern:['Mom wasn\'t making dinner at 4 p.m.','#rtn', 'She was', '#tcpt','cookies!'], targets: [{text: 'making'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'shark'}}
-								{name: 'pcpt1', opts: {pattern:['What were you', '#tcpt','at 5 p.m.? I was in the ','#rtn', 'aquarium, looking at the shark.'], targets: [{text: 'doing', success:'do'}]}}
+								{name: 'pcpt1', opts: {pattern:['What were you', '#tcpt','at 5 p.m.? I was in the ','#rtn', 'aquarium, looking at the shark.'], targets: [{text: 'doing'}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'binoculars'}}
-								{name: 'pcpt1', opts: {pattern:['What was Carla', '#tcpt','at 2 o\'clock? She ','#rtn', 'was Observing birds with her binoculars.'], targets: [{text: 'doing', success:'do'}]}}
+								{name: 'pcpt1', opts: {pattern:['What was Carla', '#tcpt','at 2 o\'clock? She ','#rtn', 'was Observing birds with her binoculars.'], targets: [{text: 'doing'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'dad'}}
-								{name: 'pcpt1', opts: {pattern:['Dad was', '#tcpt','with Mom today. They  ','#rtn', 'took tango classes and they are good!'], targets: [{text: 'dancing', success:'dance'}]}}
+								{name: 'pcpt1', opts: {pattern:['Dad was', '#tcpt','with Mom today. They  ','#rtn', 'took tango classes and they are good!'], targets: [{text: 'dancing'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'book'}}
-								{name: 'pcpt1', opts: {pattern:['I was', '#tcpt','a great book at 7 p.m. Today. ','#rtn', 'Let me tell you about it!'], targets: [{text: 'reading', success:'read'}]}}
+								{name: 'pcpt1', opts: {pattern:['I was', '#tcpt','a great book at 7 p.m. Today. ','#rtn', 'Let me tell you about it!'], targets: [{text: 'reading'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'actor'}}
-								{name: 'pcpt1', opts: {pattern:['Marty was', '#tcpt','in the school theater ','#rtn', 'play at four o\'clock today. He was very funny!'], targets: [{text: 'acting', success:'act'}]}}
+								{name: 'pcpt1', opts: {pattern:['Marty was', '#tcpt','in the school theater ','#rtn', 'play at four o\'clock today. He was very funny!'], targets: [{text: 'acting'}]}}
 							]
 						]
 						mixed: true

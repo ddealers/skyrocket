@@ -3243,7 +3243,7 @@ LIBRARY
     }
 
     PhraseCompleterContainer.prototype.initialize = function(opts) {
-      var _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8, _ref9;
+      var _ref10, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8, _ref9;
       this.Container_initialize();
       Module.extend(this, d2oda.actions);
       Module.extend(this, d2oda.methods);
@@ -3258,6 +3258,9 @@ LIBRARY
       this.name = (_ref8 = opts.name) != null ? _ref8 : opts.id;
       this.align = (_ref9 = opts.align) != null ? _ref9 : '';
       this.uwidth = opts.uwidth;
+      this.underline = (_ref10 = opts.underline) != null ? _ref10 : {
+        y: 5
+      };
       this.lineHeight = opts.lineHeight;
       this.currentTarget = 0;
       this.observer = new ComponentObserver();
@@ -3299,6 +3302,7 @@ LIBRARY
               };
             }
           }
+          hopts.underline = this.underline;
           h = new TextCompleterContainer(hopts, this.font, this.fcolor, this.bcolor, this.scolor, this.stroke, npos, ypos);
           this.droptargets.push(h);
           this.add(h, false);
@@ -3312,12 +3316,16 @@ LIBRARY
             npos = 0;
             ypos += this.lineHeight;
           } else {
-            h = this.createText('txt', 'BLANK', this.font, this.fcolor, npos, 0);
+            npos = 0;
             if (npos > maxWidth) {
               maxWidth = npos;
             }
-            npos = 0;
-            ypos += h.getMeasuredHeight() + h.getMeasuredHeight() * 0.1;
+            if (this.lineHeight) {
+              ypos += this.lineHeight;
+            } else {
+              h = this.createText('txt', 'BLANK', this.font, this.fcolor, npos, 0);
+              ypos += h.getMeasuredHeight() + h.getMeasuredHeight() * 0.1;
+            }
           }
         } else {
           if (t === '.' || t === '!' || t === '?' || t === ',') {
@@ -3338,6 +3346,32 @@ LIBRARY
         alpha: 0,
         y: this.y - 10
       });
+    };
+
+    PhraseCompleterContainer.prototype.clearChildren = function() {
+      var target, _i, _len, _ref2, _results;
+      _ref2 = this.droptargets;
+      _results = [];
+      for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
+        target = _ref2[_i];
+        _results.push(target.clearBackground());
+      }
+      return _results;
+    };
+
+    PhraseCompleterContainer.prototype.getEnabledTarget = function() {
+      var enabled, target, _i, _len, _ref2;
+      enabled = {
+        success: false
+      };
+      _ref2 = this.droptargets;
+      for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
+        target = _ref2[_i];
+        if (target.writeEnabled) {
+          enabled = target;
+        }
+      }
+      return enabled;
     };
 
     PhraseCompleterContainer.prototype.isComplete = function() {
@@ -3739,7 +3773,7 @@ LIBRARY
       });
     };
 
-    CrossWordsContainer.prototype.clearChildBackgrounds = function() {
+    CrossWordsContainer.prototype.clearChildren = function() {
       var target, _i, _len, _ref2, _results;
       _ref2 = this.droptargets;
       _results = [];
@@ -4047,14 +4081,14 @@ LIBRARY
     };
 
     ScrambledWordContainer.prototype.update = function(opts) {
-      var anchoMax, completerwidth, d, diferencia, h, i, letter, npos, scrambledLetter, scrambledSentence, scrambledWord, sentence, word, wordswidth, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _len5, _m, _n, _ref2;
+      var d, difference, h, hopts, i, letter, npos, s, scrambledLetter, scrambledSentence, scrambledWord, sentence, total, word, wordsArr, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _m, _ref2;
       this.removeAllChildren();
       this.target = opts.target;
       this.fx = (_ref2 = opts.fx) != null ? _ref2 : 'fadeOut';
       if (this.sentence === false) {
+        i = 0;
         word = opts.word.split('');
         scrambledWord = this.shuffle(word);
-        i = 0;
         if (opts.prev) {
           this.prev = this.insertText('prevTxt', opts.prev, this.font, this.fcolor, 0, 0);
           npos = this.prev.getMeasuredWidth() + this.margin;
@@ -4104,10 +4138,9 @@ LIBRARY
           }
         }
       } else {
-        sentence = opts.word;
-        anchoMax = 0;
-        scrambledSentence = this.shuffle(sentence);
         i = 0;
+        sentence = opts.word.split('||');
+        scrambledSentence = this.shuffle(sentence);
         if (opts.prev) {
           this.prev = this.insertText('prevTxt', opts.prev, this.font, this.fcolor, 0, 0);
           npos = this.prev.getMeasuredWidth() + this.margin;
@@ -4119,58 +4152,38 @@ LIBRARY
           if (word === ' ') {
             npos += this.margin;
           } else {
-            opts = {
-              text: word,
-              width: this.uwidth
-            };
-            h = new TextCompleterContainer(opts, this.font, this.fcolor, this.bcolor, this.scolor, this.stroke, npos, 5);
+            if (opts.maxlength) {
+              h = this.createText('max', opts.maxlength, this.font, this.fcolor, 0, 0);
+              hopts = {
+                text: word,
+                width: h.getMeasuredWidth() + this.margin
+              };
+            } else {
+              hopts = {
+                text: word,
+                width: this.uwidth
+              };
+            }
+            h = new TextCompleterContainer(hopts, this.font, this.fcolor, this.bcolor, this.scolor, this.stroke, npos, 5);
             this.droptargets.push(h);
             this.add(h, false);
-            completerwidth = npos += h.width + this.margin;
-            if (i === sentence.length - 1) {
-              this.insertText("punto", '.', this.font, this.fcolor, h.x + h.width + 4, 5, 'center');
-            }
+            npos += hopts.width + this.margin;
           }
           i++;
         }
+        s = this.insertText("period", '.', this.font, this.fcolor, h.x + h.width + 3, 10, 'center');
         this.width = npos;
         this.setPosition(this.align);
         i = 0;
+        wordsArr = new Array();
         npos = this.prev ? this.prev.getMeasuredWidth() + this.margin : 0;
         for (_l = 0, _len3 = scrambledSentence.length; _l < _len3; _l++) {
           scrambledWord = scrambledSentence[_l];
           if (scrambledWord !== ' ') {
             opts = {
-              id: "l" + i,
-              x: npos,
-              y: -h.height - this.distance,
-              index: scrambledWord,
-              text: scrambledWord,
-              font: this.font,
-              color: this.fcolor,
-              afterSuccess: 'hide',
-              afterFail: 'return'
-            };
-            d = new LetterDragContainer(opts);
-            wordswidth = npos += d.width + this.margin + this.margin;
-            i++;
-          }
-        }
-        for (_m = 0, _len4 = scrambledSentence.length; _m < _len4; _m++) {
-          scrambledWord = scrambledSentence[_m];
-          diferencia = (completerwidth - wordswidth) / 2;
-          console.log(diferencia);
-          i++;
-        }
-        npos = 0;
-        i = 0;
-        for (_n = 0, _len5 = scrambledSentence.length; _n < _len5; _n++) {
-          scrambledWord = scrambledSentence[_n];
-          if (scrambledWord !== ' ') {
-            opts = {
               id: "l" + this.name + i,
-              x: npos + diferencia,
-              y: -h.height - this.distance,
+              x: npos,
+              y: -h.height,
               index: scrambledWord,
               target: this.name,
               "eval": this["eval"],
@@ -4182,11 +4195,23 @@ LIBRARY
             };
             d = new LetterDragContainer(opts);
             this.add(d);
+            npos += d.width + this.margin;
+            wordsArr.push(d);
             if (i < sentence.length - 1) {
-              this.insertText("separator", '/', this.font, this.fcolor, d.x + d.width + this.margin, -h.height - this.distance, 'center');
+              s = this.insertText("separator" + i, '/', this.font, this.fcolor, d.x + d.width + this.margin, -h.height, 'center');
+              wordsArr.push(s);
+              npos += this.margin;
             }
-            wordswidth = npos += d.width + this.margin + this.margin;
             i++;
+          }
+        }
+        total = npos;
+        difference = (this.width - total) / 2;
+        for (_m = 0, _len4 = wordsArr.length; _m < _len4; _m++) {
+          word = wordsArr[_m];
+          word.x = difference + word.x;
+          if (word.pos) {
+            word.pos.x = word.x;
           }
         }
       }
@@ -4229,7 +4254,7 @@ LIBRARY
     }
 
     TextCompleterContainer.prototype.initialize = function(opts, font, fcolor, bcolor, scolor, stroke, x, y) {
-      var _ref2, _ref3, _ref4,
+      var _ref2, _ref3, _ref4, _ref5,
         _this = this;
       this.Container_initialize();
       Module.extend(this, d2oda.methods);
@@ -4241,25 +4266,68 @@ LIBRARY
       this.height = (_ref4 = opts.height) != null ? _ref4 : this.text.getMeasuredHeight();
       this.complete = false;
       this.back = new createjs.Shape();
-      this.bcolor = bcolor;
-      if (opts.underline) {
-        this.back.graphics.f(bcolor).dr(0, 0, this.width, this.height).ss(stroke).s(scolor).mt(0, this.height + opts.underline.y).lt(this.width, this.height + opts.underline.y);
+      this.bcolor = bcolor != null ? bcolor : '#FFF';
+      this.stroke = stroke != null ? stroke : 1;
+      this.scolor = scolor != null ? scolor : '#333';
+      this.underline = (_ref5 = opts.underline) != null ? _ref5 : false;
+      this.word = '';
+      if (this.underline) {
+        this.back.graphics.f(this.bcolor).dr(0, 0, this.width, this.height).ss(this.stroke).s(this.scolor).mt(0, this.height + this.underline.y).lt(this.width, this.height + this.underline.y);
       } else {
-        this.back.graphics.f(bcolor).dr(0, 0, this.width, this.height).ss(stroke).s(scolor).mt(0, this.height + 5).lt(this.width, this.height + 5);
+        this.back.graphics.f(this.bcolor).dr(0, 0, this.width, this.height).ss(this.stroke).s(this.scolor).mt(0, this.height + 5).lt(this.width, this.height + 5);
       }
       this.add(this.back, false);
       return this.addEventListener('click', function() {
         if (_this.parent) {
-          _this.parent.clearChildBackgrounds();
+          _this.parent.clearChildren();
         }
-        _this.back.graphics.f('rgba(255,0,0,0.2)').dr(0, 0, _this.width, _this.height);
-        return _this.writeEnabled = true;
+        _this.writeEnabled = true;
+        if (opts.underline) {
+          return _this.back.graphics.c().f(_this.hexToRGB(_this.bcolor, 0.2)).dr(0, 0, _this.width, _this.height).ss(_this.stroke).s(_this.scolor).mt(0, _this.height + _this.underline.y).lt(_this.width, _this.height + _this.underline.y);
+        } else {
+          return _this.back.graphics.c().f(_this.hexToRGB(_this.bcolor, 0.2)).dr(0, 0, _this.width, _this.height).ss(_this.stroke).s(_this.scolor).mt(0, _this.height + 5).lt(_this.width, _this.height + 5);
+        }
       });
+    };
+
+    TextCompleterContainer.prototype.hexToRGB = function(hex, alpha) {
+      var b, g, h, r;
+      hex = hex === '#FFF' || hex === '#FFFFFF' ? '#F00' : hex;
+      h = "0123456789ABCDEF";
+      r = h.indexOf(hex[1]) * 16 + h.indexOf(hex[2]);
+      g = h.indexOf(hex[3]) * 16 + h.indexOf(hex[4]);
+      b = h.indexOf(hex[5]) * 16 + h.indexOf(hex[6]);
+      if (alpha) {
+        return "rgba(" + r + ", " + g + ", " + b + ", " + alpha + ")";
+      } else {
+        return "rgb(" + r + ", " + g + ", " + b + ")";
+      }
     };
 
     TextCompleterContainer.prototype.clearBackground = function() {
       this.writeEnabled = false;
-      return this.back.graphics.f(this.bcolor).dr(0, 0, this.width, this.height);
+      if (this.underline) {
+        return this.back.graphics.c().f(this.bcolor).dr(0, 0, this.width, this.height).ss(this.stroke).s(this.scolor).mt(0, this.height + this.underline.y).lt(this.width, this.height + this.underline.y);
+      } else {
+        return this.back.graphics.c().f(this.bcolor).dr(0, 0, this.width, this.height).ss(this.stroke).s(this.scolor).mt(0, this.height + 5).lt(this.width, this.height + 5);
+      }
+    };
+
+    TextCompleterContainer.prototype.write = function(char) {
+      if (!char) {
+        return this.word;
+      }
+      if (!this.text.parent) {
+        this.text.textAlign = 'center';
+        this.text.x = this.width / 2;
+        this.add(this.text, false);
+      }
+      if (char === '<-') {
+        this.word = this.word.slice(0, this.word.length - 1);
+      } else {
+        this.word += char;
+      }
+      return this.text.text = this.word;
     };
 
     TextCompleterContainer.prototype.setRectOutline = function(bcolor, stroke, scolor) {
@@ -4913,6 +4981,7 @@ LIBRARY
     };
 
     Scene.prototype.next = function() {
+      console.log('next');
       this.currentStep++;
       if (this.currentStep >= this.answers.length) {
         return this.delay(1000, function() {
