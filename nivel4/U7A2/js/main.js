@@ -5,14 +5,14 @@ NEW ODA
 
 
 (function() {
-  var U2A3,
+  var U7A2,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  U2A3 = (function(_super) {
-    __extends(U2A3, _super);
+  U7A2 = (function(_super) {
+    __extends(U7A2, _super);
 
-    function U2A3() {
+    function U7A2() {
       this.manifest = [
         {
           id: 'caja',
@@ -773,7 +773,7 @@ NEW ODA
               }, {
                 type: 'ldrg',
                 id: 'more beautiful',
-                x: 240,
+                x: 210,
                 y: 505,
                 index: 'more beautiful',
                 text: 'more beautiful',
@@ -863,12 +863,12 @@ NEW ODA
           }
         ]
       };
-      U2A3.__super__.constructor.call(this);
+      U7A2.__super__.constructor.call(this);
     }
 
-    window.U2A3 = U2A3;
+    window.U7A2 = U7A2;
 
-    return U2A3;
+    return U7A2;
 
   })(Oda);
 

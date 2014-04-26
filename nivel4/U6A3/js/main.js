@@ -5,14 +5,14 @@ NEW ODA
 
 
 (function() {
-  var U3A2,
+  var U6A3,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  U3A2 = (function(_super) {
-    __extends(U3A2, _super);
+  U6A3 = (function(_super) {
+    __extends(U6A3, _super);
 
-    function U3A2() {
+    function U6A3() {
       this.manifest = [
         {
           id: 'c1',
@@ -270,12 +270,12 @@ NEW ODA
           }
         ]
       };
-      U3A2.__super__.constructor.call(this);
+      U6A3.__super__.constructor.call(this);
     }
 
-    window.U3A2 = U3A2;
+    window.U6A3 = U6A3;
 
-    return U3A2;
+    return U6A3;
 
   })(Oda);
 

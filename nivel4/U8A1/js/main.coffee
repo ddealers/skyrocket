@@ -116,13 +116,13 @@ class U8A1 extends Oda
  						{type: 'pcct', id: 'pcct1', x: 30, y: 190, font: '12px Quicksand', margin: 5, scolor: '#F9101A', stroke: 2}
 						{type: 'pcct', id: 'pcct2', x: 30, y: 213, font: '12px Quicksand', margin: 5, scolor: '#F9101A', stroke: 2}
 						{type: 'pcct', id: 'pcct3', x: 30, y: 236, font: '12px Quicksand', margin: 5, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct4', x: 30, y: 259, font: '12px Quicksand', margin: 5, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct5', x: 30, y: 282, font: '12px Quicksand', margin: 5, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct6', x: 30, y:305, font: '12px Quicksand', margin: 5, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct7', x: 30, y: 328, font: '12px Quicksand', margin: 5, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct8', x: 30, y: 351, font: '12px Quicksand', margin: 5, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct9', x: 30, y: 374, font: '12px Quicksand', margin: 5, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct10', x: 30, y: 397, font: '12px Quicksand', margin: 5, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct4', x: 30, y: 279, font: '12px Quicksand', margin: 5, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct5', x: 30, y: 302, font: '12px Quicksand', margin: 5, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct6', x: 30, y:325, font: '12px Quicksand', margin: 5, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct7', x: 30, y: 348, font: '12px Quicksand', margin: 5, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct8', x: 30, y: 371, font: '12px Quicksand', margin: 5, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct9', x: 30, y: 394, font: '12px Quicksand', margin: 5, scolor: '#F9101A', stroke: 2}
+						{type: 'pcct', id: 'pcct10', x: 30, y: 1017, font: '12px Quicksand', margin: 5, scolor: '#F9101A', stroke: 2}
 
 
 					

@@ -24,6 +24,27 @@ NEW ODA
           id: 'diassemana',
           src: 'dias_semana.png'
         }, {
+          id: 'robot',
+          src: 'robot.png'
+        }, {
+          id: 'toboganes',
+          src: 'toboganes.png'
+        }, {
+          id: 'caballo',
+          src: 'caballo.png'
+        }, {
+          id: 'hamburguesa',
+          src: 'hamburguesa.png'
+        }, {
+          id: 'niñosclase',
+          src: 'niños-clase.png'
+        }, {
+          id: 'rosa',
+          src: 'rosa.png'
+        }, {
+          id: 'fiesta',
+          src: 'fiesta.png'
+        }, {
           id: 'header',
           src: 'header.png'
         }, {
@@ -138,6 +159,48 @@ NEW ODA
                 y: 220,
                 align: 'tl'
               }, {
+                type: 'img',
+                id: 'niñosclase',
+                x: 30,
+                y: 243,
+                align: 'tl'
+              }, {
+                type: 'img',
+                id: 'caballo',
+                x: 140,
+                y: 243,
+                align: 'tl'
+              }, {
+                type: 'img',
+                id: 'toboganes',
+                x: 253,
+                y: 243,
+                align: 'tl'
+              }, {
+                type: 'img',
+                id: 'robot',
+                x: 363,
+                y: 243,
+                align: 'tl'
+              }, {
+                type: 'img',
+                id: 'hamburguesa',
+                x: 470,
+                y: 243,
+                align: 'tl'
+              }, {
+                type: 'img',
+                id: 'rosa',
+                x: 583,
+                y: 243,
+                align: 'tl'
+              }, {
+                type: 'img',
+                id: 'fiesta',
+                x: 692,
+                y: 243,
+                align: 'tl'
+              }, {
                 type: 'swct',
                 id: 'wcpt1',
                 x: 460,
@@ -155,7 +218,7 @@ NEW ODA
               {
                 type: 'grp',
                 id: 'grp1',
-                group: []
+                group: ["robot", "toboganes", "caballo", "hamburguesa", "niñosclase", "rosa", "fiesta"]
               }
             ]
           }

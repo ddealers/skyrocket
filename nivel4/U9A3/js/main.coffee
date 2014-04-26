@@ -10,6 +10,13 @@ class U9A3 extends Oda
 			{id:'c2', src:'circilo_2.png'}
 			{id:'c1', src:'circulo_1.png'}
 			{id:'diassemana', src:'dias_semana.png'}
+			{id:'robot', src:'robot.png'}
+			{id:'toboganes', src:'toboganes.png'}
+			{id:'caballo', src:'caballo.png'}
+			{id:'hamburguesa', src:'hamburguesa.png'}
+			{id:'niñosclase', src:'niños-clase.png'}
+			{id:'rosa', src:'rosa.png'}
+			{id:'fiesta', src:'fiesta.png'}
 		
 			{id:'header', src:'header.png'}
 		
@@ -53,8 +60,13 @@ class U9A3 extends Oda
 					}
 					containers:[
 						{type: 'img', id: 'diassemana', x: 30, y: 220, align: 'tl'}
-
-
+						{type: 'img', id: 'niñosclase', x: 30, y: 243, align: 'tl'}
+						{type: 'img', id: 'caballo', x: 140, y: 243, align: 'tl'}
+						{type: 'img', id: 'toboganes', x: 253, y: 243, align: 'tl'}
+						{type: 'img', id: 'robot', x: 363, y: 243, align: 'tl'}
+						{type: 'img', id: 'hamburguesa', x: 470, y: 243, align: 'tl'}
+						{type: 'img', id: 'rosa', x: 583, y: 243, align: 'tl'}
+						{type: 'img', id: 'fiesta', x: 692, y: 243, align: 'tl'}
 						{type: 'swct', id: 'wcpt1', x: 460, y: 460, margin: 10, uwidth: 150, distance: 10, font: '20px Quicksand', scolor: '#F00', align: 'tc', eval:'drop_03'}
 					]
 					groups: [
@@ -62,6 +74,13 @@ class U9A3 extends Oda
 
 							type: 'grp', id: 'grp1'
 							group: [
+								"robot"
+								"toboganes"
+								"caballo"
+								"hamburguesa"
+								"niñosclase"
+								"rosa"
+								"fiesta"
 					
 							]
 						}

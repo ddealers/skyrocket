@@ -55,7 +55,7 @@ class U8A4 extends Oda
 								{name: 'grpizq', opts:{type: 'fadeIn', target: 'isgoingto'}}
 								{name: 'grpmid', opts:{type: 'fadeIn', target: 'arentgoingto2'}}
 								{name: 'grpder', opts:{type: 'fadeIn', target: 'aregoingto3'}}
-								{name: 'pcpt1', opts:{pattern:['Ms. Strongarms','#tcpt','catch the criminals with her superpowers.'], targets: [{text:'is going to'}]}}
+								{name: 'pcpt1', opts:{pattern:['Ms. Strongarms','#tcpt','catch the criminals', '#rtn','with her superpowers.'], targets: [{text:'is going to'}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'invisible'}}
@@ -146,7 +146,7 @@ class U8A4 extends Oda
 						{type: 'img',  id:'wind' , x: 400, y: 308, align: 'mc'}
 
 
-						{type: 'pcpt', id: 'pcpt1', x: 433, y: 540, font: '20px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A'}
+						{type: 'pcpt', id: 'pcpt1', x: 433, y: 520, font: '20px Quicksand',lineHeight:35, margin: 5, align: 'tc', scolor: '#F9101A'}
 						{type: 'txt', id: 'txt1', text:'/', x: 316, y: 460, font:'20px Quicksand', align: 'center', lineWidth: 250}
 						{type: 'txt', id: 'txt1', text:'/', x: 520, y: 460, font:'20px Quicksand', align: 'center', lineWidth: 250}
 

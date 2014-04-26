@@ -34,7 +34,7 @@ class U8A3 extends Oda
 			if a in t.success
 				t.success.remove a
 				d.afterSuccess()
-				lib.scene.success()
+				lib.scene.success true, false
 				TweenLite.to d, 0.3, {scaleX:0.7, scaleY:0.7}
 			else
 				d.afterFail()
@@ -42,7 +42,7 @@ class U8A3 extends Oda
 		@game = 
 			header: 'header'
 			instructions: {x: 110, y: 130, states: [{text:'Listen, look and drag the pictures to the correct column.', sound:'s/silence', played: false}]}
-			score:{type: 'points', x:20, y:500, init: 0, total: 14, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
+			score:{type: 'points', x:20, y:500, init: 0, total: 8, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
 			scenes:[
 				{
 					answers: {

@@ -5,14 +5,14 @@ NEW ODA
 
 
 (function() {
-  var U2A2,
+  var U9A4,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  U2A2 = (function(_super) {
-    __extends(U2A2, _super);
+  U9A4 = (function(_super) {
+    __extends(U9A4, _super);
 
-    function U2A2() {
+    function U9A4() {
       var _this = this;
       this.manifest = [
         {
@@ -1761,12 +1761,12 @@ NEW ODA
           }
         ]
       };
-      U2A2.__super__.constructor.call(this);
+      U9A4.__super__.constructor.call(this);
     }
 
-    window.U2A2 = U2A2;
+    window.U9A4 = U9A4;
 
-    return U2A2;
+    return U9A4;
 
   })(Oda);
 

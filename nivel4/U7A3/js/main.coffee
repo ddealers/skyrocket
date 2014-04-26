@@ -3,7 +3,7 @@
 NEW ODA
 
 ###
-class U1A1 extends Oda
+class U7A3 extends Oda
 	constructor: ->
 		@manifest = [
 			{id:'cha1', src:'btn_1.png'}
@@ -118,7 +118,7 @@ class U1A1 extends Oda
 						{type: 'img', id: 'reporter', x: 627, y: 440, align: 'mc'}
 						{type: 'img', id: 'caja', x: 610, y: 290, align: 'mc'}
 
-						{type: 'pcpt', id: 'pcpt1', x: 470, y: 240, font: '16px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A'}
+						{type: 'pcpt', id: 'pcpt1', x: 470, y: 240, font: '16px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A',bcolor: '#defff0'}
 
 						{
 							type: 'btn', id: 'btn_1', x: 130, y: 235, index: 'radio', target: 'pcpt1', eval: @btnClick
@@ -217,4 +217,4 @@ class U1A1 extends Oda
 				
 			]
 		super()
-	window.U1A1 = U1A1
+	window.U7A3 = U7A3

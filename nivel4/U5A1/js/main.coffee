@@ -15,7 +15,7 @@ class U5A1 extends Oda
 
 			{id: 'ball', src: 'ball.png'}
 			{id: 'coach', src: 'coach.png'}
-			{id: 'diving', src: 'trampoline.png'}
+			{id: 'diving', src: 'diving.jpg'}
 			{id: 'goggles', src: 'goggles.png'}
 			{id: 'match', src: 'match.png'}
 			{id: 'medal', src: 'medal.png'}

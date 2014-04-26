@@ -141,11 +141,11 @@ NEW ODA
                 id: 't1',
                 text: ['"When I was a young girl, life was very different. I didn\'t use to go to school. I wanted to, but in those days girls didn\'t study. "School is for boys!" my dad used to say, "Girls don\'t need to learn anything except how to cook and clean." I didn\'t use to like cleaning or cooking, but I had to do what my father told me. When I was 16, I got married. We were married for 50 years! I was so happy - we used to go dancing every weekend. We waltzed and did the cha-cha-cha, we had so much fun! When I was 20 I decided to go to a school for adults. I used to work in the day and study at nights. I was very tired but it was wonderful to learn. I even liked doing homework!'],
                 x: 70,
-                y: 260,
+                y: 240,
                 lineWidth: 330,
-                font: '14px Roboto',
-                align: 'left',
-                parrafo: true
+                font: '14px Dosis',
+                lineHeight: 20,
+                align: 'left'
               }, {
                 type: 'btn',
                 id: 'btnTrue',
@@ -246,9 +246,9 @@ NEW ODA
                 x: 70,
                 y: 260,
                 lineWidth: 330,
-                font: '14px Roboto',
-                align: 'left',
-                parrafo: true
+                font: '14px Dosis',
+                lineHeight: 20,
+                align: 'left'
               }, {
                 type: 'btn',
                 id: 'btnTrue2',
@@ -347,11 +347,11 @@ NEW ODA
                 id: 't3',
                 text: ['In the \'60s, we didn\'t have all the technology we have now. We used to listen to the radio or records on a record player. Most people didn\'t have a television. And if someone had a television, it wasn\'t color; it was black and white. We used to play games like "snakes and ladders" and do puzzles after dinner. We didn\'t have computers; we used to write letters on typewriters. If it was urgent, we used to send telegrams.Telegrams were short, very fast letters. We didn\'t use to have washing machines. We washed our clothes and dishes by hand. Life was a lot slower back then!'],
                 x: 70,
-                y: 260,
+                y: 240,
                 lineWidth: 330,
-                font: '14px Roboto',
-                align: 'left',
-                parrafo: true
+                font: '14px Dosis',
+                lineHeight: 20,
+                align: 'left'
               }, {
                 type: 'btn',
                 id: 'btnTrue3',

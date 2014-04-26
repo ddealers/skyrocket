@@ -37,7 +37,7 @@ NEW ODA
           src: 'coach.png'
         }, {
           id: 'diving',
-          src: 'trampoline.png'
+          src: 'diving.jpg'
         }, {
           id: 'goggles',
           src: 'goggles.png'

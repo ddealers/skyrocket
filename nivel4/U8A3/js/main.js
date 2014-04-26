@@ -79,7 +79,7 @@ NEW ODA
         if (__indexOf.call(t.success, a) >= 0) {
           t.success.remove(a);
           d.afterSuccess();
-          lib.scene.success();
+          lib.scene.success(true, false);
           return TweenLite.to(d, 0.3, {
             scaleX: 0.7,
             scaleY: 0.7
@@ -107,7 +107,7 @@ NEW ODA
           x: 20,
           y: 500,
           init: 0,
-          total: 14,
+          total: 8,
           aimg: 'c1',
           acolor: '#333',
           bimg: 'c2',

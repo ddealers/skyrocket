@@ -5,14 +5,14 @@ NEW ODA
 
 
 (function() {
-  var U1A1,
+  var U7A3,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  U1A1 = (function(_super) {
-    __extends(U1A1, _super);
+  U7A3 = (function(_super) {
+    __extends(U7A3, _super);
 
-    function U1A1() {
+    function U7A3() {
       var _this = this;
       this.manifest = [
         {
@@ -404,7 +404,8 @@ NEW ODA
                 font: '16px Quicksand',
                 margin: 5,
                 align: 'tl',
-                scolor: '#F9101A'
+                scolor: '#F9101A',
+                bcolor: '#defff0'
               }, {
                 type: 'btn',
                 id: 'btn_1',
@@ -746,12 +747,12 @@ NEW ODA
           }
         ]
       };
-      U1A1.__super__.constructor.call(this);
+      U7A3.__super__.constructor.call(this);
     }
 
-    window.U1A1 = U1A1;
+    window.U7A3 = U7A3;
 
-    return U1A1;
+    return U7A3;
 
   })(Oda);
 

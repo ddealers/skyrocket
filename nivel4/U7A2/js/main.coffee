@@ -3,7 +3,7 @@
 NEW ODA
 
 ###
-class U2A3 extends Oda
+class U7A2 extends Oda
 	constructor: ->
 		@manifest = [
 			{id:'caja', src:'caja.png'}
@@ -154,7 +154,7 @@ class U2A3 extends Oda
 						{type: 'ldrg', id: 'slower', x: 240,  y: 505, index: 'slower', text:'slower', font:'15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
 						{type: 'ldrg', id: 'faster', x: 460, y: 505, index: 'faster', text:'faster', font:'15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
 
-						{type: 'ldrg', id: 'more beautiful', x: 240,  y: 505, index: 'more beautiful', text:'more beautiful', font:'15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'more beautiful', x: 210,  y: 505, index: 'more beautiful', text:'more beautiful', font:'15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
 						{type: 'ldrg', id: 'uglier', x: 460, y: 505, index: 'uglier', text:'uglier', font:'15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
 
 						{type: 'ldrg', id: 'heavier', x: 460, y: 505,  index: 'heavier', text:'heavier', font:'15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
@@ -213,4 +213,4 @@ class U2A3 extends Oda
 				 
 			]
 		super()
-	window.U2A3 = U2A3
+	window.U7A2 = U7A2

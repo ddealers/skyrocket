@@ -169,7 +169,7 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['Ms. Strongarms', '#tcpt', 'catch the criminals with her superpowers.'],
+                      pattern: ['Ms. Strongarms', '#tcpt', 'catch the criminals', '#rtn', 'with her superpowers.'],
                       targets: [
                         {
                           text: 'is going to'
@@ -595,8 +595,9 @@ NEW ODA
                 type: 'pcpt',
                 id: 'pcpt1',
                 x: 433,
-                y: 540,
+                y: 520,
                 font: '20px Quicksand',
+                lineHeight: 35,
                 margin: 5,
                 align: 'tc',
                 scolor: '#F9101A'

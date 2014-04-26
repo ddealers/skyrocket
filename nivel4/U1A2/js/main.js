@@ -612,6 +612,7 @@ NEW ODA
                 align: 'left'
               }, {
                 type: 'pcpt',
+                lineHeight: 25,
                 id: 'pcpt1',
                 x: 390,
                 y: 510,

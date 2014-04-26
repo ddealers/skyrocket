@@ -139,7 +139,7 @@ class U1A2 extends Oda
 						{type: 'txt', id: 't10', text:'I love this food!', x: 165, y: 505, lineWidth: 200, font:'16px Quicksand', align: 'left'}
 						{type: 'txt', id: 't11', text:'I don\'t have a lot of homework, Dad.', x: 165, y: 505, lineWidth: 200, font:'16px Quicksand', align: 'left'}
 						{type: 'txt', id: 't12', text:'Mom, can I swim now?', x: 165, y: 505, lineWidth: 200, font:'16px Quicksand', align: 'left'}
-						{type: 'pcpt', id: 'pcpt1', x: 390, y: 510, font: '16px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A'}
+						{type: 'pcpt',lineHeight: 25, id: 'pcpt1', x: 390, y: 510, font: '16px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A'}
 						{
 							type: 'btn', id: 'btn_1', x: 250, y: 160, index: 'should', target: 'pcpt1', eval: @btnClick
 							states: [{txt: {text:'should', name:'s1', x:0, y:0, align:'center', font: '20px Quicksand', color: '#F9101A'}}]

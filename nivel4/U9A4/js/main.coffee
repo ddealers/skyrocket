@@ -3,7 +3,7 @@
 NEW ODA
 
 ###
-class U2A2 extends Oda
+class U9A4 extends Oda
 	constructor: ->
 		@manifest = [
 			{ id: 'c1', src: 'circulo_1.png' }
@@ -392,4 +392,4 @@ class U2A2 extends Oda
 				}
 			]
 		super()
-	window.U2A2 = U2A2
+	window.U9A4 = U9A4

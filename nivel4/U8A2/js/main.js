@@ -166,7 +166,7 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['Help! The wolf man', '#tcpt', 'escape with the baby!'],
+                      pattern: ['Help! The wolf man', '#tcpt', 'escape', 'rtn', ' with the baby!'],
                       targets: [
                         {
                           text: 'is going to escape',
@@ -378,7 +378,7 @@ NEW ODA
               }, {
                 type: 'pcpt',
                 id: 'pcpt1',
-                x: 420,
+                x: 450,
                 y: 510,
                 font: '24px Quicksand',
                 margin: 5,
