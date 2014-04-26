@@ -54,32 +54,19 @@ NEW ODA
         }
       };
       this.evaluateDrop02_01 = function(dispatcher, target) {
-        var complete, drop, _i, _j, _len, _len1, _ref, _ref1;
+        var a, b, complete;
+        a = lib[dispatcher];
+        b = target;
         complete = true;
-        if (lib[dispatcher].index === target.success) {
-          target.update(lib[dispatcher].label.text, true);
+        if (a.index === b.success) {
+          b.update();
+          a.afterSuccess();
+          target.complete = true;
+          return lib.scene.success(true, false);
         } else {
-          target.update(lib[dispatcher].label.text, false);
+          a.afterFail();
+          return lib.scene.fail();
         }
-        lib[dispatcher].afterSuccess();
-        _ref = lib[dispatcher].droptargets;
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          drop = _ref[_i];
-          if (drop.text.text === '') {
-            complete = false;
-          }
-        }
-        if (!complete) {
-          return;
-        }
-        _ref1 = lib[dispatcher].droptargets;
-        for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
-          drop = _ref1[_j];
-          if (drop.complete) {
-            lib.score.plusOne();
-          }
-        }
-        return lib.scene.success(false);
       };
       this.game = {
         header: 'header',
@@ -126,90 +113,90 @@ NEW ODA
                       target: 'family'
                     }
                   }, {
-                    name: 'pcct1',
+                    name: 'pcpt1',
                     opts: {
                       pattern: ['We met in Africa ', '#tcpt', ' years ago.'],
                       targets: [
                         {
-                          text: 'on Christmas Day',
-                          success: 'ten'
+                          text: 'ten',
+                          maxlength: 'Christmas Day'
                         }
                       ]
                     }
                   }, {
-                    name: 'pcct2',
+                    name: 'pcpt2',
                     opts: {
-                      pattern: ['We got married ', '#tcpt'],
+                      pattern: ['We got married ', '#tcpt', '.'],
                       targets: [
                         {
-                          text: 'on Christmas Day',
-                          success: 'in 2005.'
+                          text: 'in 2005',
+                          maxlength: 'Christmas Day'
                         }
                       ]
                     }
                   }, {
-                    name: 'pcct3',
+                    name: 'pcpt3',
                     opts: {
                       pattern: ['In 2007, ', '#tcpt', ' was born.'],
                       targets: [
                         {
-                          text: 'on Christmas Day',
-                          success: 'Patrick'
+                          text: 'Patrick',
+                          maxlength: 'Christmas Day'
                         }
                       ]
                     }
                   }, {
-                    name: 'pcct4',
+                    name: 'pcpt4',
                     opts: {
                       pattern: ['We started homeschooling Patrick when he was ', '#tcpt', ' years old.'],
                       targets: [
                         {
-                          text: 'on Christmas Day',
-                          success: 'four'
+                          text: 'four',
+                          maxlength: 'Christmas Day'
                         }
                       ]
                     }
                   }, {
-                    name: 'pcct5',
+                    name: 'pcpt5',
                     opts: {
                       pattern: ['In 2011, a university gave us ', '#tcpt', ' to study Pacific cultures.'],
                       targets: [
                         {
-                          text: 'on Christmas Day',
-                          success: 'money'
+                          text: 'money',
+                          maxlength: 'Christmas Day'
                         }
                       ]
                     }
                   }, {
-                    name: 'pcct6',
+                    name: 'pcpt6',
                     opts: {
                       pattern: ['We gave', '#tcpt', 'to say goodbye to our family and friends.'],
                       targets: [
                         {
-                          text: 'on Christmas Day',
-                          success: 'a party'
+                          text: 'a party',
+                          maxlength: 'Christmas Day'
                         }
                       ]
                     }
                   }, {
-                    name: 'pcct7',
+                    name: 'pcpt7',
                     opts: {
                       pattern: ['We left Hawaii on', '#tcpt', '.'],
                       targets: [
                         {
-                          text: 'on Christmas Day',
-                          success: 'on Christmas Day'
+                          text: 'Christmas Day',
+                          maxlength: 'on Christmas Day'
                         }
                       ]
                     }
                   }, {
-                    name: 'pcct8',
+                    name: 'pcpt8',
                     opts: {
                       pattern: ['Patrick is happy and he is making ', '#tcpt', ' everywhere.'],
                       targets: [
                         {
-                          text: 'on Christmas Day',
-                          success: 'new friends'
+                          text: 'new friends',
+                          maxlength: 'Christmas Day'
                         }
                       ]
                     }
@@ -246,8 +233,8 @@ NEW ODA
                   }
                 ]
               }, {
-                type: 'pcct',
-                id: 'pcct1',
+                type: 'pcpt',
+                id: 'pcpt1',
                 x: 385,
                 y: 190,
                 font: '12px Quicksand',
@@ -255,8 +242,8 @@ NEW ODA
                 scolor: '#F9101A',
                 stroke: 2
               }, {
-                type: 'pcct',
-                id: 'pcct2',
+                type: 'pcpt',
+                id: 'pcpt2',
                 x: 385,
                 y: 225,
                 font: '12px Quicksand',
@@ -264,8 +251,8 @@ NEW ODA
                 scolor: '#F9101A',
                 stroke: 2
               }, {
-                type: 'pcct',
-                id: 'pcct3',
+                type: 'pcpt',
+                id: 'pcpt3',
                 x: 385,
                 y: 260,
                 font: '12px Quicksand',
@@ -273,8 +260,8 @@ NEW ODA
                 scolor: '#F9101A',
                 stroke: 2
               }, {
-                type: 'pcct',
-                id: 'pcct4',
+                type: 'pcpt',
+                id: 'pcpt4',
                 x: 385,
                 y: 295,
                 font: '12px Quicksand',
@@ -282,8 +269,8 @@ NEW ODA
                 scolor: '#F9101A',
                 stroke: 2
               }, {
-                type: 'pcct',
-                id: 'pcct5',
+                type: 'pcpt',
+                id: 'pcpt5',
                 x: 385,
                 y: 330,
                 font: '12px Quicksand',
@@ -291,8 +278,8 @@ NEW ODA
                 scolor: '#F9101A',
                 stroke: 2
               }, {
-                type: 'pcct',
-                id: 'pcct6',
+                type: 'pcpt',
+                id: 'pcpt6',
                 x: 385,
                 y: 365,
                 font: '12px Quicksand',
@@ -300,8 +287,8 @@ NEW ODA
                 scolor: '#F9101A',
                 stroke: 2
               }, {
-                type: 'pcct',
-                id: 'pcct7',
+                type: 'pcpt',
+                id: 'pcpt7',
                 x: 385,
                 y: 400,
                 font: '12px Quicksand',
@@ -309,8 +296,8 @@ NEW ODA
                 scolor: '#F9101A',
                 stroke: 2
               }, {
-                type: 'pcct',
-                id: 'pcct8',
+                type: 'pcpt',
+                id: 'pcpt8',
                 x: 385,
                 y: 435,
                 font: '12px Quicksand',
@@ -326,7 +313,7 @@ NEW ODA
                 text: 'a party',
                 font: '15px Quicksand',
                 color: '#333',
-                target: ['pcct1', 'pcct2', 'pcct3', 'pcct4', 'pcct5', 'pcct6', 'pcct7', 'pcct8'],
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -339,7 +326,7 @@ NEW ODA
                 text: 'Christmas Day',
                 font: '15px Quicksand',
                 color: '#333',
-                target: ['pcct1', 'pcct2', 'pcct3', 'pcct4', 'pcct5', 'pcct6', 'pcct7', 'pcct8'],
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -352,7 +339,7 @@ NEW ODA
                 text: 'four',
                 font: '15px Quicksand',
                 color: '#333',
-                target: ['pcct1', 'pcct2', 'pcct3', 'pcct4', 'pcct5', 'pcct6', 'pcct7', 'pcct8'],
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -365,7 +352,7 @@ NEW ODA
                 text: 'in 2005',
                 font: '15px Quicksand',
                 color: '#333',
-                target: ['pcct1', 'pcct2', 'pcct3', 'pcct4', 'pcct5', 'pcct6', 'pcct7', 'pcct8'],
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -378,7 +365,7 @@ NEW ODA
                 text: 'money',
                 font: '15px Quicksand',
                 color: '#333',
-                target: ['pcct1', 'pcct2', 'pcct3', 'pcct4', 'pcct5', 'pcct6', 'pcct7', 'pcct8'],
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -391,7 +378,7 @@ NEW ODA
                 text: 'new friends',
                 font: '15px Quicksand',
                 color: '#333',
-                target: ['pcct1', 'pcct2', 'pcct3', 'pcct4', 'pcct5', 'pcct6', 'pcct7', 'pcct8'],
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -404,7 +391,7 @@ NEW ODA
                 text: 'Patrick',
                 font: '15px Quicksand',
                 color: '#333',
-                target: ['pcct1', 'pcct2', 'pcct3', 'pcct4', 'pcct5', 'pcct6', 'pcct7', 'pcct8'],
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -417,7 +404,7 @@ NEW ODA
                 text: 'ten',
                 font: '15px Quicksand',
                 color: '#333',
-                target: ['pcct1', 'pcct2', 'pcct3', 'pcct4', 'pcct5', 'pcct6', 'pcct7', 'pcct8'],
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'

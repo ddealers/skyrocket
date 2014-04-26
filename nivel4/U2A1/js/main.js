@@ -64,6 +64,24 @@ NEW ODA
           src: 'silence.mp3'
         }
       ];
+      this.onkeydown = function(e) {
+        var keycode, pattern, str, target;
+        keycode = e.keyCode || e.which;
+        pattern = /[a-z]/i;
+        str = String.fromCharCode(keycode);
+        if (pattern.test(str)) {
+          target = lib[window.target].getEnabledTarget();
+          console.log(target.success, str);
+          if (target.success.toUpperCase() === str) {
+            target.update({
+              complete: true
+            });
+            return target.parent.evaluateWords();
+          } else {
+            return lib.scene.fail();
+          }
+        }
+      };
       this.game = {
         header: 'header',
         instructions: {
@@ -94,6 +112,12 @@ NEW ODA
               collection: [
                 [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'cwd1'
+                    }
+                  }, {
                     name: 'cwd1',
                     opts: {
                       matrix: [['#', 'c', 'l', 'o', 'u', 'd', '#', '#', '#', '#', '#'], ['#', '#', 'i', '#', '#', '#', '#', '#', '#', '#', '#'], ['#', '#', 'g', '#', '#', '#', '#', '#', '#', '#', '#'], ['#', 't', 'h', 'u', 'n', 'd', 'e', 'r', '#', '#', '#'], ['s', '#', 't', '#', '#', '#', '#', 'a', '#', '#', '#'], ['n', '#', 'n', '#', '#', '#', '#', 'i', '#', '#', 'f'], ['o', '#', 'i', '#', 't', 'o', 'r', 'n', 'a', 'd', 'o'], ['w', 'i', 'n', 'd', '#', '#', '#', '#', '#', '#', 'g'], ['#', '#', 'g', '#', '#', '#', '#', '#', '#', '#', '#']],

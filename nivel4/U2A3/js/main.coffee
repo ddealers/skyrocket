@@ -23,20 +23,17 @@ class U2A3 extends Oda
 			else
 				lib.scene.fail()
 		@evaluateDrop02_01 = (dispatcher, target) ->
+			a = lib[dispatcher]
+			b = target
 			complete = true
-			if lib[dispatcher].index is target.success
-				target.update lib[dispatcher].label.text, true
-			else 
-				target.update lib[dispatcher].label.text, false
-			lib[dispatcher].afterSuccess()
-			for drop in lib[dispatcher].droptargets
-				if drop.text.text is '' then complete = false
-			if not complete then return
-			for drop in lib[dispatcher].droptargets
-				#drop.showEvaluation()
-				if drop.complete
-					lib.score.plusOne()
-			lib.scene.success false
+			if a.index  is b.success
+				b.update()
+				a.afterSuccess()
+				target.complete = true
+				lib.scene.success true,false
+			else
+				a.afterFail()
+				lib.scene.fail()
 		@game = 
 			header: 'header'
 
@@ -52,16 +49,16 @@ class U2A3 extends Oda
 								{name: 'snd', opts:{id:'s/travel'}}
 
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'family'}}
-								{name: 'pcct1', opts:{pattern:['We met in Africa ', '#tcpt',' years ago.'], targets: [{text:'on Christmas Day', success:'ten'}]}}
-								{name: 'pcct2', opts:{pattern:['We got married ', '#tcpt'], targets: [{text:'on Christmas Day', success:'in 2005.'}]}}
-								{name: 'pcct3', opts:{pattern:['In 2007, ', '#tcpt',' was born.'], targets: [{text:'on Christmas Day', success:'Patrick'}]}}
-								{name: 'pcct4', opts:{pattern:['We started homeschooling Patrick when he was ', '#tcpt',' years old.'], targets: [{text:'on Christmas Day', success:'four'}]}}
-								{name: 'pcct5', opts:{pattern:['In 2011, a university gave us ', '#tcpt',' to study Pacific cultures.'], targets: [{text:'on Christmas Day', success:'money'}]}}
-								{name: 'pcct6', opts:{pattern:['We gave', '#tcpt','to say goodbye to our family and friends.'], targets: [{text:'on Christmas Day', success:'a party'}]}}
+								{name: 'pcpt1', opts:{pattern:['We met in Africa ', '#tcpt',' years ago.'], targets: [{text:'ten', maxlength:'Christmas Day'}]}}
+								{name: 'pcpt2', opts:{pattern:['We got married ', '#tcpt', '.'], targets: [{text:'in 2005', maxlength:'Christmas Day'}]}}
+								{name: 'pcpt3', opts:{pattern:['In 2007, ', '#tcpt',' was born.'], targets: [{text:'Patrick', maxlength:'Christmas Day'}]}}
+								{name: 'pcpt4', opts:{pattern:['We started homeschooling Patrick when he was ', '#tcpt',' years old.'], targets: [{text:'four', maxlength:'Christmas Day'}]}}
+								{name: 'pcpt5', opts:{pattern:['In 2011, a university gave us ', '#tcpt',' to study Pacific cultures.'], targets: [{text:'money', maxlength:'Christmas Day'}]}}
+								{name: 'pcpt6', opts:{pattern:['We gave', '#tcpt','to say goodbye to our family and friends.'], targets: [{text:'a party', maxlength:'Christmas Day'}]}}
 
-								{name: 'pcct7', opts:{pattern:['We left Hawaii on', '#tcpt','.'], targets: [{text:'on Christmas Day', success:'on Christmas Day'}]}}
+								{name: 'pcpt7', opts:{pattern:['We left Hawaii on', '#tcpt','.'], targets: [{text:'Christmas Day', maxlength:'on Christmas Day'}]}}
 
-								{name: 'pcct8', opts:{pattern:['Patrick is happy and he is making ', '#tcpt',' everywhere.'], targets: [{text:'on Christmas Day', success:'new friends'}]}}
+								{name: 'pcpt8', opts:{pattern:['Patrick is happy and he is making ', '#tcpt',' everywhere.'], targets: [{text:'new friends', maxlength:'Christmas Day'}]}}
 							]
 						]
 						type: 'steps'
@@ -73,24 +70,24 @@ class U2A3 extends Oda
 							type: 'btn', id: 'repeat', x: 750, y: 515, isRepeat: true
 							states:[img: {name:'repeat', x: 0, y: 0, align:'tc'}]
 						}
-						{type: 'pcct', id: 'pcct1', x: 385, y: 190, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct2', x: 385, y: 225, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct3', x: 385, y: 260, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct4', x: 385, y: 295, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct5', x: 385, y: 330, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct6', x: 385, y: 365, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct7', x: 385, y: 400, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
-						{type: 'pcct', id: 'pcct8', x: 385, y: 435, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
+						{type: 'pcpt', id: 'pcpt1', x: 385, y: 190, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
+						{type: 'pcpt', id: 'pcpt2', x: 385, y: 225, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
+						{type: 'pcpt', id: 'pcpt3', x: 385, y: 260, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
+						{type: 'pcpt', id: 'pcpt4', x: 385, y: 295, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
+						{type: 'pcpt', id: 'pcpt5', x: 385, y: 330, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
+						{type: 'pcpt', id: 'pcpt6', x: 385, y: 365, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
+						{type: 'pcpt', id: 'pcpt7', x: 385, y: 400, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
+						{type: 'pcpt', id: 'pcpt8', x: 385, y: 435, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
 						 
 
-						{type: 'ldrg', id: 'ldrg1', x: 240,  y: 510, index: 'a party', text:'a party', font:'15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg2', x: 320, y: 510, index: 'Christmas Day', text:'Christmas Day', font:'15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg3', x: 460, y: 510, index: 'four', text:'four', font:'15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg4', x: 515, y: 510, index: 'in 2005', text:'in 2005', font:'15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg5', x: 255, y: 530, index: 'money', text:'money', font:'15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg6', x: 335, y: 530, index: 'new friends', text:'new friends', font:'15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg7', x: 455, y: 530, index: 'Patrick', text:'Patrick', font:'15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg8', x: 535, y: 530, index: 'ten', text:'ten', font:'15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg1', x: 240,  y: 510, index: 'a party', text:'a party', font:'15px Quicksand', color:'#333', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg2', x: 320, y: 510, index: 'Christmas Day', text:'Christmas Day', font:'15px Quicksand', color:'#333', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg3', x: 460, y: 510, index: 'four', text:'four', font:'15px Quicksand', color:'#333', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg4', x: 515, y: 510, index: 'in 2005', text:'in 2005', font:'15px Quicksand', color:'#333', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg5', x: 255, y: 530, index: 'money', text:'money', font:'15px Quicksand', color:'#333', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg6', x: 335, y: 530, index: 'new friends', text:'new friends', font:'15px Quicksand', color:'#333', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg7', x: 455, y: 530, index: 'Patrick', text:'Patrick', font:'15px Quicksand', color:'#333', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg8', x: 535, y: 530, index: 'ten', text:'ten', font:'15px Quicksand', color:'#333', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
 					]
 					groups: [
 						{

@@ -22,7 +22,7 @@ window.dealersjs.mobile ?= class Mobile
     @isMobile = ->
     	@user_agent.indexOf('mobile') > -1
     Mobile
-
+	
 window.d2oda.utilities ?= class Utilities
 	@shuffleNoRepeat = (a, len) ->
 		copy = a[..]
@@ -1785,6 +1785,9 @@ class PhraseCompleterContainer extends Component
 					hopts = {text: txt.text, width: @uwidth}
 				else
 					hopts = txt
+					if hopts.maxlength
+						h = @createText 'max', hopts.maxlength, @font, @fcolor, 0, 0
+						hopts = {text: txt.text, width: h.getMeasuredWidth() + @margin}
 				h = new TextCompleterContainer hopts, @font, @fcolor, @bcolor, @scolor, @stroke, npos, ypos
 				@droptargets.push h
 				@add h, false
@@ -1801,6 +1804,8 @@ class PhraseCompleterContainer extends Component
 					npos = 0
 					ypos += h.getMeasuredHeight() + h.getMeasuredHeight() * 0.1
 			else
+				if t is '.' or t is '!' or t is '?' or t is ','
+					npos -= @margin
 				h = @createText 'txt', t, @font, @fcolor, npos, ypos
 				@add h, false
 				npos += h.getMeasuredWidth() + @margin
@@ -2031,7 +2036,7 @@ class CrossWordsContainer extends Component
 						tcc.x = j * @uwidth
 						tcc.y = i * @uheight
 					else
-						tcc = new TextCompleterContainer {text:column, width:@uwidth, height:@uheight}, @font, @fcolor, @bcolor, @scolor, @stroke, j * @uwidth, i * @uheight
+						tcc = new TextCompleterContainer {text:column, width:@uwidth, height:@uheight, underline:{y:0}}, @font, @fcolor, @bcolor, @scolor, @stroke, j * @uwidth, (i * @uheight)
 						tcc.name = "l#{j}#{i}"
 						tcc.setRectOutline @bcolor, @stroke, @scolor
 					@add tcc
@@ -2045,6 +2050,15 @@ class CrossWordsContainer extends Component
 		TweenMax.killTweensOf obj
 		TweenLite.killTweensOf obj
 		TweenLite.to obj, 0.5, {alpha: 0, y: obj.y - 20}
+	clearChildBackgrounds: () ->
+		for target in @droptargets
+			target.clearBackground()
+	getEnabledTarget: () ->
+		enabled = {success:false}
+		for target in @droptargets
+			if target.writeEnabled
+				enabled = target
+		enabled
 	evaluateWords: () ->
 		for word in @words
 			coords = word.coords
@@ -2318,8 +2332,20 @@ class TextCompleterContainer extends Component
 		@height = opts.height ? @text.getMeasuredHeight()
 		@complete = false
 		@back = new createjs.Shape()
-		@back.graphics.f(bcolor).dr(0, 0, @width, @height).ss(stroke).s(scolor).mt(0, @height+5).lt(@width, @height+5)
+		@bcolor = bcolor
+		if(opts.underline)
+			@back.graphics.f(bcolor).dr(0, 0, @width, @height).ss(stroke).s(scolor).mt(0, @height+opts.underline.y).lt(@width, @height+opts.underline.y)
+		else
+			@back.graphics.f(bcolor).dr(0, 0, @width, @height).ss(stroke).s(scolor).mt(0, @height+5).lt(@width, @height+5)
 		@add @back, false
+		@addEventListener 'click', =>
+			if @parent
+				@parent.clearChildBackgrounds()
+			@back.graphics.f('rgba(255,0,0,0.2)').dr(0, 0, @width, @height)
+			@writeEnabled = on
+	clearBackground: () ->
+		@writeEnabled = off
+		@back.graphics.f(@bcolor).dr(0, 0, @width, @height)
 	setRectOutline: (bcolor, stroke, scolor) ->
 		@back.graphics.f(bcolor).ss(stroke).s(scolor).dr(0, 0, @width, @height)
 	update: (opts) ->
@@ -2653,7 +2679,7 @@ class Scene extends Component
 		step = @answers[@currentStep]
 		if step && step.length > 0
 			for target in step
-				if target.name isnt 'snd' and target.name isnt 'global' and lib[target.name].isComplete() is false
+				if target.name isnt 'snd' and target.name isnt 'global' and target.name isnt 'window' and lib[target.name].isComplete() is false
 					return false
 		@nextStep()
 	sndsuccess: () =>
@@ -2687,6 +2713,11 @@ class Scene extends Component
 							if target.opts.successoncomplete
 								snd.addEventListener 'complete', @sndsuccess
 							false
+						when 'window'
+							@window = window
+							if target.opts.keydown
+								@window.target = target.opts.target
+								@window.onkeydown = target.opts.keydown
 						else
 							lib[target.name].update target.opts
 	nextStep: ->

@@ -35,32 +35,19 @@ NEW ODA
         }
       ];
       this.evaluateDrop02_01 = function(dispatcher, target) {
-        var complete, drop, _i, _j, _len, _len1, _ref, _ref1;
+        var a, b, complete;
+        a = lib[dispatcher];
+        b = target;
         complete = true;
-        if (lib[dispatcher].index === target.success) {
-          target.update(lib[dispatcher].label.text, true);
+        if (a.index === b.success) {
+          b.update();
+          a.afterSuccess();
+          target.complete = true;
+          return lib.scene.success(true, false);
         } else {
-          target.update(lib[dispatcher].label.text, false);
+          a.afterFail();
+          return lib.scene.fail();
         }
-        lib[dispatcher].afterSuccess();
-        _ref = lib[dispatcher].droptargets;
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          drop = _ref[_i];
-          if (drop.text.text === '') {
-            complete = false;
-          }
-        }
-        if (!complete) {
-          return;
-        }
-        _ref1 = lib[dispatcher].droptargets;
-        for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
-          drop = _ref1[_j];
-          if (drop.complete) {
-            lib.score.plusOne();
-          }
-        }
-        return lib.scene.success(false);
       };
       this.game = {
         header: 'header',
@@ -92,28 +79,22 @@ NEW ODA
               collection: [
                 [
                   {
-                    name: 'pcct1',
+                    name: 'pcpt1',
                     opts: {
                       pattern: ['Last week my little sister Nadia got lost at the mall.', '#rtn', 'She is only six years old, so we were very scared.', '#rtn', '#rtn', 'My mom called the store detective immediately.', '#rtn', 'The store detective asked us a lot of questions.', '#rtn', 'She filled out a form, a Missing Persons', '#tcpt', '.', '#rtn', '#rtn', '\“What does she look like?\” the detective asked.', '#rtn', '#rtn', '\“She is small,', '#tcpt', ', and has long, blond hair.', '#rtn', 'She has gray eyes and a small', '#tcpt', 'on her', '#rtn', 'knee. She fell down last week,\” answered Mom.', '#rtn', '#rtn', '\“What is she', '#tcpt', '?\”', '#rtn', '#rtn', '\“She’s wearing a pink blouse, a green', '#tcpt', ',', '#rtn', 'and blue sneakers. She likes', '#tcpt', 'colors,\”', '#rtn', 'said Mom.', '#rtn', '#rtn', 'The detective wrote the information in a notebook.'],
                       targets: [
                         {
-                          text: 'dancing',
-                          success: 'Report'
+                          text: 'Report'
                         }, {
-                          text: 'dancing',
-                          success: 'thin'
+                          text: 'thin'
                         }, {
-                          text: 'dancing',
-                          success: 'scar'
+                          text: 'scar'
                         }, {
-                          text: 'dancing',
-                          success: 'wearing'
+                          text: 'wearing'
                         }, {
-                          text: 'dancing',
-                          success: 'skirt'
+                          text: 'skirt'
                         }, {
-                          text: 'dancing',
-                          success: 'bright'
+                          text: 'bright'
                         }
                       ],
                       ypos: 0
@@ -135,8 +116,8 @@ NEW ODA
                 x: 360,
                 y: 150
               }, {
-                type: 'pcct',
-                id: 'pcct1',
+                type: 'pcpt',
+                id: 'pcpt1',
                 x: 395,
                 y: 213,
                 font: '12px Quicksand',
@@ -153,7 +134,7 @@ NEW ODA
                 text: 'bright',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct1'],
+                target: ['pcpt1'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -166,7 +147,7 @@ NEW ODA
                 text: 'Report',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct1'],
+                target: ['pcpt1'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -179,7 +160,7 @@ NEW ODA
                 text: 'scar',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct1'],
+                target: ['pcpt1'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -192,7 +173,7 @@ NEW ODA
                 text: 'skirt',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct1'],
+                target: ['pcpt1'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -205,7 +186,7 @@ NEW ODA
                 text: 'thin',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct1'],
+                target: ['pcpt1'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -218,7 +199,7 @@ NEW ODA
                 text: 'wearing',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct1'],
+                target: ['pcpt1'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'

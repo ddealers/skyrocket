@@ -3291,6 +3291,13 @@ LIBRARY
             };
           } else {
             hopts = txt;
+            if (hopts.maxlength) {
+              h = this.createText('max', hopts.maxlength, this.font, this.fcolor, 0, 0);
+              hopts = {
+                text: txt.text,
+                width: h.getMeasuredWidth() + this.margin
+              };
+            }
           }
           h = new TextCompleterContainer(hopts, this.font, this.fcolor, this.bcolor, this.scolor, this.stroke, npos, ypos);
           this.droptargets.push(h);
@@ -3313,6 +3320,9 @@ LIBRARY
             ypos += h.getMeasuredHeight() + h.getMeasuredHeight() * 0.1;
           }
         } else {
+          if (t === '.' || t === '!' || t === '?' || t === ',') {
+            npos -= this.margin;
+          }
           h = this.createText('txt', t, this.font, this.fcolor, npos, ypos);
           this.add(h, false);
           npos += h.getMeasuredWidth() + this.margin;
@@ -3697,7 +3707,10 @@ LIBRARY
               tcc = new TextCompleterContainer({
                 text: column,
                 width: this.uwidth,
-                height: this.uheight
+                height: this.uheight,
+                underline: {
+                  y: 0
+                }
               }, this.font, this.fcolor, this.bcolor, this.scolor, this.stroke, j * this.uwidth, i * this.uheight);
               tcc.name = "l" + j + i;
               tcc.setRectOutline(this.bcolor, this.stroke, this.scolor);
@@ -3724,6 +3737,32 @@ LIBRARY
         alpha: 0,
         y: obj.y - 20
       });
+    };
+
+    CrossWordsContainer.prototype.clearChildBackgrounds = function() {
+      var target, _i, _len, _ref2, _results;
+      _ref2 = this.droptargets;
+      _results = [];
+      for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
+        target = _ref2[_i];
+        _results.push(target.clearBackground());
+      }
+      return _results;
+    };
+
+    CrossWordsContainer.prototype.getEnabledTarget = function() {
+      var enabled, target, _i, _len, _ref2;
+      enabled = {
+        success: false
+      };
+      _ref2 = this.droptargets;
+      for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
+        target = _ref2[_i];
+        if (target.writeEnabled) {
+          enabled = target;
+        }
+      }
+      return enabled;
     };
 
     CrossWordsContainer.prototype.evaluateWords = function() {
@@ -4190,7 +4229,8 @@ LIBRARY
     }
 
     TextCompleterContainer.prototype.initialize = function(opts, font, fcolor, bcolor, scolor, stroke, x, y) {
-      var _ref2, _ref3, _ref4;
+      var _ref2, _ref3, _ref4,
+        _this = this;
       this.Container_initialize();
       Module.extend(this, d2oda.methods);
       this.x = x;
@@ -4201,8 +4241,25 @@ LIBRARY
       this.height = (_ref4 = opts.height) != null ? _ref4 : this.text.getMeasuredHeight();
       this.complete = false;
       this.back = new createjs.Shape();
-      this.back.graphics.f(bcolor).dr(0, 0, this.width, this.height).ss(stroke).s(scolor).mt(0, this.height + 5).lt(this.width, this.height + 5);
-      return this.add(this.back, false);
+      this.bcolor = bcolor;
+      if (opts.underline) {
+        this.back.graphics.f(bcolor).dr(0, 0, this.width, this.height).ss(stroke).s(scolor).mt(0, this.height + opts.underline.y).lt(this.width, this.height + opts.underline.y);
+      } else {
+        this.back.graphics.f(bcolor).dr(0, 0, this.width, this.height).ss(stroke).s(scolor).mt(0, this.height + 5).lt(this.width, this.height + 5);
+      }
+      this.add(this.back, false);
+      return this.addEventListener('click', function() {
+        if (_this.parent) {
+          _this.parent.clearChildBackgrounds();
+        }
+        _this.back.graphics.f('rgba(255,0,0,0.2)').dr(0, 0, _this.width, _this.height);
+        return _this.writeEnabled = true;
+      });
+    };
+
+    TextCompleterContainer.prototype.clearBackground = function() {
+      this.writeEnabled = false;
+      return this.back.graphics.f(this.bcolor).dr(0, 0, this.width, this.height);
     };
 
     TextCompleterContainer.prototype.setRectOutline = function(bcolor, stroke, scolor) {
@@ -4833,7 +4890,7 @@ LIBRARY
       if (step && step.length > 0) {
         for (_i = 0, _len = step.length; _i < _len; _i++) {
           target = step[_i];
-          if (target.name !== 'snd' && target.name !== 'global' && lib[target.name].isComplete() === false) {
+          if (target.name !== 'snd' && target.name !== 'global' && target.name !== 'window' && lib[target.name].isComplete() === false) {
             return false;
           }
         }
@@ -4890,6 +4947,15 @@ LIBRARY
                   snd.addEventListener('complete', this.sndsuccess);
                 }
                 _results.push(false);
+                break;
+              case 'window':
+                this.window = window;
+                if (target.opts.keydown) {
+                  this.window.target = target.opts.target;
+                  _results.push(this.window.onkeydown = target.opts.keydown);
+                } else {
+                  _results.push(void 0);
+                }
                 break;
               default:
                 _results.push(lib[target.name].update(target.opts));

@@ -141,7 +141,7 @@ NEW ODA
               }, {
                 type: 'txt',
                 id: 't1',
-                text: 'My name is Hayden and I live in Florida. There a lot of crocodiles there. My parents have a large farm with a lot of swamps everyhere. Swamps are forests with a lot of water. I like to swim but there is one problem: crocodiles love swamps! My parents tell me not to go in the water because it\'s dangerous. One morning I was fishing in the river and I saw baby crocodiles. They were cute, but... if you see babies, there is a mother crocodile close by! I knew I shouldn\'t fish close to a crocodile and I went back to the house.',
+                text: 'My name is Hayden and I live in Florida. There are a lot of crocodiles there. My parents have a large farm with a lot of swamps everywhere. Swamps are forests with a lot of water. I like to swim but there is one problem: crocodiles love swamps! My parents tell me not to go in the water because it\'s dangerous. One morning I was fishing in the river and I saw baby crocodiles. They were cute, but... if you see babies, there is a mother crocodile close by! I knew I shouldn\'t fish close to a crocodile and I went back to the house.',
                 x: 70,
                 y: 240,
                 lineWidth: 330,
@@ -396,7 +396,7 @@ NEW ODA
               }, {
                 type: 'txt',
                 id: 't3',
-                text: 'I started the Costa Crocodile Reserve about 5 years ago and now we have a team of about 12 people. We organize tours and educational visits for schools. We have to be very careful and we teach the children how to stay safe. We teach children to keep their arms and legs in the boat. The children eat their lunches a long way from the swamp!  All food stays in the recreation area. We don\'t want the kids to feed the crocodiles; it\'s too dangerous! We tell the kids to bring cameras and take a lot of photos. ISeeing corocodiles is a unique experience.',
+                text: 'I started the Costa Crocodile Reserve about 5 years ago and now we have a team of about 12 people. We organize tours and educational visits for schools. We have to be very careful and we teach the children how to stay safe. We teach children to keep their arms and legs in the boat. The children eat their lunches a long way from the swamp!  All food stays in the recreation area. We don\'t want the kids to feed the crocodiles; it\'s too dangerous! We tell the kids to bring cameras and take a lot of photos. Seeing crocodiles is a unique experience.',
                 x: 70,
                 y: 240,
                 lineWidth: 330,

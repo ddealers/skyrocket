@@ -23,6 +23,18 @@ class U2A1 extends Oda
 			{ id: 'header', src: 'header.png' }
 			{ id: 's/silence', src: 'silence.mp3' }
 		]
+		@onkeydown = (e) ->
+			keycode = e.keyCode || e.which
+			pattern = /[a-z]/i
+			str = String.fromCharCode keycode
+			if pattern.test str
+				target = lib[window.target].getEnabledTarget()
+				console.log target.success, str
+				if target.success.toUpperCase() is str
+					target.update {complete:true}
+					target.parent.evaluateWords()
+				else
+					lib.scene.fail()
 		@game = 
 			header: 'header'
 			instructions: {x: 110, y: 130, states: [{text:'Click on the number and write to the correct answer.', sound:'s/silence', played: false}]}
@@ -32,6 +44,7 @@ class U2A1 extends Oda
 					answers: {
 						collection: [
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'cwd1'}}
 								{
 									name:'cwd1'
 									opts:{
