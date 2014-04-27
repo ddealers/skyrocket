@@ -26,7 +26,7 @@ NEW ODA
           src: 'caja.png'
         }, {
           id: 'c2',
-          src: 'circilo_2.png'
+          src: 'circulo_2.png'
         }, {
           id: 'c1',
           src: 'circulo_1.png'
@@ -49,57 +49,107 @@ NEW ODA
           id: 'pantalla',
           src: 'pantalla-01.png'
         }, {
-          id: 's/sleepingbag',
-          src: 'sleepingbag.mp3'
+          id: 'btn1',
+          src: 'btn1.png'
         }, {
-          id: 's/hikingboots',
-          src: 'hikingboots.mp3'
+          id: 'btn2',
+          src: 'btn2.png'
         }, {
-          id: 's/backpack',
-          src: 'backpack.mp3'
+          id: 'btn3',
+          src: 'btn3.png'
         }, {
-          id: 's/horseriding',
-          src: 'horseriding.mp3'
+          id: 'btn4',
+          src: 'btn4.png'
         }, {
-          id: 's/flashlight',
-          src: 'flashlight.mp3'
+          id: 'btn5',
+          src: 'btn5.png'
         }, {
-          id: 's/lifejacket',
-          src: 'lifejacket.mp3'
+          id: 'btn6',
+          src: 'btn6.png'
         }, {
-          id: 's/fishing',
+          id: 'btn7',
+          src: 'btn7.png'
+        }, {
+          id: 'btn8',
+          src: 'btn8.png'
+        }, {
+          id: 's/1',
           src: 'fishing.mp3'
         }, {
-          id: 's/horse',
+          id: 's/2',
           src: 'horse.mp3'
         }, {
-          id: 's/swimming',
+          id: 's/3',
+          src: 'backpack.mp3'
+        }, {
+          id: 's/4',
+          src: 'hikingboots.mp3'
+        }, {
+          id: 's/5',
+          src: 'sleepingbag.mp3'
+        }, {
+          id: 's/6',
+          src: 'rope.mp3'
+        }, {
+          id: 's/7',
           src: 'swimming.mp3'
         }, {
-          id: 's/rope',
-          src: 'rope.mp3'
+          id: 's/8',
+          src: 'lifejacket.mp3'
+        }, {
+          id: 's/9',
+          src: 'flashlight.mp3'
+        }, {
+          id: 's/10',
+          src: 'horseriding.mp3'
         }, {
           id: 's/silence',
           src: 'silence.mp3'
         }
       ];
-      this.btnClick = function(dispatcher, target) {
+      this.init = function() {
+        var chnls;
+        if (_this.channels) {
+          return;
+        }
+        chnls = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        return _this.channels = d2oda.utilities.shuffleNoRepeat(chnls, 10);
+      };
+      this.onDrop = function(dispatcher, target) {
         var a, b, c, d, t;
         d = lib[dispatcher];
-        t = lib[target];
+        t = target.parent;
         a = d.index;
         b = t.droptargets;
         c = t.currentTarget;
         if (a === b[c].success) {
           b[c].complete = true;
           b[c].update();
+          d.afterSuccess();
           t.currentTarget++;
         }
         if (t.currentTarget === b.length) {
-          return lib.scene.success();
+          return lib.scene.success(true, false);
         } else {
+          d.afterFail();
           return lib.scene.fail();
         }
+      };
+      this.btnChannel = function(dispatcher) {
+        var d, sel;
+        _this.init();
+        d = lib[dispatcher];
+        sel = _this.channels[d.index];
+        lib.grp_pcpt.update({
+          type: 'fadeIn',
+          target: "pcpt" + (sel + 1)
+        });
+        lib.grp_img.update({
+          type: 'fadeIn',
+          target: "q" + (sel + 1)
+        });
+        createjs.Sound.stop();
+        return createjs.Sound.play("s/" + (sel + 1));
       };
       this.game = {
         header: 'header',
@@ -131,10 +181,10 @@ NEW ODA
               collection: [
                 [
                   {
-                    name: 'grp1',
+                    name: 'grp_img',
                     opts: {
                       type: 'fadeIn',
-                      target: 'boy2'
+                      target: 'q1'
                     }
                   }, {
                     name: 'pcpt1',
@@ -147,20 +197,7 @@ NEW ODA
                       ]
                     }
                   }, {
-                    name: 'snd',
-                    opts: {
-                      id: 's/fishing'
-                    }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'boy2'
-                    }
-                  }, {
-                    name: 'pcpt1',
+                    name: 'pcpt2',
                     opts: {
                       pattern: ['I\'m ', '#tcpt', ' to horses. ', '#rtn', 'They make me sneeze.'],
                       targets: [
@@ -170,20 +207,7 @@ NEW ODA
                       ]
                     }
                   }, {
-                    name: 'snd',
-                    opts: {
-                      id: 's/horse'
-                    }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'man'
-                    }
-                  }, {
-                    name: 'pcpt1',
+                    name: 'pcpt3',
                     opts: {
                       pattern: ['My ', '#tcpt', ' is too heavy. ', '#rtn', 'Can you take some of my things?'],
                       targets: [
@@ -193,20 +217,7 @@ NEW ODA
                       ]
                     }
                   }, {
-                    name: 'snd',
-                    opts: {
-                      id: 's/backpack'
-                    }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'man'
-                    }
-                  }, {
-                    name: 'pcpt1',
+                    name: 'pcpt4',
                     opts: {
                       pattern: ['I\'ll wait for you here. ', '#rtn', 'My ', '#tcpt', ' hurt my feet.'],
                       targets: [
@@ -216,20 +227,7 @@ NEW ODA
                       ]
                     }
                   }, {
-                    name: 'snd',
-                    opts: {
-                      id: 's/hikingboots'
-                    }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'man'
-                    }
-                  }, {
-                    name: 'pcpt1',
+                    name: 'pcpt5',
                     opts: {
                       pattern: ['Counselor, help! There\'s a ', '#rtn', 'spider in my ', '#tcpt', '.'],
                       targets: [
@@ -239,20 +237,7 @@ NEW ODA
                       ]
                     }
                   }, {
-                    name: 'snd',
-                    opts: {
-                      id: 's/sleepingbag'
-                    }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'girl'
-                    }
-                  }, {
-                    name: 'pcpt1',
+                    name: 'pcpt6',
                     opts: {
                       pattern: ['Oh, oh, I forgot the ', '#tcpt', ', sorry!'],
                       targets: [
@@ -262,20 +247,7 @@ NEW ODA
                       ]
                     }
                   }, {
-                    name: 'snd',
-                    opts: {
-                      id: 's/rope'
-                    }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'girl'
-                    }
-                  }, {
-                    name: 'pcpt1',
+                    name: 'pcpt7',
                     opts: {
                       pattern: ['No, that\'s okay, I\'ll read my ', '#rtn', 'book. I forgot my ', '#tcpt', '.'],
                       targets: [
@@ -285,20 +257,7 @@ NEW ODA
                       ]
                     }
                   }, {
-                    name: 'snd',
-                    opts: {
-                      id: 's/swimming'
-                    }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'boy2'
-                    }
-                  }, {
-                    name: 'pcpt1',
+                    name: 'pcpt8',
                     opts: {
                       pattern: ['Sorry, my ', '#tcpt', ' is too ', '#rtn', 'small. I can\'t go on the water.'],
                       targets: [
@@ -308,20 +267,7 @@ NEW ODA
                       ]
                     }
                   }, {
-                    name: 'snd',
-                    opts: {
-                      id: 's/lifejacket'
-                    }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'man'
-                    }
-                  }, {
-                    name: 'pcpt1',
+                    name: 'pcpt9',
                     opts: {
                       pattern: ['Sorry, counselor, the battery ', '#rtn', 'in my ', '#tcpt', ' died.'],
                       targets: [
@@ -331,20 +277,7 @@ NEW ODA
                       ]
                     }
                   }, {
-                    name: 'snd',
-                    opts: {
-                      id: 's/flashlight'
-                    }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'horseriding'
-                    }
-                  }, {
-                    name: 'pcpt1',
+                    name: 'pcpt10',
                     opts: {
                       pattern: ['I can\'t go horsebackriding. ', '#rtn', 'I can\'t find my ', '#tcpt', '.'],
                       targets: [
@@ -353,47 +286,17 @@ NEW ODA
                         }
                       ]
                     }
-                  }, {
-                    name: 'snd',
-                    opts: {
-                      id: 's/horseriding'
-                    }
                   }
                 ]
               ],
-              mixed: true,
               type: 'steps'
             },
             containers: [
               {
                 type: 'img',
-                id: 'boy2',
-                x: 295,
-                y: 310,
-                align: 'mc'
-              }, {
-                type: 'img',
-                id: 'man',
-                x: 295,
-                y: 310,
-                align: 'mc'
-              }, {
-                type: 'img',
-                id: 'girl',
-                x: 295,
-                y: 310,
-                align: 'mc'
-              }, {
-                type: 'img',
-                id: 'horseriding',
-                x: 295,
-                y: 310,
-                align: 'mc'
-              }, {
-                type: 'img',
                 id: 'boy',
                 x: 650,
-                y: 418,
+                y: 435,
                 align: 'mc'
               }, {
                 type: 'img',
@@ -408,211 +311,492 @@ NEW ODA
                 y: 240,
                 align: 'mc'
               }, {
+                type: 'img',
+                name: 'q1',
+                id: 'boy2',
+                x: 295,
+                y: 310,
+                align: 'mc'
+              }, {
+                type: 'img',
+                name: 'q2',
+                id: 'boy2',
+                x: 295,
+                y: 310,
+                align: 'mc'
+              }, {
+                type: 'img',
+                name: 'q3',
+                id: 'man',
+                x: 295,
+                y: 310,
+                align: 'mc'
+              }, {
+                type: 'img',
+                name: 'q4',
+                id: 'man',
+                x: 295,
+                y: 310,
+                align: 'mc'
+              }, {
+                type: 'img',
+                name: 'q5',
+                id: 'man',
+                x: 295,
+                y: 310,
+                align: 'mc'
+              }, {
+                type: 'img',
+                name: 'q6',
+                id: 'girl',
+                x: 295,
+                y: 310,
+                align: 'mc'
+              }, {
+                type: 'img',
+                name: 'q7',
+                id: 'girl',
+                x: 295,
+                y: 310,
+                align: 'mc'
+              }, {
+                type: 'img',
+                name: 'q8',
+                id: 'boy2',
+                x: 295,
+                y: 310,
+                align: 'mc'
+              }, {
+                type: 'img',
+                name: 'q9',
+                id: 'man',
+                x: 295,
+                y: 310,
+                align: 'mc'
+              }, {
+                type: 'img',
+                name: 'q10',
+                id: 'man',
+                x: 295,
+                y: 310,
+                align: 'mc'
+              }, {
                 type: 'pcpt',
                 id: 'pcpt1',
                 x: 505,
                 y: 200,
                 font: '16px Quicksand',
+                underline: {
+                  y: 0
+                },
                 margin: 1,
                 align: 'tl',
-                scolor: '#F9101A'
+                scolor: '#009046'
               }, {
-                type: 'btn',
-                id: 'btn_1',
-                x: 100 + 160,
+                type: 'pcpt',
+                id: 'pcpt2',
+                x: 505,
+                y: 200,
+                font: '16px Quicksand',
+                underline: {
+                  y: 0
+                },
+                margin: 1,
+                align: 'tl',
+                scolor: '#009046'
+              }, {
+                type: 'pcpt',
+                id: 'pcpt3',
+                x: 505,
+                y: 200,
+                font: '16px Quicksand',
+                underline: {
+                  y: 0
+                },
+                margin: 1,
+                align: 'tl',
+                scolor: '#009046'
+              }, {
+                type: 'pcpt',
+                id: 'pcpt4',
+                x: 505,
+                y: 200,
+                font: '16px Quicksand',
+                underline: {
+                  y: 0
+                },
+                margin: 1,
+                align: 'tl',
+                scolor: '#009046'
+              }, {
+                type: 'pcpt',
+                id: 'pcpt5',
+                x: 505,
+                y: 200,
+                font: '16px Quicksand',
+                underline: {
+                  y: 0
+                },
+                margin: 1,
+                align: 'tl',
+                scolor: '#009046'
+              }, {
+                type: 'pcpt',
+                id: 'pcpt6',
+                x: 505,
+                y: 200,
+                font: '16px Quicksand',
+                underline: {
+                  y: 0
+                },
+                margin: 1,
+                align: 'tl',
+                scolor: '#009046'
+              }, {
+                type: 'pcpt',
+                id: 'pcpt7',
+                x: 505,
+                y: 200,
+                font: '16px Quicksand',
+                underline: {
+                  y: 0
+                },
+                margin: 1,
+                align: 'tl',
+                scolor: '#009046'
+              }, {
+                type: 'pcpt',
+                id: 'pcpt8',
+                x: 505,
+                y: 200,
+                font: '16px Quicksand',
+                underline: {
+                  y: 0
+                },
+                margin: 1,
+                align: 'tl',
+                scolor: '#009046'
+              }, {
+                type: 'pcpt',
+                id: 'pcpt9',
+                x: 505,
+                y: 200,
+                font: '16px Quicksand',
+                underline: {
+                  y: 0
+                },
+                margin: 1,
+                align: 'tl',
+                scolor: '#009046'
+              }, {
+                type: 'pcpt',
+                id: 'pcpt10',
+                x: 505,
+                y: 200,
+                font: '16px Quicksand',
+                underline: {
+                  y: 0
+                },
+                margin: 1,
+                align: 'tl',
+                scolor: '#009046'
+              }, {
+                type: 'ldrg',
+                id: 'ldrg1',
+                x: 80 + 160,
                 y: 535,
+                align: 'tc',
                 index: 'backpack',
-                target: 'pcpt1',
-                "eval": this.btnClick,
-                states: [
-                  {
-                    txt: {
-                      text: 'backpack',
-                      name: 'backpack',
-                      x: 0,
-                      y: 0,
-                      align: 'center',
-                      font: '20px Quicksand'
-                    }
-                  }
-                ]
+                text: 'backpack',
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8', 'pcpt9', 'pcpt10'],
+                font: '20px Quicksand',
+                afterSuccess: 'origin',
+                afterFail: 'return',
+                "eval": this.onDrop
               }, {
-                type: 'btn',
-                id: 'btn_2',
+                type: 'ldrg',
+                id: 'ldrg2',
                 x: 190 + 160,
                 y: 535,
+                align: 'tc',
                 index: 'rope',
-                target: 'pcpt1',
-                "eval": this.btnClick,
-                states: [
-                  {
-                    txt: {
-                      text: 'rope',
-                      name: 'rope',
-                      x: 0,
-                      y: 0,
-                      align: 'center',
-                      font: '20px Quicksand'
-                    }
-                  }
-                ]
+                text: 'rope',
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8', 'pcpt9', 'pcpt10'],
+                font: '20px Quicksand',
+                afterSuccess: 'origin',
+                afterFail: 'return',
+                "eval": this.onDrop
               }, {
-                type: 'btn',
-                id: 'btn_3',
-                x: 280 + 160,
+                type: 'ldrg',
+                id: 'ldrg3',
+                x: 250 + 160,
                 y: 535,
+                align: 'tc',
                 index: 'flashlight',
-                target: 'pcpt1',
-                "eval": this.btnClick,
-                states: [
-                  {
-                    txt: {
-                      text: 'flashlight',
-                      name: 'flashlight',
-                      x: 0,
-                      y: 0,
-                      align: 'center',
-                      font: '20px Quicksand'
-                    }
-                  }
-                ]
+                text: 'flashlight',
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8', 'pcpt9', 'pcpt10'],
+                font: '20px Quicksand',
+                afterSuccess: 'origin',
+                afterFail: 'return',
+                "eval": this.onDrop
               }, {
-                type: 'btn',
-                id: 'btn_4',
-                x: 380 + 160,
+                type: 'ldrg',
+                id: 'ldrg4',
+                x: 350 + 160,
                 y: 535,
+                align: 'tc',
                 index: 'helmet',
-                target: 'pcpt1',
-                "eval": this.btnClick,
-                states: [
-                  {
-                    txt: {
-                      text: 'helmet',
-                      name: 'helmet',
-                      x: 0,
-                      y: 0,
-                      align: 'center',
-                      font: '20px Quicksand'
-                    }
-                  }
-                ]
+                text: 'helmet',
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8', 'pcpt9', 'pcpt10'],
+                font: '20px Quicksand',
+                afterSuccess: 'origin',
+                afterFail: 'return',
+                "eval": this.onDrop
               }, {
-                type: 'btn',
-                id: 'btn_5',
-                x: 180 + 160,
+                type: 'ldrg',
+                id: 'ldrg5',
+                x: 100 + 160,
                 y: 570,
+                align: 'tc',
                 index: 'sleeping bag',
-                target: 'pcpt1',
-                "eval": this.btnClick,
-                states: [
-                  {
-                    txt: {
-                      text: 'sleeping bag',
-                      name: 'sleeping bag',
-                      x: 0,
-                      y: 0,
-                      align: 'center',
-                      font: '20px Quicksand'
-                    }
-                  }
-                ]
+                text: 'sleeping bag',
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8', 'pcpt9', 'pcpt10'],
+                font: '20px Quicksand',
+                afterSuccess: 'origin',
+                afterFail: 'return',
+                "eval": this.onDrop
               }, {
-                type: 'btn',
-                id: 'btn_6',
-                x: 280 + 160,
+                type: 'ldrg',
+                id: 'ldrg6',
+                x: 250 + 160,
                 y: 570,
+                align: 'tc',
                 index: 'fish',
-                target: 'pcpt1',
-                "eval": this.btnClick,
-                states: [
-                  {
-                    txt: {
-                      text: 'fish',
-                      name: 'fish',
-                      x: 0,
-                      y: 0,
-                      align: 'center',
-                      font: '20px Quicksand'
-                    }
-                  }
-                ]
+                text: 'fish',
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8', 'pcpt9', 'pcpt10'],
+                font: '20px Quicksand',
+                afterSuccess: 'origin',
+                afterFail: 'return',
+                "eval": this.onDrop
               }, {
-                type: 'btn',
-                id: 'btn_7',
-                x: 360 + 160,
+                type: 'ldrg',
+                id: 'ldrg7',
+                x: 320 + 160,
                 y: 570,
+                align: 'tc',
                 index: 'allergic',
-                target: 'pcpt1',
-                "eval": this.btnClick,
-                states: [
-                  {
-                    txt: {
-                      text: 'allergic',
-                      name: 'allergic',
-                      x: 0,
-                      y: 0,
-                      align: 'center',
-                      font: '20px Quicksand'
-                    }
-                  }
-                ]
+                text: 'allergic',
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8', 'pcpt9', 'pcpt10'],
+                font: '20px Quicksand',
+                afterSuccess: 'origin',
+                afterFail: 'return',
+                "eval": this.onDrop
               }, {
-                type: 'btn',
-                id: 'btn_8',
-                x: 360 + 160,
+                type: 'ldrg',
+                id: 'ldrg8',
+                x: 340 + 160,
                 y: 500,
+                align: 'tc',
                 index: 'swimsuit',
-                target: 'pcpt1',
-                "eval": this.btnClick,
-                states: [
-                  {
-                    txt: {
-                      text: 'swimsuit',
-                      name: 'swimsuit',
-                      x: 0,
-                      y: 0,
-                      align: 'center',
-                      font: '20px Quicksand'
-                    }
-                  }
-                ]
+                text: 'swimsuit',
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8', 'pcpt9', 'pcpt10'],
+                font: '20px Quicksand',
+                afterSuccess: 'origin',
+                afterFail: 'return',
+                "eval": this.onDrop
               }, {
-                type: 'btn',
-                id: 'btn_9',
-                x: 260 + 160,
+                type: 'ldrg',
+                id: 'ldrg9',
+                x: 230 + 160,
                 y: 500,
+                align: 'tc',
                 index: 'lifejacket',
-                target: 'pcpt1',
-                "eval": this.btnClick,
+                text: 'lifejacket',
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8', 'pcpt9', 'pcpt10'],
+                font: '20px Quicksand',
+                afterSuccess: 'origin',
+                afterFail: 'return',
+                "eval": this.onDrop
+              }, {
+                type: 'ldrg',
+                id: 'ldrg10',
+                x: 90 + 160,
+                y: 500,
+                align: 'tc',
+                index: 'hiking boots',
+                text: 'hiking boots',
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8', 'pcpt9', 'pcpt10'],
+                font: '20px Quicksand',
+                afterSuccess: 'origin',
+                afterFail: 'return',
+                "eval": this.onDrop
+              }, {
+                type: 'btn',
+                id: 'ch1',
+                x: 144,
+                y: 417,
+                index: 0,
+                "eval": this.btnChannel,
                 states: [
                   {
-                    txt: {
-                      text: 'lifejacket',
-                      name: 'lifejacket',
+                    img: {
+                      name: 'btn1',
                       x: 0,
                       y: 0,
-                      align: 'center',
-                      font: '20px Quicksand'
+                      align: 'mc'
                     }
                   }
                 ]
               }, {
                 type: 'btn',
-                id: 'btn_10',
-                x: 140 + 160,
-                y: 500,
-                index: 'hiking boots',
-                target: 'pcpt1',
-                "eval": this.btnClick,
+                id: 'ch2',
+                x: 173,
+                y: 417,
+                index: 1,
+                "eval": this.btnChannel,
                 states: [
                   {
-                    txt: {
-                      text: 'hiking boots',
-                      name: 'hiking boots',
+                    img: {
+                      name: 'btn2',
                       x: 0,
                       y: 0,
-                      align: 'center',
-                      font: '20px Quicksand'
+                      align: 'mc'
+                    }
+                  }
+                ]
+              }, {
+                type: 'btn',
+                id: 'ch3',
+                x: 203,
+                y: 417,
+                index: 2,
+                "eval": this.btnChannel,
+                states: [
+                  {
+                    img: {
+                      name: 'btn3',
+                      x: 0,
+                      y: 0,
+                      align: 'mc'
+                    }
+                  }
+                ]
+              }, {
+                type: 'btn',
+                id: 'ch4',
+                x: 144,
+                y: 437,
+                index: 3,
+                "eval": this.btnChannel,
+                states: [
+                  {
+                    img: {
+                      name: 'btn4',
+                      x: 0,
+                      y: 0,
+                      align: 'mc'
+                    }
+                  }
+                ]
+              }, {
+                type: 'btn',
+                id: 'ch5',
+                x: 173,
+                y: 437,
+                index: 4,
+                "eval": this.btnChannel,
+                states: [
+                  {
+                    img: {
+                      name: 'btn5',
+                      x: 0,
+                      y: 0,
+                      align: 'mc'
+                    }
+                  }
+                ]
+              }, {
+                type: 'btn',
+                id: 'ch6',
+                x: 203,
+                y: 437,
+                index: 5,
+                "eval": this.btnChannel,
+                states: [
+                  {
+                    img: {
+                      name: 'btn6',
+                      x: 0,
+                      y: 0,
+                      align: 'mc'
+                    }
+                  }
+                ]
+              }, {
+                type: 'btn',
+                id: 'ch7',
+                x: 161,
+                y: 460,
+                index: 6,
+                "eval": this.btnChannel,
+                states: [
+                  {
+                    img: {
+                      name: 'btn7',
+                      x: 0,
+                      y: 0,
+                      align: 'mc'
+                    }
+                  }
+                ]
+              }, {
+                type: 'btn',
+                id: 'ch8',
+                x: 190,
+                y: 460,
+                index: 7,
+                "eval": this.btnChannel,
+                states: [
+                  {
+                    img: {
+                      name: 'btn8',
+                      x: 0,
+                      y: 0,
+                      align: 'mc'
+                    }
+                  }
+                ]
+              }, {
+                type: 'btn',
+                id: 'ch9',
+                x: 190,
+                y: 483,
+                index: 8,
+                "eval": this.btnChannel,
+                states: [
+                  {
+                    img: {
+                      name: 'btn7',
+                      x: 0,
+                      y: 0,
+                      align: 'mc'
+                    }
+                  }
+                ]
+              }, {
+                type: 'btn',
+                id: 'ch10',
+                x: 161,
+                y: 483,
+                index: 9,
+                "eval": this.btnChannel,
+                states: [
+                  {
+                    img: {
+                      name: 'btn8',
+                      x: 0,
+                      y: 0,
+                      align: 'mc'
                     }
                   }
                 ]
@@ -621,9 +805,14 @@ NEW ODA
             groups: [
               {
                 type: 'grp',
-                id: 'grp1',
+                id: 'grp_img',
                 invisible: true,
-                group: ['boy2', 'man', 'girl', 'horseriding']
+                group: ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10']
+              }, {
+                type: 'grp',
+                id: 'grp_pcpt',
+                invisible: true,
+                group: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8', 'pcpt9', 'pcpt10']
               }
             ]
           }

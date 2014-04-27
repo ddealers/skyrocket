@@ -147,10 +147,7 @@ NEW ODA
                       pattern: ['It wasn\'t me. I', '#tcpt', 'a', '#rtn', 'movie. I was with my sister.'],
                       targets: [
                         {
-                          text: 'was watching',
-                          underline: {
-                            y: 0
-                          }
+                          text: 'was watching'
                         }
                       ]
                     }
@@ -160,10 +157,7 @@ NEW ODA
                       pattern: ['No, you weren\'t. I saw your sister.', '#rtn', 'She ', '#tcpt', 'mambo at the', '#rtn', 'dance school!'],
                       targets: [
                         {
-                          text: 'was dancing',
-                          underline: {
-                            y: 0
-                          }
+                          text: 'was dancing'
                         }
                       ]
                     }
@@ -173,10 +167,7 @@ NEW ODA
                       pattern: ['He has two sisters. I saw him.', '#rtn', 'He', '#tcpt', 'popcorn before', '#rtn', 'the movie.'],
                       targets: [
                         {
-                          text: 'was buying',
-                          underline: {
-                            y: 0
-                          }
+                          text: 'was buying'
                         }
                       ]
                     }
@@ -186,10 +177,7 @@ NEW ODA
                       pattern: ['Me? I', '#tcpt', 'in the park ', '#rtn', 'with my dog.'],
                       targets: [
                         {
-                          text: 'was walking',
-                          underline: {
-                            y: 0
-                          }
+                          text: 'was walking'
                         }
                       ]
                     }
@@ -199,10 +187,7 @@ NEW ODA
                       pattern: ['What', '#rtn', '#tcpt', '?'],
                       targets: [
                         {
-                          text: 'were you doing',
-                          underline: {
-                            y: 0
-                          }
+                          text: 'were you doing'
                         }
                       ]
                     }
@@ -212,10 +197,7 @@ NEW ODA
                       pattern: ['I think the thief was a woman.', '#rtn', 'I heard her.', '#rtn', 'She ', '#tcpt', 'at the policeman.'],
                       targets: [
                         {
-                          text: 'was shouting',
-                          underline: {
-                            y: 0
-                          }
+                          text: 'was shouting'
                         }
                       ]
                     }
@@ -225,10 +207,7 @@ NEW ODA
                       pattern: ['I\'m not the thief!', '#rtn', 'I', '#tcpt', 'my grandmother ', '#rtn', 'in prison.'],
                       targets: [
                         {
-                          text: 'was visiting',
-                          underline: {
-                            y: 0
-                          }
+                          text: 'was visiting'
                         }
                       ]
                     }
@@ -238,10 +217,7 @@ NEW ODA
                       pattern: ['Oh… me? I was trying to get some exercise.', '#rtn', 'I', '#tcpt', '!'],
                       targets: [
                         {
-                          text: 'was running',
-                          underline: {
-                            y: 0
-                          }
+                          text: 'was running'
                         }
                       ]
                     }
@@ -464,6 +440,9 @@ NEW ODA
                 y: 195,
                 font: '11px Quicksand',
                 margin: 5,
+                underline: {
+                  y: 0
+                },
                 align: 'tl',
                 scolor: '#F9101A',
                 lineHeight: 17,
@@ -476,6 +455,9 @@ NEW ODA
                 y: 175,
                 font: '11px Quicksand',
                 margin: 5,
+                underline: {
+                  y: 0
+                },
                 align: 'tl',
                 scolor: '#F9101A',
                 lineHeight: 17,
@@ -488,6 +470,9 @@ NEW ODA
                 y: 177,
                 font: '11px Quicksand',
                 margin: 5,
+                underline: {
+                  y: 0
+                },
                 align: 'tl',
                 scolor: '#F9101A',
                 lineHeight: 17,
@@ -500,6 +485,9 @@ NEW ODA
                 y: 180,
                 font: '11px Quicksand',
                 margin: 5,
+                underline: {
+                  y: 0
+                },
                 align: 'tl',
                 scolor: '#F9101A',
                 lineHeight: 17,
@@ -512,6 +500,9 @@ NEW ODA
                 y: 160,
                 font: '11px Quicksand',
                 margin: 5,
+                underline: {
+                  y: 0
+                },
                 align: 'tl',
                 scolor: '#F9101A',
                 lineHeight: 17,
@@ -524,6 +515,9 @@ NEW ODA
                 y: 153,
                 font: '11px Quicksand',
                 margin: 5,
+                underline: {
+                  y: 0
+                },
                 align: 'tl',
                 scolor: '#F9101A',
                 lineHeight: 17,
@@ -536,6 +530,9 @@ NEW ODA
                 y: 165,
                 font: '11px Quicksand',
                 margin: 5,
+                underline: {
+                  y: 0
+                },
                 align: 'tl',
                 scolor: '#F9101A',
                 lineHeight: 17,
@@ -548,6 +545,9 @@ NEW ODA
                 y: 186,
                 font: '11px Quicksand',
                 margin: 5,
+                underline: {
+                  y: 0
+                },
                 align: 'tl',
                 scolor: '#F9101A',
                 lineHeight: 17,

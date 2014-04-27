@@ -45,32 +45,19 @@ NEW ODA
         }
       };
       this.evaluateDrop02_01 = function(dispatcher, target) {
-        var complete, drop, _i, _j, _len, _len1, _ref, _ref1;
+        var a, b, complete;
+        a = lib[dispatcher];
+        b = target;
         complete = true;
-        if (lib[dispatcher].index === target.success) {
-          target.update(lib[dispatcher].label.text, true);
+        if (a.index === b.success) {
+          b.update();
+          a.afterSuccess();
+          target.complete = true;
+          return lib.scene.success(true, false);
         } else {
-          target.update(lib[dispatcher].label.text, false);
+          a.afterFail();
+          return lib.scene.fail();
         }
-        lib[dispatcher].afterSuccess();
-        _ref = lib[dispatcher].droptargets;
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          drop = _ref[_i];
-          if (drop.text.text === '') {
-            complete = false;
-          }
-        }
-        if (!complete) {
-          return;
-        }
-        _ref1 = lib[dispatcher].droptargets;
-        for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
-          drop = _ref1[_j];
-          if (drop.complete) {
-            lib.score.plusOne();
-          }
-        }
-        return lib.scene.success(false);
       };
       this.game = {
         header: 'header',
@@ -90,7 +77,7 @@ NEW ODA
           x: 20,
           y: 500,
           init: 0,
-          total: 14,
+          total: 10,
           aimg: 'c1',
           acolor: '#333',
           bimg: 'c2',
@@ -107,8 +94,7 @@ NEW ODA
                       pattern: ['Superheroes have amazing powers. Some can see through walls with their', '#tcpt', '.'],
                       targets: [
                         {
-                          text: '___________',
-                          success: 'x-ray vision'
+                          text: 'x-ray vision'
                         }
                       ]
                     }
@@ -138,8 +124,7 @@ NEW ODA
                       pattern: ['Some can fly through the air and they don\'t even have', '#tcpt', '!'],
                       targets: [
                         {
-                          text: '___________',
-                          success: 'wings'
+                          text: 'wings'
                         }
                       ]
                     }
@@ -169,8 +154,7 @@ NEW ODA
                       pattern: ['Some live in the sea. They can speak under water and', '#rtn', '#tcpt', 'with all the ocean\'s creatures.'],
                       targets: [
                         {
-                          text: '___________',
-                          success: 'communicate'
+                          text: 'communicate'
                         }
                       ]
                     }
@@ -200,8 +184,7 @@ NEW ODA
                       pattern: ['Others have special', '#tcpt', 'that protects them from all weapons.'],
                       targets: [
                         {
-                          text: '___________',
-                          success: 'armor'
+                          text: 'armor'
                         }
                       ]
                     }
@@ -231,8 +214,7 @@ NEW ODA
                       pattern: ['A lot of superheroes wear', '#tcpt', 'to hide their true identity.'],
                       targets: [
                         {
-                          text: '___________',
-                          success: 'masks'
+                          text: 'masks'
                         }
                       ]
                     }
@@ -262,8 +244,7 @@ NEW ODA
                       pattern: ['Superman wears a cape; it can', '#tcpt', '.'],
                       targets: [
                         {
-                          text: '__________________',
-                          success: 'make him fly'
+                          text: 'make him fly'
                         }
                       ]
                     }
@@ -293,8 +274,7 @@ NEW ODA
                       pattern: ['Mr. Ice can', '#tcpt', 'objects. He turns them into ice using his mind!'],
                       targets: [
                         {
-                          text: '___________',
-                          success: 'freeze'
+                          text: 'freeze'
                         }
                       ]
                     }
@@ -324,8 +304,7 @@ NEW ODA
                       pattern: ['Mr. Superhands wears special', '#tcpt', '. Everything he touches can fly!'],
                       targets: [
                         {
-                          text: '___________',
-                          success: 'gloves'
+                          text: 'gloves'
                         }
                       ]
                     }
@@ -355,8 +334,7 @@ NEW ODA
                       pattern: ['If I could have a superpower, I would read people\'s', '#tcpt', 'to know what they think!'],
                       targets: [
                         {
-                          text: '___________',
-                          success: 'minds'
+                          text: 'minds'
                         }
                       ]
                     }
@@ -386,8 +364,7 @@ NEW ODA
                       pattern: ['Superheroes help people. They don\'t use weapons; they use their', '#tcpt', '.'],
                       targets: [
                         {
-                          text: '___________',
-                          success: 'powers'
+                          text: 'powers'
                         }
                       ]
                     }
@@ -423,97 +400,127 @@ NEW ODA
               }, {
                 type: 'img',
                 id: 'superhero',
-                x: 220,
-                y: 180
+                x: 230,
+                y: 190
               }, {
-                type: 'pcct',
+                type: 'pcpt',
                 id: 'pcct1',
-                x: 30,
+                x: 80,
                 y: 190,
                 font: '12px Quicksand',
+                underline: {
+                  y: 0
+                },
                 margin: 5,
-                scolor: '#F9101A',
+                scolor: '#009046',
                 stroke: 2
               }, {
-                type: 'pcct',
+                type: 'pcpt',
                 id: 'pcct2',
-                x: 30,
+                x: 80,
                 y: 213,
                 font: '12px Quicksand',
+                underline: {
+                  y: 0
+                },
                 margin: 5,
-                scolor: '#F9101A',
+                scolor: '#009046',
                 stroke: 2
               }, {
-                type: 'pcct',
+                type: 'pcpt',
                 id: 'pcct3',
-                x: 30,
+                x: 80,
                 y: 236,
                 font: '12px Quicksand',
+                underline: {
+                  y: 0
+                },
                 margin: 5,
-                scolor: '#F9101A',
+                scolor: '#009046',
                 stroke: 2
               }, {
-                type: 'pcct',
+                type: 'pcpt',
                 id: 'pcct4',
-                x: 30,
+                x: 80,
                 y: 279,
                 font: '12px Quicksand',
+                underline: {
+                  y: 0
+                },
                 margin: 5,
-                scolor: '#F9101A',
+                scolor: '#009046',
                 stroke: 2
               }, {
-                type: 'pcct',
+                type: 'pcpt',
                 id: 'pcct5',
-                x: 30,
+                x: 80,
                 y: 302,
                 font: '12px Quicksand',
+                underline: {
+                  y: 0
+                },
                 margin: 5,
-                scolor: '#F9101A',
+                scolor: '#009046',
                 stroke: 2
               }, {
-                type: 'pcct',
+                type: 'pcpt',
                 id: 'pcct6',
-                x: 30,
+                x: 80,
                 y: 325,
                 font: '12px Quicksand',
+                underline: {
+                  y: 0
+                },
                 margin: 5,
-                scolor: '#F9101A',
+                scolor: '#009046',
                 stroke: 2
               }, {
-                type: 'pcct',
+                type: 'pcpt',
                 id: 'pcct7',
-                x: 30,
+                x: 80,
                 y: 348,
                 font: '12px Quicksand',
+                underline: {
+                  y: 0
+                },
                 margin: 5,
-                scolor: '#F9101A',
+                scolor: '#009046',
                 stroke: 2
               }, {
-                type: 'pcct',
+                type: 'pcpt',
                 id: 'pcct8',
-                x: 30,
+                x: 80,
                 y: 371,
                 font: '12px Quicksand',
+                underline: {
+                  y: 0
+                },
                 margin: 5,
-                scolor: '#F9101A',
+                scolor: '#009046',
                 stroke: 2
               }, {
-                type: 'pcct',
+                type: 'pcpt',
                 id: 'pcct9',
-                x: 30,
+                x: 80,
                 y: 394,
                 font: '12px Quicksand',
+                underline: {
+                  y: 0
+                },
                 margin: 5,
-                scolor: '#F9101A',
+                scolor: '#009046',
                 stroke: 2
               }, {
-                type: 'pcct',
+                type: 'pcpt',
                 id: 'pcct10',
-                x: 30,
-                y: 1017,
+                x: 80,
+                y: 417,
                 font: '12px Quicksand',
+                underline: {
+                  y: 0
+                },
                 margin: 5,
-                scolor: '#F9101A',
+                scolor: '#009046',
                 stroke: 2
               }, {
                 type: 'ldrg',

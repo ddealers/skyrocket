@@ -1266,7 +1266,6 @@ class ButtonContainer extends Component
 		@scale = opts.scale ? 1
 		@states = opts.states
 		@currentState = 0
-
 		@setImageText @states[@currentState].img, @states[@currentState].txt
 		if @isArray opts.target 
 			@target = opts.target
@@ -1809,7 +1808,8 @@ class PhraseCompleterContainer extends Component
 						h = @createText 'txt', 'BLANK', @font, @fcolor, npos, 0
 						ypos += h.getMeasuredHeight() + h.getMeasuredHeight() * 0.1
 			else
-				if t is '.' or t is '!' or t is '?' or t is ','
+				first = t.charAt(0)
+				if first is '.' or first is '!' or first is '?' or first is ','
 					npos -= @margin
 				h = @createText 'txt', t, @font, @fcolor, npos, ypos
 				@add h, false
@@ -2067,6 +2067,7 @@ class CrossWordsContainer extends Component
 	clearChildren: () ->
 		for target in @droptargets
 			target.clearBackground()
+			target.setRectOutline @bcolor, @stroke, @scolor
 	getEnabledTarget: () ->
 		enabled = {success:false}
 		for target in @droptargets
@@ -2388,6 +2389,8 @@ class TextCompleterContainer extends Component
 			@add @text, false
 		if char is '<-'
 			@word = @word.slice 0, @word.length-1
+		else if char is '-'
+			@word += ' '
 		else
 			@word += char
 		@text.text = @word

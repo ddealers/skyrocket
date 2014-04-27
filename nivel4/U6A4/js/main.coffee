@@ -65,7 +65,6 @@ class U6A4 extends Oda
 						collection: [
 							[{name:'lbl2', opts:{text:'Fred and Adele started performing when they were 12 years old.', success:false}}]
 							[{name:'lbl2', opts:{text:'Adele got married and she stopped performing.', success:true}}]
-							
 							[{name:'btnContinue2', opts:{visible:true}}]
 						]
 						type: 'steps'
@@ -94,7 +93,7 @@ class U6A4 extends Oda
 						collection: [
 							[{name:'lbl3', opts:{text:'Fred made his first movie when he was 16 years old.', success:false}}]
 							[{name:'lbl3', opts:{text:'He made many movies with his wife.', success:false}}]
-							
+							[{name:'btnContinue3', opts:{visible:true}}]
 						]
 						type: 'steps'
 					}
@@ -109,6 +108,10 @@ class U6A4 extends Oda
 							type: 'btn', id: 'btnFalse3', x: 460, y: 555, index: false, target: 'lbl3', eval: @onClick
 							states:[img: {name:'false', x: 0, y: 0, align:'mc'}]
 						}
+						{
+							type: 'btn', id: 'btnContinue3', x: 700, y: 555, index: 'next', target: 'global', visible: false, eval: @continue
+							states:[img: {name:'continue', x: 0, y: 0, align:'mc'}]
+						}
 						{type: 'lbl', id: 'lbl3', x: 400, y: 490, font: '20px Roboto', lineWidth:600, color: '#333', align: 'center'}
 					]
 					groups:[]
@@ -118,7 +121,6 @@ class U6A4 extends Oda
 						collection: [
 							[{name:'lbl4', opts:{text:'Fred made many musical movies.', success:true}}]
 							[{name:'lbl4', opts:{text:'Fred Astaire was famous for his dancing.', success:true}}]
-							
 						]
 						type: 'steps'
 					}

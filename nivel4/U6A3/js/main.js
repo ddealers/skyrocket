@@ -35,32 +35,19 @@ NEW ODA
         }
       ];
       this.evaluateDrop02_01 = function(dispatcher, target) {
-        var complete, drop, _i, _j, _len, _len1, _ref, _ref1;
+        var a, b, complete;
+        a = lib[dispatcher];
+        b = target;
         complete = true;
-        if (lib[dispatcher].index === target.success) {
-          target.update(lib[dispatcher].label.text, true);
+        if (a.index === b.success) {
+          b.update();
+          a.afterSuccess();
+          target.complete = true;
+          return lib.scene.success(true, false);
         } else {
-          target.update(lib[dispatcher].label.text, false);
+          a.afterFail();
+          return lib.scene.fail();
         }
-        lib[dispatcher].afterSuccess();
-        _ref = lib[dispatcher].droptargets;
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          drop = _ref[_i];
-          if (drop.text.text === '') {
-            complete = false;
-          }
-        }
-        if (!complete) {
-          return;
-        }
-        _ref1 = lib[dispatcher].droptargets;
-        for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
-          drop = _ref1[_j];
-          if (drop.complete) {
-            lib.score.plusOne();
-          }
-        }
-        return lib.scene.success(false);
       };
       this.game = {
         header: 'header',
@@ -94,7 +81,7 @@ NEW ODA
                   {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['"My family is the most interesting family I know. ', 'My grandfather', '#rtn', 'Patrick is 82 years old, so he is the', '#tcpt', 'person in the family.', '#rtn', 'My grandfather knows lots of jokes. He is the', '#tcpt', 'member', '#rtn', 'of my family.', '#rtn', '#rtn', 'My little brother Tommy is very cute; my mom says he is the', '#rtn', '#tcpt', 'boy in our town. Tommy is five years old, so he’s the', '#tcpt', '#rtn', 'child in our family.My father is 1.95 meters tall. He plays basketball', '#rtn', 'and he is the', '#tcpt', 'player on his team. My dad has a pet snake', '#rtn', 'called Barney! Barney is not as long as the', '#tcpt', 'snake in the', '#rtn', 'world; that\'s 7.67 meters long! ', 'My mom cooks delicious food.', '#rtn', 'I love her lasagna. She’s the', '#tcpt', 'cook I know! ', '#rtn', '#rtn', 'My dog Sanchez is a large poodle. My mother has a cocker spaniel', '#rtn', 'and my grandma has a chihuahua ', '#rtn', 'called Pepe. Sanchez is the', '#tcpt', 'dog we have, and Pepe is the', '#rtn', '#tcpt', '. We have a car, but it is 20 years old. Our family has', '#rtn', 'the', '#tcpt', 'car in the neighborhood!"'],
+                      pattern: ['"My family is the most interesting family I know. My grandfather', '#rtn', 'Patrick is 82 years old, so he is the', '#tcpt', 'person in the family.', '#rtn', 'My grandfather knows lots of jokes. He is the', '#tcpt', 'member', '#rtn', 'of my family.', '#rtn', '#rtn', 'My little brother Tommy is very cute; my mom says he is the', '#rtn', '#tcpt', 'boy in our town. Tommy is five years old, so he’s the', '#tcpt', '#rtn', 'child in our family.My father is 1.95 meters tall. He plays basketball', '#rtn', 'and he is the', '#tcpt', 'player on his team. My dad has a pet snake', '#rtn', 'called Barney! Barney is not as long as the', '#tcpt', 'snake in the', '#rtn', 'world; that\'s 7.67 meters long! ', 'My mom cooks delicious food.', '#rtn', 'I love her lasagna. She’s the', '#tcpt', 'cook I know! ', '#rtn', '#rtn', 'My dog Sanchez is a large poodle. My mother has a cocker spaniel', '#rtn', 'and my grandma has a chihuahua ', '#rtn', 'called Pepe. Sanchez is the', '#tcpt', 'dog we have, and Pepe is the', '#rtn', '#tcpt', '. We have a car, but it is 20 years old. Our family has', '#rtn', 'the', '#tcpt', 'car in the neighborhood!"'],
                       targets: [
                         {
                           text: 'oldest'
@@ -143,8 +130,11 @@ NEW ODA
                 y: 195,
                 font: '13px Dosis',
                 lineHeight: 16,
+                underline: {
+                  y: 3
+                },
                 margin: 5,
-                scolor: '#F9101A',
+                scolor: '#00629f',
                 stroke: 1,
                 bcolor: 'rgba(255,255,255,0.01)'
               }, {

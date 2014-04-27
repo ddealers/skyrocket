@@ -95,51 +95,59 @@ class U5A4 extends Oda
 
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'thinner'}}
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text2'}}
 								{name: 'pcpt1', opts: {pattern:['Patrick is', '#tcpt','#tcpt', 'Louis.'], targets: [{text: 'thinner'},{text: 'than'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'hotter'}}	
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text3'}}			
 								{name: 'pcpt1', opts: {pattern:['Today is', '#tcpt','#tcpt', 'yesterday.'], targets: [{text: 'hotter'},{text: 'than'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'funnier'}}
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text4'}}			
 								{name: 'pcpt1', opts: {pattern:['This movie is', '#tcpt','#tcpt', '#rtn', 'the other one.'], targets: [{text: 'funnier'},{text: 'than'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'longer'}}	
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text5'}}			
 								{name: 'pcpt1', opts: {pattern:['Roger\'s book is', '#tcpt','#tcpt', 'Paul\'s.'], targets: [{text: 'longer'},{text: 'than'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'stronger'}}
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text6'}}			
 								{name: 'pcpt1', opts: {pattern:['Your brother is ', '#tcpt','#tcpt', 'you.'], targets: [{text: 'stronger'},{text: 'than'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'higher'}}		
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text7'}}		
 								{name: 'pcpt1', opts: {pattern:['She jumps', '#tcpt','#tcpt', 'you.'], targets: [{text: 'higher'},{text: 'than'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'happier'}}	
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text8'}}		
 								{name: 'pcpt1', opts: {pattern:['Laura is', '#tcpt','#tcpt', 'Samuel.'], targets: [{text: 'happier'},{text: 'than'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'harder'}}		
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text9'}}		
 								{name: 'pcpt1', opts: {pattern:['He kicked the ball', '#tcpt','#tcpt','#rtn', 'the other players.'], targets: [{text: 'harder'},{text: 'than'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'farther'}}
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text10'}}
 								{name: 'pcpt1', opts: {pattern:['Andrew lives', '#tcpt', 'from', '#rtn', 'the school', '#tcpt', 'Liz.'], targets: [{text: 'farther'},{text: 'than'}]}}
 							]
-							
 						]
 						mixed: true
 						type: 'limit'

@@ -214,6 +214,12 @@ NEW ODA
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -240,6 +246,12 @@ NEW ODA
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -266,6 +278,12 @@ NEW ODA
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -292,6 +310,12 @@ NEW ODA
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -318,6 +342,12 @@ NEW ODA
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -344,6 +374,12 @@ NEW ODA
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -370,6 +406,12 @@ NEW ODA
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -396,6 +438,12 @@ NEW ODA
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -422,6 +470,12 @@ NEW ODA
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',

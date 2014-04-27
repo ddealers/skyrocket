@@ -63,32 +63,19 @@ NEW ODA
         }
       };
       this.evaluateDrop02_01 = function(dispatcher, target) {
-        var complete, drop, _i, _j, _len, _len1, _ref, _ref1;
+        var a, b, complete;
+        a = lib[dispatcher];
+        b = target;
         complete = true;
-        if (lib[dispatcher].index === target.success) {
-          target.update(lib[dispatcher].label.text, true);
+        if (a.index === b.success) {
+          b.update();
+          a.afterSuccess();
+          target.complete = true;
+          return lib.scene.success(true, false);
         } else {
-          target.update(lib[dispatcher].label.text, false);
+          a.afterFail();
+          return lib.scene.fail();
         }
-        lib[dispatcher].afterSuccess();
-        _ref = lib[dispatcher].droptargets;
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          drop = _ref[_i];
-          if (drop.text.text === '') {
-            complete = false;
-          }
-        }
-        if (!complete) {
-          return;
-        }
-        _ref1 = lib[dispatcher].droptargets;
-        for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
-          drop = _ref1[_j];
-          if (drop.complete) {
-            lib.score.plusOne();
-          }
-        }
-        return lib.scene.success(false);
       };
       this.game = {
         header: 'header',
@@ -108,7 +95,7 @@ NEW ODA
           x: 20,
           y: 500,
           init: 0,
-          total: 14,
+          total: 16,
           aimg: 'c1',
           acolor: '#333',
           bimg: 'c2',
@@ -120,16 +107,16 @@ NEW ODA
               collection: [
                 [
                   {
-                    name: 'pcct1',
+                    name: 'pcpt1',
                     opts: {
                       pattern: ['In the 1970s, men\'s hair was', '#rtn', '#tcpt', '#tcpt', 'it is now.'],
                       targets: [
                         {
-                          text: 'more beautiful',
-                          success: 'longer'
+                          text: 'longer',
+                          maxlength: 'longer'
                         }, {
-                          text: 'more beautiful',
-                          success: 'than'
+                          text: 'than',
+                          maxlength: 'longer'
                         }
                       ]
                     }
@@ -160,16 +147,16 @@ NEW ODA
                   }
                 ], [
                   {
-                    name: 'pcct2',
+                    name: 'pcpt2',
                     opts: {
                       pattern: ['In the 1970s, women\'s skirts were often', '#rtn', '#tcpt', '#tcpt', 'they are now.'],
                       targets: [
                         {
-                          text: 'more beautiful',
-                          success: 'longer'
+                          text: 'longer',
+                          maxlength: 'longer'
                         }, {
-                          text: 'more beautiful',
-                          success: 'than'
+                          text: 'than',
+                          maxlength: 'longer'
                         }
                       ]
                     }
@@ -200,16 +187,16 @@ NEW ODA
                   }
                 ], [
                   {
-                    name: 'pcct3',
+                    name: 'pcpt3',
                     opts: {
                       pattern: ['When my parents were young, radios were', '#rtn', '#tcpt', '#tcpt', 'than they are now.'],
                       targets: [
                         {
-                          text: 'more beautiful',
-                          success: 'bigger'
+                          text: 'bigger',
+                          maxlength: 'bigger'
                         }, {
-                          text: 'more beautiful',
-                          success: 'than'
+                          text: 'than',
+                          maxlength: 'bigger'
                         }
                       ]
                     }
@@ -240,16 +227,16 @@ NEW ODA
                   }
                 ], [
                   {
-                    name: 'pcct4',
+                    name: 'pcpt4',
                     opts: {
                       pattern: ['My grandma loved the 1970s.', '#rtn', 'She was', '#tcpt', '#tcpt', 'she is now.'],
                       targets: [
                         {
-                          text: 'more beautiful',
-                          success: 'happier'
+                          text: 'happier',
+                          maxlength: 'happier'
                         }, {
-                          text: 'more beautiful',
-                          success: 'than'
+                          text: 'than',
+                          maxlength: 'happier'
                         }
                       ]
                     }
@@ -280,16 +267,16 @@ NEW ODA
                   }
                 ], [
                   {
-                    name: 'pcct5',
+                    name: 'pcpt5',
                     opts: {
                       pattern: ['Cars were a lot', '#tcpt', ' in the 1970s', '#rtn', '#tcpt', 'they are now.'],
                       targets: [
                         {
-                          text: 'more beautiful',
-                          success: 'slower'
+                          text: 'slower',
+                          maxlength: 'slower'
                         }, {
-                          text: 'more beautiful',
-                          success: 'than'
+                          text: 'than',
+                          maxlength: 'slower'
                         }
                       ]
                     }
@@ -320,16 +307,16 @@ NEW ODA
                   }
                 ], [
                   {
-                    name: 'pcct6',
+                    name: 'pcpt6',
                     opts: {
                       pattern: ['I don\'t like the clothes from the 1970s.', '#rtn', 'I think they were', '#tcpt', '#tcpt', 'our clothes now.'],
                       targets: [
                         {
-                          text: 'more beautiful',
-                          success: 'uglier'
+                          text: 'uglier',
+                          maxlength: 'more beautiful'
                         }, {
-                          text: 'more beautiful',
-                          success: 'than'
+                          text: 'than',
+                          maxlength: 'more beautiful'
                         }
                       ]
                     }
@@ -360,16 +347,16 @@ NEW ODA
                   }
                 ], [
                   {
-                    name: 'pcct7',
+                    name: 'pcpt7',
                     opts: {
                       pattern: ['In the 1970s, phones were much', '#rtn', '#tcpt', '#tcpt', 'our phones today.'],
                       targets: [
                         {
-                          text: 'more beautiful',
-                          success: 'heavier'
+                          text: 'heavier',
+                          maxlength: 'heavier'
                         }, {
-                          text: 'more beautiful',
-                          success: 'than'
+                          text: 'than',
+                          maxlength: 'heavier'
                         }
                       ]
                     }
@@ -400,16 +387,16 @@ NEW ODA
                   }
                 ], [
                   {
-                    name: 'pcct8',
+                    name: 'pcpt8',
                     opts: {
                       pattern: ['In the 1970s people traveled by ship.', '#rtn', 'They were a lot', '#tcpt', '#tcpt', 'cars and planes.'],
                       targets: [
                         {
-                          text: 'more beautiful',
-                          success: 'slower'
+                          text: 'slower',
+                          maxlength: 'slower'
                         }, {
-                          text: 'more beautiful',
-                          success: 'than'
+                          text: 'than',
+                          maxlength: 'slower'
                         }
                       ]
                     }
@@ -484,76 +471,108 @@ NEW ODA
                 x: 700,
                 y: 412
               }, {
-                type: 'pcct',
-                id: 'pcct1',
+                type: 'pcpt',
+                id: 'pcpt1',
                 x: 170,
                 y: 190,
                 font: '12px Quicksand',
+                lineHeight: 14,
+                underline: {
+                  y: 0
+                },
                 margin: 10,
-                scolor: '#F9101A',
+                scolor: '#009046',
                 stroke: 2
               }, {
-                type: 'pcct',
-                id: 'pcct2',
+                type: 'pcpt',
+                id: 'pcpt2',
                 x: 170,
                 y: 225,
                 font: '12px Quicksand',
+                lineHeight: 14,
+                underline: {
+                  y: 0
+                },
                 margin: 10,
-                scolor: '#F9101A',
+                scolor: '#009046',
                 stroke: 2
               }, {
-                type: 'pcct',
-                id: 'pcct3',
+                type: 'pcpt',
+                id: 'pcpt3',
                 x: 170,
                 y: 260,
                 font: '12px Quicksand',
+                lineHeight: 14,
+                underline: {
+                  y: 0
+                },
                 margin: 10,
-                scolor: '#F9101A',
+                scolor: '#009046',
                 stroke: 2
               }, {
-                type: 'pcct',
-                id: 'pcct4',
+                type: 'pcpt',
+                id: 'pcpt4',
                 x: 170,
                 y: 295,
                 font: '12px Quicksand',
+                lineHeight: 14,
+                underline: {
+                  y: 0
+                },
                 margin: 10,
-                scolor: '#F9101A',
+                scolor: '#009046',
                 stroke: 2
               }, {
-                type: 'pcct',
-                id: 'pcct5',
+                type: 'pcpt',
+                id: 'pcpt5',
                 x: 170,
                 y: 330,
                 font: '12px Quicksand',
+                lineHeight: 14,
+                underline: {
+                  y: 0
+                },
                 margin: 10,
-                scolor: '#F9101A',
+                scolor: '#009046',
                 stroke: 2
               }, {
-                type: 'pcct',
-                id: 'pcct6',
+                type: 'pcpt',
+                id: 'pcpt6',
                 x: 170,
                 y: 365,
                 font: '12px Quicksand',
+                lineHeight: 14,
+                underline: {
+                  y: 0
+                },
                 margin: 10,
-                scolor: '#F9101A',
+                scolor: '#009046',
                 stroke: 2
               }, {
-                type: 'pcct',
-                id: 'pcct7',
+                type: 'pcpt',
+                id: 'pcpt7',
                 x: 170,
                 y: 400,
                 font: '12px Quicksand',
+                lineHeight: 14,
+                underline: {
+                  y: 0
+                },
                 margin: 10,
-                scolor: '#F9101A',
+                scolor: '#009046',
                 stroke: 2
               }, {
-                type: 'pcct',
-                id: 'pcct8',
+                type: 'pcpt',
+                id: 'pcpt8',
                 x: 170,
                 y: 435,
                 font: '12px Quicksand',
+                lineHeight: 14,
+                underline: {
+                  y: 0
+                },
                 margin: 10,
-                scolor: '#F9101A',
+                scolor: '#009046',
                 stroke: 2
               }, {
                 type: 'txt',
@@ -636,7 +655,7 @@ NEW ODA
                 text: 'than',
                 font: '15px Quicksand',
                 color: '#333',
-                target: ['pcct1', 'pcct2', 'pcct3', 'pcct4', 'pcct5', 'pcct6', 'pcct7', 'pcct8'],
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -649,7 +668,7 @@ NEW ODA
                 text: 'longer',
                 font: '15px Quicksand',
                 color: '#333',
-                target: ['pcct1', 'pcct2', 'pcct3', 'pcct4', 'pcct5', 'pcct6', 'pcct7', 'pcct8'],
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -662,7 +681,7 @@ NEW ODA
                 text: 'shorter',
                 font: '15px Quicksand',
                 color: '#333',
-                target: ['pcct1', 'pcct2', 'pcct3', 'pcct4', 'pcct5', 'pcct6', 'pcct7', 'pcct8'],
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -675,7 +694,7 @@ NEW ODA
                 text: 'shorter',
                 font: '15px Quicksand',
                 color: '#333',
-                target: ['pcct1', 'pcct2', 'pcct3', 'pcct4', 'pcct5', 'pcct6', 'pcct7', 'pcct8'],
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -688,7 +707,7 @@ NEW ODA
                 text: 'longer',
                 font: '15px Quicksand',
                 color: '#333',
-                target: ['pcct1', 'pcct2', 'pcct3', 'pcct4', 'pcct5', 'pcct6', 'pcct7', 'pcct8'],
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -701,7 +720,7 @@ NEW ODA
                 text: 'large',
                 font: '15px Quicksand',
                 color: '#333',
-                target: ['pcct1', 'pcct2', 'pcct3', 'pcct4', 'pcct5', 'pcct6', 'pcct7', 'pcct8'],
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -714,7 +733,7 @@ NEW ODA
                 text: 'bigger',
                 font: '15px Quicksand',
                 color: '#333',
-                target: ['pcct1', 'pcct2', 'pcct3', 'pcct4', 'pcct5', 'pcct6', 'pcct7', 'pcct8'],
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -727,7 +746,7 @@ NEW ODA
                 text: 'happier',
                 font: '15px Quicksand',
                 color: '#333',
-                target: ['pcct1', 'pcct2', 'pcct3', 'pcct4', 'pcct5', 'pcct6', 'pcct7', 'pcct8'],
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -740,7 +759,7 @@ NEW ODA
                 text: 'happy',
                 font: '15px Quicksand',
                 color: '#333',
-                target: ['pcct1', 'pcct2', 'pcct3', 'pcct4', 'pcct5', 'pcct6', 'pcct7', 'pcct8'],
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -753,7 +772,7 @@ NEW ODA
                 text: 'slower',
                 font: '15px Quicksand',
                 color: '#333',
-                target: ['pcct1', 'pcct2', 'pcct3', 'pcct4', 'pcct5', 'pcct6', 'pcct7', 'pcct8'],
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -766,7 +785,7 @@ NEW ODA
                 text: 'faster',
                 font: '15px Quicksand',
                 color: '#333',
-                target: ['pcct1', 'pcct2', 'pcct3', 'pcct4', 'pcct5', 'pcct6', 'pcct7', 'pcct8'],
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -779,7 +798,7 @@ NEW ODA
                 text: 'more beautiful',
                 font: '15px Quicksand',
                 color: '#333',
-                target: ['pcct1', 'pcct2', 'pcct3', 'pcct4', 'pcct5', 'pcct6', 'pcct7', 'pcct8'],
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -792,7 +811,7 @@ NEW ODA
                 text: 'uglier',
                 font: '15px Quicksand',
                 color: '#333',
-                target: ['pcct1', 'pcct2', 'pcct3', 'pcct4', 'pcct5', 'pcct6', 'pcct7', 'pcct8'],
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -805,7 +824,7 @@ NEW ODA
                 text: 'heavier',
                 font: '15px Quicksand',
                 color: '#333',
-                target: ['pcct1', 'pcct2', 'pcct3', 'pcct4', 'pcct5', 'pcct6', 'pcct7', 'pcct8'],
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -818,7 +837,7 @@ NEW ODA
                 text: 'big',
                 font: '15px Quicksand',
                 color: '#333',
-                target: ['pcct1', 'pcct2', 'pcct3', 'pcct4', 'pcct5', 'pcct6', 'pcct7', 'pcct8'],
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -831,7 +850,7 @@ NEW ODA
                 text: 'slow',
                 font: '15px Quicksand',
                 color: '#333',
-                target: ['pcct1', 'pcct2', 'pcct3', 'pcct4', 'pcct5', 'pcct6', 'pcct7', 'pcct8'],
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'

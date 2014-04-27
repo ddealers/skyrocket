@@ -65,30 +65,62 @@ NEW ODA
           src: 'silence.mp3'
         }
       ];
-      this.btnClick = function(dispatcher, target) {
-        var a, b, c, d, t, verb;
-        d = lib[dispatcher];
-        t = lib[target];
-        a = d.index;
-        b = t.droptargets;
-        c = t.currentTarget;
-        console.log(d, t, a, b, c);
-        console.log(a, b[c].success);
-        if (a === b[c].success) {
-          verb = prompt("Enter the correct form of " + d.index);
-          if (verb === b[c].text.text) {
-            b[c].complete = true;
-            b[c].update();
-            t.currentTarget++;
+      this.onkeydown = function(e) {
+        var fail, keycode, pattern, str, target, word, _i, _len, _ref;
+        e.preventDefault();
+        e.stopPropagation();
+        word = '';
+        keycode = e.keyCode || e.which;
+        console.log(keycode);
+        pattern = /[a-z]/i;
+        str = String.fromCharCode(keycode);
+        target = lib[window.target].getEnabledTarget();
+        if (keycode === 8) {
+          return target.write('<-');
+        } else if (keycode === 13) {
+          fail = false;
+          _ref = lib[window.target].droptargets;
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            target = _ref[_i];
+            if (target.success === target.write()) {
+              target.complete = true;
+            } else {
+              fail = true;
+              lib.scene.fail();
+            }
           }
-          if (t.currentTarget === b.length) {
-            return lib.scene.success();
-          } else {
-            return lib.scene.fail();
+          if (!fail) {
+            return lib.scene.success(true, false);
           }
-        } else {
-          return lib.scene.fail(false);
+        } else if (keycode === 32) {
+          return target.write('-');
+        } else if (pattern.test(str)) {
+          return target.write(str.toLowerCase());
         }
+      };
+      this.btnClick = function(dispatcher, target) {
+        /*
+        			d = lib[dispatcher]
+        			t = lib[target]
+        			a = d.index
+        			b = t.droptargets
+        			c = t.currentTarget
+        			console.log d,t,a,b,c
+        			console.log a, b[c].success
+        			if a is b[c].success
+        				verb = prompt "Enter the correct form of #{d.index}"
+        				if verb is b[c].text.text
+        					b[c].complete = true
+        					b[c].update()
+        					t.currentTarget++
+        				if t.currentTarget is b.length
+        					lib.scene.success()
+        				else
+        					lib.scene.fail()
+        			else
+        				lib.scene.fail false
+        */
+
       };
       this.game = {
         header: 'header',
@@ -120,6 +152,12 @@ NEW ODA
               collection: [
                 [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -131,14 +169,19 @@ NEW ODA
                       pattern: ['Oh no! The car', '#tcpt', 'the children!'],
                       targets: [
                         {
-                          text: 'is going to hit',
-                          success: 'hit'
+                          text: 'is going to hit'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -147,17 +190,22 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['Oh no, the gas truck', '#tcpt', '! '],
+                      pattern: ['Oh no, the gas truck', '#tcpt', '!'],
                       targets: [
                         {
-                          text: 'is going to explode',
-                          success: 'explode'
+                          text: 'is going to explode'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -166,17 +214,22 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['Help! The wolf man', '#tcpt', 'escape', 'rtn', ' with the baby!'],
+                      pattern: ['Help! The wolf man', '#tcpt', '#rtn', ' with the baby!'],
                       targets: [
                         {
-                          text: 'is going to escape',
-                          success: 'escape'
+                          text: 'is going to escape'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -188,14 +241,19 @@ NEW ODA
                       pattern: ['Help! The baby', '#tcpt', '!'],
                       targets: [
                         {
-                          text: 'is going to fall',
-                          success: 'fall'
+                          text: 'is going to fall'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -207,14 +265,19 @@ NEW ODA
                       pattern: ['Do something! The bus', '#tcpt', 'into the tree!'],
                       targets: [
                         {
-                          text: 'is going to crash',
-                          success: 'crash'
+                          text: 'is going to crash'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -226,8 +289,7 @@ NEW ODA
                       pattern: ['Oh no! The swing', '#tcpt', 'and then', '#rtn', ' the child is going to fall.'],
                       targets: [
                         {
-                          text: 'is going to break',
-                          success: 'break'
+                          text: 'is going to break'
                         }
                       ]
                     }
@@ -245,14 +307,19 @@ NEW ODA
                       pattern: ['Hurry! The car', '#tcpt', 'the girl!'],
                       targets: [
                         {
-                          text: 'is going to hit',
-                          success: 'hit'
+                          text: 'is going to hit'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -264,14 +331,19 @@ NEW ODA
                       pattern: ['Look! There are many clouds. It', '#tcpt', '.'],
                       targets: [
                         {
-                          text: 'is going to rain',
-                          success: 'rain'
+                          text: 'is going to rain'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -283,14 +355,19 @@ NEW ODA
                       pattern: ['Quickly! The man on the ladder', '#tcpt', '!'],
                       targets: [
                         {
-                          text: 'is going to fall',
-                          success: 'fall'
+                          text: 'is going to fall'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -302,8 +379,7 @@ NEW ODA
                       pattern: ['Look! The man', '#tcpt', 'the swimmer. Good!'],
                       targets: [
                         {
-                          text: 'is going to help',
-                          success: 'help'
+                          text: 'is going to help'
                         }
                       ]
                     }
@@ -311,8 +387,7 @@ NEW ODA
                 ]
               ],
               mixed: true,
-              type: 'limit',
-              limit: 10
+              type: 'steps'
             },
             containers: [
               {
@@ -381,9 +456,12 @@ NEW ODA
                 x: 450,
                 y: 510,
                 font: '24px Quicksand',
+                underline: {
+                  y: 0
+                },
                 margin: 5,
                 align: 'tc',
-                scolor: '#F9101A'
+                scolor: '#009046'
               }, {
                 type: 'btn',
                 id: 'btn_1',
@@ -391,6 +469,7 @@ NEW ODA
                 y: 220,
                 index: 'break',
                 target: 'pcpt1',
+                noHover: true,
                 "eval": this.btnClick,
                 states: [
                   {
@@ -411,6 +490,7 @@ NEW ODA
                 y: 250,
                 index: 'crash',
                 target: 'pcpt1',
+                noHover: true,
                 "eval": this.btnClick,
                 states: [
                   {
@@ -431,6 +511,7 @@ NEW ODA
                 y: 280,
                 index: 'escape',
                 target: 'pcpt1',
+                noHover: true,
                 "eval": this.btnClick,
                 states: [
                   {
@@ -451,6 +532,7 @@ NEW ODA
                 y: 310,
                 index: 'explode',
                 target: 'pcpt1',
+                noHover: true,
                 "eval": this.btnClick,
                 states: [
                   {
@@ -471,6 +553,7 @@ NEW ODA
                 y: 340,
                 index: 'fall',
                 target: 'pcpt1',
+                noHover: true,
                 "eval": this.btnClick,
                 states: [
                   {
@@ -491,6 +574,7 @@ NEW ODA
                 y: 370,
                 index: 'help',
                 target: 'pcpt1',
+                noHover: true,
                 "eval": this.btnClick,
                 states: [
                   {
@@ -511,6 +595,7 @@ NEW ODA
                 y: 400,
                 index: 'hit',
                 target: 'pcpt1',
+                noHover: true,
                 "eval": this.btnClick,
                 states: [
                   {
@@ -531,6 +616,7 @@ NEW ODA
                 y: 430,
                 index: 'rain',
                 target: 'pcpt1',
+                noHover: true,
                 "eval": this.btnClick,
                 states: [
                   {

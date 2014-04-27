@@ -503,7 +503,7 @@ NEW ODA
                   }
                 ]
               ],
-              mixed: false,
+              mixed: true,
               type: 'steps'
             },
             containers: [
@@ -579,9 +579,10 @@ NEW ODA
                 x: 433,
                 y: 450,
                 font: '20px Quicksand',
+                lineHeight: 20,
                 margin: 5,
                 align: 'tc',
-                scolor: '#F9101A'
+                scolor: '#009046'
               }, {
                 type: 'abc',
                 id: 'abc1',

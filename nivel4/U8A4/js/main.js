@@ -540,7 +540,8 @@ NEW ODA
                 ]
               ],
               mixed: true,
-              type: 'steps'
+              type: 'limit',
+              limit: 10
             },
             containers: [
               {
@@ -598,9 +599,12 @@ NEW ODA
                 y: 520,
                 font: '20px Quicksand',
                 lineHeight: 35,
+                underline: {
+                  y: 0
+                },
                 margin: 5,
                 align: 'tc',
-                scolor: '#F9101A'
+                scolor: '#009046'
               }, {
                 type: 'txt',
                 id: 'txt1',

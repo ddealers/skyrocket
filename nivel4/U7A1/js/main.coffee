@@ -21,12 +21,8 @@ class U7A1 extends Oda
 			{id:'recordplayer', src: 'record_player.png'}
 			{id:'toaster', src: 'Toaster.png'}
 			{id:'typewriter', src: 'typewriter.png'}
-
 			{ id: 's/silence' , src: 'silence.mp3' }
-
-			
 		]
-		
 		@game = 
 			header: 'header'
 			instructions: {x: 110, y: 130, states: [{text:'Read and click on the letters to complete the words.', sound:'s/silence', played: false}]}
@@ -39,19 +35,11 @@ class U7A1 extends Oda
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'cassetteplayer'}}
 								{name: 'pcpt1', opts:{pattern:['My dad used to play music on a','#rtn', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', ' ', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt','.'], targets: [{text:'c', width: 30},{text:'a', width: 30},{text:'s', width: 30},{text:'s', width: 30},{text:'e', width: 30},{text:'t', width: 30},{text:'t', width: 30},{text:'e', width: 30},{text:'p', width: 30},{text:'l', width: 30},{text:'a', width: 30},{text:'y', width: 30},{text:'e', width: 30},{text:'r', width: 30}]}}
 							]
-
-							
-							
-
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'phone'}}
 								{name: 'pcpt1', opts:{pattern:['Look at this', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt','. It\'s so big!'], targets: [{text:'p', width: 30},{text:'h', width: 30},{text:'o', width: 30},{text:'n', width: 30},{text:'e', width: 30}]}}
 							]
-
-
-
 							[
-
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'blender'}}
 								{name: 'pcpt1', opts:{pattern:['To make a creamy soup, put the vegetables in a', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt','.'], targets: [{text:'b', width: 30},{text:'l', width: 30},{text:'e', width: 30},{text:'n', width: 30},{text:'d', width: 30},{text:'e', width: 30},{text:'r', width: 30}]}}
 							]
@@ -59,10 +47,6 @@ class U7A1 extends Oda
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'toaster'}}
 								{name: 'pcpt1', opts:{pattern:['I found my grandma\'s old', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt','.','#rtn','She used to make me toast every morning. '], targets: [{text:'t', width: 30},{text:'o', width: 30},{text:'a', width: 30},{text:'s', width: 30},{text:'t', width: 30},{text:'e', width: 30},{text:'r', width: 30}]}}
 							]
-
-
-
-
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'juicer'}}
 								{name: 'pcpt1', opts:{pattern:['My mom used to make fruit juice every morning.','#rtn','She used a', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt','.'], targets: [{text:'j', width: 30},{text:'u', width: 30},{text:'i', width: 30},{text:'c', width: 30},{text:'e', width: 30},{text:'r', width: 30}]}}
@@ -84,16 +68,13 @@ class U7A1 extends Oda
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'recordplayer'}}
 								{name: 'pcpt1', opts:{pattern:['Instead of a CD player, people used to use a','#rtn', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', ' ',  '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt','.'], targets: [{text:'r', width: 30},{text:'e', width: 30},{text:'c', width: 30},{text:'o', width: 30},{text:'r', width: 30},{text:'d', width: 30},{text:'p', width: 30},{text:'l', width: 30},{text:'a', width: 30},{text:'y', width: 30},{text:'e', width: 30},{text:'r', width: 30}]}}
 							]
-
-							
-
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'typewriter'}}
 								{name: 'pcpt1', opts:{pattern:['People used to write with','#rtn', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt',',','#rtn','not with computers.'], targets: [{text:'t', width: 30},{text:'y', width: 30},{text:'p', width: 30},{text:'e', width: 30},{text:'w', width: 30},{text:'r', width: 30},{text:'i', width: 30},{text:'t', width: 30},{text:'e', width: 30},{text:'r', width: 30},{text:'s', width: 30}]}}
 							]
 						]
 						
-						mixed: false
+						mixed: true
 						type: 'steps'
 					}
 					containers:[
@@ -108,17 +89,8 @@ class U7A1 extends Oda
 						{type: 'img', id: 'recordplayer', x: 433, y: 300, align: 'mc'}
 						{type: 'img', id: 'toaster', x: 433, y: 300, align: 'mc'}
 						{type: 'img', id: 'typewriter', x: 433, y: 300, align: 'mc'}
-
-						{type: 'pcpt', id: 'pcpt1', x: 433, y: 450, font: '20px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A'}
-
-
-
-						
-						
+						{type: 'pcpt', id: 'pcpt1', x: 433, y: 450, font: '20px Quicksand', lineHeight: 20, margin: 5, align: 'tc', scolor: '#009046'}
 						{type: 'abc', id: 'abc1', x: 400, y: 540, font:'20px Quicksand', fcolor:'#333', uwidth: 22, uheight: 34, margin: 10, target:'pcpt1', eval: 'click_O1', clickable:true }
-
-
-
 					]
 					groups:[
 						{

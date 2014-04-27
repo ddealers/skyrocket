@@ -132,7 +132,8 @@ class U8A4 extends Oda
 							
 						]
 						mixed: true
-						type: 'steps'
+						type: 'limit'
+						limit: 10
 					}
 					
 					containers:[
@@ -144,13 +145,9 @@ class U8A4 extends Oda
 						{type: 'img',  id:'telepathy' , x: 400, y: 308, align: 'mc'}
 						{type: 'img',  id:'thieves' , x: 400, y: 308, align: 'mc'}
 						{type: 'img',  id:'wind' , x: 400, y: 308, align: 'mc'}
-
-
-						{type: 'pcpt', id: 'pcpt1', x: 433, y: 520, font: '20px Quicksand',lineHeight:35, margin: 5, align: 'tc', scolor: '#F9101A'}
+						{type: 'pcpt', id: 'pcpt1', x: 433, y: 520, font: '20px Quicksand', lineHeight:35, underline: {y:0}, margin: 5, align: 'tc', scolor: '#009046'}
 						{type: 'txt', id: 'txt1', text:'/', x: 316, y: 460, font:'20px Quicksand', align: 'center', lineWidth: 250}
 						{type: 'txt', id: 'txt1', text:'/', x: 520, y: 460, font:'20px Quicksand', align: 'center', lineWidth: 250}
-
-
 						{
 							type: 'btn', id: 'aregoingto', x: 200, y: 460, index: 'are going to', target: 'pcpt1', eval: @btnClick
 							states: [{txt: {text:'are going to', name: 'are going to', x:0, y:0, align:'center', font:'20px Quicksand'}}]
@@ -175,8 +172,6 @@ class U8A4 extends Oda
 							type: 'btn', id: 'aregoing', x: 200, y: 460, index: 'are going', target: 'pcpt1', eval: @btnClick
 							states: [{txt: {text:'are going', name: 'are going', x:0, y:0, align:'center', font:'20px Quicksand'}}]
 						}
-
-
 						{
 							type: 'btn', id: 'aregoingto2', x: 420, y: 460, index: 'are going to', target: 'pcpt1', eval: @btnClick
 							states: [{txt: {text:'are going to', name: 'are going to', x:0, y:0, align:'center', font:'20px Quicksand'}}]
@@ -201,8 +196,6 @@ class U8A4 extends Oda
 							type: 'btn', id: 'aregoing2', x: 420, y: 460, index: 'are going', target: 'pcpt1', eval: @btnClick
 							states: [{txt: {text:'are going', name: 'are going', x:0, y:0, align:'center', font:'20px Quicksand'}}]
 						}
-
-						
 						{
 							type: 'btn', id: 'aregoingto3', x: 620, y: 460, index: 'are going to', target: 'pcpt1', eval: @btnClick
 							states: [{txt: {text:'are going to', name: 'are going to', x:0, y:0, align:'center', font:'20px Quicksand'}}]

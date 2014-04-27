@@ -3268,7 +3268,7 @@ LIBRARY
     };
 
     PhraseCompleterContainer.prototype.update = function(opts) {
-      var align, h, h2, hopts, i, maxWidth, npos, t, txt, ypos, _i, _len, _ref2, _ref3, _ref4;
+      var align, first, h, h2, hopts, i, maxWidth, npos, t, txt, ypos, _i, _len, _ref2, _ref3, _ref4;
       this.removeAllChildren();
       if (opts.h2) {
         align = (_ref2 = opts.h2.align) != null ? _ref2 : '';
@@ -3328,7 +3328,8 @@ LIBRARY
             }
           }
         } else {
-          if (t === '.' || t === '!' || t === '?' || t === ',') {
+          first = t.charAt(0);
+          if (first === '.' || first === '!' || first === '?' || first === ',') {
             npos -= this.margin;
           }
           h = this.createText('txt', t, this.font, this.fcolor, npos, ypos);
@@ -3779,7 +3780,8 @@ LIBRARY
       _results = [];
       for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
         target = _ref2[_i];
-        _results.push(target.clearBackground());
+        target.clearBackground();
+        _results.push(target.setRectOutline(this.bcolor, this.stroke, this.scolor));
       }
       return _results;
     };
@@ -4324,6 +4326,8 @@ LIBRARY
       }
       if (char === '<-') {
         this.word = this.word.slice(0, this.word.length - 1);
+      } else if (char === '-') {
+        this.word += ' ';
       } else {
         this.word += char;
       }
