@@ -13,7 +13,6 @@ NEW ODA
     __extends(U6A1, _super);
 
     function U6A1() {
-      var _this = this;
       this.manifest = [
         {
           id: 'banjo',
@@ -134,19 +133,6 @@ NEW ODA
           src: 'silence.mp3'
         }
       ];
-      this.evaluateGlobal01 = function(dispatcher, target) {
-        console.log(lib[dispatcher].index, target.opts);
-        if (lib[dispatcher].index === this.success) {
-          return lib.scene.success();
-        } else {
-          return lib.scene.fail();
-        }
-      };
-      this["continue"] = function(dispatcher) {
-        var d;
-        d = lib[dispatcher];
-        return lib.scene.nextStep();
-      };
       this.game = {
         header: 'header',
         instructions: {
@@ -179,84 +165,74 @@ NEW ODA
                   {
                     name: 'global',
                     opts: {
-                      success: 'banjo'
+                      success: 'global'
                     }
                   }, {
-                    name: 'snd',
-                    opts: {
-                      id: 's/banjo'
-                    }
-                  }
-                ], [
-                  {
-                    name: 'global',
-                    opts: {
-                      success: 'clarinet'
-                    }
-                  }, {
-                    name: 'snd',
-                    opts: {
-                      id: 's/clarinet'
-                    }
-                  }
-                ], [
-                  {
-                    name: 'global',
-                    opts: {
-                      success: 'trumpet'
-                    }
-                  }, {
-                    name: 'snd',
-                    opts: {
-                      id: 's/trumpet'
-                    }
-                  }
-                ], [
-                  {
-                    name: 'global',
-                    opts: {
-                      success: 'trombone'
-                    }
-                  }, {
-                    name: 'snd',
-                    opts: {
-                      id: 's/trombone'
-                    }
-                  }
-                ], [
-                  {
-                    name: 'global',
-                    opts: {
-                      success: 'piano'
-                    }
-                  }, {
-                    name: 'snd',
-                    opts: {
-                      id: 's/piano'
-                    }
-                  }
-                ], [
-                  {
-                    name: 'global',
-                    opts: {
-                      success: 'tuba'
-                    }
-                  }, {
-                    name: 'snd',
-                    opts: {
-                      id: 's/tuba'
-                    }
+                    name: 'cards1',
+                    opts: {}
                   }
                 ]
               ],
               mixed: false,
-              type: 'limit',
-              limit: 6
+              type: 'steps'
             },
             containers: [
               {
                 type: 'crd',
-                id: 'btn1',
+                id: 'cards1',
+                x: 200,
+                y: 260,
+                index: '',
+                target: 'global',
+                card: 'caja',
+                "eval": 'global_03',
+                distx: 200,
+                disty: 150,
+                cols: 3,
+                cartas: ['musician', 'painter', 'dancers', 'comedian', 'singers', 'jazzband']
+              }, {
+                type: 'btn',
+                id: 'repeat',
+                x: 400,
+                y: 550,
+                align: '',
+                isRepeat: true,
+                visible: true,
+                states: [
+                  {
+                    img: {
+                      name: 'repeat',
+                      x: 0,
+                      y: 0,
+                      align: 'mc'
+                    }
+                  }
+                ]
+              }
+            ],
+            groups: []
+          }, {
+            answers: {
+              collection: [
+                [
+                  {
+                    name: 'global',
+                    opts: {
+                      success: 'global'
+                    }
+                  }, {
+                    name: 'cards2',
+                    opts: {}
+                  }
+                ]
+              ],
+              mixed: false,
+              type: 'steps'
+            },
+            containers: [
+              {
+                type: 'crd',
+                id: 'cards2',
                 x: 200,
                 y: 260,
                 index: '',
@@ -269,12 +245,12 @@ NEW ODA
                 cartas: ['banjo', 'clarinet', 'trumpet', 'trombone', 'piano', 'tuba', 'saxophone', 'jazzband']
               }, {
                 type: 'btn',
-                id: 'repeat',
+                id: 'repeat2',
                 x: 400,
                 y: 550,
                 align: '',
                 isRepeat: true,
-                visible: false,
+                visible: true,
                 states: [
                   {
                     img: {

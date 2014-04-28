@@ -580,20 +580,15 @@ LIBRARY
         }
       };
 
-      Evaluator.evaluateGlobal03 = function(dispatcher, target) {
-        console.log(target);
-        if (lib[dispatcher].index === this.success) {
-          lib.scene.success();
-          return lib[dispatcher].updateState();
-        } else {
-          return lib.scene.fail();
-        }
-      };
-
-      Evaluator.evaluateGlobal02 = function(dispatcher) {
-        if (lib[dispatcher].index === this.success) {
-          lib.scene.success();
-          return lib.scene.nextStep();
+      Evaluator.evaluateGlobal03 = function(dispatcher) {
+        if (lib[dispatcher].index === d2oda.evaluator.success) {
+          lib[dispatcher].updateState();
+          lib[dispatcher].parent.nextCard();
+          if (lib[dispatcher].parent.i === lib[dispatcher].parent.shuffleAnswers.length) {
+            return lib.scene.success();
+          } else {
+            return lib.score.plusOne();
+          }
         } else {
           return lib.scene.fail();
         }
@@ -2544,28 +2539,31 @@ LIBRARY
     }
 
     CardContainer.prototype.initialize = function(opts) {
-      var cardcollection, carta, cartas, d, i, lopts, shucartas, x, y, _i, _len, _ref2, _ref3;
+      var _ref2, _ref3;
       this.Container_initialize();
       Module.extend(this, d2oda.methods);
       this.x = opts.x;
       this.y = opts.y;
       this.name = (_ref2 = opts.name) != null ? _ref2 : opts.id;
-      cartas = opts.cartas;
+      this.cartas = opts.cartas;
       this.fila = 0;
       this.card = opts.card;
       this.cols = opts.cols;
       this.distx = opts.distx;
       this.disty = opts.disty;
       this.target = (_ref3 = opts.target) != null ? _ref3 : 'global';
-      this["eval"] = opts["eval"];
+      return this["eval"] = opts["eval"];
+    };
+
+    CardContainer.prototype.update = function(opts) {
+      var cardcollection, carta, d, i, lopts, shuffleAnswers, shuffledCartas, x, y, _i, _len;
       this.currentX = 0;
       this.currentCard = 0;
       i = 0;
       cardcollection = new Array();
-      shucartas = d2oda.utilities.shuffleNoRepeat(cartas, 6);
-      console.log(lib[0]);
-      for (_i = 0, _len = cartas.length; _i < _len; _i++) {
-        carta = cartas[_i];
+      shuffledCartas = d2oda.utilities.shuffleNoRepeat(this.cartas, 6);
+      for (_i = 0, _len = shuffledCartas.length; _i < _len; _i++) {
+        carta = shuffledCartas[_i];
         x = this.currentX * this.distx;
         y = this.fila * this.disty;
         lopts = {
@@ -2612,15 +2610,30 @@ LIBRARY
           this.fila++;
         }
       }
-      return this.delay(7000, function() {
-        var card, _j, _len1, _results;
-        _results = [];
+      this.shuffleAnswers = shuffleAnswers = d2oda.utilities.shuffleNoRepeat(shuffledCartas, 6);
+      this.delay(5000, function() {
+        var _j, _len1;
         for (_j = 0, _len1 = cardcollection.length; _j < _len1; _j++) {
-          card = cardcollection[_j];
-          _results.push(card.updateState());
+          carta = cardcollection[_j];
+          carta.updateState();
+          this.checkcard;
         }
-        return _results;
+        d2oda.evaluator.success = shuffleAnswers[0];
+        return createjs.Sound.play("s/" + shuffleAnswers[0]);
       });
+      lib.scene.snd = "s/" + this.shuffleAnswers[0];
+      return this.i = 0;
+    };
+
+    CardContainer.prototype.nextCard = function() {
+      this.i++;
+      createjs.Sound.stop();
+      if (this.i < this.shuffleAnswers.length) {
+        d2oda.evaluator.success = this.shuffleAnswers[this.i];
+        console.log(d2oda.evaluator.success);
+        lib.scene.snd = "s/" + this.shuffleAnswers[this.i];
+        return createjs.Sound.play("s/" + this.shuffleAnswers[this.i]);
+      }
     };
 
     CardContainer.prototype.isComplete = function() {

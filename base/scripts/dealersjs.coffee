@@ -243,18 +243,16 @@ window.d2oda.evaluator ?= class Evaluator
 			lib.scene.success()
 		else
 			lib.scene.fail()
-	@evaluateGlobal03 = (dispatcher, target) ->
-		console.log target
-		if lib[dispatcher].index is @success
-			lib.scene.success()
-			lib[dispatcher].updateState()
-
-		else
-			lib.scene.fail()
-	@evaluateGlobal02 = (dispatcher) ->
-		if lib[dispatcher].index is @success
-			lib.scene.success()
-			lib.scene.nextStep()
+	
+	@evaluateGlobal03 = (dispatcher) ->
+		if lib[dispatcher].index is d2oda.evaluator.success
+			lib[dispatcher].updateState()		
+			lib[dispatcher].parent.nextCard()
+			
+			if lib[dispatcher].parent.i is lib[dispatcher].parent.shuffleAnswers.length
+				lib.scene.success()
+			else
+				lib.score.plusOne()
 		else
 			lib.scene.fail()
 	@evaluateHangmanClick01 = (dispatcher, target) ->
@@ -1343,7 +1341,7 @@ class CardContainer extends Component
 		@x = opts.x
 		@y = opts.y
 		@name = opts.name ? opts.id
-		cartas = opts.cartas
+		@cartas = opts.cartas
 		@fila = 0
 
 		@card = opts.card
@@ -1352,15 +1350,15 @@ class CardContainer extends Component
 		@disty = opts.disty
 		@target = opts.target ? 'global'
 		@eval = opts.eval
+
+	update: (opts) ->
 		@currentX = 0
 		@currentCard = 0
 		i = 0
 		cardcollection = new Array()
+		shuffledCartas = d2oda.utilities.shuffleNoRepeat @cartas, 6
 
-		shucartas = d2oda.utilities.shuffleNoRepeat cartas, 6
-		console.log lib[0]
-
-		for carta in cartas	
+		for carta in shuffledCartas	
 			x = @currentX * @distx 
 			y = @fila * @disty
 			lopts = {id:"carta_#{@currentCard}", x: x, y: y, index: carta, target: @target, eval: @eval, states:[{img: {name: carta, x: 0, y: 0, align: 'mc'}},{img: {name: @card, x: 0, y: 0, align: 'mc'}},{img: {name: carta, x: 0, y: 0, align: 'mc'}}]}
@@ -1375,11 +1373,27 @@ class CardContainer extends Component
 			if @currentX > @cols - 1
 				@currentX = 0 
 				@fila++
-	
-		@delay 7000, ->
-			for card in cardcollection
-				card.updateState()
-			
+		
+		@shuffleAnswers = shuffleAnswers = d2oda.utilities.shuffleNoRepeat shuffledCartas, 6
+		@delay 5000, ->
+			for carta in cardcollection
+				carta.updateState()
+				@checkcard 
+			d2oda.evaluator.success = shuffleAnswers[0]
+			createjs.Sound.play "s/#{shuffleAnswers[0]}"
+
+		lib.scene.snd = "s/#{@shuffleAnswers[0]}"
+
+		@i = 0
+	nextCard: () ->
+		@i++
+		createjs.Sound.stop()
+
+		if @i < @shuffleAnswers.length
+			d2oda.evaluator.success = @shuffleAnswers[@i]
+			console.log d2oda.evaluator.success
+			lib.scene.snd = "s/#{@shuffleAnswers[@i]}"
+			createjs.Sound.play "s/#{@shuffleAnswers[@i]}"
 	isComplete: ->
 		true
 
