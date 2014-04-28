@@ -81,7 +81,7 @@ NEW ODA
                   {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['Last week my little sister Nadia got lost at the mall.', '#rtn', 'She is only six years old, so we were very scared.', '#rtn', '#rtn', 'My mom called the store detective immediately.', '#rtn', 'The store detective asked us a lot of questions.', '#rtn', 'She filled out a form, a Missing Persons', '#tcpt', '.', '#rtn', '#rtn', '\“What does she look like?\” the detective asked.', '#rtn', '#rtn', '\“She is small,', '#tcpt', ', and has long, blond hair.', '#rtn', 'She has gray eyes and a small', '#tcpt', 'on her', '#rtn', 'knee. She fell down last week,\” answered Mom.', '#rtn', '#rtn', '\“What is she', '#tcpt', '?\”', '#rtn', '#rtn', '\“She’s wearing a pink blouse, a green', '#tcpt', ',', '#rtn', 'and blue sneakers. She likes', '#tcpt', 'colors,\”', '#rtn', 'said Mom.', '#rtn', '#rtn', 'The detective wrote the information in a notebook.'],
+                      pattern: ['Last week my little sister Nadia got lost at the mall. She is only six years old, so', '#rtn', 'we were very scared. My mom called the store detective immediately. The store', '#rtn', 'detective asked us a lot of questions. She filled out a form, a Missing Persons', '#tcpt', '.', '#rtn', '#rtn', '\“What does she look like?\” the detective asked.', '#rtn', '#rtn', '\“She is small,', '#tcpt', ', and has long, blond hair. She has gray eyes and a small', '#tcpt', '#rtn', 'on her knee. She fell down last week,\” answered Mom.', '#rtn', '#rtn', '\“What is she', '#tcpt', '?\”', '#rtn', '#rtn', '\“She’s wearing a pink blouse, a green', '#tcpt', ', and blue sneakers. She likes', '#tcpt', '#rtn', 'colors,\” said Mom. The detective wrote the information in a notebook.'],
                       targets: [
                         {
                           text: 'Report'
@@ -120,9 +120,13 @@ NEW ODA
                 id: 'pcpt1',
                 x: 395,
                 y: 213,
-                font: '12px Quicksand',
+                font: '12px Dosis',
                 margin: 5,
                 scolor: '#F9101A',
+                lineHeight: 20,
+                underline: {
+                  y: 3
+                },
                 stroke: 1,
                 bcolor: 'rgba(255,255,255,0.01)'
               }, {
@@ -211,28 +215,22 @@ NEW ODA
               collection: [
                 [
                   {
-                    name: 'pcct2',
+                    name: 'pcpt2',
                     opts: {
-                      pattern: ['\“Where did you last see her?\” asked the detective.', '#rtn', '\“Right here. I was sitting right here and she was', '#tcpt', '#rtn', 'next to me.\”', '#rtn', '#rtn', '\“What', '#tcpt', 'you doing?\”', '#rtn', '#rtn', '\“I was trying on a pair of shoes. Nadia was', '#tcpt', '#rtn', 'with her doll. Then I looked up and she wasn’t there!\”', '#rtn', 'My mom started to cry a little.', '#rtn', '#rtn', '\“Was she talking to anybody?\” asked the detective.', '#rtn', '#rtn', '\“Yes, she was', '#tcpt', 'to an old lady. She was wearing', '#rtn', 'a pale blue blouse and a brown skirt.\”', '#rtn', '#rtn', 'The store assistants were', '#tcpt', 'everywhere and', '#rtn', 'people were calling Nadia\’s name.', '#rtn', '#rtn', '\“Please wait here,\” ordered the detective. He came', '#rtn', 'back ten minutes later with Nadia.', '#rtn', '#rtn', 'They found Nadia in a clothing store. She was wearing', '#rtn', 'a dress from the store. She was', '#tcpt', 'to music', '#rtn', 'in front of a mirror!'],
+                      pattern: ['\“Where did you last see her?\” asked the detective.', '#rtn', '\“Right here. I was sitting right here and she was', '#tcpt', 'next to me.\”', '#rtn', '\“What', '#tcpt', 'you doing?\”', '#rtn', '\“I was trying on a pair of shoes. Nadia was', '#tcpt', 'with her doll. Then I looked', '#rtn', 'up and she wasn’t there!\” My mom started to cry a little.', '#rtn', '#rtn', '\“Was she talking to anybody?\” asked the detective.', '#rtn', '\“Yes, she was', '#tcpt', 'to an old lady. She was wearing a pale blue blouse and a', '#rtn', 'brown skirt.\”', '#rtn', 'The store assistants were', '#tcpt', 'everywhere and people were calling Nadia\’s name.', '#rtn', '\“Please wait here,\” ordered the detective. He came back ten minutes later with Nadia.', '#rtn', 'They found Nadia in a clothing store. She was wearing a dress from the store.', '#rtn', 'She was', '#tcpt', 'to music in front of a mirror!'],
                       targets: [
                         {
-                          text: 'dancing',
-                          success: 'sitting'
+                          text: 'sitting'
                         }, {
-                          text: 'dancing',
-                          success: 'were'
+                          text: 'were'
                         }, {
-                          text: 'dancing',
-                          success: 'playing'
+                          text: 'playing'
                         }, {
-                          text: 'dancing',
-                          success: 'talking'
+                          text: 'talking'
                         }, {
-                          text: 'dancing',
-                          success: 'looking'
+                          text: 'looking'
                         }, {
-                          text: 'dancing',
-                          success: 'dancing'
+                          text: 'dancing'
                         }
                       ]
                     }
@@ -253,13 +251,17 @@ NEW ODA
                 x: 360,
                 y: 150
               }, {
-                type: 'pcct',
-                id: 'pcct2',
+                type: 'pcpt',
+                id: 'pcpt2',
                 x: 385,
-                y: 200,
-                font: '12px Quicksand',
+                y: 213,
+                font: '12px Dosis',
                 margin: 5,
                 scolor: '#F9101A',
+                lineHeight: 20,
+                underline: {
+                  y: 3
+                },
                 stroke: 1,
                 bcolor: 'rgba(255,255,255,0.01)'
               }, {
@@ -271,7 +273,7 @@ NEW ODA
                 text: 'dancing',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct2'],
+                target: ['pcpt2'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -284,7 +286,7 @@ NEW ODA
                 text: 'looking',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct2'],
+                target: ['pcpt2'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -297,7 +299,7 @@ NEW ODA
                 text: 'playing',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct2'],
+                target: ['pcpt2'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -310,7 +312,7 @@ NEW ODA
                 text: 'sitting',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct2'],
+                target: ['pcpt2'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -323,7 +325,7 @@ NEW ODA
                 text: 'talking',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct2'],
+                target: ['pcpt2'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -336,7 +338,7 @@ NEW ODA
                 text: 'were',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct2'],
+                target: ['pcpt2'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'

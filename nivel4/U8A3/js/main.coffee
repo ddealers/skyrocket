@@ -20,7 +20,6 @@ class U8A3 extends Oda
 			{id:'zone2', src:'zapman.png'}
 			{id:'header', src:'header.png'}
 			{id:'pantalla', src:'pantalla-01.png'}
-
 			{id:'repeat', src:'repeat.png'}
 			{id:'s/superheroes', src:'superheroes.mp3'}
 			{ id: 's/silence', src: 'silence.mp3' }

@@ -243,18 +243,16 @@ window.d2oda.evaluator ?= class Evaluator
 			lib.scene.success()
 		else
 			lib.scene.fail()
-	@evaluateGlobal03 = (dispatcher, target) ->
-		console.log target
-		if lib[dispatcher].index is @success
-			lib.scene.success()
-			lib[dispatcher].updateState()
-
-		else
-			lib.scene.fail()
-	@evaluateGlobal02 = (dispatcher) ->
-		if lib[dispatcher].index is @success
-			lib.scene.success()
-			lib.scene.nextStep()
+	
+	@evaluateGlobal03 = (dispatcher) ->
+		if lib[dispatcher].index is d2oda.evaluator.success
+			lib[dispatcher].updateState()		
+			lib[dispatcher].parent.nextCard()
+			
+			if lib[dispatcher].parent.i is lib[dispatcher].parent.shuffleAnswers.length
+				lib.scene.success()
+			else
+				lib.score.plusOne()
 		else
 			lib.scene.fail()
 	@evaluateHangmanClick01 = (dispatcher, target) ->
@@ -1266,7 +1264,6 @@ class ButtonContainer extends Component
 		@scale = opts.scale ? 1
 		@states = opts.states
 		@currentState = 0
-
 		@setImageText @states[@currentState].img, @states[@currentState].txt
 		if @isArray opts.target 
 			@target = opts.target
@@ -1344,7 +1341,7 @@ class CardContainer extends Component
 		@x = opts.x
 		@y = opts.y
 		@name = opts.name ? opts.id
-		cartas = opts.cartas
+		@cartas = opts.cartas
 		@fila = 0
 
 		@card = opts.card
@@ -1353,15 +1350,15 @@ class CardContainer extends Component
 		@disty = opts.disty
 		@target = opts.target ? 'global'
 		@eval = opts.eval
+
+	update: (opts) ->
 		@currentX = 0
 		@currentCard = 0
 		i = 0
 		cardcollection = new Array()
+		shuffledCartas = d2oda.utilities.shuffleNoRepeat @cartas, 6
 
-		shucartas = d2oda.utilities.shuffleNoRepeat cartas, 6
-		console.log lib[0]
-
-		for carta in cartas	
+		for carta in shuffledCartas	
 			x = @currentX * @distx 
 			y = @fila * @disty
 			lopts = {id:"carta_#{@currentCard}", x: x, y: y, index: carta, target: @target, eval: @eval, states:[{img: {name: carta, x: 0, y: 0, align: 'mc'}},{img: {name: @card, x: 0, y: 0, align: 'mc'}},{img: {name: carta, x: 0, y: 0, align: 'mc'}}]}
@@ -1376,11 +1373,27 @@ class CardContainer extends Component
 			if @currentX > @cols - 1
 				@currentX = 0 
 				@fila++
-	
-		@delay 7000, ->
-			for card in cardcollection
-				card.updateState()
-			
+		
+		@shuffleAnswers = shuffleAnswers = d2oda.utilities.shuffleNoRepeat shuffledCartas, 6
+		@delay 5000, ->
+			for carta in cardcollection
+				carta.updateState()
+				@checkcard 
+			d2oda.evaluator.success = shuffleAnswers[0]
+			createjs.Sound.play "s/#{shuffleAnswers[0]}"
+
+		lib.scene.snd = "s/#{@shuffleAnswers[0]}"
+
+		@i = 0
+	nextCard: () ->
+		@i++
+		createjs.Sound.stop()
+
+		if @i < @shuffleAnswers.length
+			d2oda.evaluator.success = @shuffleAnswers[@i]
+			console.log d2oda.evaluator.success
+			lib.scene.snd = "s/#{@shuffleAnswers[@i]}"
+			createjs.Sound.play "s/#{@shuffleAnswers[@i]}"
 	isComplete: ->
 		true
 
@@ -1762,6 +1775,7 @@ class PhraseCompleterContainer extends Component
 		@name = opts.name ? opts.id
 		@align = opts.align ? ''
 		@uwidth = opts.uwidth
+		@underline = opts.underline ? {y:5}
 		@lineHeight= opts.lineHeight
 		@currentTarget = 0
 		@observer = new ComponentObserver()
@@ -1788,6 +1802,7 @@ class PhraseCompleterContainer extends Component
 					if hopts.maxlength
 						h = @createText 'max', hopts.maxlength, @font, @fcolor, 0, 0
 						hopts = {text: txt.text, width: h.getMeasuredWidth() + @margin}
+				hopts.underline = @underline
 				h = new TextCompleterContainer hopts, @font, @fcolor, @bcolor, @scolor, @stroke, npos, ypos
 				@droptargets.push h
 				@add h, false
@@ -1799,12 +1814,16 @@ class PhraseCompleterContainer extends Component
 					npos = 0
 					ypos += @lineHeight
 				else
-					h = @createText 'txt', 'BLANK', @font, @fcolor, npos, 0
-					maxWidth = npos if npos > maxWidth
 					npos = 0
-					ypos += h.getMeasuredHeight() + h.getMeasuredHeight() * 0.1
+					maxWidth = npos if npos > maxWidth
+					if @lineHeight
+						ypos += @lineHeight
+					else
+						h = @createText 'txt', 'BLANK', @font, @fcolor, npos, 0
+						ypos += h.getMeasuredHeight() + h.getMeasuredHeight() * 0.1
 			else
-				if t is '.' or t is '!' or t is '?' or t is ','
+				first = t.charAt(0)
+				if first is '.' or first is '!' or first is '?' or first is ','
 					npos -= @margin
 				h = @createText 'txt', t, @font, @fcolor, npos, ypos
 				@add h, false
@@ -1814,6 +1833,15 @@ class PhraseCompleterContainer extends Component
 		@setPosition @align
 		@observer.notify ComponentObserver.UPDATED
 		TweenLite.from @, 0.3, {alpha: 0, y: @y - 10}
+	clearChildren: ->
+		for target in @droptargets
+			target.clearBackground()
+	getEnabledTarget: ->
+		enabled = {success:false}
+		for target in @droptargets
+			if target.writeEnabled
+				enabled = target
+		enabled
 	isComplete: ->
 		for target in @droptargets
 			if target.complete is false
@@ -2050,9 +2078,10 @@ class CrossWordsContainer extends Component
 		TweenMax.killTweensOf obj
 		TweenLite.killTweensOf obj
 		TweenLite.to obj, 0.5, {alpha: 0, y: obj.y - 20}
-	clearChildBackgrounds: () ->
+	clearChildren: () ->
 		for target in @droptargets
 			target.clearBackground()
+			target.setRectOutline @bcolor, @stroke, @scolor
 	getEnabledTarget: () ->
 		enabled = {success:false}
 		for target in @droptargets
@@ -2218,9 +2247,9 @@ class ScrambledWordContainer extends Component
 		@target = opts.target
 		@fx = opts.fx ? 'fadeOut'
 		if @sentence is false
+			i = 0
 			word = opts.word.split ''
 			scrambledWord = @shuffle word
-			i = 0
 			if opts.prev
 				@prev = @insertText 'prevTxt', opts.prev, @font, @fcolor, 0, 0
 				npos = @prev.getMeasuredWidth() + @margin
@@ -2250,62 +2279,63 @@ class ScrambledWordContainer extends Component
 					npos += @uwidth + @margin
 					i++
 		else
-			sentence = opts.word
-			anchoMax = 0
-			scrambledSentence = @shuffle sentence
 			i = 0
+			sentence = opts.word.split '||'
+			scrambledSentence = @shuffle sentence
 			if opts.prev
 				@prev = @insertText 'prevTxt', opts.prev, @font, @fcolor, 0, 0
 				npos = @prev.getMeasuredWidth() + @margin
 			else
 				npos = 0
-
 			for word in sentence
-				#create container
 				if word is ' '
-					npos+= @margin
+					npos += @margin
 				else
-					opts = {text: word, width: @uwidth}
-					h = new TextCompleterContainer opts, @font, @fcolor, @bcolor, @scolor, @stroke, npos, 5
+					if opts.maxlength
+						h = @createText 'max', opts.maxlength, @font, @fcolor, 0, 0
+						hopts = {text: word, width: h.getMeasuredWidth() + @margin}
+					else
+						hopts = {text: word, width: @uwidth}
+					h = new TextCompleterContainer hopts, @font, @fcolor, @bcolor, @scolor, @stroke, npos, 5
 					@droptargets.push h
 					@add h, false
-					completerwidth = npos += h.width + @margin
-					if i is sentence.length - 1
-						@insertText "punto", '.', @font, @fcolor, h.x + h.width + 4,  5, 'center'
-
+					npos += hopts.width + @margin
 				i++
+			s = @insertText "period", '.', @font, @fcolor, h.x + h.width + 3, 10, 'center'
 			@width = npos
 			@setPosition @align
+			
 			i = 0
+			wordsArr = new Array()
 			npos = if @prev then @prev.getMeasuredWidth() + @margin else 0
 			for scrambledWord in scrambledSentence
-				#create drag
 				if scrambledWord isnt ' '
-					opts = {id:"l#{i}", x: npos, y: -h.height - @distance, index: scrambledWord, text: scrambledWord, font: @font, color: @fcolor, afterSuccess: 'hide',afterFail: 'return'}
-					d = new LetterDragContainer opts
-					wordswidth = npos += d.width +  @margin + @margin
-					i++
-			for scrambledWord in scrambledSentence
-					diferencia = (completerwidth - wordswidth) / 2
-					console.log  diferencia
-					i++
-			npos = 0
-			i = 0
-			for scrambledWord in scrambledSentence
-				#create drag
-				if scrambledWord isnt ' '
-					opts = {id:"l#{@name}#{i}", x: npos + diferencia, y: -h.height - @distance, index: scrambledWord, target: @name, eval:@eval, text: scrambledWord, font: @font, color: @fcolor, afterSuccess: 'hide',afterFail: 'return'}
-
+					opts = 
+						id:"l#{@name}#{i}"
+						x: npos
+						y: -h.height
+						index: scrambledWord
+						target: @name
+						eval:@eval
+						text: scrambledWord
+						font: @font
+						color: @fcolor
+						afterSuccess: 'hide'
+						afterFail: 'return'
 					d = new LetterDragContainer opts
 					@add d
+					npos += d.width + @margin
+					wordsArr.push d
 					if i < sentence.length - 1
-						@insertText "separator", '/', @font, @fcolor, d.x + d.width + @margin,  -h.height - @distance, 'center'
-
-					wordswidth = npos += d.width +  @margin + @margin
-
+						s = @insertText "separator#{i}", '/', @font, @fcolor, d.x + d.width + @margin,  -h.height, 'center'
+						wordsArr.push s
+						npos += @margin
 					i++
-			
-
+			total = npos
+			difference = (@width - total) / 2
+			for word in wordsArr
+				word.x = difference + word.x
+				if word.pos then word.pos.x = word.x
 		@observer.notify ComponentObserver.UPDATED
 		TweenLite.from @, 0.3, {alpha: 0, y: @y - 10}
 	onComplete: () ->
@@ -2332,20 +2362,52 @@ class TextCompleterContainer extends Component
 		@height = opts.height ? @text.getMeasuredHeight()
 		@complete = false
 		@back = new createjs.Shape()
-		@bcolor = bcolor
-		if(opts.underline)
-			@back.graphics.f(bcolor).dr(0, 0, @width, @height).ss(stroke).s(scolor).mt(0, @height+opts.underline.y).lt(@width, @height+opts.underline.y)
+		@bcolor = bcolor ? '#FFF'
+		@stroke = stroke ? 1
+		@scolor = scolor ? '#333'
+		@underline = opts.underline ? false
+		@word = ''
+		if(@underline)
+			@back.graphics.f(@bcolor).dr(0, 0, @width, @height).ss(@stroke).s(@scolor).mt(0, @height+@underline.y).lt(@width, @height+@underline.y)
 		else
-			@back.graphics.f(bcolor).dr(0, 0, @width, @height).ss(stroke).s(scolor).mt(0, @height+5).lt(@width, @height+5)
+			@back.graphics.f(@bcolor).dr(0, 0, @width, @height).ss(@stroke).s(@scolor).mt(0, @height+5).lt(@width, @height+5)
 		@add @back, false
 		@addEventListener 'click', =>
 			if @parent
-				@parent.clearChildBackgrounds()
-			@back.graphics.f('rgba(255,0,0,0.2)').dr(0, 0, @width, @height)
+				@parent.clearChildren()
 			@writeEnabled = on
+			if(opts.underline)
+				@back.graphics.c().f(@hexToRGB(@bcolor, 0.2)).dr(0, 0, @width, @height).ss(@stroke).s(@scolor).mt(0, @height+@underline.y).lt(@width, @height+@underline.y)
+			else
+				@back.graphics.c().f(@hexToRGB(@bcolor, 0.2)).dr(0, 0, @width, @height).ss(@stroke).s(@scolor).mt(0, @height+5).lt(@width, @height+5)
+	hexToRGB: (hex,alpha) ->
+		hex = if hex is '#FFF' or hex is '#FFFFFF' then '#F00' else hex
+		h = "0123456789ABCDEF";
+		r = h.indexOf(hex[1])*16+h.indexOf(hex[2])
+		g = h.indexOf(hex[3])*16+h.indexOf(hex[4])
+		b = h.indexOf(hex[5])*16+h.indexOf(hex[6])
+		if alpha then "rgba(#{r}, #{g}, #{b}, #{alpha})"
+		else "rgb(#{r}, #{g}, #{b})"
 	clearBackground: () ->
 		@writeEnabled = off
-		@back.graphics.f(@bcolor).dr(0, 0, @width, @height)
+		if(@underline)
+			@back.graphics.c().f(@bcolor).dr(0, 0, @width, @height).ss(@stroke).s(@scolor).mt(0, @height+@underline.y).lt(@width, @height+@underline.y)
+		else
+			@back.graphics.c().f(@bcolor).dr(0, 0, @width, @height).ss(@stroke).s(@scolor).mt(0, @height+5).lt(@width, @height+5)
+	write: (char) ->
+		if not char
+			return @word
+		if not @text.parent
+			@text.textAlign = 'center'
+			@text.x = @width / 2
+			@add @text, false
+		if char is '<-'
+			@word = @word.slice 0, @word.length-1
+		else if char is '-'
+			@word += ' '
+		else
+			@word += char
+		@text.text = @word
 	setRectOutline: (bcolor, stroke, scolor) ->
 		@back.graphics.f(bcolor).ss(stroke).s(scolor).dr(0, 0, @width, @height)
 	update: (opts) ->
@@ -2688,6 +2750,7 @@ class Scene extends Component
 		if enableBlock then lib.score.enableBlock()
 		lib.mainContainer.warning()
 	next: =>
+		console.log 'next'
 		@currentStep++
 		if @currentStep >= @answers.length
 			@delay 1000, ->

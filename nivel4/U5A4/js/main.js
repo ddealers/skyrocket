@@ -99,28 +99,57 @@ NEW ODA
         }
       ];
       this.btnClick = function(dispatcher, target) {
-        var a, b, c, d, t, verb;
-        d = lib[dispatcher];
-        t = lib[target];
-        a = d.index;
-        b = t.droptargets;
-        c = t.currentTarget;
-        console.log(d, t, a, b, c);
-        console.log(a, b[c].success);
-        if (a === b[c].success) {
-          verb = prompt("Enter the correct form of " + d.index);
-          if (verb === b[c].text.text) {
-            b[c].complete = true;
-            b[c].update();
-            t.currentTarget++;
+        /*
+        			d = lib[dispatcher]
+        			t = lib[target]
+        			a = d.index
+        			b = t.droptargets
+        			c = t.currentTarget
+        			console.log d,t,a,b,c
+        			console.log a, b[c].success
+        			if a is b[c].success
+        				verb = prompt "Enter the correct form of #{d.index}"
+        				if verb is b[c].text.text
+        					b[c].complete = true
+        					b[c].update()
+        					t.currentTarget++
+        				if t.currentTarget is b.length
+        					lib.scene.success()
+        				else
+        					lib.scene.fail()
+        			else
+        				lib.scene.fail false
+        */
+
+      };
+      this.onkeydown = function(e) {
+        var fail, keycode, pattern, str, target, word, _i, _len, _ref;
+        e.preventDefault();
+        e.stopPropagation();
+        word = '';
+        keycode = e.keyCode || e.which;
+        pattern = /[a-z]/i;
+        str = String.fromCharCode(keycode);
+        target = lib[window.target].getEnabledTarget();
+        if (keycode === 8) {
+          return target.write('<-');
+        } else if (keycode === 13) {
+          fail = false;
+          _ref = lib[window.target].droptargets;
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            target = _ref[_i];
+            if (target.success === target.write()) {
+              target.complete = true;
+            } else {
+              fail = true;
+              lib.scene.fail();
+            }
           }
-          if (t.currentTarget === b.length) {
-            return lib.scene.success();
-          } else {
-            return lib.scene.fail();
+          if (!fail) {
+            return lib.scene.success(true, false);
           }
-        } else {
-          return lib.scene.fail(false);
+        } else if (pattern.test(str)) {
+          return target.write(str.toLowerCase());
         }
       };
       this.game = {
@@ -141,7 +170,7 @@ NEW ODA
           x: 20,
           y: 500,
           init: 0,
-          total: 10,
+          total: 8,
           aimg: 'c1',
           acolor: '#333',
           bimg: 'c2',
@@ -153,6 +182,12 @@ NEW ODA
               collection: [
                 [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -170,17 +205,21 @@ NEW ODA
                       pattern: ['Lizzy is ', '#tcpt', '#tcpt', ' her sister.'],
                       targets: [
                         {
-                          text: 'older',
-                          success: 'clic'
+                          text: 'older'
                         }, {
-                          text: 'than',
-                          success: 'than'
+                          text: 'than'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -198,17 +237,21 @@ NEW ODA
                       pattern: ['Patrick is', '#tcpt', '#tcpt', 'Louis.'],
                       targets: [
                         {
-                          text: 'thinner',
-                          success: 'clic'
+                          text: 'thinner'
                         }, {
-                          text: 'than',
-                          success: 'than'
+                          text: 'than'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -226,17 +269,21 @@ NEW ODA
                       pattern: ['Today is', '#tcpt', '#tcpt', 'yesterday.'],
                       targets: [
                         {
-                          text: 'hotter',
-                          success: 'clic'
+                          text: 'hotter'
                         }, {
-                          text: 'than',
-                          success: 'than'
+                          text: 'than'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -251,20 +298,24 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['This movie is', '#tcpt', '#tcpt', '#rtn', 'the oder one.'],
+                      pattern: ['This movie is', '#tcpt', '#tcpt', '#rtn', 'the other one.'],
                       targets: [
                         {
-                          text: 'funnier',
-                          success: 'clic'
+                          text: 'funnier'
                         }, {
-                          text: 'than',
-                          success: 'than'
+                          text: 'than'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -282,17 +333,21 @@ NEW ODA
                       pattern: ['Roger\'s book is', '#tcpt', '#tcpt', 'Paul\'s.'],
                       targets: [
                         {
-                          text: 'longer',
-                          success: 'clic'
+                          text: 'longer'
                         }, {
-                          text: 'than',
-                          success: 'than'
+                          text: 'than'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -310,17 +365,21 @@ NEW ODA
                       pattern: ['Your brother is ', '#tcpt', '#tcpt', 'you.'],
                       targets: [
                         {
-                          text: 'stronger',
-                          success: 'clic'
+                          text: 'stronger'
                         }, {
-                          text: 'than',
-                          success: 'than'
+                          text: 'than'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -338,17 +397,21 @@ NEW ODA
                       pattern: ['She jumps', '#tcpt', '#tcpt', 'you.'],
                       targets: [
                         {
-                          text: 'higher',
-                          success: 'clic'
+                          text: 'higher'
                         }, {
-                          text: 'than',
-                          success: 'than'
+                          text: 'than'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -366,17 +429,21 @@ NEW ODA
                       pattern: ['Laura is', '#tcpt', '#tcpt', 'Samuel.'],
                       targets: [
                         {
-                          text: 'happier',
-                          success: 'clic'
+                          text: 'happier'
                         }, {
-                          text: 'than',
-                          success: 'than'
+                          text: 'than'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -394,17 +461,21 @@ NEW ODA
                       pattern: ['He kicked the ball', '#tcpt', '#tcpt', '#rtn', 'the other players.'],
                       targets: [
                         {
-                          text: 'harder',
-                          success: 'clic'
+                          text: 'harder'
                         }, {
-                          text: 'than',
-                          success: 'than'
+                          text: 'than'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -419,14 +490,12 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['Andrew lives', '#tcpt', '#rtn', 'from the school', '#tcpt', 'Liz.'],
+                      pattern: ['Andrew lives', '#tcpt', 'from', '#rtn', 'the school', '#tcpt', 'Liz.'],
                       targets: [
                         {
-                          text: 'farther',
-                          success: 'clic'
+                          text: 'farther'
                         }, {
-                          text: 'than',
-                          success: 'than'
+                          text: 'than'
                         }
                       ]
                     }
@@ -514,96 +583,94 @@ NEW ODA
                 type: 'txt',
                 id: 'text1',
                 text: 'Lizzy is 10 years old and her sister is 3.',
-                x: 256,
+                x: 260,
                 y: 505,
                 font: '14px Quicksand',
                 align: 'center',
-                lineWidth: 250
+                lineWidth: 180
               }, {
                 type: 'txt',
                 id: 'text2',
-                text: 'Patrick is thin. Louis is not thin.',
-                '#rtn': '#rtn',
-                'Yesterday it was 25 degrees.': 'Yesterday it was 25 degrees.',
-                x: 256,
+                text: 'Patrick is thin. Louis is not thin. Yesterday it was 25 degrees.',
+                x: 260,
                 y: 505,
                 font: '14px Quicksand',
                 align: 'center',
-                lineWidth: 250
+                lineWidth: 180
               }, {
                 type: 'txt',
                 id: 'text3',
                 text: 'It\'s hot today, 32 degrees! Yesterday it was 25 degrees.',
-                x: 256,
+                x: 260,
                 y: 505,
                 font: '14px Quicksand',
                 align: 'center',
-                lineWidth: 250
+                lineWidth: 180
               }, {
                 type: 'txt',
                 id: 'text4',
                 text: 'This movie is very funny. The one we saw yesterday wasn\'t.',
                 '#rtn': '#rtn',
                 'Paul\'s book is only 200 pages.': 'Paul\'s book is only 200 pages.',
-                x: 256,
+                x: 260,
                 y: 505,
                 font: '14px Quicksand',
                 align: 'center',
-                lineWidth: 250
+                lineWidth: 180
               }, {
                 type: 'txt',
                 id: 'text5',
                 text: 'Roger\'s book is long, 300 pages! Paul\'s book is only 200 pages.',
-                x: 256,
+                x: 260,
                 y: 505,
                 font: '14px Quicksand',
                 align: 'center',
-                lineWidth: 250
+                lineWidth: 180
               }, {
                 type: 'txt',
                 id: 'text6',
                 text: 'I am strong, but my big brother is very strong.',
-                x: 256,
+                x: 260,
                 y: 505,
                 font: '14px Quicksand',
                 align: 'center',
-                lineWidth: 250
+                lineWidth: 180
               }, {
                 type: 'txt',
                 id: 'text7',
                 text: 'My mom is a dancer. She jumps really high.',
-                x: 256,
+                x: 260,
                 y: 505,
                 font: '14px Quicksand',
                 align: 'center',
-                lineWidth: 250
+                lineWidth: 180
               }, {
                 type: 'txt',
                 id: 'text8',
                 text: 'Laura got 9 on her exam. Samuel got a 7.',
-                x: 256,
+                x: 260,
                 y: 505,
                 font: '14px Quicksand',
                 align: 'center',
-                lineWidth: 250
+                lineWidth: 180
               }, {
                 type: 'txt',
                 id: 'text9',
                 text: 'Dennis scored a goal. He Kicked the ball hard.',
-                x: 256,
+                x: 260,
                 y: 505,
                 font: '14px Quicksand',
                 align: 'center',
-                lineWidth: 250
+                lineWidth: 180
               }, {
                 type: 'txt',
                 id: 'text10',
                 text: 'Liz lives next door to the school. Andrew lives five kilometers away.',
-                x: 256,
+                x: 260,
                 y: 505,
                 font: '14px Quicksand',
                 align: 'center',
-                lineWidth: 250
+                lineWidth: 180
               }, {
                 type: 'pcpt',
                 id: 'pcpt1',
@@ -612,7 +679,12 @@ NEW ODA
                 font: '14px Quicksand',
                 margin: 5,
                 align: 'tc',
-                scolor: '#F9101A'
+                lineHeight: 20,
+                underline: {
+                  y: 0
+                },
+                bcolor: '#d7ecf9',
+                scolor: '#00629f'
               }
             ],
             groups: [

@@ -13,7 +13,6 @@ NEW ODA
     __extends(U6A2, _super);
 
     function U6A2() {
-      var _this = this;
       this.manifest = [
         {
           id: 'c2',
@@ -65,29 +64,34 @@ NEW ODA
           src: 'silence.mp3'
         }
       ];
-      this.btnClick = function(dispatcher, target) {
-        var a, b, c, d, t, verb;
-        d = lib[dispatcher];
-        t = lib[target];
-        a = d.index;
-        b = t.droptargets;
-        c = t.currentTarget;
-        console.log(d, t, a, b, c);
-        console.log(a, b[c].success);
-        if (a === b[c].success) {
-          verb = prompt("Enter the correct form of " + d.index);
-          if (verb === b[c].text.text) {
-            b[c].complete = true;
-            b[c].update();
-            t.currentTarget++;
+      this.onkeydown = function(e) {
+        var fail, keycode, pattern, str, target, word, _i, _len, _ref;
+        e.preventDefault();
+        e.stopPropagation();
+        word = '';
+        keycode = e.keyCode || e.which;
+        pattern = /[a-z]/i;
+        str = String.fromCharCode(keycode);
+        target = lib[window.target].getEnabledTarget();
+        if (keycode === 8) {
+          return target.write('<-');
+        } else if (keycode === 13) {
+          fail = false;
+          _ref = lib[window.target].droptargets;
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            target = _ref[_i];
+            if (target.success === target.write()) {
+              target.complete = true;
+            } else {
+              fail = true;
+              lib.scene.fail();
+            }
           }
-          if (t.currentTarget === b.length) {
-            return lib.scene.success();
-          } else {
-            return lib.scene.fail();
+          if (!fail) {
+            return lib.scene.success(true, false);
           }
-        } else {
-          return lib.scene.fail(false);
+        } else if (pattern.test(str)) {
+          return target.write(str.toLowerCase());
         }
       };
       this.game = {
@@ -108,7 +112,7 @@ NEW ODA
           x: 20,
           y: 500,
           init: 0,
-          total: 10,
+          total: 8,
           aimg: 'c1',
           acolor: '#333',
           bimg: 'c2',
@@ -120,6 +124,12 @@ NEW ODA
               collection: [
                 [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -139,6 +149,12 @@ NEW ODA
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -158,6 +174,12 @@ NEW ODA
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -177,6 +199,12 @@ NEW ODA
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -196,6 +224,12 @@ NEW ODA
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -204,7 +238,7 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['Gaston is the _________', '#tcpt', '(old) trumpet player in France.', '#rtn', 'He\'s 89 years old.'],
+                      pattern: ['Gaston is the ', '#tcpt', '(old) trumpet player in France.', '#rtn', 'He\'s 89 years old.'],
                       targets: [
                         {
                           text: 'oldest',
@@ -215,6 +249,12 @@ NEW ODA
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -234,6 +274,12 @@ NEW ODA
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -253,6 +299,12 @@ NEW ODA
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -272,6 +324,12 @@ NEW ODA
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -291,6 +349,12 @@ NEW ODA
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -395,7 +459,12 @@ NEW ODA
                 font: '18px Quicksand',
                 margin: 5,
                 align: 'tc',
-                scolor: '#F9101A'
+                lineHeight: 25,
+                underline: {
+                  y: 0
+                },
+                bcolor: '#d7ecf9',
+                scolor: '#00629f'
               }
             ],
             groups: [

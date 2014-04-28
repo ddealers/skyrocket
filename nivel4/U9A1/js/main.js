@@ -38,32 +38,19 @@ NEW ODA
         }
       ];
       this.evaluateDrop02_01 = function(dispatcher, target) {
-        var complete, drop, _i, _j, _len, _len1, _ref, _ref1;
+        var a, b, complete;
+        a = lib[dispatcher];
+        b = target;
         complete = true;
-        if (lib[dispatcher].index === target.success) {
-          target.update(lib[dispatcher].label.text, true);
+        if (a.index === b.success) {
+          b.update();
+          a.afterSuccess();
+          target.complete = true;
+          return lib.scene.success(true, false);
         } else {
-          target.update(lib[dispatcher].label.text, false);
+          a.afterFail();
+          return lib.scene.fail();
         }
-        lib[dispatcher].afterSuccess();
-        _ref = lib[dispatcher].droptargets;
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          drop = _ref[_i];
-          if (drop.text.text === '') {
-            complete = false;
-          }
-        }
-        if (!complete) {
-          return;
-        }
-        _ref1 = lib[dispatcher].droptargets;
-        for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
-          drop = _ref1[_j];
-          if (drop.complete) {
-            lib.score.plusOne();
-          }
-        }
-        return lib.scene.success(false);
       };
       this.game = {
         header: 'header',
@@ -83,7 +70,7 @@ NEW ODA
           x: 20,
           y: 500,
           init: 0,
-          total: 14,
+          total: 18,
           aimg: 'c1',
           acolor: '#333',
           bimg: 'c2',
@@ -95,40 +82,40 @@ NEW ODA
               collection: [
                 [
                   {
-                    name: 'pcct1',
+                    name: 'pcpt1',
                     opts: {
                       pattern: ['Treasure Island Summer Camp ', '#rtn', '#rtn', 'Come and take part in all the fun', '#tcpt', 'we offer: sports, sailing, and more! Camp in ', '#rtn', 'big', '#tcpt', 'by the lake. Enjoy', '#tcpt', ': the mountains, the lake and the forest. ', '#rtn', 'Go', '#tcpt', 'and eat the fish you catch for dinner! Learn how to', '#tcpt', 'horses ', '#rtn', 'and to', '#tcpt', 'on the lake. Go', '#tcpt', 'in the forest with us and observe wild ', '#rtn', 'animals! If you like', '#tcpt', 'activities, you\'ll love Treasure Island Summer Camp! ', '#rtn', '#rtn', 'We have two', '#tcpt', 'this summer. Session 1: July 17 to 24. Session 2: August 1 to 8.', '#rtn', '#rtn', '#tcpt', 'now at registration@treasureislandcamp.com and receive a discount!'],
                       targets: [
                         {
-                          text: '___________',
-                          success: 'activities'
+                          text: 'activities',
+                          maxlength: 'activities'
                         }, {
-                          text: '___________',
-                          success: 'tents'
+                          text: 'tents',
+                          maxlength: 'activities'
                         }, {
-                          text: '___________',
-                          success: 'nature'
+                          text: 'nature',
+                          maxlength: 'activities'
                         }, {
-                          text: '___________',
-                          success: 'fishing'
+                          text: 'fishing',
+                          maxlength: 'activities'
                         }, {
-                          text: '___________',
-                          success: 'ride'
+                          text: 'ride',
+                          maxlength: 'activities'
                         }, {
-                          text: '___________',
-                          success: 'sail'
+                          text: 'sail',
+                          maxlength: 'activities'
                         }, {
-                          text: '___________',
-                          success: 'hiking'
+                          text: 'hiking',
+                          maxlength: 'activities'
                         }, {
-                          text: '___________',
-                          success: 'outdoor'
+                          text: 'outdoor',
+                          maxlength: 'activities'
                         }, {
-                          text: '___________',
-                          success: 'sessions'
+                          text: 'sessions',
+                          maxlength: 'activities'
                         }, {
-                          text: '________',
-                          success: 'Register'
+                          text: 'Register',
+                          maxlength: 'activities'
                         }
                       ],
                       ypos: 0
@@ -145,13 +132,16 @@ NEW ODA
                 x: 80,
                 y: 170
               }, {
-                type: 'pcct',
-                id: 'pcct1',
+                type: 'pcpt',
+                id: 'pcpt1',
                 x: 130,
                 y: 250,
                 font: '12px Quicksand',
                 margin: 5,
-                scolor: '#F9101A',
+                underline: {
+                  y: 0
+                },
+                scolor: '#009046',
                 stroke: 1,
                 bcolor: 'rgba(255,255,255,0.01)'
               }, {
@@ -163,7 +153,7 @@ NEW ODA
                 text: 'tents',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct1'],
+                target: ['pcpt1'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -176,7 +166,7 @@ NEW ODA
                 text: 'hiking',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct1'],
+                target: ['pcpt1'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -189,7 +179,7 @@ NEW ODA
                 text: 'ride',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct1'],
+                target: ['pcpt1'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -202,7 +192,7 @@ NEW ODA
                 text: 'activities',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct1'],
+                target: ['pcpt1'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -215,7 +205,7 @@ NEW ODA
                 text: 'outdoor',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct1'],
+                target: ['pcpt1'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -228,7 +218,7 @@ NEW ODA
                 text: 'Register',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct1'],
+                target: ['pcpt1'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -241,7 +231,7 @@ NEW ODA
                 text: 'nature',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct1'],
+                target: ['pcpt1'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -254,7 +244,7 @@ NEW ODA
                 text: 'sail',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct1'],
+                target: ['pcpt1'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -267,7 +257,7 @@ NEW ODA
                 text: 'sessions',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct1'],
+                target: ['pcpt1'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -280,7 +270,7 @@ NEW ODA
                 text: 'fishing',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct1'],
+                target: ['pcpt1'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -292,40 +282,40 @@ NEW ODA
               collection: [
                 [
                   {
-                    name: 'pcct2',
+                    name: 'pcpt2',
                     opts: {
                       pattern: ['Dear Toby,', '#rtn', '#rtn', 'Thank you for registering for Science Camp. We\'re going to show you a new ', '#rtn', 'world of', '#tcpt', 'and magic! ', '#rtn', '#rtn', 'On Monday, you are going to visit a real science', '#tcpt', ', and you’re ', '#rtn', 'going to help the scientists conduct some', '#tcpt', '. On Tuesday, we\'re ', '#rtn', 'going to go to a', '#tcpt', 'to observe the stars and see a 3D', '#tcpt', '#rtn', 'about our solar system! On Wednesday, you are', '#tcpt', 'build your own ', '#rtn', 'robot. Then, on Thursday we’re going to take', '#tcpt', 'of nature. You\'re ', '#rtn', 'going to edit your pictures on a computer and add special effects! And best ', '#rtn', 'of all, we are going to have a big', '#tcpt', 'on the last day of camp. ', '#rtn', '#rtn', 'Next week you will receive an', '#tcpt', 'with a list of items that you need ', '#rtn', 'for your week at Science Camp. Please remember that pets are not', '#tcpt', '. ', '#rtn', '#rtn', 'See you soon!', '#rtn', 'Stacy'],
                       targets: [
                         {
-                          text: '___________',
-                          success: 'science'
+                          text: 'science',
+                          maxlength: 'experiments'
                         }, {
-                          text: '___________',
-                          success: 'laboratory'
+                          text: 'laboratory',
+                          maxlength: 'experiments'
                         }, {
-                          text: '___________',
-                          success: 'experiments'
+                          text: 'experiments',
+                          maxlength: 'experiments'
                         }, {
-                          text: '___________',
-                          success: 'planetarium'
+                          text: 'planetarium',
+                          maxlength: 'experiments'
                         }, {
-                          text: '___________',
-                          success: 'movie'
+                          text: 'movie',
+                          maxlength: 'experiments'
                         }, {
-                          text: '___________',
-                          success: 'going to'
+                          text: 'going to',
+                          maxlength: 'experiments'
                         }, {
-                          text: '___________',
-                          success: 'photographs'
+                          text: 'photographs',
+                          maxlength: 'experiments'
                         }, {
-                          text: '___________',
-                          success: 'party'
+                          text: 'party',
+                          maxlength: 'experiments'
                         }, {
-                          text: '___________',
-                          success: 'e-mail'
+                          text: 'e-mail',
+                          maxlength: 'experiments'
                         }, {
-                          text: '________',
-                          success: 'allowed'
+                          text: 'allowed',
+                          maxlength: 'experiments'
                         }
                       ],
                       ypos: 0
@@ -342,13 +332,16 @@ NEW ODA
                 x: 40,
                 y: 170
               }, {
-                type: 'pcct',
-                id: 'pcct2',
-                x: 80,
+                type: 'pcpt',
+                id: 'pcpt2',
+                x: 70,
                 y: 195,
                 font: '12px Quicksand',
                 margin: 5,
-                scolor: '#F9101A',
+                underline: {
+                  y: 0
+                },
+                scolor: '#009046',
                 stroke: 1,
                 bcolor: 'rgba(255,255,255,0.01)'
               }, {
@@ -360,7 +353,7 @@ NEW ODA
                 text: 'experiments',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct2'],
+                target: ['pcpt2'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -373,7 +366,7 @@ NEW ODA
                 text: 'science',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct2'],
+                target: ['pcpt2'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -386,7 +379,7 @@ NEW ODA
                 text: 'allowed',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct2'],
+                target: ['pcpt2'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -399,7 +392,7 @@ NEW ODA
                 text: 'going to',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct2'],
+                target: ['pcpt2'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -412,7 +405,7 @@ NEW ODA
                 text: 'photographs',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct2'],
+                target: ['pcpt2'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -425,7 +418,7 @@ NEW ODA
                 text: 'movie',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct2'],
+                target: ['pcpt2'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -438,7 +431,7 @@ NEW ODA
                 text: 'laboratory',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct2'],
+                target: ['pcpt2'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -451,7 +444,7 @@ NEW ODA
                 text: 'planetarium',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct2'],
+                target: ['pcpt2'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -464,7 +457,7 @@ NEW ODA
                 text: 'e-mail',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct2'],
+                target: ['pcpt2'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'
@@ -477,7 +470,7 @@ NEW ODA
                 text: 'party',
                 font: '22px Quicksand',
                 color: '#333',
-                target: ['pcct2'],
+                target: ['pcpt2'],
                 "eval": this.evaluateDrop02_01,
                 afterSuccess: 'origin',
                 afterFail: 'return'

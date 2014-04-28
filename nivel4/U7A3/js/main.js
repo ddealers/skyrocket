@@ -16,6 +16,15 @@ NEW ODA
       var _this = this;
       this.manifest = [
         {
+          id: 'c2',
+          src: 'circulo_2.png'
+        }, {
+          id: 'c1',
+          src: 'circulo_1.png'
+        }, {
+          id: 'header',
+          src: 'header.png'
+        }, {
           id: 'cha1',
           src: 'btn_1.png'
         }, {
@@ -43,15 +52,6 @@ NEW ODA
           id: 'caja',
           src: 'caja.png'
         }, {
-          id: 'c2',
-          src: 'circilo_2.png'
-        }, {
-          id: 'c1',
-          src: 'circulo_1.png'
-        }, {
-          id: 'header',
-          src: 'header.png'
-        }, {
           id: 'hippydad',
           src: 'hippy_dad.png'
         }, {
@@ -76,39 +76,83 @@ NEW ODA
           id: 'ship',
           src: 'ship.png'
         }, {
-          id: 'waltz',
-          src: 'ship.png'
-        }, {
           id: 'recordplayer',
-          src: 'ship.png'
+          src: 'recordplayer.png'
         }, {
           id: 'cassetteplayer',
-          src: 'ship.png'
+          src: 'cassetteplayer.png'
         }, {
-          id: 'television',
-          src: 'ship.png'
+          id: 's/5',
+          src: 'boat.mp3'
+        }, {
+          id: 's/3',
+          src: 'cassettes.mp3'
+        }, {
+          id: 's/6',
+          src: 'hippydad.mp3'
+        }, {
+          id: 's/7',
+          src: 'hippymom.mp3'
+        }, {
+          id: 's/4',
+          src: 'mini.mp3'
+        }, {
+          id: 's/8',
+          src: 'phone.mp3'
+        }, {
+          id: 's/1',
+          src: 'radio.mp3'
+        }, {
+          id: 's/2',
+          src: 'records.mp3'
         }, {
           id: 's/silence',
           src: 'silence.mp3'
         }
       ];
-      this.btnClick = function(dispatcher, target) {
+      this.init = function() {
+        var chnls;
+        if (_this.channels) {
+          return;
+        }
+        chnls = [0, 1, 2, 3, 4, 5, 6, 7];
+        return _this.channels = d2oda.utilities.shuffleNoRepeat(chnls, 8);
+      };
+      this.onDrop = function(dispatcher, target) {
         var a, b, c, d, t;
         d = lib[dispatcher];
-        t = lib[target];
+        t = target.parent;
         a = d.index;
         b = t.droptargets;
         c = t.currentTarget;
         if (a === b[c].success) {
           b[c].complete = true;
           b[c].update();
+          d.afterSuccess();
           t.currentTarget++;
         }
         if (t.currentTarget === b.length) {
           return lib.scene.success();
         } else {
+          d.afterFail();
           return lib.scene.fail();
         }
+      };
+      this.btnChannel = function(dispatcher) {
+        var d, sel;
+        _this.init();
+        d = lib[dispatcher];
+        sel = _this.channels[d.index];
+        lib.grp_pcpt.update({
+          type: 'fadeIn',
+          target: "pcpt" + (sel + 1)
+        });
+        lib.grp_img.update({
+          type: 'fadeIn',
+          target: "q" + (sel + 1)
+        });
+        createjs.Sound.stop();
+        return createjs.Sound.play("s/" + (sel + 1));
       };
       this.game = {
         header: 'header',
@@ -128,7 +172,7 @@ NEW ODA
           x: 20,
           y: 500,
           init: 0,
-          total: 12,
+          total: 8,
           aimg: 'c1',
           acolor: '#333',
           bimg: 'c2',
@@ -140,49 +184,23 @@ NEW ODA
               collection: [
                 [
                   {
-                    name: 'grp1',
+                    name: 'grp_img',
                     opts: {
                       type: 'fadeIn',
-                      target: 'radio'
+                      target: 'q1'
                     }
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['He used to sit by the ', '#tcpt', '#rtn', 'and listen to music.'],
+                      pattern: ['He used to sit by the', '#tcpt', '#rtn', 'and listen to music.'],
                       targets: [
                         {
                           text: 'radio'
                         }
                       ]
                     }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'waltz'
-                    }
                   }, {
-                    name: 'pcpt1',
-                    opts: {
-                      pattern: ['When my grandmother was young, ', '#rtn', 'she used to', '#tcpt', 'the waltz.'],
-                      targets: [
-                        {
-                          text: 'dance'
-                        }
-                      ]
-                    }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'recordplayer'
-                    }
-                  }, {
-                    name: 'pcpt1',
+                    name: 'pcpt2',
                     opts: {
                       pattern: ['His dad used to say, "Don\'t touch ', '#rtn', 'the', '#tcpt', '! It can break."'],
                       targets: [
@@ -191,88 +209,38 @@ NEW ODA
                         }
                       ]
                     }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'cassetteplayer'
-                    }
                   }, {
-                    name: 'pcpt1',
+                    name: 'pcpt3',
                     opts: {
-                      pattern: ['She made a cassette tape with ', '#rtn', 'love', '#tcpt', 'for her boyfriend.'],
+                      pattern: ['She made a cassette tape with', '#rtn', 'love', '#tcpt', 'for her boyfriend.'],
                       targets: [
                         {
                           text: 'songs'
                         }
                       ]
                     }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'television'
-                    }
                   }, {
-                    name: 'pcpt1',
+                    name: 'pcpt4',
                     opts: {
-                      pattern: ['She used to watch shows on ', '#rtn', 'a', '#tcpt', 'TV.'],
-                      targets: [
-                        {
-                          text: 'black and white'
-                        }
-                      ]
-                    }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'mini'
-                    }
-                  }, {
-                    name: 'pcpt1',
-                    opts: {
-                      pattern: ['He used to have a slow ', '#tcpt', ',', '#rtn', 'but he loved it.'],
+                      pattern: ['He used to have a slow', '#tcpt', ',', '#rtn', 'but he loved it.'],
                       targets: [
                         {
                           text: 'car'
                         }
                       ]
                     }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'ship'
-                    }
                   }, {
-                    name: 'pcpt1',
+                    name: 'pcpt5',
                     opts: {
-                      pattern: ['In the past, people used ', '#rtn', 'to travel by', '#tcpt', '.'],
+                      pattern: ['In the past, people used', '#rtn', 'to travel by', '#tcpt', '.'],
                       targets: [
                         {
                           text: 'boat'
                         }
                       ]
                     }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'hippydad'
-                    }
                   }, {
-                    name: 'pcpt1',
+                    name: 'pcpt6',
                     opts: {
                       pattern: ['Her dad used to', '#tcpt', '#rtn', 'funny, with his long hair!'],
                       targets: [
@@ -281,16 +249,8 @@ NEW ODA
                         }
                       ]
                     }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'hippymom'
-                    }
                   }, {
-                    name: 'pcpt1',
+                    name: 'pcpt7',
                     opts: {
                       pattern: ['Her mom used to play in a band', '#rtn', 'She played', '#tcpt', '.'],
                       targets: [
@@ -299,16 +259,8 @@ NEW ODA
                         }
                       ]
                     }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
-                      target: 'phone'
-                    }
                   }, {
-                    name: 'pcpt1',
+                    name: 'pcpt8',
                     opts: {
                       pattern: ['The phones used to make a special', '#rtn', 'noise. She', '#tcpt', 'that noise!'],
                       targets: [
@@ -320,66 +272,61 @@ NEW ODA
                   }
                 ]
               ],
-              mixed: true,
               type: 'steps'
             },
             containers: [
               {
                 type: 'img',
+                name: 'q1',
                 id: 'radio',
                 x: 278,
                 y: 438,
                 align: 'mc'
               }, {
                 type: 'img',
-                id: 'waltz',
-                x: 278,
-                y: 438,
-                align: 'mc'
-              }, {
-                type: 'img',
+                name: 'q2',
                 id: 'recordplayer',
                 x: 278,
                 y: 438,
                 align: 'mc'
               }, {
                 type: 'img',
+                name: 'q3',
                 id: 'cassetteplayer',
                 x: 278,
                 y: 438,
                 align: 'mc'
               }, {
                 type: 'img',
-                id: 'television',
-                x: 278,
-                y: 438,
-                align: 'mc'
-              }, {
-                type: 'img',
+                name: 'q4',
                 id: 'mini',
                 x: 278,
                 y: 438,
                 align: 'mc'
               }, {
                 type: 'img',
+                name: 'q5',
                 id: 'ship',
                 x: 278,
                 y: 438,
                 align: 'mc'
               }, {
                 type: 'img',
+                name: 'q6',
                 id: 'hippydad',
                 x: 278,
                 y: 438,
                 align: 'mc'
               }, {
                 type: 'img',
+                name: 'q7',
                 id: 'hippymom',
                 x: 278,
                 y: 438,
                 align: 'mc'
               }, {
                 type: 'img',
+                name: 'q8',
                 id: 'phone',
                 x: 278,
                 y: 438,
@@ -403,215 +350,230 @@ NEW ODA
                 y: 240,
                 font: '16px Quicksand',
                 margin: 5,
+                underline: {
+                  y: 0
+                },
                 align: 'tl',
-                scolor: '#F9101A',
+                scolor: '#009046',
                 bcolor: '#defff0'
               }, {
-                type: 'btn',
-                id: 'btn_1',
+                type: 'pcpt',
+                id: 'pcpt2',
+                x: 470,
+                y: 240,
+                font: '16px Quicksand',
+                margin: 5,
+                underline: {
+                  y: 0
+                },
+                align: 'tl',
+                scolor: '#009046',
+                bcolor: '#defff0'
+              }, {
+                type: 'pcpt',
+                id: 'pcpt3',
+                x: 470,
+                y: 240,
+                font: '16px Quicksand',
+                margin: 5,
+                underline: {
+                  y: 0
+                },
+                align: 'tl',
+                scolor: '#009046',
+                bcolor: '#defff0'
+              }, {
+                type: 'pcpt',
+                id: 'pcpt4',
+                x: 470,
+                y: 240,
+                font: '16px Quicksand',
+                margin: 5,
+                underline: {
+                  y: 0
+                },
+                align: 'tl',
+                scolor: '#009046',
+                bcolor: '#defff0'
+              }, {
+                type: 'pcpt',
+                id: 'pcpt5',
+                x: 470,
+                y: 240,
+                font: '16px Quicksand',
+                margin: 5,
+                underline: {
+                  y: 0
+                },
+                align: 'tl',
+                scolor: '#009046',
+                bcolor: '#defff0'
+              }, {
+                type: 'pcpt',
+                id: 'pcpt6',
+                x: 470,
+                y: 240,
+                font: '16px Quicksand',
+                margin: 5,
+                underline: {
+                  y: 0
+                },
+                align: 'tl',
+                scolor: '#009046',
+                bcolor: '#defff0'
+              }, {
+                type: 'pcpt',
+                id: 'pcpt7',
+                x: 470,
+                y: 240,
+                font: '16px Quicksand',
+                margin: 5,
+                underline: {
+                  y: 0
+                },
+                align: 'tl',
+                scolor: '#009046',
+                bcolor: '#defff0'
+              }, {
+                type: 'pcpt',
+                id: 'pcpt8',
+                x: 470,
+                y: 240,
+                font: '16px Quicksand',
+                margin: 5,
+                underline: {
+                  y: 0
+                },
+                align: 'tl',
+                scolor: '#009046',
+                bcolor: '#defff0'
+              }, {
+                type: 'ldrg',
+                id: 'ldrg1',
                 x: 130,
                 y: 235,
                 index: 'radio',
-                target: 'pcpt1',
-                "eval": this.btnClick,
-                states: [
-                  {
-                    txt: {
-                      text: 'radio',
-                      name: 'radio',
-                      x: 0,
-                      y: 0,
-                      align: 'center',
-                      font: '20px Quicksand'
-                    }
-                  }
-                ]
+                text: 'radio',
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
+                font: '18px Quicksand',
+                afterSuccess: 'origin',
+                afterFail: 'return',
+                "eval": this.onDrop
               }, {
-                type: 'btn',
-                id: 'btn_2',
+                type: 'ldrg',
+                id: 'ldrg2',
                 x: 200,
                 y: 235,
                 index: 'dance',
-                target: 'pcpt1',
-                "eval": this.btnClick,
-                states: [
-                  {
-                    txt: {
-                      text: 'dance',
-                      name: 'dance',
-                      x: 0,
-                      y: 0,
-                      align: 'center',
-                      font: '20px Quicksand'
-                    }
-                  }
-                ]
+                text: 'dance',
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
+                font: '18px Quicksand',
+                afterSuccess: 'origin',
+                afterFail: 'return',
+                "eval": this.onDrop
               }, {
-                type: 'btn',
-                id: 'btn_3',
+                type: 'ldrg',
+                id: 'ldrg3',
                 x: 280,
                 y: 235,
                 index: 'record',
-                target: 'pcpt1',
-                "eval": this.btnClick,
-                states: [
-                  {
-                    txt: {
-                      text: 'record',
-                      name: 'record',
-                      x: 0,
-                      y: 0,
-                      align: 'center',
-                      font: '20px Quicksand'
-                    }
-                  }
-                ]
+                text: 'record',
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
+                font: '18px Quicksand',
+                afterSuccess: 'origin',
+                afterFail: 'return',
+                "eval": this.onDrop
               }, {
-                type: 'btn',
-                id: 'btn_4',
+                type: 'ldrg',
+                id: 'ldrg4',
                 x: 360,
                 y: 235,
                 index: 'songs',
-                target: 'pcpt1',
-                "eval": this.btnClick,
-                states: [
-                  {
-                    txt: {
-                      text: 'songs',
-                      name: 'songs',
-                      x: 0,
-                      y: 0,
-                      align: 'center',
-                      font: '20px Quicksand'
-                    }
-                  }
-                ]
+                text: 'songs',
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
+                font: '18px Quicksand',
+                afterSuccess: 'origin',
+                afterFail: 'return',
+                "eval": this.onDrop
               }, {
-                type: 'btn',
-                id: 'btn_5',
-                x: 180,
+                type: 'ldrg',
+                id: 'ldrg5',
+                x: 120,
                 y: 270,
                 index: 'black and white',
-                target: 'pcpt1',
-                "eval": this.btnClick,
-                states: [
-                  {
-                    txt: {
-                      text: 'black and white',
-                      name: 'black and white',
-                      x: 0,
-                      y: 0,
-                      align: 'center',
-                      font: '20px Quicksand'
-                    }
-                  }
-                ]
+                text: 'black and white',
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
+                font: '18px Quicksand',
+                afterSuccess: 'origin',
+                afterFail: 'return',
+                "eval": this.onDrop
               }, {
-                type: 'btn',
-                id: 'btn_6',
+                type: 'ldrg',
+                id: 'ldrg6',
                 x: 300,
                 y: 270,
                 index: 'car',
-                target: 'pcpt1',
-                "eval": this.btnClick,
-                states: [
-                  {
-                    txt: {
-                      text: 'car',
-                      name: 'car',
-                      x: 0,
-                      y: 0,
-                      align: 'center',
-                      font: '20px Quicksand'
-                    }
-                  }
-                ]
+                text: 'car',
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
+                font: '18px Quicksand',
+                afterSuccess: 'origin',
+                afterFail: 'return',
+                "eval": this.onDrop
               }, {
-                type: 'btn',
-                id: 'btn_7',
+                type: 'ldrg',
+                id: 'ldrg7',
                 x: 360,
                 y: 270,
                 index: 'boat',
-                target: 'pcpt1',
-                "eval": this.btnClick,
-                states: [
-                  {
-                    txt: {
-                      text: 'boat',
-                      name: 'boat',
-                      x: 0,
-                      y: 0,
-                      align: 'center',
-                      font: '20px Quicksand'
-                    }
-                  }
-                ]
+                text: 'boat',
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
+                font: '18px Quicksand',
+                afterSuccess: 'origin',
+                afterFail: 'return',
+                "eval": this.onDrop
               }, {
-                type: 'btn',
-                id: 'btn_8',
+                type: 'ldrg',
+                id: 'ldrg8',
                 x: 330,
                 y: 200,
                 index: 'look',
-                target: 'pcpt1',
-                "eval": this.btnClick,
-                states: [
-                  {
-                    txt: {
-                      text: 'look',
-                      name: 'look',
-                      x: 0,
-                      y: 0,
-                      align: 'center',
-                      font: '20px Quicksand'
-                    }
-                  }
-                ]
+                text: 'look',
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
+                font: '18px Quicksand',
+                afterSuccess: 'origin',
+                afterFail: 'return',
+                "eval": this.onDrop
               }, {
-                type: 'btn',
-                id: 'btn_9',
+                type: 'ldrg',
+                id: 'ldrg9',
                 x: 260,
                 y: 200,
                 index: 'guitar',
-                target: 'pcpt1',
-                "eval": this.btnClick,
-                states: [
-                  {
-                    txt: {
-                      text: 'guitar',
-                      name: 'guitar',
-                      x: 0,
-                      y: 0,
-                      align: 'center',
-                      font: '20px Quicksand'
-                    }
-                  }
-                ]
+                text: 'guitar',
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
+                font: '18px Quicksand',
+                afterSuccess: 'origin',
+                afterFail: 'return',
+                "eval": this.onDrop
               }, {
-                type: 'btn',
-                id: 'btn_10',
+                type: 'ldrg',
+                id: 'ldrg10',
                 x: 180,
                 y: 200,
                 index: 'loved',
-                target: 'pcpt1',
-                "eval": this.btnClick,
-                states: [
-                  {
-                    txt: {
-                      text: 'loved',
-                      name: 'loved',
-                      x: 0,
-                      y: 0,
-                      align: 'center',
-                      font: '20px Quicksand'
-                    }
-                  }
-                ]
+                text: 'loved',
+                target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
+                font: '18px Quicksand',
+                afterSuccess: 'origin',
+                afterFail: 'return',
+                "eval": this.onDrop
               }, {
                 type: 'btn',
                 id: 'ch1',
                 x: 392,
                 y: 366,
-                "eval": this.btnClick,
+                index: 0,
+                "eval": this.btnChannel,
                 states: [
                   {
                     img: {
@@ -627,7 +589,8 @@ NEW ODA
                 id: 'ch2',
                 x: 417,
                 y: 366,
-                "eval": this.btnClick,
+                index: 1,
+                "eval": this.btnChannel,
                 states: [
                   {
                     img: {
@@ -643,7 +606,8 @@ NEW ODA
                 id: 'ch3',
                 x: 392,
                 y: 390,
-                "eval": this.btnClick,
+                index: 2,
+                "eval": this.btnChannel,
                 states: [
                   {
                     img: {
@@ -659,7 +623,8 @@ NEW ODA
                 id: 'ch4',
                 x: 417,
                 y: 390,
-                "eval": this.btnClick,
+                index: 3,
+                "eval": this.btnChannel,
                 states: [
                   {
                     img: {
@@ -675,7 +640,8 @@ NEW ODA
                 id: 'ch5',
                 x: 392,
                 y: 414,
-                "eval": this.btnClick,
+                index: 4,
+                "eval": this.btnChannel,
                 states: [
                   {
                     img: {
@@ -691,7 +657,8 @@ NEW ODA
                 id: 'ch6',
                 x: 417,
                 y: 414,
-                "eval": this.btnClick,
+                index: 5,
+                "eval": this.btnChannel,
                 states: [
                   {
                     img: {
@@ -707,7 +674,8 @@ NEW ODA
                 id: 'ch7',
                 x: 392,
                 y: 438,
-                "eval": this.btnClick,
+                index: 6,
+                "eval": this.btnChannel,
                 states: [
                   {
                     img: {
@@ -723,7 +691,8 @@ NEW ODA
                 id: 'ch8',
                 x: 417,
                 y: 438,
-                "eval": this.btnClick,
+                index: 7,
+                "eval": this.btnChannel,
                 states: [
                   {
                     img: {
@@ -739,9 +708,14 @@ NEW ODA
             groups: [
               {
                 type: 'grp',
-                id: 'grp1',
+                id: 'grp_img',
                 invisible: true,
-                group: ['radio', 'waltz', 'recordplayer', 'cassetteplayer', 'television', 'mini', 'ship', 'hippydad', 'hippymom', 'phone']
+                group: ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8']
+              }, {
+                type: 'grp',
+                id: 'grp_pcpt',
+                invisible: true,
+                group: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8']
               }
             ]
           }

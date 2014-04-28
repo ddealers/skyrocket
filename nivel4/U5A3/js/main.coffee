@@ -23,37 +23,37 @@ class U5A3 extends Oda
 						collection: [
 							[
 								{name: 'grp1', opts:{type: 'blink', target: 't1'}}
-								{name: 'wcpt1', opts:{word:['The World\'s Sports Competition','is better','than','the other competitions'],target: 't1',}}
+								{name: 'wcpt1', opts:{word:'The World\'s Sports Competition||is better||than||the other competitions', maxlength: 'The World\'s Sports Competition', target: 't1', sentence: true}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'blink', target: 't2'}}
-								{name: 'wcpt1', opts:{word:['The basketball game','was more','exciting','than the','football game'],target: 't2', sentence: true}}
+								{name: 'wcpt1', opts:{word:'The basketball game||was more||exciting||than the||football game', maxlength: 'The basketball game', target: 't2', sentence: true}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'blink', target: 't3'}}
-								{name: 'wcpt1', opts:{word:['Poland was','faster','than','Argentina'],target: 't3', sentence: true}}
+								{name: 'wcpt1', opts:{word:'Poland was||faster||than||Argentina', maxlength: 'Poland was', target: 't3', sentence: true}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'blink', target: 't4'}}
-								{name: 'wcpt1', opts:{word:['The Argentinian team','jumped','higher','than the Polish team'],target: 't4', sentence: true}}
+								{name: 'wcpt1', opts:{word:'The Argentinian team||jumped||higher||than the Polish team', maxlength: 'than the Polish team', target: 't4', sentence: true}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'blink', target: 't5'}}
-								{name: 'wcpt1', opts:{word:['The Argentinian','team got','more baskets','than the Poles'],target: 't5', sentence: true}}
+								{name: 'wcpt1', opts:{word:'The Argentinian||team got||more baskets||than the Poles', maxlength: 'than the Poles', target: 't5', sentence: true}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'blink', target: 't6'}}
 
-								{name: 'wcpt1', opts:{word:['The Polish players','are taller','than the','Argentinean players'],target: 't6', sentence: true}}
+								{name: 'wcpt1', opts:{word:'The Polish players||are taller||than the||Argentinean players', maxlength: 'The Polish players', target: 't6', sentence: true}}
  
 							]
 							[
 								{name: 'grp1', opts:{type: 'blink', target: 't7'}}
-								{name: 'wcpt1', opts:{word:['Mendez','trains longer','than the','other players'],target: 't7', sentence: true}}
+								{name: 'wcpt1', opts:{word:'Mendez||trains longer||than the||other players', maxlength: 'other players', target: 't7', sentence: true}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'blink', target: 't8'}}
-								{name: 'wcpt1', opts:{word:['Nagy','is','stronger','than Mendez'],target: 't8', sentence: true}}
+								{name: 'wcpt1', opts:{word:'Nagy||is||stronger||than Mendez', maxlength: 'than Mendez', target: 't8', sentence: true}}
 							]
 							
 						]
@@ -75,8 +75,8 @@ class U5A3 extends Oda
 						{type: 'txt', id: 't8', text:['Nagy, from the Polish team, can lift ','#rtn','150 kilos. Mendez can only lift 100 kilos.'], x: 565, y: 375, font:'13px Quicksand', align: 'left', parrafo: true}
 						{type: 'txt', id: 'tb2', text:['Yes! An amazing day! '], x: 565, y: 415, font:'13px Quicksand', align: 'left', parrafo: true}
 
-						{type: 'img', id: 'collage', x: 425, y: 320, align: 'mc'}
-						{type: 'swct', id: 'wcpt1', x: 460, y: 520, margin: 20, uwidth: 150, distance: 20, font: '16px Quicksand', scolor: '#00F', bcolor: 'rgba(255,255,255,0.1)', align: 'tc', eval:'drop_03'}
+						{type: 'img', id: 'collage', x: 425, y: 300, align: 'mc'}
+						{type: 'swct', id: 'wcpt1', x: 460, y: 470, margin: 20, uwidth: 150, distance: 20, font: '12px Quicksand', stroke: 2, scolor: '#00F', bcolor: 'rgba(255,255,255,0.1)', align: 'tc', eval:'drop_03'}
 					]
 					groups: [
 						{

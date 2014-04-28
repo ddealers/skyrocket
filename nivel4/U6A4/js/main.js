@@ -331,6 +331,13 @@ NEW ODA
                       success: false
                     }
                   }
+                ], [
+                  {
+                    name: 'btnContinue3',
+                    opts: {
+                      visible: true
+                    }
+                  }
                 ]
               ],
               type: 'steps'
@@ -382,6 +389,25 @@ NEW ODA
                   {
                     img: {
                       name: 'false',
+                      x: 0,
+                      y: 0,
+                      align: 'mc'
+                    }
+                  }
+                ]
+              }, {
+                type: 'btn',
+                id: 'btnContinue3',
+                x: 700,
+                y: 555,
+                index: 'next',
+                target: 'global',
+                visible: false,
+                "eval": this["continue"],
+                states: [
+                  {
+                    img: {
+                      name: 'continue',
                       x: 0,
                       y: 0,
                       align: 'mc'

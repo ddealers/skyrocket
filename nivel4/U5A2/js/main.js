@@ -104,6 +104,7 @@ NEW ODA
         t = target.parent;
         a = d.index;
         b = t.success;
+        console.log(a, b);
         if (t.success && __indexOf.call(t.success, a) >= 0) {
           t.success.remove(a);
           d.afterSuccess();
@@ -148,7 +149,7 @@ NEW ODA
                       id: 's/WenLi'
                     }
                   }, {
-                    name: "g4",
+                    name: "g1",
                     opts: {
                       success: ["Wen Li"]
                     }
@@ -184,7 +185,7 @@ NEW ODA
                       id: 's/Lili'
                     }
                   }, {
-                    name: "g5",
+                    name: "g4",
                     opts: {
                       success: ["Li Li"]
                     }
@@ -196,7 +197,7 @@ NEW ODA
                       id: 's/ZhuMei'
                     }
                   }, {
-                    name: "g1",
+                    name: "g5",
                     opts: {
                       success: ["Zhu Mei"]
                     }
@@ -386,6 +387,7 @@ NEW ODA
                   }
                 ]
               ],
+              mixed: true,
               type: 'steps'
             },
             containers: [

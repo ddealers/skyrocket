@@ -65,7 +65,6 @@ class U3A4 extends Oda
 								{name: 'pcpt5', opts:{pattern:['What', '#rtn', '#tcpt', '?'], targets: [{text:'were you doing'}]}}
 								{name: 'pcpt6', opts:{pattern:['I think the thief was a woman.','#rtn', 'I heard her.','#rtn', 'She ', '#tcpt', 'at the policeman.'], targets: [{text:'was shouting'}]}}
 								{name: 'pcpt7', opts:{pattern:['I\'m not the thief!','#rtn', 'I', '#tcpt', 'my grandmother ','#rtn', 'in prison.'], targets: [{text:'was visiting'}]}}
-
 								{name: 'pcpt8', opts:{pattern:['Oh… me? I was trying to get some exercise.','#rtn', 'I', '#tcpt', '!'], targets: [{text:'was running'}]}}
 							]
 							
@@ -106,7 +105,6 @@ class U3A4 extends Oda
 							states: [{img: {name:'8', x:0, y:0, align:'bl'}}]
 						}
 						{type: 'img', id: 'caja', x: 140, y: 490, align: 'tl'}
-
 						{type: 'img', id: 'q1', x: 95, y: 170, align: 'tl'}
 						{type: 'img', id: 'q2', x: 193, y: 160, align: 'tl'}
 						{type: 'img', id: 'q3', x: 149, y: 160, align: 'tl'}
@@ -115,16 +113,14 @@ class U3A4 extends Oda
 						{type: 'img', id: 'q6', x: 453, y: 140, align: 'tl'}
 						{type: 'img', id: 'q7', x: 550, y: 150, align: 'tl'}
 						{type: 'img', id: 'q8', x: 464, y: 160, align: 'tl'}
-
-						{type: 'pcpt', id: 'pcpt1', x: 130, y: 195,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', bcolor: 'rgba(255,255,255,0.01)', stroke: 1}
-						{type: 'pcpt', id: 'pcpt2', x: 230, y: 180,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', bcolor: 'rgba(255,255,255,0.01)', stroke: 1}
-						{type: 'pcpt', id: 'pcpt3', x: 183, y: 182,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', bcolor: 'rgba(255,255,255,0.01)', stroke: 1}
-						{type: 'pcpt', id: 'pcpt4', x: 315, y: 180,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', bcolor: 'rgba(255,255,255,0.01)', stroke: 1}
-						{type: 'pcpt', id: 'pcpt5', x: 410, y: 165,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', bcolor: 'rgba(255,255,255,0.01)', stroke: 1}
-						{type: 'pcpt', id: 'pcpt6', x: 468, y: 158,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', bcolor: 'rgba(255,255,255,0.01)', stroke: 1}
-						{type: 'pcpt', id: 'pcpt7', x: 580, y: 170,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', bcolor: 'rgba(255,255,255,0.01)', stroke: 1}
-						{type: 'pcpt', id: 'pcpt8', x: 472, y: 186,  font: '11px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A', bcolor: 'rgba(255,255,255,0.01)', stroke: 1}
-
+						{type: 'pcpt', id: 'pcpt1', x: 130, y: 195,  font: '11px Quicksand', margin: 5, underline:{y:0}, align: 'tl', scolor: '#F9101A', lineHeight: 17, bcolor: 'rgba(255,255,255,0.01)', stroke: 1}
+						{type: 'pcpt', id: 'pcpt2', x: 230, y: 175,  font: '11px Quicksand', margin: 5, underline:{y:0}, align: 'tl', scolor: '#F9101A', lineHeight: 17, bcolor: 'rgba(255,255,255,0.01)', stroke: 1}
+						{type: 'pcpt', id: 'pcpt3', x: 183, y: 177,  font: '11px Quicksand', margin: 5, underline:{y:0}, align: 'tl', scolor: '#F9101A', lineHeight: 17, bcolor: 'rgba(255,255,255,0.01)', stroke: 1}
+						{type: 'pcpt', id: 'pcpt4', x: 315, y: 180,  font: '11px Quicksand', margin: 5, underline:{y:0}, align: 'tl', scolor: '#F9101A', lineHeight: 17,  bcolor: 'rgba(255,255,255,0.01)', stroke: 1}
+						{type: 'pcpt', id: 'pcpt5', x: 410, y: 160,  font: '11px Quicksand', margin: 5, underline:{y:0}, align: 'tl', scolor: '#F9101A', lineHeight: 17,  bcolor: 'rgba(255,255,255,0.01)', stroke: 1}
+						{type: 'pcpt', id: 'pcpt6', x: 468, y: 153,  font: '11px Quicksand', margin: 5, underline:{y:0}, align: 'tl', scolor: '#F9101A', lineHeight: 17, bcolor: 'rgba(255,255,255,0.01)', stroke: 1}
+						{type: 'pcpt', id: 'pcpt7', x: 580, y: 165,  font: '11px Quicksand', margin: 5, underline:{y:0}, align: 'tl', scolor: '#F9101A', lineHeight: 17, bcolor: 'rgba(255,255,255,0.01)', stroke: 1}
+						{type: 'pcpt', id: 'pcpt8', x: 472, y: 186,  font: '11px Quicksand', margin: 5, underline:{y:0}, align: 'tl', scolor: '#F9101A', lineHeight: 17, bcolor: 'rgba(255,255,255,0.01)', stroke: 1}
 						{type: 'ldrg', id: 'ldrg1', x: 200, y: 510, index: 'was buying', text: 'was buying', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'hide', afterFail:'return', eval: @onDrop}
 						{type: 'ldrg', id: 'ldrg2', x: 200, y: 530, index: 'was dancing', text: 'was dancing', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'hide', afterFail:'return', eval: @onDrop}
 						{type: 'ldrg', id: 'ldrg3', x: 325, y: 510, index: 'was running', text: 'was running', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'hide', afterFail:'return', eval: @onDrop}

@@ -55,9 +55,7 @@ class U2A3 extends Oda
 								{name: 'pcpt4', opts:{pattern:['We started homeschooling Patrick when he was ', '#tcpt',' years old.'], targets: [{text:'four', maxlength:'Christmas Day'}]}}
 								{name: 'pcpt5', opts:{pattern:['In 2011, a university gave us ', '#tcpt',' to study Pacific cultures.'], targets: [{text:'money', maxlength:'Christmas Day'}]}}
 								{name: 'pcpt6', opts:{pattern:['We gave', '#tcpt','to say goodbye to our family and friends.'], targets: [{text:'a party', maxlength:'Christmas Day'}]}}
-
 								{name: 'pcpt7', opts:{pattern:['We left Hawaii on', '#tcpt','.'], targets: [{text:'Christmas Day', maxlength:'on Christmas Day'}]}}
-
 								{name: 'pcpt8', opts:{pattern:['Patrick is happy and he is making ', '#tcpt',' everywhere.'], targets: [{text:'new friends', maxlength:'Christmas Day'}]}}
 							]
 						]

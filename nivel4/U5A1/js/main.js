@@ -27,9 +27,6 @@ NEW ODA
           id: 'pantalla01',
           src: 'pantalla-01.png'
         }, {
-          id: 's/silence',
-          src: 'silence.mp3'
-        }, {
           id: 'ball',
           src: 'ball.png'
         }, {
@@ -37,7 +34,7 @@ NEW ODA
           src: 'coach.png'
         }, {
           id: 'diving',
-          src: 'diving.jpg'
+          src: 'diving.png'
         }, {
           id: 'goggles',
           src: 'goggles.png'
@@ -68,6 +65,9 @@ NEW ODA
         }, {
           id: 'train',
           src: 'train.png'
+        }, {
+          id: 's/silence',
+          src: 'silence.mp3'
         }
       ];
       this.game = {
@@ -99,6 +99,40 @@ NEW ODA
             answers: {
               collection: [
                 [
+                  {
+                    name: 'grp1',
+                    opts: {
+                      type: 'fadeIn',
+                      target: 'diving'
+                    }
+                  }, {
+                    name: 'pcpt1',
+                    opts: {
+                      pattern: ['This sport,', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', ', is  a combination of gymnastics and swimming.'],
+                      targets: [
+                        {
+                          text: 'd',
+                          width: 30
+                        }, {
+                          text: 'i',
+                          width: 30
+                        }, {
+                          text: 'v',
+                          width: 30
+                        }, {
+                          text: 'i',
+                          width: 30
+                        }, {
+                          text: 'n',
+                          width: 30
+                        }, {
+                          text: 'g',
+                          width: 30
+                        }
+                      ]
+                    }
+                  }
+                ], [
                   {
                     name: 'grp1',
                     opts: {
@@ -385,40 +419,6 @@ NEW ODA
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
-                      target: 'diving'
-                    }
-                  }, {
-                    name: 'pcpt1',
-                    opts: {
-                      pattern: ['This sport,', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', ', is  a combination of gymnastics and swimming.'],
-                      targets: [
-                        {
-                          text: 'd',
-                          width: 30
-                        }, {
-                          text: 'i',
-                          width: 30
-                        }, {
-                          text: 'v',
-                          width: 30
-                        }, {
-                          text: 'i',
-                          width: 30
-                        }, {
-                          text: 'n',
-                          width: 30
-                        }, {
-                          text: 'g',
-                          width: 30
-                        }
-                      ]
-                    }
-                  }
-                ], [
-                  {
-                    name: 'grp1',
-                    opts: {
-                      type: 'fadeIn',
                       target: 'train'
                     }
                   }, {
@@ -553,86 +553,87 @@ NEW ODA
                 ]
               ],
               mixed: true,
-              type: 'steps'
+              type: 'limit',
+              limit: 10
             },
             containers: [
               {
                 type: 'img',
                 id: 'ball',
-                x: 433,
-                y: 328,
+                x: 400,
+                y: 320,
                 align: 'mc'
               }, {
                 type: 'img',
                 id: 'coach',
-                x: 433,
-                y: 328,
+                x: 400,
+                y: 320,
                 align: 'mc'
               }, {
                 type: 'img',
                 id: 'diving',
-                x: 433,
-                y: 328,
+                x: 400,
+                y: 320,
                 align: 'mc'
               }, {
                 type: 'img',
                 id: 'goggles',
-                x: 433,
-                y: 328,
+                x: 400,
+                y: 320,
                 align: 'mc'
               }, {
                 type: 'img',
                 id: 'match',
-                x: 433,
-                y: 328,
+                x: 400,
+                y: 320,
                 align: 'mc'
               }, {
                 type: 'img',
                 id: 'medal',
-                x: 433,
-                y: 328,
+                x: 400,
+                y: 320,
                 align: 'mc'
               }, {
                 type: 'img',
                 id: 'paddle',
-                x: 433,
-                y: 328,
+                x: 400,
+                y: 320,
                 align: 'mc'
               }, {
                 type: 'img',
                 id: 'pool',
-                x: 433,
-                y: 328,
+                x: 400,
+                y: 320,
                 align: 'mc'
               }, {
                 type: 'img',
                 id: 'race',
-                x: 433,
-                y: 328,
+                x: 400,
+                y: 320,
                 align: 'mc'
               }, {
                 type: 'img',
                 id: 'racket',
-                x: 433,
-                y: 328,
+                x: 400,
+                y: 320,
                 align: 'mc'
               }, {
                 type: 'img',
                 id: 'shoes',
-                x: 433,
-                y: 328,
+                x: 400,
+                y: 320,
                 align: 'mc'
               }, {
                 type: 'img',
                 id: 'team',
-                x: 433,
-                y: 328,
+                x: 400,
+                y: 320,
                 align: 'mc'
               }, {
                 type: 'img',
                 id: 'train',
-                x: 433,
-                y: 328,
+                x: 400,
+                y: 320,
                 align: 'mc'
               }, {
                 type: 'pcpt',

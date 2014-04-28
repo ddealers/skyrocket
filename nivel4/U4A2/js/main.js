@@ -15,23 +15,38 @@ NEW ODA
     function U4A2() {
       this.manifest = [
         {
-          id: 'accounts',
-          src: 'accounts.png'
-        }, {
-          id: 'carriage',
-          src: 'carriage.png'
-        }, {
           id: 'c2',
           src: 'circulo2.png'
         }, {
           id: 'c1',
           src: 'cirulo1.png'
         }, {
-          id: 'composer',
-          src: 'composer.png'
+          id: 'carriage',
+          src: 'carriage.png'
+        }, {
+          id: 'sleep',
+          src: 'sleep.png'
+        }, {
+          id: 'sick',
+          src: 'sick.png'
+        }, {
+          id: 'piano',
+          src: 'piano.png'
+        }, {
+          id: 'instruments',
+          src: 'instruments.png'
         }, {
           id: 'concert',
           src: 'concert.png'
+        }, {
+          id: 'accounts',
+          src: 'accounts.png'
+        }, {
+          id: 'composer',
+          src: 'composer.png'
+        }, {
+          id: 'languages',
+          src: 'languages.png'
         }, {
           id: 'finished',
           src: 'finished.png'
@@ -39,26 +54,11 @@ NEW ODA
           id: 'header',
           src: 'header.png'
         }, {
-          id: 'instruments',
-          src: 'instruments.png'
-        }, {
-          id: 'piano',
-          src: 'mozart.png'
-        }, {
-          id: 'languages',
-          src: 'mozart.png'
-        }, {
           id: 'pantalla01',
           src: 'pantalla-01.png'
         }, {
-          id: 'sick',
-          src: 'sick.png'
-        }, {
           id: 's/silence',
           src: 'silence.mp3'
-        }, {
-          id: 'sleep',
-          src: 'sleep.png'
         }
       ];
       this.game = {
@@ -97,10 +97,11 @@ NEW ODA
                       target: 'carriage'
                     }
                   }, {
-                    name: 'wcpt1',
+                    name: 'swct1',
                     opts: {
-                      word: ['Mozart', 'couldn\'t', 'get on a', 'carriage'],
-                      target: 'carriage.',
+                      word: 'Mozart||couldn\'t||get on a||carriage',
+                      target: 'carriage',
+                      maxlength: 'get on a',
                       sentence: true
                     }
                   }
@@ -112,10 +113,11 @@ NEW ODA
                       target: 'sleep'
                     }
                   }, {
-                    name: 'wcpt1',
+                    name: 'swct1',
                     opts: {
-                      word: ['He couldn\'t', 'sleep', ' when he', 'traveled'],
-                      target: 'sleep.',
+                      word: 'He couldn\'t||sleep|| when he||traveled',
+                      target: 'sleep',
+                      maxlength: 'He couldn\'t',
                       sentence: true
                     }
                   }
@@ -127,10 +129,11 @@ NEW ODA
                       target: 'sick'
                     }
                   }, {
-                    name: 'wcpt1',
+                    name: 'swct1',
                     opts: {
-                      word: ['His sister', 'couldn\'t play', 'for the king because', 'she was sick.'],
+                      word: 'His sister||couldn\'t play||for the king because||she was sick',
                       target: 'sick',
+                      maxlength: 'for the king because',
                       sentence: true
                     }
                   }
@@ -142,10 +145,11 @@ NEW ODA
                       target: 'piano'
                     }
                   }, {
-                    name: 'wcpt1',
+                    name: 'swct1',
                     opts: {
-                      word: ['Mozart could', 'play', 'all the music', 'from memory.'],
+                      word: 'Mozart could||play||all the music||from memory',
                       target: 'piano',
+                      maxlength: 'all the music',
                       sentence: true
                     }
                   }
@@ -157,10 +161,11 @@ NEW ODA
                       target: 'instruments'
                     }
                   }, {
-                    name: 'wcpt1',
+                    name: 'swct1',
                     opts: {
-                      word: ['He', 'could play', 'four different', 'instruments.'],
+                      word: 'He||could play||four different||instruments',
                       target: 'instruments',
+                      maxlength: 'four different',
                       sentence: true
                     }
                   }
@@ -172,10 +177,11 @@ NEW ODA
                       target: 'concert'
                     }
                   }, {
-                    name: 'wcpt1',
+                    name: 'swct1',
                     opts: {
-                      word: ['His father', 'couldn\'t', 'play', 'the violin.'],
+                      word: 'His father||couldn\'t||play||the violin',
                       target: 'concert',
+                      maxlength: 'the violin.',
                       sentence: true
                     }
                   }
@@ -187,10 +193,11 @@ NEW ODA
                       target: 'accounts'
                     }
                   }, {
-                    name: 'wcpt1',
+                    name: 'swct1',
                     opts: {
-                      word: ['His brother', 'could', 'do', 'math.'],
+                      word: 'His brother||could||do||math',
                       target: 'accounts',
+                      maxlength: 'His brother',
                       sentence: true
                     }
                   }
@@ -202,10 +209,11 @@ NEW ODA
                       target: 'composer'
                     }
                   }, {
-                    name: 'wcpt1',
+                    name: 'swct1',
                     opts: {
-                      word: ['His sister', 'couldn\’t', 'compose', 'music.'],
+                      word: 'His sister||couldn\’t||compose||music',
                       target: 'composer',
+                      maxlength: 'His sister',
                       sentence: true
                     }
                   }
@@ -217,83 +225,85 @@ NEW ODA
                       target: 'languages'
                     }
                   }, {
-                    name: 'wcpt1',
+                    name: 'swct1',
                     opts: {
-                      word: ['Mozart', 'could', 'speak several', 'different languages.'],
+                      word: 'Mozart||could||speak several||different languages',
                       target: 'languages',
+                      maxlength: 'different languages.',
                       sentence: true
                     }
                   }
                 ]
               ],
               mixed: true,
-              type: 'steps'
+              type: 'limit',
+              limit: 6
             },
             containers: [
               {
                 type: 'img',
                 id: 'carriage',
                 x: 400,
-                y: 300,
+                y: 290,
                 align: 'mc'
               }, {
                 type: 'img',
                 id: 'sleep',
                 x: 400,
-                y: 300,
+                y: 290,
                 align: 'mc'
               }, {
                 type: 'img',
                 id: 'sick',
                 x: 400,
-                y: 300,
+                y: 290,
                 align: 'mc'
               }, {
                 type: 'img',
                 id: 'piano',
                 x: 400,
-                y: 300,
+                y: 290,
                 align: 'mc'
               }, {
                 type: 'img',
                 id: 'instruments',
                 x: 400,
-                y: 300,
+                y: 290,
                 align: 'mc'
               }, {
                 type: 'img',
                 id: 'concert',
                 x: 400,
-                y: 300,
+                y: 290,
                 align: 'mc'
               }, {
                 type: 'img',
                 id: 'accounts',
                 x: 400,
-                y: 300,
+                y: 290,
                 align: 'mc'
               }, {
                 type: 'img',
                 id: 'composer',
                 x: 400,
-                y: 300,
+                y: 290,
                 align: 'mc'
               }, {
                 type: 'img',
                 id: 'languages',
                 x: 400,
-                y: 300,
+                y: 290,
                 align: 'mc'
               }, {
                 type: 'swct',
-                id: 'wcpt1',
-                x: 460,
-                y: 520,
-                margin: 20,
+                id: 'swct1',
+                x: 430,
+                y: 460,
+                margin: 10,
                 uwidth: 150,
                 distance: 50,
                 font: '20px Quicksand',
-                scolor: '#F00',
+                scolor: '#005da2',
                 align: 'tc',
                 "eval": 'drop_03'
               }
@@ -302,6 +312,7 @@ NEW ODA
               {
                 type: 'grp',
                 id: 'grp1',
+                invisible: true,
                 group: ['carriage', 'sleep', 'sick', 'piano', 'instruments', 'concert', 'accounts', 'composer', 'languages']
               }
             ]

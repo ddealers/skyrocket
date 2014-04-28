@@ -37,6 +37,7 @@ class U5A4 extends Oda
 
 		]
 		@btnClick = (dispatcher, target) =>
+			###
 			d = lib[dispatcher]
 			t = lib[target]
 			a = d.index
@@ -55,67 +56,98 @@ class U5A4 extends Oda
 				else
 					lib.scene.fail()
 			else
-				lib.scene.fail false 
+				lib.scene.fail false
+			###
+		@onkeydown = (e) ->
+			e.preventDefault()
+			e.stopPropagation()
+			word = ''
+			keycode = e.keyCode || e.which
+			pattern = /[a-z]/i
+			str = String.fromCharCode keycode
+			target = lib[window.target].getEnabledTarget()
+			if keycode is 8
+				target.write '<-'
+			else if keycode is 13
+				fail = false
+				for target in lib[window.target].droptargets
+					if target.success is target.write()
+						target.complete = true
+					else
+						fail = true
+						lib.scene.fail()
+				if not fail then lib.scene.success true,false
+			else if pattern.test str
+				target.write str.toLowerCase()
 		@game = 
 			header: 'header'
 			instructions: {x: 110, y: 130, states: [{text:'Read and write the words.', sound:'s/silence', played: false}]}
-			score:{type: 'points', x:20, y:500, init: 0, total: 10, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
+			score:{type: 'points', x:20, y:500, init: 0, total: 8, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
 			scenes:[
 				{
 					answers: {
 						collection: [
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'older'}}
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text1'}}
-								{name: 'pcpt1', opts: {pattern:['Lizzy is ', '#tcpt', '#tcpt',' her sister.'], targets: [{text: 'older', success:'clic'},{text: 'than', success:'than'}]}}
+								{name: 'pcpt1', opts: {pattern:['Lizzy is ', '#tcpt', '#tcpt',' her sister.'], targets: [{text: 'older'},{text: 'than'}]}}
 
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'thinner'}}
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text2'}}
-								{name: 'pcpt1', opts: {pattern:['Patrick is', '#tcpt','#tcpt', 'Louis.'], targets: [{text: 'thinner', success:'clic'},{text: 'than', success:'than'}]}}
+								{name: 'pcpt1', opts: {pattern:['Patrick is', '#tcpt','#tcpt', 'Louis.'], targets: [{text: 'thinner'},{text: 'than'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'hotter'}}	
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text3'}}			
-								{name: 'pcpt1', opts: {pattern:['Today is', '#tcpt','#tcpt', 'yesterday.'], targets: [{text: 'hotter', success:'clic'},{text: 'than', success:'than'}]}}
+								{name: 'pcpt1', opts: {pattern:['Today is', '#tcpt','#tcpt', 'yesterday.'], targets: [{text: 'hotter'},{text: 'than'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'funnier'}}
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text4'}}			
-								{name: 'pcpt1', opts: {pattern:['This movie is', '#tcpt','#tcpt', '#rtn', 'the oder one.'], targets: [{text: 'funnier', success:'clic'},{text: 'than', success:'than'}]}}
+								{name: 'pcpt1', opts: {pattern:['This movie is', '#tcpt','#tcpt', '#rtn', 'the other one.'], targets: [{text: 'funnier'},{text: 'than'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'longer'}}	
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text5'}}			
-								{name: 'pcpt1', opts: {pattern:['Roger\'s book is', '#tcpt','#tcpt', 'Paul\'s.'], targets: [{text: 'longer', success:'clic'},{text: 'than', success:'than'}]}}
+								{name: 'pcpt1', opts: {pattern:['Roger\'s book is', '#tcpt','#tcpt', 'Paul\'s.'], targets: [{text: 'longer'},{text: 'than'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'stronger'}}
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text6'}}			
-								{name: 'pcpt1', opts: {pattern:['Your brother is ', '#tcpt','#tcpt', 'you.'], targets: [{text: 'stronger', success:'clic'},{text: 'than', success:'than'}]}}
+								{name: 'pcpt1', opts: {pattern:['Your brother is ', '#tcpt','#tcpt', 'you.'], targets: [{text: 'stronger'},{text: 'than'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'higher'}}		
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text7'}}		
-								{name: 'pcpt1', opts: {pattern:['She jumps', '#tcpt','#tcpt', 'you.'], targets: [{text: 'higher', success:'clic'},{text: 'than', success:'than'}]}}
+								{name: 'pcpt1', opts: {pattern:['She jumps', '#tcpt','#tcpt', 'you.'], targets: [{text: 'higher'},{text: 'than'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'happier'}}	
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text8'}}		
-								{name: 'pcpt1', opts: {pattern:['Laura is', '#tcpt','#tcpt', 'Samuel.'], targets: [{text: 'happier', success:'clic'},{text: 'than', success:'than'}]}}
+								{name: 'pcpt1', opts: {pattern:['Laura is', '#tcpt','#tcpt', 'Samuel.'], targets: [{text: 'happier'},{text: 'than'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'harder'}}		
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text9'}}		
-								{name: 'pcpt1', opts: {pattern:['He kicked the ball', '#tcpt','#tcpt','#rtn', 'the other players.'], targets: [{text: 'harder', success:'clic'},{text: 'than', success:'than'}]}}
+								{name: 'pcpt1', opts: {pattern:['He kicked the ball', '#tcpt','#tcpt','#rtn', 'the other players.'], targets: [{text: 'harder'},{text: 'than'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'farther'}}
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text10'}}
-								{name: 'pcpt1', opts: {pattern:['Andrew lives', '#tcpt', '#rtn','from the school', '#tcpt', 'Liz.'], targets: [{text: 'farther', success:'clic'},{text: 'than', success:'than'}]}}
+								{name: 'pcpt1', opts: {pattern:['Andrew lives', '#tcpt', 'from', '#rtn', 'the school', '#tcpt', 'Liz.'], targets: [{text: 'farther'},{text: 'than'}]}}
 							]
-							
 						]
 						mixed: true
 						type: 'limit'
@@ -134,21 +166,17 @@ class U5A4 extends Oda
 						{type: 'img', id: 'farther', x: 425, y: 338, align: 'mc'}
 						{type: 'img', id: '9', x: 265, y: 523, align: 'mc'}
 						{type: 'img', id: '9', x: 590, y: 523, align: 'mc'}
-						
-						{type: 'txt', id: 'text1', text: 'Lizzy is 10 years old and her sister is 3.', x:256, y:505, font:'14px Quicksand', align: 'center', lineWidth: 250}
-						{type: 'txt', id: 'text2', text: 'Patrick is thin. Louis is not thin.','#rtn','Yesterday it was 25 degrees.', x:256, y:505, font:'14px Quicksand', align: 'center', lineWidth: 250}
-						{type: 'txt', id: 'text3', text: 'It\'s hot today, 32 degrees! Yesterday it was 25 degrees.', x:256, y:505, font:'14px Quicksand', align: 'center', lineWidth: 250}
-						{type: 'txt', id: 'text4', text: 'This movie is very funny. The one we saw yesterday wasn\'t.','#rtn','Paul\'s book is only 200 pages.', x:256, y:505, font:'14px Quicksand', align: 'center', lineWidth: 250}
-						{type: 'txt', id: 'text5', text: 'Roger\'s book is long, 300 pages! Paul\'s book is only 200 pages.', x:256, y:505, font:'14px Quicksand', align: 'center', lineWidth: 250}
-						{type: 'txt', id: 'text6', text: 'I am strong, but my big brother is very strong.', x:256, y:505, font:'14px Quicksand', align: 'center', lineWidth: 250}
-						{type: 'txt', id: 'text7', text: 'My mom is a dancer. She jumps really high.', x:256, y:505, font:'14px Quicksand', align: 'center', lineWidth: 250}
-						{type: 'txt', id: 'text8', text: 'Laura got 9 on her exam. Samuel got a 7.', x:256, y:505, font:'14px Quicksand', align: 'center', lineWidth: 250}
-                        {type: 'txt', id: 'text9', text: 'Dennis scored a goal. He Kicked the ball hard.', x:256, y:505, font:'14px Quicksand', align: 'center', lineWidth: 250}
-                        {type: 'txt', id: 'text10', text: 'Liz lives next door to the school. Andrew lives five kilometers away.', x:256, y:505, font:'14px Quicksand', align: 'center', lineWidth: 250}
-						
-						{type: 'pcpt', id: 'pcpt1', x: 590, y: 510, font: '14px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A'}
-						
-						
+						{type: 'txt', id: 'text1', text: 'Lizzy is 10 years old and her sister is 3.', x:260, y:505, font:'14px Quicksand', align: 'center', lineWidth: 180}
+						{type: 'txt', id: 'text2', text: 'Patrick is thin. Louis is not thin. Yesterday it was 25 degrees.', x:260, y:505, font:'14px Quicksand', align: 'center', lineWidth: 180}
+						{type: 'txt', id: 'text3', text: 'It\'s hot today, 32 degrees! Yesterday it was 25 degrees.', x:260, y:505, font:'14px Quicksand', align: 'center', lineWidth: 180}
+						{type: 'txt', id: 'text4', text: 'This movie is very funny. The one we saw yesterday wasn\'t.','#rtn','Paul\'s book is only 200 pages.', x:260, y:505, font:'14px Quicksand', align: 'center', lineWidth: 180}
+						{type: 'txt', id: 'text5', text: 'Roger\'s book is long, 300 pages! Paul\'s book is only 200 pages.', x:260, y:505, font:'14px Quicksand', align: 'center', lineWidth: 180}
+						{type: 'txt', id: 'text6', text: 'I am strong, but my big brother is very strong.', x:260, y:505, font:'14px Quicksand', align: 'center', lineWidth: 180}
+						{type: 'txt', id: 'text7', text: 'My mom is a dancer. She jumps really high.', x:260, y:505, font:'14px Quicksand', align: 'center', lineWidth: 180}
+						{type: 'txt', id: 'text8', text: 'Laura got 9 on her exam. Samuel got a 7.', x:260, y:505, font:'14px Quicksand', align: 'center', lineWidth: 180}
+                        {type: 'txt', id: 'text9', text: 'Dennis scored a goal. He Kicked the ball hard.', x:260, y:505, font:'14px Quicksand', align: 'center', lineWidth: 180}
+                        {type: 'txt', id: 'text10', text: 'Liz lives next door to the school. Andrew lives five kilometers away.', x:260, y:505, font:'14px Quicksand', align: 'center', lineWidth: 180}
+						{type: 'pcpt', id: 'pcpt1', x: 590, y: 510, font: '14px Quicksand', margin: 5, align: 'tc', lineHeight: 20, underline:{y:0}, bcolor: '#d7ecf9', scolor: '#00629f'}
 					]
 					groups:[
 						{

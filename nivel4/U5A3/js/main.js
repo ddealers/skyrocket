@@ -72,8 +72,10 @@ NEW ODA
                   }, {
                     name: 'wcpt1',
                     opts: {
-                      word: ['The World\'s Sports Competition', 'is better', 'than', 'the other competitions'],
-                      target: 't1'
+                      word: 'The World\'s Sports Competition||is better||than||the other competitions',
+                      maxlength: 'The World\'s Sports Competition',
+                      target: 't1',
+                      sentence: true
                     }
                   }
                 ], [
@@ -86,7 +88,8 @@ NEW ODA
                   }, {
                     name: 'wcpt1',
                     opts: {
-                      word: ['The basketball game', 'was more', 'exciting', 'than the', 'football game'],
+                      word: 'The basketball game||was more||exciting||than the||football game',
+                      maxlength: 'The basketball game',
                       target: 't2',
                       sentence: true
                     }
@@ -101,7 +104,8 @@ NEW ODA
                   }, {
                     name: 'wcpt1',
                     opts: {
-                      word: ['Poland was', 'faster', 'than', 'Argentina'],
+                      word: 'Poland was||faster||than||Argentina',
+                      maxlength: 'Poland was',
                       target: 't3',
                       sentence: true
                     }
@@ -116,7 +120,8 @@ NEW ODA
                   }, {
                     name: 'wcpt1',
                     opts: {
-                      word: ['The Argentinian team', 'jumped', 'higher', 'than the Polish team'],
+                      word: 'The Argentinian team||jumped||higher||than the Polish team',
+                      maxlength: 'than the Polish team',
                       target: 't4',
                       sentence: true
                     }
@@ -131,7 +136,8 @@ NEW ODA
                   }, {
                     name: 'wcpt1',
                     opts: {
-                      word: ['The Argentinian', 'team got', 'more baskets', 'than the Poles'],
+                      word: 'The Argentinian||team got||more baskets||than the Poles',
+                      maxlength: 'than the Poles',
                       target: 't5',
                       sentence: true
                     }
@@ -146,7 +152,8 @@ NEW ODA
                   }, {
                     name: 'wcpt1',
                     opts: {
-                      word: ['The Polish players', 'are taller', 'than the', 'Argentinean players'],
+                      word: 'The Polish players||are taller||than the||Argentinean players',
+                      maxlength: 'The Polish players',
                       target: 't6',
                       sentence: true
                     }
@@ -161,7 +168,8 @@ NEW ODA
                   }, {
                     name: 'wcpt1',
                     opts: {
-                      word: ['Mendez', 'trains longer', 'than the', 'other players'],
+                      word: 'Mendez||trains longer||than the||other players',
+                      maxlength: 'other players',
                       target: 't7',
                       sentence: true
                     }
@@ -176,7 +184,8 @@ NEW ODA
                   }, {
                     name: 'wcpt1',
                     opts: {
-                      word: ['Nagy', 'is', 'stronger', 'than Mendez'],
+                      word: 'Nagy||is||stronger||than Mendez',
+                      maxlength: 'than Mendez',
                       target: 't8',
                       sentence: true
                     }
@@ -299,17 +308,18 @@ NEW ODA
                 type: 'img',
                 id: 'collage',
                 x: 425,
-                y: 320,
+                y: 300,
                 align: 'mc'
               }, {
                 type: 'swct',
                 id: 'wcpt1',
                 x: 460,
-                y: 520,
+                y: 470,
                 margin: 20,
                 uwidth: 150,
                 distance: 20,
-                font: '16px Quicksand',
+                font: '12px Quicksand',
+                stroke: 2,
                 scolor: '#00F',
                 bcolor: 'rgba(255,255,255,0.1)',
                 align: 'tc',

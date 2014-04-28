@@ -11,11 +11,9 @@ class U5A1 extends Oda
 			{id: 'c1', src: 'cirulo1.png'}
 			{id: 'header', src: 'header.png'}
 			{id: 'pantalla01', src: 'pantalla-01.png'}
-			{ id: 's/silence' , src: 'silence.mp3' }
-
 			{id: 'ball', src: 'ball.png'}
 			{id: 'coach', src: 'coach.png'}
-			{id: 'diving', src: 'diving.jpg'}
+			{id: 'diving', src: 'diving.png'}
 			{id: 'goggles', src: 'goggles.png'}
 			{id: 'match', src: 'match.png'}
 			{id: 'medal', src: 'medal.png'}
@@ -26,6 +24,7 @@ class U5A1 extends Oda
 			{id: 'shoes', src: 'shoes.png'}
 			{id: 'team', src: 'volleyball.png'}
 			{id: 'train', src: 'train.png'}
+			{id: 's/silence' , src: 'silence.mp3'}
 		]
 		
 		@game = 
@@ -37,6 +36,10 @@ class U5A1 extends Oda
 				{
 					answers: {
 						collection: [
+							[
+								{name: 'grp1', opts:{type: 'fadeIn', target: 'diving'}}
+								{name: 'pcpt1', opts:{pattern:['This sport,', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt',', is  a combination of gymnastics and swimming.'], targets: [{text:'d', width: 30},{text:'i', width: 30},{text:'v', width: 30},{text:'i', width: 30},{text:'n', width: 30},{text:'g', width: 30}]}}
+							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'racket'}}
 								{name: 'pcpt1', opts:{pattern:['When you play tennis, you need a ', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt','.'], targets: [{text:'r', width: 30},{text:'a', width: 30},{text:'c', width: 30},{text:'k', width: 30},{text:'e', width: 30},{text:'t', width: 30}]}}
@@ -74,10 +77,6 @@ class U5A1 extends Oda
 								{name: 'pcpt1', opts:{pattern:['The Chinese team won first place. They won the gold', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '.'], targets: [{text:'m', width: 30},{text:'e', width: 30},{text:'d', width: 30},{text:'a', width: 30},{text:'l', width: 30}]}}
 							]
 							[
-								{name: 'grp1', opts:{type: 'fadeIn', target: 'diving'}}
-								{name: 'pcpt1', opts:{pattern:['This sport,', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt',', is  a combination of gymnastics and swimming.'], targets: [{text:'d', width: 30},{text:'i', width: 30},{text:'v', width: 30},{text:'i', width: 30},{text:'n', width: 30},{text:'g', width: 30}]}}
-							]
-							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'train'}}
 								{name: 'pcpt1', opts:{pattern:['Athletes have to', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', 'every day to be faster and better.'], targets: [{text:'t', width: 30},{text:'r', width: 30},{text:'a', width: 30},{text:'i', width: 30},{text:'n', width: 30}]}}
 							]
@@ -96,23 +95,23 @@ class U5A1 extends Oda
 							
 						]
 						mixed: true
-						type: 'steps'
+						type: 'limit'
+						limit: 10
 					}
 					containers:[
-						{type: 'img', id: 'ball', x: 433, y: 328, align: 'mc'}
-						{type: 'img', id: 'coach', x: 433, y: 328, align: 'mc'}
-						{type: 'img', id: 'diving', x: 433, y: 328, align: 'mc'}
-						{type: 'img', id: 'goggles', x: 433, y: 328, align: 'mc'}
-						{type: 'img', id: 'match', x: 433, y: 328, align: 'mc'}
-						{type: 'img', id: 'medal', x: 433, y: 328, align: 'mc'}
-						{type: 'img', id: 'paddle', x: 433, y: 328, align: 'mc'}
-						{type: 'img', id: 'pool', x: 433, y: 328, align: 'mc'}
-						{type: 'img', id: 'race', x: 433, y: 328, align: 'mc'}
-						{type: 'img', id: 'racket', x: 433, y: 328, align: 'mc'}
-						{type: 'img', id: 'shoes', x: 433, y: 328, align: 'mc'}
-						{type: 'img', id: 'team', x: 433, y: 328, align: 'mc'}
-						{type: 'img', id: 'train', x: 433, y: 328, align: 'mc'}
-
+						{type: 'img', id: 'ball', x: 400, y: 320, align: 'mc'}
+						{type: 'img', id: 'coach', x: 400, y: 320, align: 'mc'}
+						{type: 'img', id: 'diving', x: 400, y: 320, align: 'mc'}
+						{type: 'img', id: 'goggles', x: 400, y: 320, align: 'mc'}
+						{type: 'img', id: 'match', x: 400, y: 320, align: 'mc'}
+						{type: 'img', id: 'medal', x: 400, y: 320, align: 'mc'}
+						{type: 'img', id: 'paddle', x: 400, y: 320, align: 'mc'}
+						{type: 'img', id: 'pool', x: 400, y: 320, align: 'mc'}
+						{type: 'img', id: 'race', x: 400, y: 320, align: 'mc'}
+						{type: 'img', id: 'racket', x: 400, y: 320, align: 'mc'}
+						{type: 'img', id: 'shoes', x: 400, y: 320, align: 'mc'}
+						{type: 'img', id: 'team', x: 400, y: 320, align: 'mc'}
+						{type: 'img', id: 'train', x: 400, y: 320, align: 'mc'}
 						{type: 'pcpt', id: 'pcpt1', x: 433, y: 470, font: '20px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A'}
 						{type: 'abc', id: 'abc1', x: 400, y: 540, font:'20px Quicksand', fcolor:'#333', uwidth: 22, uheight: 34, margin: 10, target:'pcpt1', eval: 'click_O1', clickable:true }
 									
