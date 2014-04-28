@@ -37,7 +37,7 @@ NEW ODA
           src: 'hamburguesa.png'
         }, {
           id: 'niñosclase',
-          src: 'niños-clase.png'
+          src: 'ninos-clase.png'
         }, {
           id: 'rosa',
           src: 'rosa.png'
@@ -55,6 +55,21 @@ NEW ODA
           src: 'silence.mp3'
         }
       ];
+      this.drop = function(dispatcher, target) {
+        if (lib[dispatcher].index === target.success) {
+          target.complete = true;
+          target.update();
+          lib[dispatcher].afterSuccess();
+          target.parent.currentTarget++;
+          if (target.parent.currentTarget === target.parent.droptargets.length) {
+            lib[target.parent.target].fadeIn();
+            return lib.scene.success();
+          }
+        } else {
+          lib[dispatcher].afterFail();
+          return lib.scene.fail();
+        }
+      };
       this.game = {
         header: 'header',
         instructions: {
@@ -73,7 +88,7 @@ NEW ODA
           x: 20,
           y: 500,
           init: 0,
-          total: 6,
+          total: 7,
           aimg: 'c1',
           acolor: '#333',
           bimg: 'c2',
@@ -87,8 +102,8 @@ NEW ODA
                   {
                     name: 'wcpt1',
                     opts: {
-                      word: ['We', 'are', 'going', 'to visit', 'a real laboratory'],
-                      target: 'diassemana',
+                      word: 'We||are||going||to visit||a real laboratory',
+                      target: 'niñosclase',
                       sentence: true
                     }
                   }
@@ -96,8 +111,8 @@ NEW ODA
                   {
                     name: 'wcpt1',
                     opts: {
-                      word: ['On', 'Tuesday', 'we\'re', 'going to', 'horseback riding'],
-                      target: 'diassemana',
+                      word: 'On||Tuesday||we\'re||going to||horseback riding',
+                      target: 'caballo',
                       sentence: true
                     }
                   }
@@ -105,8 +120,8 @@ NEW ODA
                   {
                     name: 'wcpt1',
                     opts: {
-                      word: ['On Wednesday,', 'we\'re', 'going', 'to go', 'swimming'],
-                      target: 'diassemana',
+                      word: 'On Wednesday,||we\'re||going||to go||swimming',
+                      target: 'toboganes',
                       sentence: true
                     }
                   }
@@ -114,8 +129,8 @@ NEW ODA
                   {
                     name: 'wcpt1',
                     opts: {
-                      word: ['I\'m', 'going', 'to', 'build', 'a robot'],
-                      target: 'diassemana',
+                      word: 'I\'m||going||to||build||a robot',
+                      target: 'robot',
                       sentence: true
                     }
                   }
@@ -123,8 +138,8 @@ NEW ODA
                   {
                     name: 'wcpt1',
                     opts: {
-                      word: ['I\'m', 'going to', 'learn how to', 'cook', 'hamburgers'],
-                      target: 'diassemana',
+                      word: 'I\'m||going to||learn how to||cook||hamburgers',
+                      target: 'hamburguesa',
                       sentence: true
                     }
                   }
@@ -132,8 +147,8 @@ NEW ODA
                   {
                     name: 'wcpt1',
                     opts: {
-                      word: ['We\'re going', 'to', 'take', 'photographs', 'of nature'],
-                      target: 'diassemana',
+                      word: 'We\'re going||to||take||photographs||of nature',
+                      target: 'rosa',
                       sentence: true
                     }
                   }
@@ -141,8 +156,8 @@ NEW ODA
                   {
                     name: 'wcpt1',
                     opts: {
-                      word: ['On sunday', 'we\'re', 'going', 'to have', 'a party with cake'],
-                      target: 'diassemana',
+                      word: 'On sunday||we\'re||going||to have||a party with cake',
+                      target: 'fiesta',
                       sentence: true
                     }
                   }
@@ -155,49 +170,49 @@ NEW ODA
               {
                 type: 'img',
                 id: 'diassemana',
-                x: 30,
+                x: 80,
                 y: 220,
                 align: 'tl'
               }, {
                 type: 'img',
                 id: 'niñosclase',
-                x: 30,
+                x: 80,
                 y: 243,
                 align: 'tl'
               }, {
                 type: 'img',
                 id: 'caballo',
-                x: 140,
+                x: 190,
                 y: 243,
                 align: 'tl'
               }, {
                 type: 'img',
                 id: 'toboganes',
-                x: 253,
+                x: 303,
                 y: 243,
                 align: 'tl'
               }, {
                 type: 'img',
                 id: 'robot',
-                x: 363,
+                x: 413,
                 y: 243,
                 align: 'tl'
               }, {
                 type: 'img',
                 id: 'hamburguesa',
-                x: 470,
+                x: 520,
                 y: 243,
                 align: 'tl'
               }, {
                 type: 'img',
                 id: 'rosa',
-                x: 583,
+                x: 633,
                 y: 243,
                 align: 'tl'
               }, {
                 type: 'img',
                 id: 'fiesta',
-                x: 692,
+                x: 742,
                 y: 243,
                 align: 'tl'
               }, {
@@ -211,13 +226,14 @@ NEW ODA
                 font: '20px Quicksand',
                 scolor: '#F00',
                 align: 'tc',
-                "eval": 'drop_03'
+                "eval": this.drop
               }
             ],
             groups: [
               {
                 type: 'grp',
                 id: 'grp1',
+                invisible: true,
                 group: ["robot", "toboganes", "caballo", "hamburguesa", "niñosclase", "rosa", "fiesta"]
               }
             ]
