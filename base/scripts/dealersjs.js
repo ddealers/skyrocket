@@ -1744,19 +1744,41 @@ LIBRARY
     }
 
     Instructions.prototype.initialize = function(opts) {
-      var triangle;
+      var it, npos, texto, triangle, _i, _len, _ref2;
       this.Container_initialize();
       this.x = opts.x;
       this.y = opts.y;
       this.states = opts.states;
       this.playing = false;
       this.currentState = 0;
+      this.custom = this.states[this.currentState].custom;
+      console.log(this.custom);
       triangle = new createjs.Shape();
       triangle.graphics.beginFill('#bcd748').moveTo(0, 0).lineTo(8, 5).lineTo(0, 10);
       triangle.y = 5;
-      this.label = new createjs.Text(this.states[this.currentState].text, '16px Roboto', '#000');
-      this.label.x = 14;
-      this.addChild(triangle, this.label);
+      if (this.custom === true) {
+        it = 0;
+        npos = 14;
+        _ref2 = this.states[this.currentState].text;
+        for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
+          texto = _ref2[_i];
+          if (texto === '#ital') {
+            this.label = new createjs.Text(this.states[this.currentState].italics[it], 'italic 16px Roboto', '#000');
+            it++;
+          } else {
+            this.label = new createjs.Text(texto, '16px Roboto', '#000');
+          }
+          this.label.x = npos;
+          this.addChild(this.label);
+          console.log(this.label);
+          npos = npos + this.label.getMeasuredWidth() + 5;
+        }
+      } else {
+        this.label = new createjs.Text(this.states[this.currentState].text, '16px Roboto', '#000');
+        this.label.x = 14;
+        this.addChild(this.label);
+      }
+      this.addChild(triangle);
       return TweenLite.from(this, 0.5, {
         alpha: 0,
         x: this.x - 20

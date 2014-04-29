@@ -870,12 +870,34 @@ class Instructions extends Component
 		@states = opts.states
 		@playing = false
 		@currentState = 0
+		@custom = @states[@currentState].custom
+		console.log @custom
+
 		triangle = new createjs.Shape()
 		triangle.graphics.beginFill('#bcd748').moveTo(0,0).lineTo(8,5).lineTo(0,10)
 		triangle.y = 5
-		@label = new createjs.Text @states[@currentState].text, '16px Roboto', '#000'
-		@label.x = 14
-		@addChild triangle, @label
+
+		if @custom is true
+			it = 0
+			npos = 14
+			for texto in @states[@currentState].text
+				if texto is '#ital'
+
+					@label = new createjs.Text @states[@currentState].italics[it], 'italic 16px Roboto', '#000'
+					it++
+				else 
+					@label = new createjs.Text texto, '16px Roboto', '#000'
+				@label.x = npos
+				@addChild @label
+				console.log @label
+				npos = npos + @label.getMeasuredWidth() + 5
+				
+
+		else
+			@label = new createjs.Text @states[@currentState].text, '16px Roboto', '#000'
+			@label.x = 14
+			@addChild @label
+		@addChild triangle
 		TweenLite.from @, 0.5, {alpha: 0, x: @x - 20}
 	playSound: ->
 		if not @states[@currentState].played
