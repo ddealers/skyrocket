@@ -29,7 +29,7 @@ class U6A4 extends Oda
 			lib.scene.nextStep()
 		@game = 
 			header: 'header'
-			instructions: {x: 110, y: 180, states: [{text:'Read the text. Then answer the questions, click on True or False.', sound:'s/silence', played: false}]}
+			instructions: {x: 110, y: 140, states: [{text:['Read the text. Then answer the questions, click on','#ital','or','#ital'], italics:['True', 'False.'], sound:'s/silence', played: false, custom:true}]}
 			score:{type: 'points', x:20, y:500, init: 0, total: 8, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
 			scenes:[
 				{ 

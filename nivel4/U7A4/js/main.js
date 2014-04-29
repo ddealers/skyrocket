@@ -70,12 +70,14 @@ NEW ODA
         header: 'header',
         instructions: {
           x: 110,
-          y: 180,
+          y: 140,
           states: [
             {
-              text: 'Read the text. Then answer the questions, click on True or False.',
+              text: ['Read the text. Then answer the questions, click on', '#ital', 'or', '#ital'],
+              italics: ['True', 'False.'],
               sound: 's/silence',
-              played: false
+              played: false,
+              custom: true
             }
           ]
         },

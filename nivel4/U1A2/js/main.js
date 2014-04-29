@@ -96,9 +96,11 @@ NEW ODA
           y: 130,
           states: [
             {
-              text: 'Read and write should or shouldn\'t.',
+              text: ['Read and write', '#ital', 'or', '#ital'],
+              italics: ['should', 'shouldn\'t.'],
               sound: 's/silence',
-              played: false
+              played: false,
+              custom: true
             }
           ]
         },

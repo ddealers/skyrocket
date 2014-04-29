@@ -41,7 +41,7 @@ class U1A2 extends Oda
 				lib.scene.fail()
 		@game = 
 			header: 'header' 
-			instructions: {x: 110, y: 130, states: [{text:'Read and write should or shouldn\'t.', sound:'s/silence', played: false}]}
+			instructions: {x: 110, y: 130, states: [{text:['Read and write','#ital','or','#ital'], italics: ['should', 'shouldn\'t.'], sound:'s/silence', played: false, custom:true}]}
 			score:{type: 'points', x:20, y:500, init: 0, total: 12, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
 			scenes:[
 				{
