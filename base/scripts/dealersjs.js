@@ -1072,7 +1072,11 @@ LIBRARY
       }).call(this);
       Array.prototype.push.apply(this.manifest, def_manifest);
       this._setStage().resize();
-      lib.preloader.addEventListener('complete', this.setGame);
+      if (typeof fontsloader !== "undefined" && fontsloader !== null) {
+        console.log('cargando italica');
+      } else {
+        lib.preloader.addEventListener('complete', this.setGame);
+      }
       lib.preloader.load(this.manifest);
     }
 

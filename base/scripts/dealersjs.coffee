@@ -528,7 +528,11 @@ class Oda
 
 		@_setStage().resize()
 		
-		lib.preloader.addEventListener 'complete', @setGame
+		if fontsloader?
+			console.log 'cargando italica'
+		else
+			lib.preloader.addEventListener 'complete', @setGame
+
 		lib.preloader.load @manifest
 	resize: ->
 		w = window.innerWidth
