@@ -103,13 +103,13 @@ class U2A1 extends Oda
 						{type: 'img', id: 'paraguas', x: 0, y: 160}
 						{type: 'img', id: 'cielo', x: 250, y: 160}
 						{type: 'img', id: 'trueno', x: 500, y: 160}
-						{type: 'img', id: 'q1', x: 30, y: 200}
-						{type: 'img', id: 'q2', x: 30, y: 300}
+						{type: 'img', id: 'q1', x: 50, y: 200}
+						{type: 'img', id: 'q2', x: 120, y: 300}
 						{type: 'img', id: 'q3', x: 15, y: 390}
 						{type: 'img', id: 'q4', x: 600, y: 435}
 						{type: 'img', id: 'q5', x: 580, y: 330}
 						{type: 'img', id: 'q6', x: 485, y: 250}
-						{type: 'img', id: 'q7', x: 525, y: 160}
+						{type: 'img', id: 'q7', x: 525, y: 260}
 						{type: 'img', id: 'q8', x: 290, y: 170}
 						{type:'cwd', id: 'cwd1', x: 280, y: 275, font: '24px Quicksand', fcolor:'#333', uwidth: 25, uheight: 25, stroke: 1, scolor: '#000'}
 					]

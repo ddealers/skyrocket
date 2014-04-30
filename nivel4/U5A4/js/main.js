@@ -266,7 +266,7 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['Today is', '#tcpt', '#tcpt', '(hot)yesterday.'],
+                      pattern: ['Today is', '#tcpt', '#tcpt', '(hot) yesterday.'],
                       targets: [
                         {
                           text: 'hotter'
@@ -426,7 +426,7 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['Laura is', '#tcpt', '#tcpt', '(happy)Samuel.'],
+                      pattern: ['Laura is', '#tcpt', '#tcpt', '(happy) Samuel.'],
                       targets: [
                         {
                           text: 'happier'

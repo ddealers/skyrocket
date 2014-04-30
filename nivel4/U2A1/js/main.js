@@ -221,12 +221,12 @@ NEW ODA
               }, {
                 type: 'img',
                 id: 'q1',
-                x: 30,
+                x: 50,
                 y: 200
               }, {
                 type: 'img',
                 id: 'q2',
-                x: 30,
+                x: 120,
                 y: 300
               }, {
                 type: 'img',
@@ -252,7 +252,7 @@ NEW ODA
                 type: 'img',
                 id: 'q7',
                 x: 525,
-                y: 160
+                y: 260
               }, {
                 type: 'img',
                 id: 'q8',

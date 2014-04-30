@@ -104,7 +104,7 @@ class U5A4 extends Oda
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'hotter'}}	
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text3'}}			
-								{name: 'pcpt1', opts: {pattern:['Today is', '#tcpt','#tcpt', '(hot)yesterday.'], targets: [{text: 'hotter'},{text: 'than'}]}}
+								{name: 'pcpt1', opts: {pattern:['Today is', '#tcpt','#tcpt', '(hot) yesterday.'], targets: [{text: 'hotter'},{text: 'than'}]}}
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
@@ -134,7 +134,7 @@ class U5A4 extends Oda
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'happier'}}	
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text8'}}		
-								{name: 'pcpt1', opts: {pattern:['Laura is', '#tcpt','#tcpt', '(happy)Samuel.'], targets: [{text: 'happier'},{text: 'than'}]}}
+								{name: 'pcpt1', opts: {pattern:['Laura is', '#tcpt','#tcpt', '(happy) Samuel.'], targets: [{text: 'happier'},{text: 'than'}]}}
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}

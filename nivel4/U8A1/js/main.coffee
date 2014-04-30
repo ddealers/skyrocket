@@ -41,13 +41,13 @@ class U8A1 extends Oda
 					answers: {
 						collection: [ 
 							[
-								{name: 'pcct1', opts:{pattern:['Superheroes have amazing powers. Some can see through walls with their','#tcpt','.'], targets: [{text:'x-ray vision'}]}}
+								{name: 'pcct1', opts:{pattern:['Superheroes have amazing powers. Some can see through walls with their','#tcpt','.'], targets: [{text:'x-ray vision',maxlenght:'xrayvision'}]}}
 								{name: 'grpizq', opts:{type: 'fadeIn', target: 'electricity'}}
 								{name: 'grpmid', opts:{type: 'fadeIn', target: 'xray'}}
 								{name: 'grpder', opts:{type: 'fadeIn', target: 'telepathy'}}
 							]
 							[
-								{name: 'pcct2', opts:{pattern:['Some can fly through the air and they don\'t even have','#tcpt','!'], targets: [{text:'wings'}]}}
+								{name: 'pcct2', opts:{pattern:['Some can fly through the air and they don\'t even have','#tcpt','!'], targets: [{text:'wings',maxlenght:'wings'}]}}
 								{name: 'grpizq', opts:{type: 'fadeIn', target: 'eyes'}}
 								{name: 'grpmid', opts:{type: 'fadeIn', target: 'legs'}}
 								{name: 'grpder', opts:{type: 'fadeIn', target: 'wings'}}
@@ -59,37 +59,37 @@ class U8A1 extends Oda
 								{name: 'grpder', opts:{type: 'fadeIn', target: 'dance'}}
 							]
 							[
-								{name: 'pcct4', opts:{pattern:['Others have special','#tcpt','that protects them from all weapons.'], targets: [{text:'armor'}]}}
+								{name: 'pcct4', opts:{pattern:['Others have special','#tcpt','that protects them from all weapons.'], targets: [{text:'armor',maxlenght:'glasses'}]}}
 								{name: 'grpizq', opts:{type: 'fadeIn', target: 'hats'}}
 								{name: 'grpmid', opts:{type: 'fadeIn', target: 'glasses'}}
 								{name: 'grpder', opts:{type: 'fadeIn', target: 'armor'}}
 							]
 							[
-								{name: 'pcct5', opts:{pattern:['A lot of superheroes wear','#tcpt','to hide their true identity.'], targets: [{text:'masks'}]}}
+								{name: 'pcct5', opts:{pattern:['A lot of superheroes wear','#tcpt','to hide their true identity.'], targets: [{text:'masks',maxlenght:'dresses'}]}}
 								{name: 'grpizq', opts:{type: 'fadeIn', target: 'dresses'}}
 								{name: 'grpmid', opts:{type: 'fadeIn', target: 'masks'}}
 								{name: 'grpder', opts:{type: 'fadeIn', target: 'armor'}}
 							]
 							[
-								{name: 'pcct6', opts:{pattern:['Superman wears a cape; it can','#tcpt','.'], targets: [{text:'make him fly'}]}}
+								{name: 'pcct6', opts:{pattern:['Superman wears a cape; it can','#tcpt','.'], targets: [{text:'make him fly',maxlenght:'helphimreadminds'}]}}
 								{name: 'grpizq', opts:{type: 'fadeIn', target: 'makehiminvisible'}}
 								{name: 'grpmid', opts:{type: 'fadeIn', target: 'makehimfly'}}
 								{name: 'grpder', opts:{type: 'fadeIn', target: 'helphimreadminds'}}
 							]
 							[
-								{name: 'pcct7', opts:{pattern:['Mr. Ice can','#tcpt','objects. He turns them into ice using his mind!'], targets: [{text:'freeze'}]}}
+								{name: 'pcct7', opts:{pattern:['Mr. Ice can','#tcpt','objects. He turns them into ice using his mind!'], targets: [{text:'freeze',maxlenght:'freeze'}]}}
 								{name: 'grpizq', opts:{type: 'fadeIn', target: 'melt'}}
 								{name: 'grpmid', opts:{type: 'fadeIn', target: 'freeze'}}
 								{name: 'grpder', opts:{type: 'fadeIn', target: 'heat'}}
 							]
 							[
-								{name: 'pcct8', opts:{pattern:['Mr. Superhands wears special','#tcpt','. Everything he touches can fly!'], targets: [{text:'gloves'}]}}
+								{name: 'pcct8', opts:{pattern:['Mr. Superhands wears special','#tcpt','. Everything he touches can fly!'], targets: [{text:'gloves',maxlenght:'glasses'}]}}
 								{name: 'grpizq', opts:{type: 'fadeIn', target: 'gloves'}}
 								{name: 'grpmid', opts:{type: 'fadeIn', target: 'glasses'}}
 								{name: 'grpder', opts:{type: 'fadeIn', target: 'shoes'}}
 							]
 							[
-								{name: 'pcct9', opts:{pattern:['If I could have a superpower, I would read people\'s','#tcpt','to know what they think!'], targets: [{text:'minds'}]}}
+								{name: 'pcct9', opts:{pattern:['If I could have a superpower, I would read people\'s','#tcpt','to know what they think!'], targets: [{text:'minds',maxlenght:'glasses'}]}}
 								{name: 'grpizq', opts:{type: 'fadeIn', target: 'books'}}
 								{name: 'grpmid', opts:{type: 'fadeIn', target: 'glasses'}}
 								{name: 'grpder', opts:{type: 'fadeIn', target: 'minds'}}

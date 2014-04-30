@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	var oda = new window[$('title').text()]()
+	window.oda = new window[$('title').text()]()
 	$(window).on('resize', function(){
 		oda.resize();
 	});

@@ -882,10 +882,10 @@ class Instructions extends Component
 			for texto in @states[@currentState].text
 				if texto is '#ital'
 
-					@label = new createjs.Text @states[@currentState].italics[it], 'italic 16px Roboto', '#000'
+					@label = new createjs.Text @states[@currentState].italics[it], 'italic 15px Roboto', '#000'
 					it++
 				else 
-					@label = new createjs.Text texto, '16px Roboto', '#000'
+					@label = new createjs.Text texto, '15px Roboto', '#000'
 				@label.x = npos
 				@addChild @label
 				console.log @label
@@ -893,7 +893,7 @@ class Instructions extends Component
 				
 
 		else
-			@label = new createjs.Text @states[@currentState].text, '16px Roboto', '#000'
+			@label = new createjs.Text @states[@currentState].text, '15px Roboto', '#000'
 			@label.x = 14
 			@addChild @label
 		@addChild triangle
@@ -2534,13 +2534,15 @@ class LetterDragContainer extends Component
 		offset = x: posX - @x, y: posY - @y
 		@x = posX - offset.x
 		@y = posY - offset.y
-		e.addEventListener 'pressmove', (ev)=>
+		@addEventListener 'pressmove', (ev)=>
 			posX = ev.stageX / d2oda.stage.r
 			posY = ev.stageY / d2oda.stage.r
 			@x = posX - offset.x
 			@y = posY - offset.y
 			false
-		e.addEventListener 'pressup', (ev)=>
+		@addEventListener 'pressup', (ev)=>
+			@removeAllEventListeners 'pressmove'
+			@removeAllEventListeners 'pressup'
 			if @droptargets and @droptargets.length > 0
 				@evaluateDrop e
 			else

@@ -94,7 +94,8 @@ NEW ODA
                       pattern: ['Superheroes have amazing powers. Some can see through walls with their', '#tcpt', '.'],
                       targets: [
                         {
-                          text: 'x-ray vision'
+                          text: 'x-ray vision',
+                          maxlenght: 'xrayvision'
                         }
                       ]
                     }
@@ -124,7 +125,8 @@ NEW ODA
                       pattern: ['Some can fly through the air and they don\'t even have', '#tcpt', '!'],
                       targets: [
                         {
-                          text: 'wings'
+                          text: 'wings',
+                          maxlenght: 'wings'
                         }
                       ]
                     }
@@ -184,7 +186,8 @@ NEW ODA
                       pattern: ['Others have special', '#tcpt', 'that protects them from all weapons.'],
                       targets: [
                         {
-                          text: 'armor'
+                          text: 'armor',
+                          maxlenght: 'glasses'
                         }
                       ]
                     }
@@ -214,7 +217,8 @@ NEW ODA
                       pattern: ['A lot of superheroes wear', '#tcpt', 'to hide their true identity.'],
                       targets: [
                         {
-                          text: 'masks'
+                          text: 'masks',
+                          maxlenght: 'dresses'
                         }
                       ]
                     }
@@ -244,7 +248,8 @@ NEW ODA
                       pattern: ['Superman wears a cape; it can', '#tcpt', '.'],
                       targets: [
                         {
-                          text: 'make him fly'
+                          text: 'make him fly',
+                          maxlenght: 'helphimreadminds'
                         }
                       ]
                     }
@@ -274,7 +279,8 @@ NEW ODA
                       pattern: ['Mr. Ice can', '#tcpt', 'objects. He turns them into ice using his mind!'],
                       targets: [
                         {
-                          text: 'freeze'
+                          text: 'freeze',
+                          maxlenght: 'freeze'
                         }
                       ]
                     }
@@ -304,7 +310,8 @@ NEW ODA
                       pattern: ['Mr. Superhands wears special', '#tcpt', '. Everything he touches can fly!'],
                       targets: [
                         {
-                          text: 'gloves'
+                          text: 'gloves',
+                          maxlenght: 'glasses'
                         }
                       ]
                     }
@@ -334,7 +341,8 @@ NEW ODA
                       pattern: ['If I could have a superpower, I would read people\'s', '#tcpt', 'to know what they think!'],
                       targets: [
                         {
-                          text: 'minds'
+                          text: 'minds',
+                          maxlenght: 'glasses'
                         }
                       ]
                     }

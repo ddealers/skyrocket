@@ -1766,10 +1766,10 @@ LIBRARY
         for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
           texto = _ref2[_i];
           if (texto === '#ital') {
-            this.label = new createjs.Text(this.states[this.currentState].italics[it], 'italic 16px Roboto', '#000');
+            this.label = new createjs.Text(this.states[this.currentState].italics[it], 'italic 15px Roboto', '#000');
             it++;
           } else {
-            this.label = new createjs.Text(texto, '16px Roboto', '#000');
+            this.label = new createjs.Text(texto, '15px Roboto', '#000');
           }
           this.label.x = npos;
           this.addChild(this.label);
@@ -1777,7 +1777,7 @@ LIBRARY
           npos = npos + this.label.getMeasuredWidth() + 5;
         }
       } else {
-        this.label = new createjs.Text(this.states[this.currentState].text, '16px Roboto', '#000');
+        this.label = new createjs.Text(this.states[this.currentState].text, '15px Roboto', '#000');
         this.label.x = 14;
         this.addChild(this.label);
       }
@@ -4561,14 +4561,16 @@ LIBRARY
       };
       this.x = posX - offset.x;
       this.y = posY - offset.y;
-      e.addEventListener('pressmove', function(ev) {
+      this.addEventListener('pressmove', function(ev) {
         posX = ev.stageX / d2oda.stage.r;
         posY = ev.stageY / d2oda.stage.r;
         _this.x = posX - offset.x;
         _this.y = posY - offset.y;
         return false;
       });
-      e.addEventListener('pressup', function(ev) {
+      this.addEventListener('pressup', function(ev) {
+        _this.removeAllEventListeners('pressmove');
+        _this.removeAllEventListeners('pressup');
         if (_this.droptargets && _this.droptargets.length > 0) {
           _this.evaluateDrop(e);
         } else {
