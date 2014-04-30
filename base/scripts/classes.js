@@ -405,14 +405,14 @@
       };
       this.x = posX - offset.x;
       this.y = posY - offset.y;
-      e.addEventListener('mousemove', function(ev) {
+      e.addEventListener('pressmove', function(ev) {
         posX = ev.stageX / stageSize.r;
         posY = ev.stageY / stageSize.r;
         _this.x = posX - offset.x;
         _this.y = posY - offset.y;
         return false;
       });
-      e.addEventListener('mouseup', function(ev) {
+      e.addEventListener('pressup', function(ev) {
         _this.dispatchEvent('drop');
         return false;
       });
@@ -602,14 +602,14 @@
       };
       this.x = posX - offset.x;
       this.y = posY - offset.y;
-      e.addEventListener('mousemove', function(ev) {
+      e.addEventListener('pressmove', function(ev) {
         posX = ev.stageX / stageSize.r;
         posY = ev.stageY / stageSize.r;
         _this.x = posX - offset.x;
         _this.y = posY - offset.y;
         return false;
       });
-      e.addEventListener('mouseup', function(ev) {
+      e.addEventListener('pressup', function(ev) {
         _this.dispatchEvent('drop');
         return false;
       });
@@ -781,14 +781,14 @@
       };
       this.x = posX - offset.x;
       this.y = posY - offset.y;
-      e.addEventListener('mousemove', function(ev) {
+      e.addEventListener('pressmove', function(ev) {
         posX = ev.stageX / stageSize.r;
         posY = ev.stageY / stageSize.r;
         _this.x = posX - offset.x;
         _this.y = posY - offset.y;
         return false;
       });
-      e.addEventListener('mouseup', function(ev) {
+      e.addEventListener('pressup', function(ev) {
         if (_this.drops.length > 0) {
           _this.evaluateDrop(e);
         } else {
@@ -1035,14 +1035,14 @@
       };
       this.x = posX - offset.x;
       this.y = posY - offset.y;
-      e.addEventListener('mousemove', function(ev) {
+      e.addEventListener('pressmove', function(ev) {
         posX = ev.stageX / stageSize.r;
         posY = ev.stageY / stageSize.r;
         _this.x = posX - offset.x;
         _this.y = posY - offset.y;
         return false;
       });
-      e.addEventListener('mouseup', function(ev) {
+      e.addEventListener('pressup', function(ev) {
         if (_this.drops.length > 0) {
           _this.evaluateDrop(e);
         } else {
@@ -1828,14 +1828,14 @@
         };
         _this.debugged.x = posX - offset.x;
         _this.debugged.y = posY - offset.y;
-        e.addEventListener('mousemove', function(ev) {
+        e.addEventListener('pressmove', function(ev) {
           posX = ev.stageX / stageSize.r;
           posY = ev.stageY / stageSize.r;
           _this.debugged.x = posX - offset.x;
           _this.debugged.y = posY - offset.y;
           return false;
         });
-        e.addEventListener('mouseup', function(ev) {
+        e.addEventListener('pressup', function(ev) {
           return console.log(_this.debugged);
         });
         return _this.debugged;

@@ -1239,14 +1239,14 @@ class DragContainer extends Component
 		offset = x: posX - @x, y: posY - @y
 		@x = posX - offset.x
 		@y = posY - offset.y
-		e.addEventListener 'mousemove', (ev)=>
+		e.addEventListener 'pressmove', (ev)=>
 			@dragged = true
 			posX = ev.stageX / d2oda.stage.r
 			posY = ev.stageY / d2oda.stage.r
 			@x = posX - offset.x
 			@y = posY - offset.y
 			false
-		e.addEventListener 'mouseup', (ev)=>
+		e.addEventListener 'pressup', (ev)=>
 			if @droptargets and @droptargets.length > 0
 				@evaluateDrop e
 			else
@@ -1989,9 +1989,9 @@ class WordSearchContainer extends Component
 		@addEventListener 'mousedown', (e) =>
 			@path = new Array()
 			@getLetterContainer()
-			e.addEventListener 'mousemove', (ev) =>
+			e.addEventListener 'pressmove', (ev) =>
 				@getLetterContainer()
-			e.addEventListener 'mouseup', (ev) =>
+			e.addEventListener 'pressup', (ev) =>
 				found = false
 				upath = @path.unique()
 				unames = (coord.name for coord in upath)
@@ -2534,13 +2534,13 @@ class LetterDragContainer extends Component
 		offset = x: posX - @x, y: posY - @y
 		@x = posX - offset.x
 		@y = posY - offset.y
-		e.addEventListener 'mousemove', (ev)=>
+		e.addEventListener 'pressmove', (ev)=>
 			posX = ev.stageX / d2oda.stage.r
 			posY = ev.stageY / d2oda.stage.r
 			@x = posX - offset.x
 			@y = posY - offset.y
 			false
-		e.addEventListener 'mouseup', (ev)=>
+		e.addEventListener 'pressup', (ev)=>
 			if @droptargets and @droptargets.length > 0
 				@evaluateDrop e
 			else

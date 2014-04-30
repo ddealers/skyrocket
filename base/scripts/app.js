@@ -5,6 +5,7 @@ $(document).ready(function(){
 	});
 	WebFontConfig = {
 		active: function(){
+			if( oda.initialize ) oda.initialize();
 			if( oda.init ) oda.init();
 		},
 		google: {

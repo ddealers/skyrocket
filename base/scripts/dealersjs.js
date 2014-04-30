@@ -2363,7 +2363,7 @@ LIBRARY
       };
       this.x = posX - offset.x;
       this.y = posY - offset.y;
-      e.addEventListener('mousemove', function(ev) {
+      e.addEventListener('pressmove', function(ev) {
         _this.dragged = true;
         posX = ev.stageX / d2oda.stage.r;
         posY = ev.stageY / d2oda.stage.r;
@@ -2371,7 +2371,7 @@ LIBRARY
         _this.y = posY - offset.y;
         return false;
       });
-      e.addEventListener('mouseup', function(ev) {
+      e.addEventListener('pressup', function(ev) {
         if (_this.droptargets && _this.droptargets.length > 0) {
           _this.evaluateDrop(e);
         } else {
@@ -3607,10 +3607,10 @@ LIBRARY
       return this.addEventListener('mousedown', function(e) {
         _this.path = new Array();
         _this.getLetterContainer();
-        e.addEventListener('mousemove', function(ev) {
+        e.addEventListener('pressmove', function(ev) {
           return _this.getLetterContainer();
         });
-        e.addEventListener('mouseup', function(ev) {
+        e.addEventListener('pressup', function(ev) {
           var coord, found, foundAWord, key, lcoords, ltc, unames, upath, wcoords, word, _i, _j, _k, _len, _len1, _ref11, _ref12;
           found = false;
           upath = _this.path.unique();
@@ -4561,14 +4561,14 @@ LIBRARY
       };
       this.x = posX - offset.x;
       this.y = posY - offset.y;
-      e.addEventListener('mousemove', function(ev) {
+      e.addEventListener('pressmove', function(ev) {
         posX = ev.stageX / d2oda.stage.r;
         posY = ev.stageY / d2oda.stage.r;
         _this.x = posX - offset.x;
         _this.y = posY - offset.y;
         return false;
       });
-      e.addEventListener('mouseup', function(ev) {
+      e.addEventListener('pressup', function(ev) {
         if (_this.droptargets && _this.droptargets.length > 0) {
           _this.evaluateDrop(e);
         } else {
