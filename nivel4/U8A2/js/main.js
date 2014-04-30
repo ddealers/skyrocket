@@ -67,7 +67,7 @@ NEW ODA
         }
       ];
       this.onkeydown = function(e) {
-        var fail, keycode, pattern, str, targ, target, word, _i, _len, _ref, _ref1;
+        var fail, keycode, pattern, str, targ, target, word, _ref;
         e.preventDefault();
         e.stopPropagation();
         word = '';
@@ -79,19 +79,18 @@ NEW ODA
         targ = target.success.split('||');
         console.log(targ);
         if (keycode === 8) {
-          return target.write('<-');
+          target.write('<-');
+        }
+        if (keycode === 222) {
+          return target.write('\'');
         } else if (keycode === 13) {
           fail = false;
           console.log(target.write());
-          _ref = lib[window.target].droptargets;
-          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-            target = _ref[_i];
-            if (_ref1 = target.write(), __indexOf.call(targ, _ref1) >= 0) {
-              target.complete = true;
-            } else {
-              fail = true;
-              lib.scene.fail();
-            }
+          if (_ref = target.write(), __indexOf.call(targ, _ref) >= 0) {
+            target.complete = true;
+          } else {
+            fail = true;
+            lib.scene.fail();
           }
           if (!fail) {
             return lib.scene.success(true, false);

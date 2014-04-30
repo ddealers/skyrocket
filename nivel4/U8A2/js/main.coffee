@@ -37,15 +37,17 @@ class U8A2 extends Oda
 			console.log targ 
 			if keycode is 8
 				target.write '<-'
+			if keycode is 222
+				target.write '\'' 
 			else if keycode is 13
 				fail = false
 				console.log target.write()
-				for target in lib[window.target].droptargets
-					if target.write() in targ
-						target.complete = true
-					else
-						fail = true
-						lib.scene.fail()
+				
+				if target.write() in targ
+					target.complete = true
+				else
+					fail = true
+					lib.scene.fail()
 				if not fail then lib.scene.success true,false
 			else if keycode is 32
 				target.write '-'
