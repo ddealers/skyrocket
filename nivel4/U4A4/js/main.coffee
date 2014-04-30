@@ -72,7 +72,7 @@ class U4A4 extends Oda
 				{
 					answers: {
 						collection: [
-							[{name:'lbl2', opts:{text:'If you learn by moving your body, you should take a music class.', success:false}}]
+							[{name:'lbl2', opts:{text:'If you learn by moving your body, you should take a music class.', success:true}}]
 							[{name:'lbl2', opts:{text:'If you take dance class, you should wear comfortable clothes.', success:true}}]
 							[{name:'lbl2', opts:{text:'Dance class is on Tuesday and Wednesday afternoons.', success:false}}]
 							[{name:'btnContinue2', opts:{visible:true}}]

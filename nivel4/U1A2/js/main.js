@@ -233,7 +233,7 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['I\'ll clean it. But you', '#tcpt', '#rtn', 'brush the catmore often, Bobby.'],
+                      pattern: ['I\'ll clean it. But you', '#tcpt', '#rtn', 'brush the cat more often, Bobby.'],
                       targets: [
                         {
                           text: 'should'
@@ -622,48 +622,6 @@ NEW ODA
                 margin: 5,
                 align: 'tl',
                 scolor: '#F9101A'
-              }, {
-                type: 'btn',
-                id: 'btn_1',
-                x: 250,
-                y: 160,
-                index: 'should',
-                target: 'pcpt1',
-                "eval": this.btnClick,
-                states: [
-                  {
-                    txt: {
-                      text: 'should',
-                      name: 's1',
-                      x: 0,
-                      y: 0,
-                      align: 'center',
-                      font: '20px Quicksand',
-                      color: '#F9101A'
-                    }
-                  }
-                ]
-              }, {
-                type: 'btn',
-                id: 'btn_2',
-                x: 530,
-                y: 160,
-                index: 'shouldnt',
-                target: 'pcpt1',
-                "eval": this.btnClick,
-                states: [
-                  {
-                    txt: {
-                      text: 'shouldn\'t',
-                      name: 's2',
-                      x: 0,
-                      y: 0,
-                      align: 'center',
-                      font: '20px Quicksand',
-                      color: '#F9101A'
-                    }
-                  }
-                ]
               }
             ],
             groups: [

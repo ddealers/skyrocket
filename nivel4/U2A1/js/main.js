@@ -89,7 +89,7 @@ NEW ODA
           y: 130,
           states: [
             {
-              text: 'Click on the number and write to the correct answer.',
+              text: 'Click on the number and write the correct answer.',
               sound: 's/silence',
               played: false
             }

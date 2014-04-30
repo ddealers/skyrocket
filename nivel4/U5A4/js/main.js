@@ -202,7 +202,7 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['Lizzy is ', '#tcpt', '#tcpt', ' her sister.'],
+                      pattern: ['Lizzy is ', '#tcpt', '#tcpt', ' (old) her sister.'],
                       targets: [
                         {
                           text: 'older'
@@ -234,7 +234,7 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['Patrick is', '#tcpt', '#tcpt', 'Louis.'],
+                      pattern: ['Patrick is', '#tcpt', '#tcpt', '(thin) Louis.'],
                       targets: [
                         {
                           text: 'thinner'
@@ -266,7 +266,7 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['Today is', '#tcpt', '#tcpt', 'yesterday.'],
+                      pattern: ['Today is', '#tcpt', '#tcpt', '(hot)yesterday.'],
                       targets: [
                         {
                           text: 'hotter'
@@ -298,7 +298,7 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['This movie is', '#tcpt', '#tcpt', '#rtn', 'the other one.'],
+                      pattern: ['This movie is', '#tcpt', '#tcpt', '#rtn', '(funny) the other one.'],
                       targets: [
                         {
                           text: 'funnier'
@@ -330,7 +330,7 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['Roger\'s book is', '#tcpt', '#tcpt', 'Paul\'s.'],
+                      pattern: ['Roger\'s book is', '#tcpt', '#tcpt', '(long) Paul\'s.'],
                       targets: [
                         {
                           text: 'longer'
@@ -362,7 +362,7 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['Your brother is ', '#tcpt', '#tcpt', 'you.'],
+                      pattern: ['Your brother is ', '#tcpt', '#tcpt', '(strong) you.'],
                       targets: [
                         {
                           text: 'stronger'
@@ -394,7 +394,7 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['She jumps', '#tcpt', '#tcpt', 'you.'],
+                      pattern: ['She jumps', '#tcpt', '#tcpt', '(high) you.'],
                       targets: [
                         {
                           text: 'higher'
@@ -426,7 +426,7 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['Laura is', '#tcpt', '#tcpt', 'Samuel.'],
+                      pattern: ['Laura is', '#tcpt', '#tcpt', '(happy)Samuel.'],
                       targets: [
                         {
                           text: 'happier'
@@ -458,7 +458,7 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['He kicked the ball', '#tcpt', '#tcpt', '#rtn', 'the other players.'],
+                      pattern: ['He kicked the ball', '#tcpt', '#tcpt', '#rtn', '(hard) the other players.'],
                       targets: [
                         {
                           text: 'harder'
@@ -490,7 +490,7 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['Andrew lives', '#tcpt', 'from', '#rtn', 'the school', '#tcpt', 'Liz.'],
+                      pattern: ['Andrew lives', '#tcpt', 'from', '#rtn', '(far) the school', '#tcpt', 'Liz.'],
                       targets: [
                         {
                           text: 'farther'

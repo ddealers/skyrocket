@@ -71,7 +71,7 @@ class U1A2 extends Oda
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'cat'}}
 								{name: 'txt_grp', opts:{type: 'fadeIn', target: 't5'}}
-								{name: 'pcpt1', opts:{pattern:['I\'ll clean it. But you', '#tcpt', '#rtn', 'brush the catmore often, Bobby.'], targets: [{text:'should'}]}}
+								{name: 'pcpt1', opts:{pattern:['I\'ll clean it. But you', '#tcpt', '#rtn', 'brush the cat more often, Bobby.'], targets: [{text:'should'}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'soda'}}
@@ -140,14 +140,6 @@ class U1A2 extends Oda
 						{type: 'txt', id: 't11', text:'I don\'t have a lot of homework, Dad.', x: 165, y: 505, lineWidth: 200, font:'16px Quicksand', align: 'left'}
 						{type: 'txt', id: 't12', text:'Mom, can I swim now?', x: 165, y: 505, lineWidth: 200, font:'16px Quicksand', align: 'left'}
 						{type: 'pcpt',lineHeight: 25, id: 'pcpt1', x: 390, y: 510, font: '16px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A'}
-						{
-							type: 'btn', id: 'btn_1', x: 250, y: 160, index: 'should', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'should', name:'s1', x:0, y:0, align:'center', font: '20px Quicksand', color: '#F9101A'}}]
-						}
-						{
-							type: 'btn', id: 'btn_2', x: 530, y: 160, index: 'shouldnt', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'shouldn\'t', name:'s2', x:0, y:0, align:'center', font: '20px Quicksand', color: '#F9101A'}}]
-						}
 					]
 					groups:[
 						{
