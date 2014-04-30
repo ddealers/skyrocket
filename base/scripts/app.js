@@ -1,7 +1,15 @@
 $(document).ready(function(){
-	oda = new window[$('title').text()]()
+	var oda = new window[$('title').text()]()
 	$(window).on('resize', function(){
 		oda.resize();
 	});
-	if( oda.initialize ) oda.initialize();
+	WebFontConfig = {
+		active: function(){
+			if( oda.init ) oda.init();
+		},
+		google: {
+			families: ['Quicksand','Dosis','Roboto']
+		}
+	}
+	WebFont.load(WebFontConfig);
 })

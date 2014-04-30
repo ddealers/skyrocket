@@ -1072,14 +1072,12 @@ LIBRARY
       }).call(this);
       Array.prototype.push.apply(this.manifest, def_manifest);
       this._setStage().resize();
-      console.log(floader);
-      if (typeof floader !== "undefined" && floader !== null) {
-        console.log('cargando italica');
-      } else {
-        lib.preloader.addEventListener('complete', this.setGame);
-      }
-      lib.preloader.load(this.manifest);
     }
+
+    Oda.prototype.init = function() {
+      lib.preloader.addEventListener('complete', this.setGame);
+      return lib.preloader.load(this.manifest);
+    };
 
     Oda.prototype.resize = function() {
       var h, w;
@@ -1168,7 +1166,7 @@ LIBRARY
 
     Oda.prototype._setStage = function() {
       this.stage = new createjs.Stage('oda');
-      createjs.Ticker.addListener(this);
+      createjs.Ticker.addEventListener('tick', this.stage);
       createjs.Ticker.setFPS(60);
       createjs.Touch.enable(this.stage);
       this.stage.enableMouseOver(50);

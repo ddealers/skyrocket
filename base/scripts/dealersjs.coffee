@@ -525,19 +525,9 @@ class Oda
 			{ id:"#{ item.id }", src:"#{ assetsurl + item.src}" }
 		
 		Array::push.apply @manifest, def_manifest
-
 		@_setStage().resize()
-
-		console.log floader
-		
- 	
-
-		if floader?
-			console.log 'cargando italica'
-
-		else
-			lib.preloader.addEventListener 'complete', @setGame
-
+	init: ->
+		lib.preloader.addEventListener 'complete', @setGame
 		lib.preloader.load @manifest
 	resize: ->
 		w = window.innerWidth
@@ -589,7 +579,7 @@ class Oda
 		@stage.update()
 	_setStage: ->
 		@stage = new createjs.Stage 'oda'
-		createjs.Ticker.addListener @
+		createjs.Ticker.addEventListener 'tick', @stage
 		createjs.Ticker.setFPS 60
 		createjs.Touch.enable @stage
 		@stage.enableMouseOver(50)
