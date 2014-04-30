@@ -30,15 +30,18 @@ class U8A2 extends Oda
 			word = ''
 			keycode = e.keyCode || e.which
 			console.log keycode
-			pattern = /[a-z]/i
+			pattern = /[a-z+']/i
 			str = String.fromCharCode keycode
 			target = lib[window.target].getEnabledTarget()
+			targ = target.success.split '||' 
+			console.log targ 
 			if keycode is 8
 				target.write '<-'
 			else if keycode is 13
 				fail = false
+				console.log target.write()
 				for target in lib[window.target].droptargets
-					if target.success is target.write()
+					if target.write() in targ
 						target.complete = true
 					else
 						fail = true
@@ -81,56 +84,56 @@ class U8A2 extends Oda
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'car1'}}
-								{name:'pcpt1', opts:{pattern:['Oh no! The car','#tcpt','the children!'], targets:[{text:'is going to hit'}]}}
+								{name:'pcpt1', opts:{pattern:['Oh no! The car','#tcpt','the children!'], targets:[{text:'is going to hit', success:'is going to hit||\'s going to hit'}]}}
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'explode'}}
-								{name:'pcpt1', opts:{pattern:['Oh no, the gas truck','#tcpt','!'], targets:[{text:'is going to explode'}]}}
+								{name:'pcpt1', opts:{pattern:['Oh no, the gas truck','#tcpt','!'], targets:[{text:'is going to explode', success:'is going to explode||\'s going to explode'}]}}
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'wolfman'}}
-								{name:'pcpt1', opts:{pattern:['Help! The wolf man','#tcpt','#rtn',' with the baby!'], targets:[{text:'is going to escape'}]}}
+								{name:'pcpt1', opts:{pattern:['Help! The wolf man','#tcpt','#rtn',' with the baby!'], targets:[{text:'is going to escape', success:'is going to escape||\'s going to escape'}]}}
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'baby'}}
-								{name:'pcpt1', opts:{pattern:['Help! The baby','#tcpt','!'], targets:[{text:'is going to fall'}]}}
+								{name:'pcpt1', opts:{pattern:['Help! The baby','#tcpt','!'], targets:[{text:'is going to fall', success:'is going to fall||\'s going to fall'}]}}
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'bus'}}
-								{name:'pcpt1', opts:{pattern:['Do something! The bus','#tcpt','into the tree!'], targets:[{text:'is going to crash'}]}}
+								{name:'pcpt1', opts:{pattern:['Do something! The bus','#tcpt','into the tree!'], targets:[{text:'is going to crash', success:'is going to crash||\'s going to crash'}]}}
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'swing'}}
-								{name:'pcpt1', opts:{pattern:['Oh no! The swing','#tcpt','and then','#rtn',' the child is going to fall.'], targets:[{text:'is going to break'}]}}
+								{name:'pcpt1', opts:{pattern:['Oh no! The swing','#tcpt','and then','#rtn',' the child is going to fall.'], targets:[{text:'is going to break', success:'is going to break||\'s going to break'}]}}
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'car2'}}
-								{name:'pcpt1', opts:{pattern:['Hurry! The car','#tcpt','the girl!'], targets:[{text:'is going to hit'}]}}
+								{name:'pcpt1', opts:{pattern:['Hurry! The car','#tcpt','the girl!'], targets:[{text:'is going to hit', success:'is going to hit||\'s going to hit'}]}}
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'theater'}}
-								{name:'pcpt1', opts:{pattern:['Look! There are many clouds. It','#tcpt','.'], targets:[{text:'is going to rain'}]}}
+								{name:'pcpt1', opts:{pattern:['Look! There are many clouds. It','#tcpt','.'], targets:[{text:'is going to rain', success:'is going to rain||\'s going to rain'}]}}
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'ladder'}}
-								{name:'pcpt1', opts:{pattern:['Quickly! The man on the ladder','#tcpt','!'], targets:[{text:'is going to fall'}]}}
+								{name:'pcpt1', opts:{pattern:['Quickly! The man on the ladder','#tcpt','!'], targets:[{text:'is going to rain', success:'is going to rain||\'s going to rain'}]}}
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'swimmer'}}
-								{name:'pcpt1', opts:{pattern:['Look! The man','#tcpt','the swimmer. Good!'], targets:[{text:'is going to help'}]}}
+								{name:'pcpt1', opts:{pattern:['Look! The man','#tcpt','the swimmer. Good!'], targets:[{text:'is going to help', success:'is going to help||\'s going to help'}]}}
 							]
 
 							
 						]
-						mixed: true
+						mixed: false
 						type: 'steps'
 					}
 					containers:[

@@ -7,7 +7,8 @@ NEW ODA
 (function() {
   var U8A2,
     __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+    __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   U8A2 = (function(_super) {
     __extends(U8A2, _super);
@@ -66,23 +67,26 @@ NEW ODA
         }
       ];
       this.onkeydown = function(e) {
-        var fail, keycode, pattern, str, target, word, _i, _len, _ref;
+        var fail, keycode, pattern, str, targ, target, word, _i, _len, _ref, _ref1;
         e.preventDefault();
         e.stopPropagation();
         word = '';
         keycode = e.keyCode || e.which;
         console.log(keycode);
-        pattern = /[a-z]/i;
+        pattern = /[a-z+']/i;
         str = String.fromCharCode(keycode);
         target = lib[window.target].getEnabledTarget();
+        targ = target.success.split('||');
+        console.log(targ);
         if (keycode === 8) {
           return target.write('<-');
         } else if (keycode === 13) {
           fail = false;
+          console.log(target.write());
           _ref = lib[window.target].droptargets;
           for (_i = 0, _len = _ref.length; _i < _len; _i++) {
             target = _ref[_i];
-            if (target.success === target.write()) {
+            if (_ref1 = target.write(), __indexOf.call(targ, _ref1) >= 0) {
               target.complete = true;
             } else {
               fail = true;
@@ -169,7 +173,8 @@ NEW ODA
                       pattern: ['Oh no! The car', '#tcpt', 'the children!'],
                       targets: [
                         {
-                          text: 'is going to hit'
+                          text: 'is going to hit',
+                          success: 'is going to hit||\'s going to hit'
                         }
                       ]
                     }
@@ -193,7 +198,8 @@ NEW ODA
                       pattern: ['Oh no, the gas truck', '#tcpt', '!'],
                       targets: [
                         {
-                          text: 'is going to explode'
+                          text: 'is going to explode',
+                          success: 'is going to explode||\'s going to explode'
                         }
                       ]
                     }
@@ -217,7 +223,8 @@ NEW ODA
                       pattern: ['Help! The wolf man', '#tcpt', '#rtn', ' with the baby!'],
                       targets: [
                         {
-                          text: 'is going to escape'
+                          text: 'is going to escape',
+                          success: 'is going to escape||\'s going to escape'
                         }
                       ]
                     }
@@ -241,7 +248,8 @@ NEW ODA
                       pattern: ['Help! The baby', '#tcpt', '!'],
                       targets: [
                         {
-                          text: 'is going to fall'
+                          text: 'is going to fall',
+                          success: 'is going to fall||\'s going to fall'
                         }
                       ]
                     }
@@ -265,7 +273,8 @@ NEW ODA
                       pattern: ['Do something! The bus', '#tcpt', 'into the tree!'],
                       targets: [
                         {
-                          text: 'is going to crash'
+                          text: 'is going to crash',
+                          success: 'is going to crash||\'s going to crash'
                         }
                       ]
                     }
@@ -289,7 +298,8 @@ NEW ODA
                       pattern: ['Oh no! The swing', '#tcpt', 'and then', '#rtn', ' the child is going to fall.'],
                       targets: [
                         {
-                          text: 'is going to break'
+                          text: 'is going to break',
+                          success: 'is going to break||\'s going to break'
                         }
                       ]
                     }
@@ -307,7 +317,8 @@ NEW ODA
                       pattern: ['Hurry! The car', '#tcpt', 'the girl!'],
                       targets: [
                         {
-                          text: 'is going to hit'
+                          text: 'is going to hit',
+                          success: 'is going to hit||\'s going to hit'
                         }
                       ]
                     }
@@ -331,7 +342,8 @@ NEW ODA
                       pattern: ['Look! There are many clouds. It', '#tcpt', '.'],
                       targets: [
                         {
-                          text: 'is going to rain'
+                          text: 'is going to rain',
+                          success: 'is going to rain||\'s going to rain'
                         }
                       ]
                     }
@@ -355,7 +367,8 @@ NEW ODA
                       pattern: ['Quickly! The man on the ladder', '#tcpt', '!'],
                       targets: [
                         {
-                          text: 'is going to fall'
+                          text: 'is going to rain',
+                          success: 'is going to rain||\'s going to rain'
                         }
                       ]
                     }
@@ -379,14 +392,15 @@ NEW ODA
                       pattern: ['Look! The man', '#tcpt', 'the swimmer. Good!'],
                       targets: [
                         {
-                          text: 'is going to help'
+                          text: 'is going to help',
+                          success: 'is going to help||\'s going to help'
                         }
                       ]
                     }
                   }
                 ]
               ],
-              mixed: true,
+              mixed: false,
               type: 'steps'
             },
             containers: [
