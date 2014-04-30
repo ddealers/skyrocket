@@ -1167,7 +1167,7 @@ LIBRARY
 
     Oda.prototype._setStage = function() {
       this.stage = new createjs.Stage('oda');
-      createjs.Ticker.addListener(this);
+      createjs.Ticker.addEventListener('tick', this.stage);
       createjs.Ticker.setFPS(60);
       createjs.Touch.enable(this.stage);
       this.stage.enableMouseOver(50);
