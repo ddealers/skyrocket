@@ -7,7 +7,8 @@ NEW ODA
 (function() {
   var U1A2,
     __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+    __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   U1A2 = (function(_super) {
     __extends(U1A2, _super);
@@ -71,23 +72,61 @@ NEW ODA
           src: 'silence.mp3'
         }
       ];
+      this.onkeydown = function(e) {
+        var fail, keycode, pattern, str, targ, target, word, _ref;
+        e.preventDefault();
+        e.stopPropagation();
+        word = '';
+        keycode = e.keyCode || e.which;
+        console.log(keycode);
+        pattern = /[a-z]/i;
+        str = String.fromCharCode(keycode);
+        target = lib[window.target].getEnabledTarget();
+        targ = target.success.split('||');
+        if (keycode === 8) {
+          return target.write('<-');
+        } else if (keycode === 13) {
+          fail = false;
+          if (_ref = target.write(), __indexOf.call(targ, _ref) >= 0) {
+            target.complete = true;
+          } else {
+            fail = true;
+            lib.scene.fail();
+          }
+          if (!fail) {
+            return lib.scene.success(true, false);
+          }
+        } else if (keycode === 32) {
+          return target.write('-');
+        } else if (keycode === 222) {
+          return target.write('\'');
+        } else if (pattern.test(str)) {
+          return target.write(str.toLowerCase());
+        }
+      };
       this.btnClick = function(dispatcher, target) {
-        var a, b, c, d, t;
-        d = lib[dispatcher];
-        t = lib[target];
-        a = d.index;
-        b = t.droptargets;
-        c = t.currentTarget;
-        if (a === b[c].success) {
-          b[c].complete = true;
-          b[c].update();
-          t.currentTarget++;
-        }
-        if (t.currentTarget === b.length) {
-          return lib.scene.success();
-        } else {
-          return lib.scene.fail();
-        }
+        /*
+        			d = lib[dispatcher]
+        			t = lib[target]
+        			a = d.index
+        			b = t.droptargets
+        			c = t.currentTarget
+        			console.log d,t,a,b,c
+        			console.log a, b[c].success
+        			if a is b[c].success
+        				verb = prompt "Enter the correct form of #{d.index}"
+        				if verb is b[c].text.text
+        					b[c].complete = true
+        					b[c].update()
+        					t.currentTarget++
+        				if t.currentTarget is b.length
+        					lib.scene.success()
+        				else
+        					lib.scene.fail()
+        			else
+        				lib.scene.fail false
+        */
+
       };
       this.game = {
         header: 'header',
@@ -121,6 +160,12 @@ NEW ODA
               collection: [
                 [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -139,13 +184,19 @@ NEW ODA
                       targets: [
                         {
                           text: 'shouldn\'t',
-                          success: 'shouldnt'
+                          success: 'shouldn\'t'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -170,6 +221,12 @@ NEW ODA
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -194,6 +251,12 @@ NEW ODA
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -212,13 +275,19 @@ NEW ODA
                       targets: [
                         {
                           text: 'shouldn\'t',
-                          success: 'shouldnt'
+                          success: 'shouldn\'t'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -243,6 +312,12 @@ NEW ODA
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -261,13 +336,19 @@ NEW ODA
                       targets: [
                         {
                           text: 'shouldn\'t',
-                          success: 'shouldnt'
+                          success: 'shouldn\'t'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -286,13 +367,19 @@ NEW ODA
                       targets: [
                         {
                           text: 'shouldn\'t',
-                          success: 'shouldnt'
+                          success: 'shouldn\'t'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -317,6 +404,12 @@ NEW ODA
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -335,13 +428,19 @@ NEW ODA
                       targets: [
                         {
                           text: 'shouldn\'t',
-                          success: 'shouldnt'
+                          success: 'shouldn\'t'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -360,13 +459,19 @@ NEW ODA
                       targets: [
                         {
                           text: 'shouldn\'t',
-                          success: 'shouldnt'
+                          success: 'shouldn\'t'
                         }
                       ]
                     }
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -391,6 +496,12 @@ NEW ODA
                   }
                 ], [
                   {
+                    name: 'window',
+                    opts: {
+                      keydown: this.onkeydown,
+                      target: 'pcpt1'
+                    }
+                  }, {
                     name: 'grp1',
                     opts: {
                       type: 'fadeIn',
@@ -409,7 +520,7 @@ NEW ODA
                       targets: [
                         {
                           text: 'shouldn\'t',
-                          success: 'shouldnt'
+                          success: 'shouldn\'t'
                         }
                       ]
                     }

@@ -25,20 +25,55 @@ class U1A2 extends Oda
 			{ id: 'swim', src: 'swim.png' }
 			{ id: 's/silence', src: 'silence.mp3' }
 		]
+		@onkeydown = (e) ->
+			e.preventDefault()
+			e.stopPropagation()
+			word = ''
+			keycode = e.keyCode || e.which
+			console.log keycode
+			pattern = /[a-z]/i
+			str = String.fromCharCode keycode
+			target = lib[window.target].getEnabledTarget()
+			targ = target.success.split '||'
+			#console.log targ
+			if keycode is 8
+				target.write '<-'
+			else if keycode is 13
+				fail = false
+				if target.write() in targ
+					target.complete = true
+				else
+					fail = true
+					lib.scene.fail()
+				if not fail then lib.scene.success true,false
+			else if keycode is 32
+				target.write '-'
+			else if keycode is 222
+				target.write '\''
+			else if pattern.test str
+				target.write str.toLowerCase()
 		@btnClick = (dispatcher, target) =>
+			###
 			d = lib[dispatcher]
 			t = lib[target]
 			a = d.index
 			b = t.droptargets
 			c = t.currentTarget
+			console.log d,t,a,b,c
+			console.log a, b[c].success
 			if a is b[c].success
-				b[c].complete = true
-				b[c].update()
-				t.currentTarget++
-			if t.currentTarget is b.length
-				lib.scene.success()
+				verb = prompt "Enter the correct form of #{d.index}"
+				if verb is b[c].text.text
+					b[c].complete = true
+					b[c].update()
+					t.currentTarget++
+				if t.currentTarget is b.length
+					lib.scene.success()
+				else
+					lib.scene.fail()
 			else
-				lib.scene.fail()
+				lib.scene.fail false 
+			###
 		@game = 
 			header: 'header' 
 			instructions: {x: 110, y: 130, states: [{text:['Read and write','#ital','or','#ital'], italics: ['should', 'shouldn\'t.'], sound:'s/silence', played: false, custom:true}]}
@@ -48,65 +83,77 @@ class U1A2 extends Oda
 					answers: {
 						collection: [
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'dog'}}
 								{name: 'txt_grp', opts:{type: 'fadeIn', target: 't1'}}
-								{name: 'pcpt1', opts:{pattern:['Mommy! You,','#tcpt', 'feed the dog', '#rtn', 'food for humans. He has dog food.'], targets: [{text:'shouldn\'t', success:'shouldnt'}]}}
+								{name: 'pcpt1', opts:{pattern:['Mommy! You,','#tcpt', 'feed the dog', '#rtn', 'food for humans. He has dog food.'], targets: [{text:'shouldn\'t', success:'shouldn\'t'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'outside'}}
 								{name: 'txt_grp', opts:{type: 'fadeIn', target: 't2'}}
 								{name: 'pcpt1', opts:{pattern:['Turn off your electronics, please.', '#rtn', 'You', '#tcpt', 'play together!'], targets: [{text:'should'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'head'}}
 								{name: 'txt_grp', opts:{type: 'fadeIn', target: 't3'}}
 								{name: 'pcpt1', opts:{pattern:['I\'m sorry, Davey. You', '#tcpt','#rtn', 'wear your helmet when you cycle.'], targets: [{text:'should'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'oven'}}
 								{name: 'txt_grp', opts:{type: 'fadeIn', target: 't4'}}
 
-								{name: 'pcpt1', opts:{pattern:['Wait! You', '#tcpt','use the hot', '#rtn', 'oven. I\'ll do it.'], targets: [{text:'shouldn\'t', success:'shouldnt'}]}}
+								{name: 'pcpt1', opts:{pattern:['Wait! You', '#tcpt','use the hot', '#rtn', 'oven. I\'ll do it.'], targets: [{text:'shouldn\'t', success:'shouldn\'t'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'cat'}}
 								{name: 'txt_grp', opts:{type: 'fadeIn', target: 't5'}}
 								{name: 'pcpt1', opts:{pattern:['I\'ll clean it. But you', '#tcpt', '#rtn', 'brush the cat more often, Bobby.'], targets: [{text:'should'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'soda'}}
 								{name: 'txt_grp', opts:{type: 'fadeIn', target: 't6'}}
-								{name: 'pcpt1', opts:{pattern:['You', '#tcpt', 'drink soda,', '#rtn', 'you should drink water.'], targets: [{text:'shouldn\'t', success:'shouldnt'}]}}
+								{name: 'pcpt1', opts:{pattern:['You', '#tcpt', 'drink soda,', '#rtn', 'you should drink water.'], targets: [{text:'shouldn\'t', success:'shouldn\'t'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'kiss'}}
 								{name: 'txt_grp', opts:{type: 'fadeIn', target: 't7'}}
-								{name: 'pcpt1', opts:{pattern:['Sally, you', '#tcpt','kiss the dog;','#rtn', 'it isn\'t clean!'], targets: [{text:'shouldn\'t', success:'shouldnt'}]}}
+								{name: 'pcpt1', opts:{pattern:['Sally, you', '#tcpt','kiss the dog;','#rtn', 'it isn\'t clean!'], targets: [{text:'shouldn\'t', success:'shouldn\'t'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'sun'}}
 								{name: 'txt_grp', opts:{type: 'fadeIn', target: 't8'}}
 								{name: 'pcpt1', opts:{pattern:['Yes, but you', '#tcpt','wear sunscreen','#rtn', 'to protect your skin.'], targets: [{text:'should'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'fever'}}
 								{name: 'txt_grp', opts:{type: 'fadeIn', target: 't9'}}
-								{name: 'pcpt1', opts:{pattern:['You have a fever, you', '#tcpt', '#rtn', 'go to school today.'], targets: [{text:'shouldn\'t', success:'shouldnt'}]}}
+								{name: 'pcpt1', opts:{pattern:['You have a fever, you', '#tcpt', '#rtn', 'go to school today.'], targets: [{text:'shouldn\'t', success:'shouldn\'t'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'burger'}}
 								{name: 'txt_grp', opts:{type: 'fadeIn', target: 't10'}}
-								{name: 'pcpt1', opts:{pattern:['Honey, the doctor said you', '#rtn', '#tcpt', 'eat fat food!'], targets: [{text:'shouldn\'t', success:'shouldnt'}]}}
+								{name: 'pcpt1', opts:{pattern:['Honey, the doctor said you', '#rtn', '#tcpt', 'eat fat food!'], targets: [{text:'shouldn\'t', success:'shouldn\'t'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'homework'}}
 								{name: 'txt_grp', opts:{type: 'fadeIn', target: 't11'}}
 								{name: 'pcpt1', opts:{pattern:['Great! You', '#tcpt', 'finish it quickly', '#rtn','and you can play outside.'], targets: [{text:'should'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'swim'}}
 								{name: 'txt_grp', opts:{type: 'fadeIn', target: 't12'}}
-								{name: 'pcpt1', opts:{pattern:['You have an earache;', '#rtn', 'you', '#tcpt', 'swim today!'], targets: [{text:'shouldn\'t', success:'shouldnt'}]}}
+								{name: 'pcpt1', opts:{pattern:['You have an earache;', '#rtn', 'you', '#tcpt', 'swim today!'], targets: [{text:'shouldn\'t', success:'shouldn\'t'}]}}
 							]
 						]
 						mixed: true
