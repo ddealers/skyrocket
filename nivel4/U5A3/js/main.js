@@ -120,7 +120,7 @@ NEW ODA
                   }, {
                     name: 'wcpt1',
                     opts: {
-                      word: 'The Argentinian team||jumped||higher||than the Polish team',
+                      word: 'The Argentinean team||jumped||higher||than the Polish team',
                       maxlength: 'than the Polish team',
                       target: 't4',
                       sentence: true
@@ -136,7 +136,7 @@ NEW ODA
                   }, {
                     name: 'wcpt1',
                     opts: {
-                      word: 'The Argentinian||team got||more baskets||than the Poles',
+                      word: 'The Argentinean||team got||more baskets||than the Poles',
                       maxlength: 'than the Poles',
                       target: 't5',
                       sentence: true
@@ -226,7 +226,7 @@ NEW ODA
               }, {
                 type: 'txt',
                 id: 't5',
-                text: ['The Argentinian team got 20', '#rtn', 'baskets and the Polish team got 18.'],
+                text: ['The Argentinean team got 20', '#rtn', 'baskets and the Polish team got 18.'],
                 x: 40,
                 y: 335,
                 font: '13px Quicksand',
@@ -271,7 +271,7 @@ NEW ODA
               }, {
                 type: 'txt',
                 id: 't4',
-                text: ['The Argentinian team was excellent, ', '#rtn', 'they jumped very high.'],
+                text: ['The Argentinean team was excellent, ', '#rtn', 'they jumped very high.'],
                 x: 565,
                 y: 295,
                 font: '13px Quicksand',
@@ -280,7 +280,7 @@ NEW ODA
               }, {
                 type: 'txt',
                 id: 't6',
-                text: ['The Polish team is very tall!', '#rtn', 'The Argentinians aren\'t.'],
+                text: ['The Polish team is very tall!', '#rtn', 'The Argentineans aren\'t.'],
                 x: 565,
                 y: 335,
                 font: '13px Quicksand',
@@ -330,6 +330,7 @@ NEW ODA
               {
                 type: 'grp',
                 id: 'grp1',
+                invisible: false,
                 group: ['t1', 't2', 't3', 't4', 't5', 't6', 't7', 't8']
               }
             ]
