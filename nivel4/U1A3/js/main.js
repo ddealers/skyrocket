@@ -118,22 +118,23 @@ NEW ODA
         }
       ];
       this.onDrop = function(dispatcher, target) {
-        var a, b, d, failed, t;
+        var a, b, d, failed, t, _ref;
         failed = false;
         d = lib[dispatcher];
         t = target.parent;
         a = d.index;
         b = t.success;
-        if (__indexOf.call(t.success, a) >= 0) {
-          t.success.remove(a);
-          d.afterSuccess();
+        console.log('target es', target);
+        if (_ref = lib[dispatcher].index, __indexOf.call(target.parent.success, _ref) >= 0) {
+          target.parent.success.remove(lib[dispatcher].index);
+          lib[dispatcher].afterSuccess();
           lib.scene.success();
-          return TweenLite.to(d, 0.3, {
+          return TweenLite.to(lib[dispatcher], 0.3, {
             scaleX: 0.7,
             scaleY: 0.7
           });
         } else {
-          d.afterFail();
+          lib[dispatcher].afterFail();
           return lib.scene.fail();
         }
       };

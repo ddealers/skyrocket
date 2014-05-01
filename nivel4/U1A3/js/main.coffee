@@ -46,13 +46,15 @@ class U1A3 extends Oda
 			t = target.parent
 			a = d.index
 			b = t.success
-			if a in t.success
-				t.success.remove a
-				d.afterSuccess()
+			console.log 'target es', target
+
+			if lib[dispatcher].index in target.parent.success
+				target.parent.success.remove lib[dispatcher].index
+				lib[dispatcher].afterSuccess()
 				lib.scene.success()
-				TweenLite.to d, 0.3, {scaleX:0.7, scaleY:0.7}
+				TweenLite.to lib[dispatcher], 0.3, {scaleX:0.7, scaleY:0.7}
 			else
-				d.afterFail()
+				lib[dispatcher].afterFail()
 				lib.scene.fail()
 		@onClick = (dispatcher) =>
 			d = lib[dispatcher]
