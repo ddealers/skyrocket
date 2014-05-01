@@ -1203,7 +1203,6 @@ class DragContainer extends Component
 		@width = b.width
 		@height = b.height
 		@dragged = false
-		@currentTarget = 0
 		@setPosition opts.align
 		switch opts.afterSuccess
 			when 'drop' then @afterSuccess = @dropInPlace
@@ -1228,9 +1227,10 @@ class DragContainer extends Component
 					lib[t].observer.subscribe ComponentObserver.UPDATED, @update
 			else 
 				@target.observer.subscribe ComponentObserver.UPDATED, @update
-		@addEventListener 'mousedown', @handleMouseDown
+		@on 'mousedown', @handleMouseDown
 		if opts.click then @addEventListener 'click', =>
 			window.d2oda.evaluator.evaluate opts.click, @name, @target
+
 	update: (opts) =>
 		if @isArray @target
 			alldrops = new Array()
@@ -1253,6 +1253,8 @@ class DragContainer extends Component
 			@y = posY - offset.y
 			false
 		@on 'pressup', (ev)=>
+			@removeAllEventListeners 'pressmove'
+			@removeAllEventListeners 'pressup'
 			if @droptargets and @droptargets.length > 0
 				@evaluateDrop e
 			else
@@ -1272,6 +1274,7 @@ class DragContainer extends Component
 			d2oda.evaluator.evaluate @eval, @name, target
 		else
 			@returnToPlace @alpha, @scaleX, @scaleY
+
 
 class ButtonContainer extends Component
 	ButtonContainer.prototype = new createjs.Container()

@@ -2290,7 +2290,6 @@ LIBRARY
       this.width = b.width;
       this.height = b.height;
       this.dragged = false;
-      this.currentTarget = 0;
       this.setPosition(opts.align);
       switch (opts.afterSuccess) {
         case 'drop':
@@ -2341,7 +2340,7 @@ LIBRARY
           this.target.observer.subscribe(ComponentObserver.UPDATED, this.update);
         }
       }
-      this.addEventListener('mousedown', this.handleMouseDown);
+      this.on('mousedown', this.handleMouseDown);
       if (opts.click) {
         return this.addEventListener('click', function() {
           return window.d2oda.evaluator.evaluate(opts.click, _this.name, _this.target);
@@ -2384,6 +2383,8 @@ LIBRARY
         return false;
       });
       this.on('pressup', function(ev) {
+        _this.removeAllEventListeners('pressmove');
+        _this.removeAllEventListeners('pressup');
         if (_this.droptargets && _this.droptargets.length > 0) {
           _this.evaluateDrop(e);
         } else {
