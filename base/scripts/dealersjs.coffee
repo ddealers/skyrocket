@@ -745,6 +745,11 @@ class ComponentGroup
 			when 'pulseAll'
 				for item in @group
 					lib[item].pulse()
+			when 'blink'
+				for item in @group
+					TweenMax.killTweensOf lib[item]
+					TweenLite.killTweensOf lib[item]
+				if opts.target then lib[opts.target].blink()
 			when 'fadeIn'
 				for item in @group
 					TweenMax.killTweensOf lib[item]

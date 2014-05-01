@@ -1482,7 +1482,7 @@ LIBRARY
     }
 
     ComponentGroup.prototype.update = function(opts) {
-      var item, _i, _j, _k, _l, _len, _len1, _len2, _len3, _ref1, _ref2, _ref3, _ref4, _results, _results1;
+      var item, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _m, _ref1, _ref2, _ref3, _ref4, _ref5, _results, _results1;
       switch (opts.type) {
         case 'blinkAll':
           _ref1 = this.group;
@@ -1502,10 +1502,21 @@ LIBRARY
           }
           return _results1;
           break;
-        case 'fadeIn':
+        case 'blink':
           _ref3 = this.group;
           for (_k = 0, _len2 = _ref3.length; _k < _len2; _k++) {
             item = _ref3[_k];
+            TweenMax.killTweensOf(lib[item]);
+            TweenLite.killTweensOf(lib[item]);
+          }
+          if (opts.target) {
+            return lib[opts.target].blink();
+          }
+          break;
+        case 'fadeIn':
+          _ref4 = this.group;
+          for (_l = 0, _len3 = _ref4.length; _l < _len3; _l++) {
+            item = _ref4[_l];
             TweenMax.killTweensOf(lib[item]);
             TweenLite.killTweensOf(lib[item]);
             lib[item].alpha = 0;
@@ -1518,9 +1529,9 @@ LIBRARY
           }
           break;
         case 'fadeOut':
-          _ref4 = this.group;
-          for (_l = 0, _len3 = _ref4.length; _l < _len3; _l++) {
-            item = _ref4[_l];
+          _ref5 = this.group;
+          for (_m = 0, _len4 = _ref5.length; _m < _len4; _m++) {
+            item = _ref5[_m];
             TweenMax.killTweensOf(lib[item]);
             TweenLite.killTweensOf(lib[item]);
             lib[item].alpha = 1;
