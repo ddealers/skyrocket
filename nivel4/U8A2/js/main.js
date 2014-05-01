@@ -73,19 +73,14 @@ NEW ODA
         word = '';
         keycode = e.keyCode || e.which;
         console.log(keycode);
-        pattern = /[a-z+']/i;
+        pattern = /[a-z]/i;
         str = String.fromCharCode(keycode);
         target = lib[window.target].getEnabledTarget();
         targ = target.success.split('||');
-        console.log(targ);
         if (keycode === 8) {
-          target.write('<-');
-        }
-        if (keycode === 222) {
-          return target.write('\'');
+          return target.write('<-');
         } else if (keycode === 13) {
           fail = false;
-          console.log(target.write());
           if (_ref = target.write(), __indexOf.call(targ, _ref) >= 0) {
             target.complete = true;
           } else {
@@ -97,6 +92,8 @@ NEW ODA
           }
         } else if (keycode === 32) {
           return target.write('-');
+        } else if (keycode === 222) {
+          return target.write('\'');
         } else if (pattern.test(str)) {
           return target.write(str.toLowerCase());
         }

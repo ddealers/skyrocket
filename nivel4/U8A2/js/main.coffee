@@ -30,19 +30,15 @@ class U8A2 extends Oda
 			word = ''
 			keycode = e.keyCode || e.which
 			console.log keycode
-			pattern = /[a-z+']/i
+			pattern = /[a-z]/i
 			str = String.fromCharCode keycode
 			target = lib[window.target].getEnabledTarget()
-			targ = target.success.split '||' 
-			console.log targ 
+			targ = target.success.split '||'
+			#console.log targ
 			if keycode is 8
 				target.write '<-'
-			if keycode is 222
-				target.write '\'' 
 			else if keycode is 13
 				fail = false
-				console.log target.write()
-				
 				if target.write() in targ
 					target.complete = true
 				else
@@ -51,6 +47,8 @@ class U8A2 extends Oda
 				if not fail then lib.scene.success true,false
 			else if keycode is 32
 				target.write '-'
+			else if keycode is 222
+				target.write '\''
 			else if pattern.test str
 				target.write str.toLowerCase()
 		@btnClick = (dispatcher, target) =>
