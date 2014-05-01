@@ -141,11 +141,11 @@ LIBRARY
       function Behaviors() {}
 
       Behaviors.initDragListener = function() {
-        return Behaviors.addEventListener('mousedown', Behaviors.handleMouseDown);
+        return Behaviors.on('mousedown', Behaviors.handleMouseDown);
       };
 
       Behaviors.endDragListener = function() {
-        return Behaviors.removeEventListener('mousedown', Behaviors.handleMouseDown);
+        return Behaviors.off('mousedown', Behaviors.handleMouseDown);
       };
 
       Behaviors;
@@ -2290,6 +2290,7 @@ LIBRARY
       this.width = b.width;
       this.height = b.height;
       this.dragged = false;
+      this.currentTarget = 0;
       this.setPosition(opts.align);
       switch (opts.afterSuccess) {
         case 'drop':
@@ -2374,7 +2375,7 @@ LIBRARY
       };
       this.x = posX - offset.x;
       this.y = posY - offset.y;
-      e.addEventListener('pressmove', function(ev) {
+      this.on('pressmove', function(ev) {
         _this.dragged = true;
         posX = ev.stageX / d2oda.stage.r;
         posY = ev.stageY / d2oda.stage.r;
@@ -2382,7 +2383,7 @@ LIBRARY
         _this.y = posY - offset.y;
         return false;
       });
-      e.addEventListener('pressup', function(ev) {
+      this.on('pressup', function(ev) {
         if (_this.droptargets && _this.droptargets.length > 0) {
           _this.evaluateDrop(e);
         } else {
@@ -4572,14 +4573,14 @@ LIBRARY
       };
       this.x = posX - offset.x;
       this.y = posY - offset.y;
-      this.addEventListener('pressmove', function(ev) {
+      this.on('pressmove', function(ev) {
         posX = ev.stageX / d2oda.stage.r;
         posY = ev.stageY / d2oda.stage.r;
         _this.x = posX - offset.x;
         _this.y = posY - offset.y;
         return false;
       });
-      this.addEventListener('pressup', function(ev) {
+      this.on('pressup', function(ev) {
         _this.removeAllEventListeners('pressmove');
         _this.removeAllEventListeners('pressup');
         if (_this.droptargets && _this.droptargets.length > 0) {

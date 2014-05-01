@@ -61,9 +61,9 @@ window.d2oda.utilities ?= class Utilities
 
 window.d2oda.behaviors ?= class Behaviors
 	@initDragListener = =>
-		@addEventListener 'mousedown', @handleMouseDown
+		@on 'mousedown', @handleMouseDown
 	@endDragListener = =>
-		@removeEventListener 'mousedown', @handleMouseDown
+		@off 'mousedown', @handleMouseDown
 	Behaviors
 
 window.d2oda.actions ?= class Actions
@@ -1203,6 +1203,7 @@ class DragContainer extends Component
 		@width = b.width
 		@height = b.height
 		@dragged = false
+		@currentTarget = 0
 		@setPosition opts.align
 		switch opts.afterSuccess
 			when 'drop' then @afterSuccess = @dropInPlace
@@ -1244,14 +1245,14 @@ class DragContainer extends Component
 		offset = x: posX - @x, y: posY - @y
 		@x = posX - offset.x
 		@y = posY - offset.y
-		e.addEventListener 'pressmove', (ev)=>
+		@on 'pressmove', (ev)=>
 			@dragged = true
 			posX = ev.stageX / d2oda.stage.r
 			posY = ev.stageY / d2oda.stage.r
 			@x = posX - offset.x
 			@y = posY - offset.y
 			false
-		e.addEventListener 'pressup', (ev)=>
+		@on 'pressup', (ev)=>
 			if @droptargets and @droptargets.length > 0
 				@evaluateDrop e
 			else
@@ -2539,13 +2540,13 @@ class LetterDragContainer extends Component
 		offset = x: posX - @x, y: posY - @y
 		@x = posX - offset.x
 		@y = posY - offset.y
-		@addEventListener 'pressmove', (ev)=>
+		@on 'pressmove', (ev)=>
 			posX = ev.stageX / d2oda.stage.r
 			posY = ev.stageY / d2oda.stage.r
 			@x = posX - offset.x
 			@y = posY - offset.y
 			false
-		@addEventListener 'pressup', (ev)=>
+		@on 'pressup', (ev)=>
 			@removeAllEventListeners 'pressmove'
 			@removeAllEventListeners 'pressup'
 			if @droptargets and @droptargets.length > 0
