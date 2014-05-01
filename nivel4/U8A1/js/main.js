@@ -125,8 +125,7 @@ NEW ODA
                       pattern: ['Some can fly through the air and they don\'t even have', '#tcpt', '!'],
                       targets: [
                         {
-                          text: 'wings',
-                          maxlenght: 'wings'
+                          text: 'wings'
                         }
                       ]
                     }
@@ -415,6 +414,7 @@ NEW ODA
                 id: 'pcct1',
                 x: 80,
                 y: 190,
+                uwidth: 70,
                 font: '12px Quicksand',
                 underline: {
                   y: 0
@@ -427,6 +427,7 @@ NEW ODA
                 id: 'pcct2',
                 x: 80,
                 y: 213,
+                uwidth: 70,
                 font: '12px Quicksand',
                 underline: {
                   y: 0
@@ -439,6 +440,7 @@ NEW ODA
                 id: 'pcct3',
                 x: 80,
                 y: 236,
+                uwidth: 80,
                 font: '12px Quicksand',
                 underline: {
                   y: 0
@@ -451,6 +453,7 @@ NEW ODA
                 id: 'pcct4',
                 x: 80,
                 y: 279,
+                uwidth: 70,
                 font: '12px Quicksand',
                 underline: {
                   y: 0
@@ -463,6 +466,7 @@ NEW ODA
                 id: 'pcct5',
                 x: 80,
                 y: 302,
+                uwidth: 70,
                 font: '12px Quicksand',
                 underline: {
                   y: 0
@@ -475,6 +479,7 @@ NEW ODA
                 id: 'pcct6',
                 x: 80,
                 y: 325,
+                uwidth: 70,
                 font: '12px Quicksand',
                 underline: {
                   y: 0
@@ -487,6 +492,7 @@ NEW ODA
                 id: 'pcct7',
                 x: 80,
                 y: 348,
+                uwidth: 70,
                 font: '12px Quicksand',
                 underline: {
                   y: 0
@@ -499,6 +505,7 @@ NEW ODA
                 id: 'pcct8',
                 x: 80,
                 y: 371,
+                uwidth: 70,
                 font: '12px Quicksand',
                 underline: {
                   y: 0
@@ -511,6 +518,7 @@ NEW ODA
                 id: 'pcct9',
                 x: 80,
                 y: 394,
+                uwidth: 70,
                 font: '12px Quicksand',
                 underline: {
                   y: 0
@@ -523,6 +531,7 @@ NEW ODA
                 id: 'pcct10',
                 x: 80,
                 y: 417,
+                uwidth: 70,
                 font: '12px Quicksand',
                 underline: {
                   y: 0

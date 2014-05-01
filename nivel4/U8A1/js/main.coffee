@@ -47,7 +47,7 @@ class U8A1 extends Oda
 								{name: 'grpder', opts:{type: 'fadeIn', target: 'telepathy'}}
 							]
 							[
-								{name: 'pcct2', opts:{pattern:['Some can fly through the air and they don\'t even have','#tcpt','!'], targets: [{text:'wings',maxlenght:'wings'}]}}
+								{name: 'pcct2', opts:{pattern:['Some can fly through the air and they don\'t even have','#tcpt','!'], targets: [{text:'wings'}]}}
 								{name: 'grpizq', opts:{type: 'fadeIn', target: 'eyes'}}
 								{name: 'grpmid', opts:{type: 'fadeIn', target: 'legs'}}
 								{name: 'grpder', opts:{type: 'fadeIn', target: 'wings'}}
@@ -107,16 +107,16 @@ class U8A1 extends Oda
 					containers:[
 						{type: 'img', id: 'caja', x: 154, y: 510}
 						{type: 'img', id: 'superhero', x: 230, y:190}
- 						{type: 'pcpt', id: 'pcct1', x: 	80, y: 190, font: '12px Quicksand', underline:{y:0}, margin: 5, scolor: '#009046', stroke: 2}
-						{type: 'pcpt', id: 'pcct2', x: 80, y: 213, font: '12px Quicksand', underline:{y:0}, margin: 5, scolor: '#009046', stroke: 2}
-						{type: 'pcpt', id: 'pcct3', x: 80, y: 236, font: '12px Quicksand', underline:{y:0}, margin: 5, scolor: '#009046', stroke: 2}
-						{type: 'pcpt', id: 'pcct4', x: 80, y: 279, font: '12px Quicksand', underline:{y:0}, margin: 5, scolor: '#009046', stroke: 2}
-						{type: 'pcpt', id: 'pcct5', x: 80, y: 302, font: '12px Quicksand', underline:{y:0}, margin: 5, scolor: '#009046', stroke: 2}
-						{type: 'pcpt', id: 'pcct6', x: 80, y:325, font: '12px Quicksand', underline:{y:0}, margin: 5, scolor: '#009046', stroke: 2}
-						{type: 'pcpt', id: 'pcct7', x: 80, y: 348, font: '12px Quicksand', underline:{y:0}, margin: 5, scolor: '#009046', stroke: 2}
-						{type: 'pcpt', id: 'pcct8', x: 80, y: 371, font: '12px Quicksand', underline:{y:0}, margin: 5, scolor: '#009046', stroke: 2}
-						{type: 'pcpt', id: 'pcct9', x: 80, y: 394, font: '12px Quicksand', underline:{y:0}, margin: 5, scolor: '#009046', stroke: 2}
-						{type: 'pcpt', id: 'pcct10', x: 80, y: 417, font: '12px Quicksand', underline:{y:0}, margin: 5, scolor: '#009046', stroke: 2}
+ 						{type: 'pcpt', id: 'pcct1', x: 	80, y: 190, uwidth : 70 ,font: '12px Quicksand', underline:{y:0}, margin: 5, scolor: '#009046', stroke: 2}
+						{type: 'pcpt', id: 'pcct2', x: 80, y: 213, uwidth : 70, font: '12px Quicksand', underline:{y:0}, margin: 5, scolor: '#009046', stroke: 2}
+						{type: 'pcpt', id: 'pcct3', x: 80, y: 236, uwidth : 80 , font: '12px Quicksand', underline:{y:0}, margin: 5, scolor: '#009046', stroke: 2}
+						{type: 'pcpt', id: 'pcct4', x: 80, y: 279, uwidth : 70 , font: '12px Quicksand', underline:{y:0}, margin: 5, scolor: '#009046', stroke: 2}
+						{type: 'pcpt', id: 'pcct5', x: 80, y: 302, uwidth : 70 , font: '12px Quicksand', underline:{y:0}, margin: 5, scolor: '#009046', stroke: 2}
+						{type: 'pcpt', id: 'pcct6', x: 80, y:325, uwidth : 70 , font: '12px Quicksand', underline:{y:0}, margin: 5, scolor: '#009046', stroke: 2}
+						{type: 'pcpt', id: 'pcct7', x: 80, y: 348, uwidth : 70 , font: '12px Quicksand', underline:{y:0}, margin: 5, scolor: '#009046', stroke: 2}
+						{type: 'pcpt', id: 'pcct8', x: 80, y: 371, uwidth : 70 , font: '12px Quicksand', underline:{y:0}, margin: 5, scolor: '#009046', stroke: 2}
+						{type: 'pcpt', id: 'pcct9', x: 80, y: 394, uwidth : 70 , font: '12px Quicksand', underline:{y:0}, margin: 5, scolor: '#009046', stroke: 2}
+						{type: 'pcpt', id: 'pcct10', x: 80, y: 417, uwidth : 70 , font: '12px Quicksand', underline:{y:0}, margin: 5, scolor: '#009046', stroke: 2}
 						{type: 'ldrg', id: 'electricity', x: 220,  y: 530, index: 'electricity', text:'electricity', font:'15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8', 'pcct9', 'pcct10'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
 						{type: 'ldrg', id: 'eyes', x: 220,  y: 530, index: 'eyes', text:'eyes', font:'15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8', 'pcct9', 'pcct10'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
 						{type: 'ldrg', id: 'walk', x: 220,  y: 530, index: 'walk', text:'walk', font:'15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8', 'pcct9', 'pcct10'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
