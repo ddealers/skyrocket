@@ -123,7 +123,7 @@ class U8A2 extends Oda
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'ladder'}}
-								{name:'pcpt1', opts:{pattern:['Quickly! The man on the ladder','#tcpt','!'], targets:[{text:'is going to rain', success:'is going to rain||\'s going to rain'}]}}
+								{name:'pcpt1', opts:{pattern:['Quickly! The man on the ladder','#tcpt','!'], targets:[{text:'is going to fall', success:'is going to fall||\'s going to fall'}]}}
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}

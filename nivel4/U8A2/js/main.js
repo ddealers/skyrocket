@@ -363,8 +363,8 @@ NEW ODA
                       pattern: ['Quickly! The man on the ladder', '#tcpt', '!'],
                       targets: [
                         {
-                          text: 'is going to rain',
-                          success: 'is going to rain||\'s going to rain'
+                          text: 'is going to fall',
+                          success: 'is going to fall||\'s going to fall'
                         }
                       ]
                     }
