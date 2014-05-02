@@ -42,7 +42,7 @@ class U7A3 extends Oda
 			#{ id: 's/waltz' , src: 'waltz.mp3' }
 			{ id: 's/silence' , src: 'silence.mp3' }
 		]
-		@init = () =>
+		@inic = () =>
 			if @channels then return
 			chnls = [0,1,2,3,4,5,6,7]
 			@channels = d2oda.utilities.shuffleNoRepeat chnls,8
@@ -64,7 +64,7 @@ class U7A3 extends Oda
 				d.afterFail()
 				lib.scene.fail()
 		@btnChannel = (dispatcher) =>
-			@init()
+			@inic()
 			d = lib[dispatcher]
 			sel = @channels[d.index]
 			lib.grp_pcpt.update {type:'fadeIn', target:"pcpt#{sel + 1}"}

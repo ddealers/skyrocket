@@ -107,14 +107,6 @@ NEW ODA
           src: 'silence.mp3'
         }
       ];
-      this.init = function() {
-        var chnls;
-        if (_this.channels) {
-          return;
-        }
-        chnls = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-        return _this.channels = d2oda.utilities.shuffleNoRepeat(chnls, 10);
-      };
       this.onDrop = function(dispatcher, target) {
         var a, b, c, d, t;
         d = lib[dispatcher];
@@ -137,7 +129,7 @@ NEW ODA
       };
       this.btnChannel = function(dispatcher) {
         var d, sel;
-        _this.init();
+        _this.inic();
         d = lib[dispatcher];
         sel = _this.channels[d.index];
         lib.grp_pcpt.update({
@@ -150,6 +142,14 @@ NEW ODA
         });
         createjs.Sound.stop();
         return createjs.Sound.play("s/" + (sel + 1));
+      };
+      this.inic = function() {
+        var chnls;
+        if (_this.channels) {
+          return;
+        }
+        chnls = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        return _this.channels = d2oda.utilities.shuffleNoRepeat(chnls, 10);
       };
       this.game = {
         header: 'header',

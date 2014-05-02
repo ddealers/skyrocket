@@ -38,10 +38,8 @@ class U9A2 extends Oda
 			{id:'s/10', src:'horseriding.mp3'}
 			{id: 's/silence' , src: 'silence.mp3' }
 		]
-		@init = () =>
-			if @channels then return
-			chnls = [0,1,2,3,4,5,6,7,8,9]
-			@channels = d2oda.utilities.shuffleNoRepeat chnls, 10
+
+
 		@onDrop = (dispatcher, target) =>
 			d = lib[dispatcher]
 			t = target.parent
@@ -60,13 +58,18 @@ class U9A2 extends Oda
 				d.afterFail()
 				lib.scene.fail()
 		@btnChannel = (dispatcher) =>
-			@init()
+			@inic()
 			d = lib[dispatcher]
 			sel = @channels[d.index]
 			lib.grp_pcpt.update {type:'fadeIn', target:"pcpt#{sel + 1}"}
 			lib.grp_img.update {type:'fadeIn', target:"q#{sel + 1}"}
 			createjs.Sound.stop()
 			createjs.Sound.play "s/#{sel + 1}"
+		@inic = () =>
+			if @channels then return
+			chnls = [0,1,2,3,4,5,6,7,8,9]
+			@channels = d2oda.utilities.shuffleNoRepeat chnls, 10
+			
 		@game = 
 			header: 'header'
 			instructions: {x: 110, y: 130, states: [{text:'Change the channels, listen and drag the correct options.', sound:'s/silence', played: false}]}

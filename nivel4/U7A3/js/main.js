@@ -110,7 +110,7 @@ NEW ODA
           src: 'silence.mp3'
         }
       ];
-      this.init = function() {
+      this.inic = function() {
         var chnls;
         if (_this.channels) {
           return;
@@ -140,7 +140,7 @@ NEW ODA
       };
       this.btnChannel = function(dispatcher) {
         var d, sel;
-        _this.init();
+        _this.inic();
         d = lib[dispatcher];
         sel = _this.channels[d.index];
         lib.grp_pcpt.update({
