@@ -98,7 +98,7 @@ NEW ODA
         header: 'header',
         instructions: {
           x: 110,
-          y: 175,
+          y: 130,
           states: [
             {
               text: 'Complete the sentences with the superlative.',
