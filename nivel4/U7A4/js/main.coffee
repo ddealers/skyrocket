@@ -46,8 +46,10 @@ class U7A4 extends Oda
 						type: 'steps'
 					}
 					containers:[
+
 						{type: 'img', id:'marie', x: 420, y: 200}
 						{type: 'txt', id: 't1', text:['"When I was a young girl, life was very different. I didn\'t use to go to school. I wanted to, but in those days girls didn\'t study. "School is for boys!" my dad used to say, "Girls don\'t need to learn anything except how to cook and clean." I didn\'t use to like cleaning or cooking, but I had to do what my father told me. When I was 16, I got married. We were married for 50 years! I was so happy - we used to go dancing every weekend. We waltzed and did the cha-cha-cha, we had so much fun! When I was 20 I decided to go to a school for adults. I used to work in the day and study at nights. I was very tired but it was wonderful to learn. I even liked doing homework!'], x: 70, y: 210, lineWidth: 330, font:'14px Dosis',lineHeight: 20, align: 'left'}
+
 						{
 							type: 'btn', id: 'btnTrue', x: 340, y: 575, index: true, target: 'lbl1', eval: @onClick
 							states:[img: {name:'true', x: 0, y: 0, align:'mc'}]
@@ -57,7 +59,7 @@ class U7A4 extends Oda
 							states:[img: {name:'false', x: 0, y: 0, align:'mc'}]
 						}
 						 
-						{type: 'lbl', id: 'lbl1', x: 400, y: 510, font: '20px Quicksand', lineWidth:600, color: '#333', align: 'center'}
+						{type: 'lbl', id: 'lbl1', x: 400, y: 510, font: 'Bold 20px Quicksand', lineWidth:600, color: '#333', align: 'center'}
 					]
 					groups:[]
 				}
@@ -72,8 +74,10 @@ class U7A4 extends Oda
 						type: 'steps'
 					}
 					containers:[
+
 						{type: 'img', id:'grandad', x: 420, y: 200}
 						{type: 'txt', id: 't2', text:['I am Laurie and this is my granddad Pete. Life was hard for my great-granddad. He had to start working when he was very young. He left school at the age of 12 and worked his whole life. He used to tell me to enjoy life and study, because work was much harder! When he was young, he used to get up at 6 in the morning. His family washed outside, and they didn\'t have a bathroom. He was the oldest son and had to help his parents on the farm. He used to feed the horses and milk the cows, and that was before going to work! He used to take his brothers and his sister to school, and then he went to work in a factory. He used to work very long days. Life was difficult for a boy in those times.'], x: 70, y: 230, lineWidth: 330, font:'14px Dosis',lineHeight: 20, align: 'left'}
+
 						{
 							type: 'btn', id: 'btnTrue2', x: 340, y: 575, index: true, target: 'lbl2', eval: @onClick
 							states:[img: {name:'true', x: 0, y: 0, align:'mc'}]
@@ -83,7 +87,7 @@ class U7A4 extends Oda
 							states:[img: {name:'false', x: 0, y: 0, align:'mc'}]
 						}
 						 
-						{type: 'lbl', id: 'lbl2', x: 400, y: 510, font: '20px Quicksand', lineWidth:600, color: '#333', align: 'center'}
+						{type: 'lbl', id: 'lbl2', x: 400, y: 510, font: 'Bold 20px Quicksand', lineWidth:600, color: '#333', align: 'center'}
 					]
 					groups:[]
 				}
@@ -99,8 +103,10 @@ class U7A4 extends Oda
 						type: 'steps'
 					}
 					containers:[
+
 						{type: 'img', id:'sixties', x: 420, y: 200}
 						{type: 'txt', id: 't3', text:['In the \'60s, we didn\'t have all the technology we have now. We used to listen to the radio or records on a record player. Most people didn\'t have a television. And if someone had a television, it wasn\'t color; it was black and white. We used to play games like "snakes and ladders" and do puzzles after dinner. We didn\'t have computers; we used to write letters on typewriters. If it was urgent, we used to send telegrams.Telegrams were short, very fast letters. We didn\'t use to have washing machines. We washed our clothes and dishes by hand. Life was a lot slower back then!'], x: 70, y: 210, lineWidth: 330, font:'14px Dosis',lineHeight: 20, align: 'left'}
+
 						{
 							type: 'btn', id: 'btnTrue3', x: 340, y: 575, index: true, target: 'lbl3', eval: @onClick
 							states:[img: {name:'true', x: 0, y: 0, align:'mc'}]
@@ -110,7 +116,7 @@ class U7A4 extends Oda
 							states:[img: {name:'false', x: 0, y: 0, align:'mc'}]
 						}
 						 
-						{type: 'lbl', id: 'lbl3', x: 400, y: 510, font: '20px Quicksand', lineWidth:600, color: '#333', align: 'center'}
+						{type: 'lbl', id: 'lbl3', x: 400, y: 510, font: 'Bold 20px Quicksand', lineWidth:600, color: '#333', align: 'center'}
 					]
 					groups:[]
 				}

@@ -52,17 +52,17 @@ class U9A1 extends Oda
 					}
 					containers:[
 						{type: 'img', id: 'email', x: 80, y: 170}
-						{type: 'pcpt', id: 'pcpt1', x: 130, y: 250, font: '12px Quicksand', margin: 5, underline: {y:0}, scolor: '#009046', stroke: 1, bcolor: 'rgba(255,255,255,0.01)'}
-						{type: 'ldrg', id: 'ldrg3', x: 138, y: 520, index: 'tents', text:'tents', font:'22px Quicksand', color:'#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg1', x: 245, y: 520, index: 'hiking', text:'hiking', font:'22px Quicksand', color:'#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg10', x: 360, y: 520, index: 'ride', text:'ride', font:'22px Quicksand', color:'#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg6', x: 450, y: 520, index: 'activities', text:'activities', font:'22px Quicksand', color:'#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg7', x: 605, y: 520, index: 'outdoor', text:'outdoor', font:'22px Quicksand', color:'#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg5', x: 140, y: 550, index: 'Register', text:'Register', font:'22px Quicksand', color:'#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg2', x: 280, y: 550, index: 'nature', text:'nature', font:'22px Quicksand', color:'#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg4', x: 400, y: 550, index: 'sail', text:'sail', font:'22px Quicksand', color:'#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg9', x: 490, y: 550, index: 'sessions', text:'sessions', font:'22px Quicksand', color:'#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg8', x: 620, y: 550, index: 'fishing', text:'fishing', font:'22px Quicksand', color:'#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'pcpt', id: 'pcpt1', x: 130, y: 250, font: 'Bold 12px Quicksand', margin: 5, underline: {y:0}, scolor: '#009046', stroke: 1, bcolor: 'rgba(255,255,255,0.01)'}
+						{type: 'ldrg', id: 'ldrg3', x: 138, y: 520, index: 'tents', text:'tents', font:'Bold 22px Quicksand', color:'#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg1', x: 245, y: 520, index: 'hiking', text:'hiking', font:'Bold 22px Quicksand', color:'#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg10', x: 360, y: 520, index: 'ride', text:'ride', font:'Bold 22px Quicksand', color:'#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg6', x: 450, y: 520, index: 'activities', text:'activities', font:'Bold 22px Quicksand', color:'#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg7', x: 605, y: 520, index: 'outdoor', text:'outdoor', font:'Bold 22px Quicksand', color:'#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg5', x: 140, y: 550, index: 'Register', text:'Register', font:'Bold 22px Quicksand', color:'#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg2', x: 280, y: 550, index: 'nature', text:'nature', font:'Bold 22px Quicksand', color:'#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg4', x: 400, y: 550, index: 'sail', text:'sail', font:'Bold 22px Quicksand', color:'#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg9', x: 490, y: 550, index: 'sessions', text:'sessions', font:'Bold 22px Quicksand', color:'#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg8', x: 620, y: 550, index: 'fishing', text:'fishing', font:'Bold 22px Quicksand', color:'#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
 					]
 					groups: [
 					]
@@ -86,17 +86,17 @@ class U9A1 extends Oda
 					}
 					containers:[
 						{type: 'img', id: 'treasureisland', x: 40, y: 170}
-						{type: 'pcpt', id: 'pcpt2', x: 70, y: 195, font: '12px Quicksand', margin: 5, underline: {y:0}, scolor: '#009046', stroke: 1, bcolor: 'rgba(255,255,255,0.01)'}
+						{type: 'pcpt', id: 'pcpt2', x: 70, y: 195, font: 'Bold 12px Quicksand', margin: 5, underline: {y:0}, scolor: '#009046', stroke: 1, bcolor: 'rgba(255,255,255,0.01)'}
 						{type: 'ldrg', id: 'ldrg1b', x: 102, y: 500, index: 'experiments', text:'experiments', font:'22px Quicksand', color:'#333', target: ['pcpt2'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg2b', x: 265, y: 500, index: 'science', text:'science', font:'22px Quicksand', color:'#333', target: ['pcpt2'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg3b', x: 370, y: 500, index: 'allowed', text:'allowed', font:'22px Quicksand', color:'#333', target: ['pcpt2'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg4b', x: 480, y: 500, index: 'going to', text:'going to', font:'22px Quicksand', color:'#333', target: ['pcpt2'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg5b', x: 605, y: 500, index: 'photographs', text:'photographs', font:'22px Quicksand', color:'#333', target: ['pcpt2'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg6b', x: 140, y: 540, index: 'movie', text:'movie', font:'22px Quicksand', color:'#333', target: ['pcpt2'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg7b', x: 230, y: 540, index: 'laboratory', text:'laboratory', font:'22px Quicksand', color:'#333', target: ['pcpt2'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg8b', x: 370, y: 540, index: 'planetarium', text:'planetarium', font:'22px Quicksand', color:'#333', target: ['pcpt2'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg9b', x: 530, y: 540, index: 'e-mail', text:'e-mail', font:'22px Quicksand', color:'#333', target: ['pcpt2'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg10b', x: 620, y: 540, index: 'party', text:'party', font:'22px Quicksand', color:'#333', target: ['pcpt2'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg2b', x: 265, y: 500, index: 'science', text:'science', font:'Bold 22px Quicksand', color:'#333', target: ['pcpt2'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg3b', x: 370, y: 500, index: 'allowed', text:'allowed', font:'Bold 22px Quicksand', color:'#333', target: ['pcpt2'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg4b', x: 480, y: 500, index: 'going to', text:'going to', font:'Bold 22px Quicksand', color:'#333', target: ['pcpt2'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg5b', x: 605, y: 500, index: 'photographs', text:'photographs', font:'Bold 22px Quicksand', color:'#333', target: ['pcpt2'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg6b', x: 140, y: 540, index: 'movie', text:'movie', font:'Bold 22px Quicksand', color:'#333', target: ['pcpt2'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg7b', x: 230, y: 540, index: 'laboratory', text:'laboratory', font:'Bold 22px Quicksand', color:'#333', target: ['pcpt2'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg8b', x: 370, y: 540, index: 'planetarium', text:'planetarium', font:'Bold 22px Quicksand', color:'#333', target: ['pcpt2'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg9b', x: 530, y: 540, index: 'e-mail', text:'e-mail', font:'Bold 22px Quicksand', color:'#333', target: ['pcpt2'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg10b', x: 620, y: 540, index: 'party', text:'party', font:'Bold 22px Quicksand', color:'#333', target: ['pcpt2'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
 					]
 					groups: [
 					]

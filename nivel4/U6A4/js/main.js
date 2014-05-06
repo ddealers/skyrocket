@@ -122,7 +122,7 @@ NEW ODA
                 type: 'img',
                 id: 'foto',
                 x: 420,
-                y: 230
+                y: 210
               }, {
                 type: 'txt',
                 id: 't1',
@@ -193,7 +193,7 @@ NEW ODA
                 id: 'lbl1',
                 x: 400,
                 y: 490,
-                font: '20px Roboto',
+                font: 'Bold 20px Quicksand',
                 lineWidth: 600,
                 color: '#333',
                 align: 'center'
@@ -236,7 +236,7 @@ NEW ODA
                 id: 'foto',
                 name: 'act4_2',
                 x: 420,
-                y: 230
+                y: 210
               }, {
                 type: 'txt',
                 id: 't2',
@@ -307,7 +307,7 @@ NEW ODA
                 id: 'lbl2',
                 x: 400,
                 y: 490,
-                font: '20px Roboto',
+                font: 'Bold 20px Quicksand',
                 lineWidth: 600,
                 color: '#333',
                 align: 'center'
@@ -350,11 +350,11 @@ NEW ODA
                 id: 'foto',
                 name: 'act4_3',
                 x: 420,
-                y: 230
+                y: 210
               }, {
                 type: 'txt',
                 id: 't3',
-                text: ['When Fred Astaire auditioned for a movie, they said, “He can\’t sing. Can’t act. Can dance a little. He made his first movie in 1933, at the age of 34. He made 9 more movies with his dancing co-star Ginger Rogers. Astaire married at the age of 34. He was very happy with his wife, Phyllis.'],
+                text: ['When Fred Astaire auditioned for a movie, they said, “He can\’t sing. Can’t act. Can dance a little." He made his first movie in 1933, at the age of 34. He made 9 more movies with his dancing co-star Ginger Rogers. Astaire married at the age of 34. He was very happy with his wife, Phyllis.'],
                 x: 70,
                 y: 260,
                 lineWidth: 330,
@@ -421,7 +421,7 @@ NEW ODA
                 id: 'lbl3',
                 x: 400,
                 y: 490,
-                font: '20px Roboto',
+                font: 'Bold 20px Quicksand',
                 lineWidth: 600,
                 color: '#333',
                 align: 'center'
@@ -457,7 +457,7 @@ NEW ODA
                 id: 'foto',
                 name: 'act4_4',
                 x: 420,
-                y: 230
+                y: 210
               }, {
                 type: 'txt',
                 id: 't4',
@@ -509,7 +509,7 @@ NEW ODA
                 id: 'lbl4',
                 x: 400,
                 y: 490,
-                font: '20px Roboto',
+                font: 'Bold 20px Quicksand',
                 lineWidth: 600,
                 color: '#333',
                 align: 'center'

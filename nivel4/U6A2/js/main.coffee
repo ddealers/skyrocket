@@ -47,7 +47,7 @@ class U6A2 extends Oda
 				target.write str.toLowerCase()
 		@game = 
 			header: 'header'
-			instructions: {x: 110, y: 175, states: [{text:'Complete the sentences with the superlative.', sound:'s/silence', played: false}]}
+			instructions: {x: 110, y: 130, states: [{text:'Complete the sentences with the superlative.', sound:'s/silence', played: false}]}
 			score:{type: 'points', x:20, y:500, init: 0, total: 8, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
 			scenes:[
 				{
@@ -121,7 +121,7 @@ class U6A2 extends Oda
 						{type: 'img', id: 'tap', x: 425, y: 360, align: 'mc'}
 						{type: 'img', id: 'thinnest', x: 425, y: 360, align: 'mc'}
 						{type: 'img', id: 'youngest', x: 425, y: 360, align: 'mc'}
-						{type: 'pcpt', id: 'pcpt1', x: 425, y: 535, font: '18px Quicksand', margin: 5, align: 'tc', lineHeight: 25, underline:{y:0}, bcolor: '#d7ecf9', scolor: '#00629f'}
+						{type: 'pcpt', id: 'pcpt1', x: 425, y: 535, font: 'Bold 18px Quicksand', margin: 5, align: 'tc', lineHeight: 25, underline:{y:0}, bcolor: '#d7ecf9', scolor: '#00629f'}
 					]
 					groups:[
 						{

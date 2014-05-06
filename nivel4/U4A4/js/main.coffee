@@ -65,7 +65,7 @@ class U4A4 extends Oda
 							type: 'btn', id: 'btnContinue', x: 700, y: 555, index: 'next', target: 'global', visible: false, eval: @continue
 							states:[img: {name:'continue', x: 0, y: 0, align:'mc'}]
 						}
-						{type: 'lbl', id: 'lbl1', x: 400, y: 490, font: '20px Quicksand', lineWidth:600, color: '#333', align: 'center'}
+						{type: 'lbl', id: 'lbl1', x: 400, y: 490, font: 'Bold 20px Quicksand', lineWidth:600, color: '#333', align: 'center'}
 					]
 					groups:[]
 				}
@@ -94,7 +94,7 @@ class U4A4 extends Oda
 							type: 'btn', id: 'btnContinue2', x: 700, y: 555, index: 'next', target: 'global', visible: false, eval: @continue
 							states:[img: {name:'continue', x: 0, y: 0, align:'mc'}]
 						}
-						{type: 'lbl', id: 'lbl2', x: 400, y: 480, font: '20px Quicksand', lineWidth:600, color: '#333', align: 'center'}
+						{type: 'lbl', id: 'lbl2', x: 400, y: 480, font: 'Bold 20px Quicksand', lineWidth:600, color: '#333', align: 'center'}
 					]
 					groups:[]
 				}
@@ -124,7 +124,7 @@ class U4A4 extends Oda
 							type: 'btn', id: 'btnContinue3', x: 700, y: 555, index: 'next', target: 'global', visible: false, eval: @continue
 							states:[img: {name:'continue', x: 0, y: 0, align:'mc'}]
 						}
-						{type: 'lbl', id: 'lbl3', x: 400, y: 480, font: '20px Quicksand', lineWidth:600, color: '#333', align: 'center'}
+						{type: 'lbl', id: 'lbl3', x: 400, y: 480, font: 'Bold 20px Quicksand', lineWidth:600, color: '#333', align: 'center'}
 					]
 					groups:[]
 				}
@@ -154,7 +154,7 @@ class U4A4 extends Oda
 							type: 'btn', id: 'btnContinue4', x: 700, y: 555, index: 'next', target: 'global', visible: false, eval: @continue
 							states:[img: {name:'continue', x: 0, y: 0, align:'mc'}]
 						}
-						{type: 'lbl', id: 'lbl4', x: 400, y: 480, font: '20px Quicksand', lineWidth:600, color: '#333', align: 'center'}
+						{type: 'lbl', id: 'lbl4', x: 400, y: 480, font: 'Bold 20px Quicksand', lineWidth:600, color: '#333', align: 'center'}
 					]
 					groups:[]
 				}
@@ -180,7 +180,7 @@ class U4A4 extends Oda
 							states:[img: {name:'false', x: 0, y: 0, align:'mc'}]
 						}
 						
-						{type: 'lbl', id: 'lbl5', x: 400, y: 490, font: '20px Quicksand', lineWidth:600, color: '#333', align: 'center'}
+						{type: 'lbl', id: 'lbl5', x: 400, y: 490, font: 'Bold 20px Quicksand', lineWidth:600, color: '#333', align: 'center'}
 					]
 					groups:[]
 				}

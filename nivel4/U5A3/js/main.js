@@ -202,7 +202,7 @@ NEW ODA
                 text: ['Today was a great day at the', '#rtn', 'World Sports Competition.', '#rtn'],
                 x: 40,
                 y: 215,
-                font: '13px Quicksand',
+                font: 'Bold 13px Quicksand',
                 align: 'left',
                 parrafo: true
               }, {
@@ -211,7 +211,7 @@ NEW ODA
                 text: ['It\'s the number 1 competition ', '#rtn', 'because it\'s so fantastic!'],
                 x: 40,
                 y: 255,
-                font: '13px Quicksand',
+                font: 'Bold 13px Quicksand',
                 align: 'left',
                 parrafo: true
               }, {
@@ -220,7 +220,7 @@ NEW ODA
                 text: ['It was a close game, but Poland ', '#rtn', 'was very fast.'],
                 x: 40,
                 y: 295,
-                font: '13px Quicksand',
+                font: 'Bold 13px Quicksand',
                 align: 'left',
                 parrafo: true
               }, {
@@ -229,7 +229,7 @@ NEW ODA
                 text: ['The Argentinean team got 20', '#rtn', 'baskets and the Polish team got 18.'],
                 x: 40,
                 y: 335,
-                font: '13px Quicksand',
+                font: 'Bold 13px Quicksand',
                 align: 'left',
                 parrafo: true
               }, {
@@ -238,7 +238,7 @@ NEW ODA
                 text: ['Mendez trains a lot. He trains ', '#rtn', 'more hours than the other players.'],
                 x: 40,
                 y: 375,
-                font: '13px Quicksand',
+                font: 'Bold 13px Quicksand',
                 align: 'left',
                 parrafo: true
               }, {
@@ -247,7 +247,7 @@ NEW ODA
                 text: ['What a great day!'],
                 x: 40,
                 y: 415,
-                font: '13px Quicksand',
+                font: 'Bold 13px Quicksand',
                 align: 'left',
                 parrafo: true
               }, {
@@ -256,7 +256,7 @@ NEW ODA
                 text: ['Yes, it was amazing!'],
                 x: 565,
                 y: 230,
-                font: '13px Quicksand',
+                font: 'Bold 13px Quicksand',
                 align: 'left',
                 parrafo: true
               }, {
@@ -265,7 +265,7 @@ NEW ODA
                 text: ['The basketball match was very ', '#rtn', 'exciting. The football wasn\'t as good.'],
                 x: 565,
                 y: 255,
-                font: '13px Quicksand',
+                font: 'Bold 13px Quicksand',
                 align: 'left',
                 parrafo: true
               }, {
@@ -274,7 +274,7 @@ NEW ODA
                 text: ['The Argentinean team was excellent, ', '#rtn', 'they jumped very high.'],
                 x: 565,
                 y: 295,
-                font: '13px Quicksand',
+                font: 'Bold 13px Quicksand',
                 align: 'left',
                 parrafo: true
               }, {
@@ -283,7 +283,7 @@ NEW ODA
                 text: ['The Polish team is very tall!', '#rtn', 'The Argentineans aren\'t.'],
                 x: 565,
                 y: 335,
-                font: '13px Quicksand',
+                font: 'Bold 13px Quicksand',
                 align: 'left',
                 parrafo: true
               }, {
@@ -292,7 +292,7 @@ NEW ODA
                 text: ['Nagy, from the Polish team, can lift ', '#rtn', '150 kilos. Mendez can only lift 100 kilos.'],
                 x: 565,
                 y: 375,
-                font: '13px Quicksand',
+                font: 'Bold 13px Quicksand',
                 align: 'left',
                 parrafo: true
               }, {
@@ -301,7 +301,7 @@ NEW ODA
                 text: ['Yes! An amazing day! '],
                 x: 565,
                 y: 415,
-                font: '13px Quicksand',
+                font: 'Bold 13px Quicksand',
                 align: 'left',
                 parrafo: true
               }, {
@@ -318,7 +318,7 @@ NEW ODA
                 margin: 20,
                 uwidth: 150,
                 distance: 20,
-                font: '12px Quicksand',
+                font: 'Bold 12px Quicksand',
                 stroke: 2,
                 scolor: '#00F',
                 bcolor: 'rgba(255,255,255,0.1)',

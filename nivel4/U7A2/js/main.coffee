@@ -115,23 +115,23 @@ class U7A2 extends Oda
 						{type: 'img', id: 'mini', x: 11, y: 360}
 						{type: 'img', id: 'phone', x: 25, y: 265}
 						{type: 'img', id: 'radio', x: 700, y: 412}
-						{type: 'pcpt', id: 'pcpt1', x: 170, y: 190, font: '12px Quicksand', lineHeight: 14, underline: {y:0}, margin: 10, scolor: '#009046', stroke: 2}
-						{type: 'pcpt', id: 'pcpt2', x: 170, y: 225, font: '12px Quicksand', lineHeight: 14, underline: {y:0}, margin: 10, scolor: '#009046', stroke: 2}
-						{type: 'pcpt', id: 'pcpt3', x: 170, y: 260, font: '12px Quicksand', lineHeight: 14, underline: {y:0}, margin: 10, scolor: '#009046', stroke: 2}
-						{type: 'pcpt', id: 'pcpt4', x: 170, y: 295, font: '12px Quicksand', lineHeight: 14, underline: {y:0}, margin: 10, scolor: '#009046', stroke: 2}
-						{type: 'pcpt', id: 'pcpt5', x: 170, y: 330, font: '12px Quicksand', lineHeight: 14, underline: {y:0}, margin: 10, scolor: '#009046', stroke: 2}
-						{type: 'pcpt', id: 'pcpt6', x: 170, y: 365, font: '12px Quicksand', lineHeight: 14, underline: {y:0}, margin: 10, scolor: '#009046', stroke: 2}
-						{type: 'pcpt', id: 'pcpt7', x: 170, y: 400, font: '12px Quicksand', lineHeight: 14, underline: {y:0}, margin: 10, scolor: '#009046', stroke: 2}
-						{type: 'pcpt', id: 'pcpt8', x: 170, y: 435, font: '12px Quicksand', lineHeight: 14, underline: {y:0}, margin: 10, scolor: '#009046', stroke: 2}
+						{type: 'pcpt', id: 'pcpt1', x: 170, y: 190, font: 'Bold 12px Quicksand', lineHeight: 14, underline: {y:0}, margin: 10, scolor: '#009046', stroke: 2}
+						{type: 'pcpt', id: 'pcpt2', x: 170, y: 225, font: 'Bold 12px Quicksand', lineHeight: 14, underline: {y:0}, margin: 10, scolor: '#009046', stroke: 2}
+						{type: 'pcpt', id: 'pcpt3', x: 170, y: 260, font: 'Bold 12px Quicksand', lineHeight: 14, underline: {y:0}, margin: 10, scolor: '#009046', stroke: 2}
+						{type: 'pcpt', id: 'pcpt4', x: 170, y: 295, font: 'Bold 12px Quicksand', lineHeight: 14, underline: {y:0}, margin: 10, scolor: '#009046', stroke: 2}
+						{type: 'pcpt', id: 'pcpt5', x: 170, y: 330, font: 'Bold 12px Quicksand', lineHeight: 14, underline: {y:0}, margin: 10, scolor: '#009046', stroke: 2}
+						{type: 'pcpt', id: 'pcpt6', x: 170, y: 365, font: 'Bold 12px Quicksand', lineHeight: 14, underline: {y:0}, margin: 10, scolor: '#009046', stroke: 2}
+						{type: 'pcpt', id: 'pcpt7', x: 170, y: 400, font: 'Bold 12px Quicksand', lineHeight: 14, underline: {y:0}, margin: 10, scolor: '#009046', stroke: 2}
+						{type: 'pcpt', id: 'pcpt8', x: 170, y: 435, font: 'Bold 12px Quicksand', lineHeight: 14, underline: {y:0}, margin: 10, scolor: '#009046', stroke: 2}
 
-						{type: 'txt', id: 'text1', text: '1', x:165, y:500, font:'20px Quicksand', align: 'center', fcolor:'#fff'}
-						{type: 'txt', id: 'text2', text: '2', x:165, y:500, font:'20px Quicksand', align: 'center', fcolor:'#fff'}
-						{type: 'txt', id: 'text3', text: '3', x:165, y:500, font:'20px Quicksand', align: 'center', fcolor:'#fff'}
-						{type: 'txt', id: 'text4', text: '4', x:165, y:500, font:'20px Quicksand', align: 'center', fcolor:'#fff'}
-						{type: 'txt', id: 'text5', text: '5', x:165, y:500, font:'20px Quicksand', align: 'center', fcolor:'#fff'}
-						{type: 'txt', id: 'text6', text: '6', x:165, y:500, font:'20px Quicksand', align: 'center', fcolor:'#fff'}
-						{type: 'txt', id: 'text7', text: '7', x:165, y:500, font:'20px Quicksand', align: 'center', fcolor:'#fff'}
-						{type: 'txt', id: 'text8', text: '8', x:165, y:500, font:'20px Quicksand', align: 'center', fcolor:'#fff'}
+						{type: 'txt', id: 'text1', text: '1', x:165, y:500, font:'Bold 20px Quicksand', align: 'center', fcolor:'#fff'}
+						{type: 'txt', id: 'text2', text: '2', x:165, y:500, font:'Bold 20px Quicksand', align: 'center', fcolor:'#fff'}
+						{type: 'txt', id: 'text3', text: '3', x:165, y:500, font:'Bold 20px Quicksand', align: 'center', fcolor:'#fff'}
+						{type: 'txt', id: 'text4', text: '4', x:165, y:500, font:'Bold 20px Quicksand', align: 'center', fcolor:'#fff'}
+						{type: 'txt', id: 'text5', text: '5', x:165, y:500, font:'Bold 20px Quicksand', align: 'center', fcolor:'#fff'}
+						{type: 'txt', id: 'text6', text: '6', x:165, y:500, font:'Bold 20px Quicksand', align: 'center', fcolor:'#fff'}
+						{type: 'txt', id: 'text7', text: '7', x:165, y:500, font:'Bold 20px Quicksand', align: 'center', fcolor:'#fff'}
+						{type: 'txt', id: 'text8', text: '8', x:165, y:500, font:'Bold 20px Quicksand', align: 'center', fcolor:'#fff'}
 
 						{type: 'ldrg', id: 'than', x: 350, y: 505, index: 'than', text:'than', font:'15px Quicksand', color:'#333', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
 

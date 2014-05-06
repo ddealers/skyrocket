@@ -174,7 +174,9 @@ class U9A4 extends Oda
 								{name: 'p7', opts:{success: '1', complete: true}}
 								{name: 'p8', opts:{success: '1', complete: true}}
 								{name: 'p9', opts:{success: '1', complete: true}}
+
 								{name: 'caw1', opts: {before:'Margaret and Gina', opt1:'are', opt2:'aren\'t', after:' coming to camp this year.//They are staying home.'}}
+
 							]
 							[
 								{name:'global', opts:{success:2}}
@@ -187,7 +189,9 @@ class U9A4 extends Oda
 								{name: 'p7', opts:{success: '1', complete: true}}
 								{name: 'p8', opts:{success: '1', complete: true}}
 								{name: 'p9', opts:{success: '1', complete: true}}
+
 								{name: 'caw1', opts: {before:'Samantha and Fred', opt1:'aren\'t', opt2:'are', after:' going horseback riding this afternoon.//They love horses!'}}
+
 							]
 							[
 								{name:'global', opts:{success:2}}
@@ -213,7 +217,9 @@ class U9A4 extends Oda
 								{name: 'p7', opts:{success: '1', complete: true}}
 								{name: 'p8', opts:{success: '1', complete: true}}
 								{name: 'p9', opts:{success: '1', complete: true}}
+
 								{name: 'caw1', opts: {before:'You didn\'t finish your homework, Bill!//You', opt1:'are', opt2:'aren\'t', after:'going to go to the party!'}}
+
 							]
 							[
 								{name:'global', opts:{success:2}}
@@ -226,7 +232,9 @@ class U9A4 extends Oda
 								{name: 'p7', opts:{success: '1', complete: true}}
 								{name: 'p8', opts:{success: '1', complete: true}}
 								{name: 'p9', opts:{success: '1', complete: true}}
+
 								{name: 'caw1', opts: {before:'You', opt1:'aren\'t', opt2:'are', after:' going to go cycling this afternoon.//Get your helmet!'}}
+
 							]
 							[
 								{name:'global', opts:{success:2}}
@@ -252,7 +260,9 @@ class U9A4 extends Oda
 								{name: 'p7', opts:{success: '1', complete: true}}
 								{name: 'p8', opts:{success: '1', complete: true}}
 								{name: 'p9', opts:{success: '1', complete: true}}
+
 								{name: 'caw1', opts: {before:'I\'m', opt1:'going', opt2:'not going', after:'to eat hotdogs.//They make me sick.'}}
+
 							]
 							[
 								{name:'global', opts:{success:2}}
@@ -265,7 +275,9 @@ class U9A4 extends Oda
 								{name: 'p7', opts:{success: '1', complete: true}}
 								{name: 'p8', opts:{success: '1', complete: true}}
 								{name: 'p9', opts:{success: '1', complete: true}}
+
 								{name: 'caw1', opts: {before:'Yippee! Mom and Dad are', opt1:'not going', opt2:'going', after:' to bring my dog to camp.//I\'m so happy!'}}
+
 							]
 							[
 								{name:'global', opts:{success:2}}
@@ -317,7 +329,9 @@ class U9A4 extends Oda
 								{name: 'p7', opts:{success: '1', complete: true}}
 								{name: 'p8', opts:{success: '1', complete: true}}
 								{name: 'p9', opts:{success: '1', complete: true}}
+
 								{name: 'caw1', opts: {before:'Do you like fishing?//Yes, I', opt1:'do', opt2:'am', after:'.'}}
+
 							]
 							[
 								{name:'global', opts:{success:2}}
@@ -330,7 +344,9 @@ class U9A4 extends Oda
 								{name: 'p7', opts:{success: '1', complete: true}}
 								{name: 'p8', opts:{success: '1', complete: true}}
 								{name: 'p9', opts:{success: '1', complete: true}}
+
 								{name: 'caw1', opts: {before:'Where are you going to go canoeing?//On the', opt1:'mountain', opt2:'lake', after:'.'}}
+
 							]
 							[
 								{name:'global', opts:{success:2}}
@@ -343,7 +359,9 @@ class U9A4 extends Oda
 								{name: 'p7', opts:{success: '1', complete: true}}
 								{name: 'p8', opts:{success: '1', complete: true}}
 								{name: 'p9', opts:{success: '1', complete: true}}
+
 								{name: 'caw1', opts: {before:'Where are you going to go camping?//In a big', opt1:'nature', opt2:'tent', after:'.'}}
+
 							]
 							[
 								{name:'global', opts:{success:1}}
@@ -382,7 +400,9 @@ class U9A4 extends Oda
 								{name: 'p7', opts:{success: '1', complete: true}}
 								{name: 'p8', opts:{success: '1', complete: true}}
 								{name: 'p9', opts:{success: '1', complete: true}}
+
 								{name: 'caw1', opts: {before:'Are you going to go hiking in the mountains?//Yes, we', opt1:'are', opt2:'do', after:'.'}}
+
 							]
 							[
 								{name:'global', opts:{success:2}}
@@ -395,7 +415,9 @@ class U9A4 extends Oda
 								{name: 'p7', opts:{success: '1', complete: true}}
 								{name: 'p8', opts:{success: '1', complete: true}}
 								{name: 'p9', opts:{success: '1', complete: true}}
+
 								{name: 'caw1', opts: {before:'', opt1:'Do', opt2:'Are', after:' you going to take insect repellent?//Yes, we are.'}}
+
 							]
 						]
 						mixed: true
@@ -404,11 +426,11 @@ class U9A4 extends Oda
 					containers:[
 						{type: 'img', id: 'mazul', x: 80, y: 250}
 						{type: 'img', id: 'mverde', x: 80, y: 350}
-						{type: 'txt', id: 'tazul', text:'0', x: 178, y: 275, font:'24px Quicksand', align: 'center'}
-						{type: 'txt', id: 'tverde', text:'0', x: 182, y: 375, font:'24px Quicksand', align: 'center'}
+						{type: 'txt', id: 'tazul', text:'0', x: 178, y: 275, font:'Bold 24px Quicksand', align: 'center'}
+						{type: 'txt', id: 'tverde', text:'0', x: 182, y: 375, font:'Bold 24px Quicksand', align: 'center'}
 						{
 							type: 'caw', id: 'caw1', x: 400, y: 530, align: 'tc', target: 'global', eval: @onChoose
-							label:{font:'18px Quicksand', color:'#444'}
+							label:{font:'Bold 18px Quicksand', color:'#444'}
 							bullets:{font:'18px Quicksand', color: '#000'}
 						}
 						{type: 'img', id: 'threeinarow', x: 420, y: 350, align: 'mc'}

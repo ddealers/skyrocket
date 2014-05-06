@@ -98,7 +98,7 @@ NEW ODA
         header: 'header',
         instructions: {
           x: 110,
-          y: 175,
+          y: 130,
           states: [
             {
               text: 'Complete the sentences with the superlative.',
@@ -456,7 +456,7 @@ NEW ODA
                 id: 'pcpt1',
                 x: 425,
                 y: 535,
-                font: '18px Quicksand',
+                font: 'Bold 18px Quicksand',
                 margin: 5,
                 align: 'tc',
                 lineHeight: 25,

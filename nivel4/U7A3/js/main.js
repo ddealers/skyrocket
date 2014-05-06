@@ -348,7 +348,7 @@ NEW ODA
                 id: 'pcpt1',
                 x: 470,
                 y: 240,
-                font: '16px Quicksand',
+                font: 'Bold 16px Quicksand',
                 margin: 5,
                 underline: {
                   y: 0
@@ -361,7 +361,7 @@ NEW ODA
                 id: 'pcpt2',
                 x: 470,
                 y: 240,
-                font: '16px Quicksand',
+                font: 'Bold 16px Quicksand',
                 margin: 5,
                 underline: {
                   y: 0
@@ -374,7 +374,7 @@ NEW ODA
                 id: 'pcpt3',
                 x: 470,
                 y: 240,
-                font: '16px Quicksand',
+                font: 'Bold 16px Quicksand',
                 margin: 5,
                 underline: {
                   y: 0
@@ -387,7 +387,7 @@ NEW ODA
                 id: 'pcpt4',
                 x: 470,
                 y: 240,
-                font: '16px Quicksand',
+                font: 'Bold 16px Quicksand',
                 margin: 5,
                 underline: {
                   y: 0
@@ -400,7 +400,7 @@ NEW ODA
                 id: 'pcpt5',
                 x: 470,
                 y: 240,
-                font: '16px Quicksand',
+                font: 'Bold 16px Quicksand',
                 margin: 5,
                 underline: {
                   y: 0
@@ -413,7 +413,7 @@ NEW ODA
                 id: 'pcpt6',
                 x: 470,
                 y: 240,
-                font: '16px Quicksand',
+                font: 'Bold 16px Quicksand',
                 margin: 5,
                 underline: {
                   y: 0
@@ -426,7 +426,7 @@ NEW ODA
                 id: 'pcpt7',
                 x: 470,
                 y: 240,
-                font: '16px Quicksand',
+                font: 'Bold 16px Quicksand',
                 margin: 5,
                 underline: {
                   y: 0
@@ -439,7 +439,7 @@ NEW ODA
                 id: 'pcpt8',
                 x: 470,
                 y: 240,
-                font: '16px Quicksand',
+                font: 'Bold 16px Quicksand',
                 margin: 5,
                 underline: {
                   y: 0
@@ -455,7 +455,7 @@ NEW ODA
                 index: 'radio',
                 text: 'radio',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
-                font: '18px Quicksand',
+                font: 'Bold 18px Quicksand',
                 afterSuccess: 'origin',
                 afterFail: 'return',
                 "eval": this.onDrop
@@ -467,7 +467,7 @@ NEW ODA
                 index: 'dance',
                 text: 'dance',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
-                font: '18px Quicksand',
+                font: 'Bold 18px Quicksand',
                 afterSuccess: 'origin',
                 afterFail: 'return',
                 "eval": this.onDrop
@@ -479,7 +479,7 @@ NEW ODA
                 index: 'record',
                 text: 'record',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
-                font: '18px Quicksand',
+                font: 'Bold 18px Quicksand',
                 afterSuccess: 'origin',
                 afterFail: 'return',
                 "eval": this.onDrop
@@ -491,7 +491,7 @@ NEW ODA
                 index: 'songs',
                 text: 'songs',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
-                font: '18px Quicksand',
+                font: 'Bold 18px Quicksand',
                 afterSuccess: 'origin',
                 afterFail: 'return',
                 "eval": this.onDrop
@@ -515,7 +515,7 @@ NEW ODA
                 index: 'car',
                 text: 'car',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
-                font: '18px Quicksand',
+                font: 'Bold 18px Quicksand',
                 afterSuccess: 'origin',
                 afterFail: 'return',
                 "eval": this.onDrop
@@ -527,7 +527,7 @@ NEW ODA
                 index: 'boat',
                 text: 'boat',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
-                font: '18px Quicksand',
+                font: 'Bold 18px Quicksand',
                 afterSuccess: 'origin',
                 afterFail: 'return',
                 "eval": this.onDrop
@@ -539,7 +539,7 @@ NEW ODA
                 index: 'look',
                 text: 'look',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
-                font: '18px Quicksand',
+                font: 'Bold 18px Quicksand',
                 afterSuccess: 'origin',
                 afterFail: 'return',
                 "eval": this.onDrop
@@ -551,7 +551,7 @@ NEW ODA
                 index: 'guitar',
                 text: 'guitar',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
-                font: '18px Quicksand',
+                font: 'Bold 18px Quicksand',
                 afterSuccess: 'origin',
                 afterFail: 'return',
                 "eval": this.onDrop
@@ -563,7 +563,7 @@ NEW ODA
                 index: 'loved',
                 text: 'loved',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
-                font: '18px Quicksand',
+                font: 'Bold 18px Quicksand',
                 afterSuccess: 'origin',
                 afterFail: 'return',
                 "eval": this.onDrop

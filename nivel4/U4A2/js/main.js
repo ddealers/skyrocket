@@ -256,7 +256,7 @@ NEW ODA
                 type: 'img',
                 id: 'sick',
                 x: 400,
-                y: 290,
+                y: 295,
                 align: 'mc'
               }, {
                 type: 'img',
@@ -274,7 +274,7 @@ NEW ODA
                 type: 'img',
                 id: 'concert',
                 x: 400,
-                y: 290,
+                y: 297,
                 align: 'mc'
               }, {
                 type: 'img',
@@ -302,7 +302,7 @@ NEW ODA
                 margin: 10,
                 uwidth: 150,
                 distance: 50,
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 scolor: '#005da2',
                 align: 'tc',
                 "eval": 'drop_03'

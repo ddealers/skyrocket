@@ -109,26 +109,26 @@ class U7A3 extends Oda
 						{type: 'img', name:'q8', id: 'phone', x: 278, y: 438, align: 'mc'}
 						{type: 'img', id: 'reporter', x: 627, y: 440, align: 'mc'}
 						{type: 'img', id: 'caja', x: 610, y: 290, align: 'mc'}
-						{type: 'pcpt', id: 'pcpt1', x: 470, y: 240, font: '16px Quicksand', margin: 5, underline:{y:0}, align: 'tl', scolor: '#009046', bcolor: '#defff0'}
-						{type: 'pcpt', id: 'pcpt2', x: 470, y: 240, font: '16px Quicksand', margin: 5, underline:{y:0}, align: 'tl', scolor: '#009046', bcolor: '#defff0'}
-						{type: 'pcpt', id: 'pcpt3', x: 470, y: 240, font: '16px Quicksand', margin: 5, underline:{y:0}, align: 'tl', scolor: '#009046', bcolor: '#defff0'}
-						{type: 'pcpt', id: 'pcpt4', x: 470, y: 240, font: '16px Quicksand', margin: 5, underline:{y:0}, align: 'tl', scolor: '#009046', bcolor: '#defff0'}
-						{type: 'pcpt', id: 'pcpt5', x: 470, y: 240, font: '16px Quicksand', margin: 5, underline:{y:0}, align: 'tl', scolor: '#009046', bcolor: '#defff0'}
-						{type: 'pcpt', id: 'pcpt6', x: 470, y: 240, font: '16px Quicksand', margin: 5, underline:{y:0}, align: 'tl', scolor: '#009046', bcolor: '#defff0'}
-						{type: 'pcpt', id: 'pcpt7', x: 470, y: 240, font: '16px Quicksand', margin: 5, underline:{y:0}, align: 'tl', scolor: '#009046', bcolor: '#defff0'}
-						{type: 'pcpt', id: 'pcpt8', x: 470, y: 240, font: '16px Quicksand', margin: 5, underline:{y:0}, align: 'tl', scolor: '#009046', bcolor: '#defff0'}
-						#{type: 'pcpt', id: 'pcpt1', x: 470, y: 240, font: '16px Quicksand', margin: 5, align: 'tl', scolor: '#009046', bcolor: '#defff0'}		
-						#{type: 'pcpt', id: 'pcpt1', x: 470, y: 240, font: '16px Quicksand', margin: 5, align: 'tl', scolor: '#009046', bcolor: '#defff0'}		
-						{type: 'ldrg', id: 'ldrg1', x: 130, y: 235, index: 'radio', text: 'radio', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
-						{type: 'ldrg', id: 'ldrg2', x: 200, y: 235, index: 'dance', text: 'dance', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
-						{type: 'ldrg', id: 'ldrg3', x: 280, y: 235, index: 'record', text: 'record', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
-						{type: 'ldrg', id: 'ldrg4', x: 360, y: 235, index: 'songs', text: 'songs', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
+						{type: 'pcpt', id: 'pcpt1', x: 470, y: 240, font: 'Bold 16px Quicksand', margin: 5, underline:{y:0}, align: 'tl', scolor: '#009046', bcolor: '#defff0'}
+						{type: 'pcpt', id: 'pcpt2', x: 470, y: 240, font: 'Bold 16px Quicksand', margin: 5, underline:{y:0}, align: 'tl', scolor: '#009046', bcolor: '#defff0'}
+						{type: 'pcpt', id: 'pcpt3', x: 470, y: 240, font: 'Bold 16px Quicksand', margin: 5, underline:{y:0}, align: 'tl', scolor: '#009046', bcolor: '#defff0'}
+						{type: 'pcpt', id: 'pcpt4', x: 470, y: 240, font: 'Bold 16px Quicksand', margin: 5, underline:{y:0}, align: 'tl', scolor: '#009046', bcolor: '#defff0'}
+						{type: 'pcpt', id: 'pcpt5', x: 470, y: 240, font: 'Bold 16px Quicksand', margin: 5, underline:{y:0}, align: 'tl', scolor: '#009046', bcolor: '#defff0'}
+						{type: 'pcpt', id: 'pcpt6', x: 470, y: 240, font: 'Bold 16px Quicksand', margin: 5, underline:{y:0}, align: 'tl', scolor: '#009046', bcolor: '#defff0'}
+						{type: 'pcpt', id: 'pcpt7', x: 470, y: 240, font: 'Bold 16px Quicksand', margin: 5, underline:{y:0}, align: 'tl', scolor: '#009046', bcolor: '#defff0'}
+						{type: 'pcpt', id: 'pcpt8', x: 470, y: 240, font: 'Bold 16px Quicksand', margin: 5, underline:{y:0}, align: 'tl', scolor: '#009046', bcolor: '#defff0'}
+						#{type: 'pcpt', id: 'pcpt1', x: 470, y: 240, font: 'Bold 16px Quicksand', margin: 5, align: 'tl', scolor: '#009046', bcolor: '#defff0'}		
+						#{type: 'pcpt', id: 'pcpt1', x: 470, y: 240, font: 'Bold 16px Quicksand', margin: 5, align: 'tl', scolor: '#009046', bcolor: '#defff0'}		
+						{type: 'ldrg', id: 'ldrg1', x: 130, y: 235, index: 'radio', text: 'radio', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: 'Bold 18px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
+						{type: 'ldrg', id: 'ldrg2', x: 200, y: 235, index: 'dance', text: 'dance', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: 'Bold 18px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
+						{type: 'ldrg', id: 'ldrg3', x: 280, y: 235, index: 'record', text: 'record', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: 'Bold 18px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
+						{type: 'ldrg', id: 'ldrg4', x: 360, y: 235, index: 'songs', text: 'songs', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: 'Bold 18px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
 						{type: 'ldrg', id: 'ldrg5', x: 120, y: 270, index: 'black and white', text: 'black and white', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
-						{type: 'ldrg', id: 'ldrg6', x: 300, y: 270, index: 'car', text: 'car', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}		
-						{type: 'ldrg', id: 'ldrg7', x: 360, y: 270, index: 'boat', text: 'boat', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
-						{type: 'ldrg', id: 'ldrg8', x: 330, y: 200, index: 'look', text: 'look', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
-						{type: 'ldrg', id: 'ldrg9', x: 260, y: 200, index: 'guitar', text: 'guitar', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
-						{type: 'ldrg', id: 'ldrg10', x: 180, y: 200, index: 'loved', text: 'loved', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: '18px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
+						{type: 'ldrg', id: 'ldrg6', x: 300, y: 270, index: 'car', text: 'car', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: 'Bold 18px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}		
+						{type: 'ldrg', id: 'ldrg7', x: 360, y: 270, index: 'boat', text: 'boat', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: 'Bold 18px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
+						{type: 'ldrg', id: 'ldrg8', x: 330, y: 200, index: 'look', text: 'look', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: 'Bold 18px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
+						{type: 'ldrg', id: 'ldrg9', x: 260, y: 200, index: 'guitar', text: 'guitar', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: 'Bold 18px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
+						{type: 'ldrg', id: 'ldrg10', x: 180, y: 200, index: 'loved', text: 'loved', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], font: 'Bold 18px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
 						{
 							type: 'btn', id: 'ch1', x: 392, y: 366, index:0, eval: @btnChannel
 							states: [{img: {name:'cha1', x:0, y:0, align:'mc'}}]

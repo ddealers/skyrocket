@@ -475,7 +475,7 @@ NEW ODA
                 id: 'pcpt1',
                 x: 170,
                 y: 190,
-                font: '12px Quicksand',
+                font: 'Bold 12px Quicksand',
                 lineHeight: 14,
                 underline: {
                   y: 0
@@ -488,7 +488,7 @@ NEW ODA
                 id: 'pcpt2',
                 x: 170,
                 y: 225,
-                font: '12px Quicksand',
+                font: 'Bold 12px Quicksand',
                 lineHeight: 14,
                 underline: {
                   y: 0
@@ -501,7 +501,7 @@ NEW ODA
                 id: 'pcpt3',
                 x: 170,
                 y: 260,
-                font: '12px Quicksand',
+                font: 'Bold 12px Quicksand',
                 lineHeight: 14,
                 underline: {
                   y: 0
@@ -514,7 +514,7 @@ NEW ODA
                 id: 'pcpt4',
                 x: 170,
                 y: 295,
-                font: '12px Quicksand',
+                font: 'Bold 12px Quicksand',
                 lineHeight: 14,
                 underline: {
                   y: 0
@@ -527,7 +527,7 @@ NEW ODA
                 id: 'pcpt5',
                 x: 170,
                 y: 330,
-                font: '12px Quicksand',
+                font: 'Bold 12px Quicksand',
                 lineHeight: 14,
                 underline: {
                   y: 0
@@ -540,7 +540,7 @@ NEW ODA
                 id: 'pcpt6',
                 x: 170,
                 y: 365,
-                font: '12px Quicksand',
+                font: 'Bold 12px Quicksand',
                 lineHeight: 14,
                 underline: {
                   y: 0
@@ -553,7 +553,7 @@ NEW ODA
                 id: 'pcpt7',
                 x: 170,
                 y: 400,
-                font: '12px Quicksand',
+                font: 'Bold 12px Quicksand',
                 lineHeight: 14,
                 underline: {
                   y: 0
@@ -566,7 +566,7 @@ NEW ODA
                 id: 'pcpt8',
                 x: 170,
                 y: 435,
-                font: '12px Quicksand',
+                font: 'Bold 12px Quicksand',
                 lineHeight: 14,
                 underline: {
                   y: 0
@@ -580,7 +580,7 @@ NEW ODA
                 text: '1',
                 x: 165,
                 y: 500,
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 align: 'center',
                 fcolor: '#fff'
               }, {
@@ -589,7 +589,7 @@ NEW ODA
                 text: '2',
                 x: 165,
                 y: 500,
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 align: 'center',
                 fcolor: '#fff'
               }, {
@@ -598,7 +598,7 @@ NEW ODA
                 text: '3',
                 x: 165,
                 y: 500,
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 align: 'center',
                 fcolor: '#fff'
               }, {
@@ -607,7 +607,7 @@ NEW ODA
                 text: '4',
                 x: 165,
                 y: 500,
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 align: 'center',
                 fcolor: '#fff'
               }, {
@@ -616,7 +616,7 @@ NEW ODA
                 text: '5',
                 x: 165,
                 y: 500,
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 align: 'center',
                 fcolor: '#fff'
               }, {
@@ -625,7 +625,7 @@ NEW ODA
                 text: '6',
                 x: 165,
                 y: 500,
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 align: 'center',
                 fcolor: '#fff'
               }, {
@@ -634,7 +634,7 @@ NEW ODA
                 text: '7',
                 x: 165,
                 y: 500,
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 align: 'center',
                 fcolor: '#fff'
               }, {
@@ -643,7 +643,7 @@ NEW ODA
                 text: '8',
                 x: 165,
                 y: 500,
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 align: 'center',
                 fcolor: '#fff'
               }, {

@@ -89,8 +89,8 @@ class U7A1 extends Oda
 						{type: 'img', id: 'recordplayer', x: 433, y: 300, align: 'mc'}
 						{type: 'img', id: 'toaster', x: 433, y: 300, align: 'mc'}
 						{type: 'img', id: 'typewriter', x: 433, y: 300, align: 'mc'}
-						{type: 'pcpt', id: 'pcpt1', x: 433, y: 450, font: '20px Quicksand', lineHeight: 20, margin: 5, align: 'tc', scolor: '#009046'}
-						{type: 'abc', id: 'abc1', x: 400, y: 540, font:'20px Quicksand', fcolor:'#333', uwidth: 22, uheight: 34, margin: 10, target:'pcpt1', eval: 'click_O1', clickable:true }
+						{type: 'pcpt', id: 'pcpt1', x: 433, y: 450, font: 'Bold 20px Quicksand', lineHeight: 20, margin: 5, align: 'tc', scolor: '#009046'}
+						{type: 'abc', id: 'abc1', x: 430, y: 540, font:'Bold 20px Quicksand', fcolor:'#333', uwidth: 22, uheight: 34, margin: 10, target:'pcpt1', eval: 'click_O1', clickable:true }
 					]
 					groups:[
 						{

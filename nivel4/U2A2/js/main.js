@@ -1378,21 +1378,21 @@ NEW ODA
             containers: [
               {
                 type: 'img',
-                id: 'mverde',
-                x: 80,
-                y: 350
-              }, {
-                type: 'img',
                 id: 'mazul',
                 x: 80,
                 y: 250
+              }, {
+                type: 'img',
+                id: 'mverde',
+                x: 80,
+                y: 350
               }, {
                 type: 'txt',
                 id: 'tazul',
                 text: '0',
                 x: 178,
                 y: 275,
-                font: '24px Quicksand',
+                font: 'Bold 24px Quicksand',
                 align: 'center'
               }, {
                 type: 'txt',
@@ -1400,18 +1400,18 @@ NEW ODA
                 text: '0',
                 x: 182,
                 y: 375,
-                font: '24px Quicksand',
+                font: 'Bold 24px Quicksand',
                 align: 'center'
               }, {
                 type: 'caw',
                 id: 'caw1',
-                x: 415,
+                x: 400,
                 y: 530,
                 align: 'tc',
                 target: 'global',
                 "eval": this.onChoose,
                 label: {
-                  font: '18px Quicksand',
+                  font: 'Bold 18px Quicksand',
                   color: '#444'
                 },
                 bullets: {

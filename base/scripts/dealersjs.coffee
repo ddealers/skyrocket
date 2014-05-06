@@ -886,10 +886,10 @@ class Instructions extends Component
 			for texto in @states[@currentState].text
 				if texto is '#ital'
 
-					@label = new createjs.Text @states[@currentState].italics[it], 'italic 19px Roboto', '#000'
+					@label = new createjs.Text @states[@currentState].italics[it], 'italic 20px Roboto', '#000'
 					it++
 				else 
-					@label = new createjs.Text texto, '19px Roboto', '#000'
+					@label = new createjs.Text texto, '20px Roboto', '#000'
 				@label.x = npos
 				@addChild @label
 				console.log @label
@@ -897,7 +897,7 @@ class Instructions extends Component
 				
 
 		else
-			@label = new createjs.Text @states[@currentState].text, '19px Roboto', '#000'
+			@label = new createjs.Text @states[@currentState].text, '20px Roboto', '#000'
 			@label.x = 14
 			@addChild @label
 		@addChild triangle
@@ -1824,6 +1824,7 @@ class PhraseCompleterContainer extends Component
 		@align = opts.align ? ''
 		@uwidth = opts.uwidth
 		@underline = opts.underline ? {y:5}
+		@clickable = opts.clickable ? true
 		@lineHeight= opts.lineHeight
 		@currentTarget = 0
 		@observer = new ComponentObserver()
@@ -1851,6 +1852,7 @@ class PhraseCompleterContainer extends Component
 						h = @createText 'max', hopts.maxlength, @font, @fcolor, 0, 0
 						hopts = {text: txt.text, width: h.getMeasuredWidth() + @margin}
 				hopts.underline = @underline
+				hopts.clickable = @clickable
 				h = new TextCompleterContainer hopts, @font, @fcolor, @bcolor, @scolor, @stroke, npos, ypos
 				@droptargets.push h
 				@add h, false
@@ -2413,21 +2415,23 @@ class TextCompleterContainer extends Component
 		@bcolor = bcolor ? '#FFF'
 		@stroke = stroke ? 1
 		@scolor = scolor ? '#333'
+		@clickable = opts.clickable ? true
 		@underline = opts.underline ? false
 		@word = ''
-		if(@underline)
+		if @underline
 			@back.graphics.f(@bcolor).dr(0, 0, @width, @height).ss(@stroke).s(@scolor).mt(0, @height+@underline.y).lt(@width, @height+@underline.y)
 		else
 			@back.graphics.f(@bcolor).dr(0, 0, @width, @height).ss(@stroke).s(@scolor).mt(0, @height+5).lt(@width, @height+5)
 		@add @back, false
-		@addEventListener 'click', =>
-			if @parent
-				@parent.clearChildren()
-			@writeEnabled = on
-			if(opts.underline)
-				@back.graphics.c().f(@hexToRGB(@bcolor, 0.2)).dr(0, 0, @width, @height).ss(@stroke).s(@scolor).mt(0, @height+@underline.y).lt(@width, @height+@underline.y)
-			else
-				@back.graphics.c().f(@hexToRGB(@bcolor, 0.2)).dr(0, 0, @width, @height).ss(@stroke).s(@scolor).mt(0, @height+5).lt(@width, @height+5)
+		if @clickable
+			@addEventListener 'click', =>
+				if @parent
+					@parent.clearChildren()
+				@writeEnabled = on
+				if(opts.underline)
+					@back.graphics.c().f(@hexToRGB(@bcolor, 0.2)).dr(0, 0, @width, @height).ss(@stroke).s(@scolor).mt(0, @height+@underline.y).lt(@width, @height+@underline.y)
+				else
+					@back.graphics.c().f(@hexToRGB(@bcolor, 0.2)).dr(0, 0, @width, @height).ss(@stroke).s(@scolor).mt(0, @height+5).lt(@width, @height+5)
 	hexToRGB: (hex,alpha) ->
 		hex = if hex is '#FFF' or hex is '#FFFFFF' then '#F00' else hex
 		h = "0123456789ABCDEF";
