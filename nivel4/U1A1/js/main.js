@@ -410,6 +410,10 @@ NEW ODA
                 id: 'pcpt1',
                 x: 433,
                 y: 510,
+                underline: {
+                  y: 0
+                },
+                clickable: false,
                 font: 'Bold 20px Quicksand',
                 margin: 5,
                 align: 'tc',
@@ -510,7 +514,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: 'Bold 20px Quicksand'
                     }
                   }
                 ]
@@ -590,7 +594,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: 'Bold 20px Quicksand'
                     }
                   }
                 ]
@@ -630,7 +634,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: 'Bold 20px Quicksand'
                     }
                   }
                 ]
