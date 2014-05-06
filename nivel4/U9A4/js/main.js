@@ -61,111 +61,89 @@ NEW ODA
       ];
       this.pc = 0;
       this.you = 0;
-      this.canDrop = false;
       this.onDrop = function(dispatcher, target) {
-        var d, p, t, _ref, _ref1, _ref2, _ref3, _ref4, _ref5;
+        var d, t;
         d = lib[dispatcher];
         t = target.parent;
-        if (_this.canDrop === true) {
-          if ((_ref = t.name) === 'p1' || _ref === 'p4' || _ref === 'p7') {
-            console.log('column uno');
-            if (lib["p7"].sprite.currentFrame === 0) {
-              p = lib["p7"];
-            } else if (lib["p4"].sprite.currentFrame === 0) {
-              p = lib["p4"];
-            } else if (lib["p1"].sprite.currentFrame === 0) {
-              p = lib["p1"];
+        if (d.index === t.success) {
+          if (t.name === 'p1') {
+            if (lib['p7'].sprite.currentFrame === 0) {
+              lib['p7'].goto(1);
+            } else if (lib['p4'].sprite.currentFrame === 0) {
+              lib['p4'].goto(1);
+            } else {
+              lib['p1'].goto(1);
             }
-          } else if ((_ref1 = t.name) === 'p2' || _ref1 === 'p5' || _ref1 === 'p8') {
-            console.log('column dos');
-            if (lib["p8"].sprite.currentFrame === 0) {
-              p = lib["p8"];
-            } else if (lib["p5"].sprite.currentFrame === 0) {
-              p = lib["p5"];
-            } else if (lib["p2"].sprite.currentFrame === 0) {
-              p = lib["p2"];
+          } else if (t.name === 'p2') {
+            if (lib['p8'].sprite.currentFrame === 0) {
+              lib['p8'].goto(1);
+            } else if (lib['p5'].sprite.currentFrame === 0) {
+              lib['p5'].goto(1);
+            } else {
+              lib['p2'].goto(1);
             }
-          } else if ((_ref2 = t.name) === 'p3' || _ref2 === 'p6' || _ref2 === 'p9') {
-            console.log('column tres');
-            if (lib["p9"].sprite.currentFrame === 0) {
-              p = lib["p9"];
-            } else if (lib["p6"].sprite.currentFrame === 0) {
-              p = lib["p6"];
-            } else if (lib["p3"].sprite.currentFrame === 0) {
-              p = lib["p3"];
+          } else if (t.name === 'p3') {
+            if (lib['p9'].sprite.currentFrame === 0) {
+              lib['p9'].goto(1);
+            } else if (lib['p6'].sprite.currentFrame === 0) {
+              lib['p6'].goto(1);
+            } else {
+              lib['p3'].goto(1);
             }
           }
-          if ((_ref3 = p.name) === 'p7' || _ref3 === 'p8' || _ref3 === 'p9') {
-            TweenLite.from(p.sprite, 0.7, {
-              y: -226
-            });
-          } else if ((_ref4 = p.name) === 'p4' || _ref4 === 'p5' || _ref4 === 'p6') {
-            TweenLite.from(p.sprite, 0.4, {
-              y: -138
-            });
-          } else if ((_ref5 = p.name) === 'p1' || _ref5 === 'p2' || _ref5 === 'p3') {
-            TweenLite.from(p.sprite, 0.2, {
-              y: -50
-            });
-          }
-          p.goto(1);
-          console.log(p);
-          lib.scene.nextStep();
           d.afterSuccess();
-          _this.canDrop = false;
-          return _this.evaluateWin();
+          d.disableDrag = true;
+          return d2oda.methods.delay(300, function() {
+            lib.scene.success();
+            return _this.evaluateWin();
+          });
         } else {
           return d.afterFail();
         }
       };
       this.onChoose = function(dispatcher) {
-        var d, i, p, _i;
+        var d;
         d = lib[dispatcher];
         if (d.index === d2oda.evaluator.success) {
           createjs.Sound.play('s/good');
-          return _this.canDrop = true;
+          return lib.pazul.disableDrag = false;
         } else {
-          _this.blank = new Array();
-          for (i = _i = 1; _i <= 9; i = ++_i) {
-            if (lib["p" + i]) {
-              p = lib["p" + i];
-              _this.blank.push(p);
+          if (!_this.evaluate79(2)) {
+            if (!_this.evaluate46(2)) {
+              _this.evaluate13(2);
             }
           }
-          _this.random();
           lib.scene.fail();
-          _this.canDrop = false;
           lib.scene.nextStep();
           return _this.evaluateWin();
         }
       };
-      this.random = function() {
-        var p, rand, _ref, _ref1, _ref2;
-        rand = Math.round(Math.random() * 2.);
-        console.log(rand);
-        if (_this.blank[rand + 6].sprite.currentFrame === 0) {
-          p = _this.blank[rand + 6];
-        } else if (_this.blank[rand + 3].sprite.currentFrame === 0) {
-          p = _this.blank[rand + 3];
-        } else if (_this.blank[rand].sprite.currentFrame === 0) {
-          p = _this.blank[rand];
-        } else {
-          _this.random();
-          return;
+      this.evaluate13 = function(token) {
+        return _this.evaluateBlanks(1, 3, token);
+      };
+      this.evaluate46 = function(token) {
+        return _this.evaluateBlanks(4, 6, token);
+      };
+      this.evaluate79 = function(token) {
+        return _this.evaluateBlanks(7, 9, token);
+      };
+      this.evaluateBlanks = function(min, max, token) {
+        var blank, i, p, rand, _i;
+        blank = new Array();
+        for (i = _i = min; min <= max ? _i <= max : _i >= max; i = min <= max ? ++_i : --_i) {
+          if (lib["p" + i]) {
+            p = lib["p" + i];
+            if (p.sprite.currentFrame === 0) {
+              blank.push(p);
+            }
+          }
         }
-        p.goto(2);
-        if ((_ref = p.name) === 'p7' || _ref === 'p8' || _ref === 'p9') {
-          return TweenLite.from(p.sprite, 0.7, {
-            y: -226
-          });
-        } else if ((_ref1 = p.name) === 'p4' || _ref1 === 'p5' || _ref1 === 'p6') {
-          return TweenLite.from(p.sprite, 0.4, {
-            y: -138
-          });
-        } else if ((_ref2 = p.name) === 'p1' || _ref2 === 'p2' || _ref2 === 'p3') {
-          return TweenLite.from(p.sprite, 0.2, {
-            y: -50
-          });
+        rand = Math.round(Math.random() * (blank.length - 1));
+        if (blank.length > 0) {
+          blank[rand].goto(token);
+          return true;
+        } else {
+          return false;
         }
       };
       this.evaluateWin = function() {
@@ -1738,49 +1716,10 @@ NEW ODA
                 }
               }, {
                 type: 'img',
-                id: 'pbase',
-                x: 278,
-                y: 233
-              }, {
-                type: 'img',
-                id: 'pbase',
-                x: 380,
-                y: 233
-              }, {
-                type: 'img',
-                id: 'pbase',
-                x: 482,
-                y: 233
-              }, {
-                type: 'img',
-                id: 'pbase',
-                x: 278,
-                y: 321
-              }, {
-                type: 'img',
-                id: 'pbase',
-                x: 380,
-                y: 321
-              }, {
-                type: 'img',
-                id: 'pbase',
-                x: 482,
-                y: 321
-              }, {
-                type: 'img',
-                id: 'pbase',
-                x: 278,
-                y: 409
-              }, {
-                type: 'img',
-                id: 'pbase',
-                x: 380,
-                y: 409
-              }, {
-                type: 'img',
-                id: 'pbase',
-                x: 482,
-                y: 409
+                id: 'threeinarow',
+                x: 420,
+                y: 350,
+                align: 'mc'
               }, {
                 type: 'spr',
                 id: 'p1',
@@ -1847,8 +1786,10 @@ NEW ODA
               }, {
                 type: 'drg',
                 id: 'pazul',
-                x: 80,
-                y: 260,
+                x: 107,
+                y: 287,
+                align: 'mc',
+                disableDrag: true,
                 index: '1',
                 target: ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9'],
                 "eval": this.onDrop,
@@ -1877,12 +1818,6 @@ NEW ODA
                 id: '4',
                 x: 670,
                 y: 470,
-                align: 'mc'
-              }, {
-                type: 'img',
-                id: 'threeinarow',
-                x: 420,
-                y: 350,
                 align: 'mc'
               }
             ],
