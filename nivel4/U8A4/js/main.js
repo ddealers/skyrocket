@@ -597,7 +597,7 @@ NEW ODA
                 id: 'pcpt1',
                 x: 433,
                 y: 520,
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 lineHeight: 35,
                 underline: {
                   y: 0
@@ -611,7 +611,7 @@ NEW ODA
                 text: '/',
                 x: 316,
                 y: 460,
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 align: 'center',
                 lineWidth: 250
               }, {
@@ -620,7 +620,7 @@ NEW ODA
                 text: '/',
                 x: 520,
                 y: 460,
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 align: 'center',
                 lineWidth: 250
               }, {
@@ -639,7 +639,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: 'Bold 20px Quicksand'
                     }
                   }
                 ]
@@ -659,7 +659,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: 'Bold 20px Quicksand'
                     }
                   }
                 ]
@@ -679,7 +679,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: 'Bold 20px Quicksand'
                     }
                   }
                 ]
@@ -699,7 +699,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: 'Bold 20px Quicksand'
                     }
                   }
                 ]
@@ -719,7 +719,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: 'Bold 20px Quicksand'
                     }
                   }
                 ]
@@ -739,7 +739,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: 'Bold 20px Quicksand'
                     }
                   }
                 ]
@@ -759,7 +759,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: 'Bold 20px Quicksand'
                     }
                   }
                 ]
@@ -779,7 +779,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: 'Bold 20px Quicksand'
                     }
                   }
                 ]
@@ -799,7 +799,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: 'Bold 20px Quicksand'
                     }
                   }
                 ]
@@ -819,7 +819,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: 'Bold 20px Quicksand'
                     }
                   }
                 ]
@@ -839,7 +839,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: 'Bold 20px Quicksand'
                     }
                   }
                 ]
@@ -859,7 +859,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: 'Bold 20px Quicksand'
                     }
                   }
                 ]
@@ -879,7 +879,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: 'Bold 20px Quicksand'
                     }
                   }
                 ]
@@ -899,7 +899,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: 'Bold 20px Quicksand'
                     }
                   }
                 ]
@@ -919,7 +919,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: 'Bold 20px Quicksand'
                     }
                   }
                 ]
@@ -939,7 +939,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: 'Bold 20px Quicksand'
                     }
                   }
                 ]
@@ -959,7 +959,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: 'Bold 20px Quicksand'
                     }
                   }
                 ]
@@ -979,7 +979,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: 'Bold 20px Quicksand'
                     }
                   }
                 ]

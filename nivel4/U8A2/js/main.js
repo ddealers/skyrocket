@@ -465,7 +465,7 @@ NEW ODA
                 id: 'pcpt1',
                 x: 450,
                 y: 510,
-                font: '24px Quicksand',
+                font: 'Bold 22px Quicksand',
                 underline: {
                   y: 0
                 },
@@ -489,7 +489,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: 'Bold 20px Quicksand'
                     }
                   }
                 ]
@@ -510,7 +510,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: 'Bold 20px Quicksand'
                     }
                   }
                 ]
@@ -531,7 +531,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: 'Bold 20px Quicksand'
                     }
                   }
                 ]
@@ -552,7 +552,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: 'Bold 20px Quicksand'
                     }
                   }
                 ]
@@ -573,7 +573,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: 'Bold 20px Quicksand'
                     }
                   }
                 ]
@@ -594,7 +594,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: 'Bold 20px Quicksand'
                     }
                   }
                 ]
@@ -615,7 +615,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: 'Bold 20px Quicksand'
                     }
                   }
                 ]
@@ -636,7 +636,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: 'Bold 20px Quicksand'
                     }
                   }
                 ]

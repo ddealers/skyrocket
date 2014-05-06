@@ -110,26 +110,26 @@ class U9A2 extends Oda
 						{type: 'img', name:'q9', id: 'man', x: 295, y: 310, align: 'mc'}
 						{type: 'img', name:'q10', id: 'man', x: 295, y: 310, align: 'mc'}
 						#{type: 'img', id: 'horseriding', x: 295, y: 310, align: 'mc'}
-						{type: 'pcpt', id: 'pcpt1', x: 505, y: 200, font: '16px Quicksand', underline:{y:0}, margin: 1, align: 'tl', scolor: '#009046'}
-						{type: 'pcpt', id: 'pcpt2', x: 505, y: 200, font: '16px Quicksand', underline:{y:0}, margin: 1, align: 'tl', scolor: '#009046'}
-						{type: 'pcpt', id: 'pcpt3', x: 505, y: 200, font: '16px Quicksand', underline:{y:0}, margin: 1, align: 'tl', scolor: '#009046'}
-						{type: 'pcpt', id: 'pcpt4', x: 505, y: 200, font: '16px Quicksand', underline:{y:0}, margin: 1, align: 'tl', scolor: '#009046'}
-						{type: 'pcpt', id: 'pcpt5', x: 505, y: 200, font: '16px Quicksand', underline:{y:0}, margin: 1, align: 'tl', scolor: '#009046'}
-						{type: 'pcpt', id: 'pcpt6', x: 505, y: 200, font: '16px Quicksand', underline:{y:0}, margin: 1, align: 'tl', scolor: '#009046'}
-						{type: 'pcpt', id: 'pcpt7', x: 505, y: 200, font: '16px Quicksand', underline:{y:0}, margin: 1, align: 'tl', scolor: '#009046'}
-						{type: 'pcpt', id: 'pcpt8', x: 505, y: 200, font: '16px Quicksand', underline:{y:0}, margin: 1, align: 'tl', scolor: '#009046'}
-						{type: 'pcpt', id: 'pcpt9', x: 505, y: 200, font: '16px Quicksand', underline:{y:0}, margin: 1, align: 'tl', scolor: '#009046'}
-						{type: 'pcpt', id: 'pcpt10', x: 505, y: 200, font: '16px Quicksand', underline:{y:0}, margin: 1, align: 'tl', scolor: '#009046'}
-						{type: 'ldrg', id: 'ldrg1', x: 80+160, y: 535, align: 'tc', index: 'backpack', text: 'backpack', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8','pcpt9','pcpt10'], font: '20px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
-						{type: 'ldrg', id: 'ldrg2', x: 190+160, y: 535, align: 'tc', index: 'rope', text: 'rope', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8','pcpt9','pcpt10'], font: '20px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
-						{type: 'ldrg', id: 'ldrg3', x: 250+160, y: 535, align: 'tc', index: 'flashlight', text: 'flashlight', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8','pcpt9','pcpt10'], font: '20px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
-						{type: 'ldrg', id: 'ldrg4', x: 350+160, y: 535, align: 'tc', index: 'helmet', text: 'helmet', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8','pcpt9','pcpt10'], font: '20px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
-						{type: 'ldrg', id: 'ldrg5', x: 100+160, y: 570, align: 'tc', index: 'sleeping bag', text: 'sleeping bag', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8','pcpt9','pcpt10'], font: '20px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
-						{type: 'ldrg', id: 'ldrg6', x: 250+160, y: 570, align: 'tc', index: 'fish', text: 'fish', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8','pcpt9','pcpt10'], font: '20px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
-						{type: 'ldrg', id: 'ldrg7', x: 320+160, y: 570, align: 'tc', index: 'allergic', text: 'allergic', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8','pcpt9','pcpt10'], font: '20px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
-						{type: 'ldrg', id: 'ldrg8', x: 340+160, y: 500, align: 'tc', index: 'swimsuit', text: 'swimsuit', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8','pcpt9','pcpt10'], font: '20px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
-						{type: 'ldrg', id: 'ldrg9', x: 230+160, y: 500, align: 'tc', index: 'lifejacket', text: 'lifejacket', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8','pcpt9','pcpt10'], font: '20px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
-						{type: 'ldrg', id: 'ldrg10', x: 90+160, y: 500, align: 'tc', index: 'hiking boots', text: 'hiking boots', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8','pcpt9','pcpt10'], font: '20px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
+						{type: 'pcpt', id: 'pcpt1', x: 505, y: 200, font: 'Bold 16px Quicksand', underline:{y:0}, margin: 1, align: 'tl', scolor: '#009046'}
+						{type: 'pcpt', id: 'pcpt2', x: 505, y: 200, font: 'Bold 16px Quicksand', underline:{y:0}, margin: 1, align: 'tl', scolor: '#009046'}
+						{type: 'pcpt', id: 'pcpt3', x: 505, y: 200, font: 'Bold 16px Quicksand', underline:{y:0}, margin: 1, align: 'tl', scolor: '#009046'}
+						{type: 'pcpt', id: 'pcpt4', x: 505, y: 200, font: 'Bold 16px Quicksand', underline:{y:0}, margin: 1, align: 'tl', scolor: '#009046'}
+						{type: 'pcpt', id: 'pcpt5', x: 505, y: 200, font: 'Bold 16px Quicksand', underline:{y:0}, margin: 1, align: 'tl', scolor: '#009046'}
+						{type: 'pcpt', id: 'pcpt6', x: 505, y: 200, font: 'Bold 16px Quicksand', underline:{y:0}, margin: 1, align: 'tl', scolor: '#009046'}
+						{type: 'pcpt', id: 'pcpt7', x: 505, y: 200, font: 'Bold 16px Quicksand', underline:{y:0}, margin: 1, align: 'tl', scolor: '#009046'}
+						{type: 'pcpt', id: 'pcpt8', x: 505, y: 200, font: 'Bold 16px Quicksand', underline:{y:0}, margin: 1, align: 'tl', scolor: '#009046'}
+						{type: 'pcpt', id: 'pcpt9', x: 505, y: 200, font: 'Bold 16px Quicksand', underline:{y:0}, margin: 1, align: 'tl', scolor: '#009046'}
+						{type: 'pcpt', id: 'pcpt10', x: 505, y: 200, font: 'Bold 16px Quicksand', underline:{y:0}, margin: 1, align: 'tl', scolor: '#009046'}
+						{type: 'ldrg', id: 'ldrg1', x: 80+160, y: 535, align: 'tc', index: 'backpack', text: 'backpack', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8','pcpt9','pcpt10'], font: 'Bold 20px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
+						{type: 'ldrg', id: 'ldrg2', x: 190+160, y: 535, align: 'tc', index: 'rope', text: 'rope', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8','pcpt9','pcpt10'], font: 'Bold 20px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
+						{type: 'ldrg', id: 'ldrg3', x: 250+160, y: 535, align: 'tc', index: 'flashlight', text: 'flashlight', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8','pcpt9','pcpt10'], font: 'Bold 20px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
+						{type: 'ldrg', id: 'ldrg4', x: 350+160, y: 535, align: 'tc', index: 'helmet', text: 'helmet', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8','pcpt9','pcpt10'], font: 'Bold 20px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
+						{type: 'ldrg', id: 'ldrg5', x: 100+160, y: 570, align: 'tc', index: 'sleeping bag', text: 'sleeping bag', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8','pcpt9','pcpt10'], font: 'Bold 20px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
+						{type: 'ldrg', id: 'ldrg6', x: 250+160, y: 570, align: 'tc', index: 'fish', text: 'fish', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8','pcpt9','pcpt10'], font: 'Bold 20px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
+						{type: 'ldrg', id: 'ldrg7', x: 320+160, y: 570, align: 'tc', index: 'allergic', text: 'allergic', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8','pcpt9','pcpt10'], font: 'Bold 20px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
+						{type: 'ldrg', id: 'ldrg8', x: 340+160, y: 500, align: 'tc', index: 'swimsuit', text: 'swimsuit', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8','pcpt9','pcpt10'], font: 'Bold 20px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
+						{type: 'ldrg', id: 'ldrg9', x: 230+160, y: 500, align: 'tc', index: 'lifejacket', text: 'lifejacket', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8','pcpt9','pcpt10'], font: 'Bold 20px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
+						{type: 'ldrg', id: 'ldrg10', x: 90+160, y: 500, align: 'tc', index: 'hiking boots', text: 'hiking boots', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8','pcpt9','pcpt10'], font: 'Bold 20px Quicksand', afterSuccess:'origin', afterFail:'return', eval: @onDrop}
 						{
 							type: 'btn', id: 'ch1', x: 144, y: 417, index:0, eval: @btnChannel
 							states: [{img: {name:'btn1', x:0, y:0, align:'mc'}}]

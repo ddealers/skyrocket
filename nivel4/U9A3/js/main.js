@@ -223,7 +223,7 @@ NEW ODA
                 margin: 10,
                 uwidth: 150,
                 distance: 10,
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 scolor: '#F00',
                 align: 'tc',
                 "eval": this.drop

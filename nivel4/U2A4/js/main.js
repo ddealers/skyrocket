@@ -417,7 +417,7 @@ NEW ODA
                 target: 'global',
                 "eval": this.onChoose,
                 label: {
-                  font: '18px Quicksand',
+                  font: 'Bold 18px Quicksand',
                   color: '#444'
                 },
                 bullets: {

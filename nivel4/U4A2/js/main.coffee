@@ -82,7 +82,7 @@ class U4A2 extends Oda
 						{type: 'img', id: 'accounts', x: 400, y: 290, align: 'mc'}
 						{type: 'img', id: 'composer', x: 400, y: 290, align: 'mc'}
 						{type: 'img', id: 'languages', x: 400, y: 290, align: 'mc'}
-						{type: 'swct', id: 'swct1', x: 430, y: 460, margin: 10, uwidth: 150, distance: 50, font: '20px Quicksand', scolor: '#005da2', align: 'tc', eval:'drop_03'}
+						{type: 'swct', id: 'swct1', x: 430, y: 460, margin: 10, uwidth: 150, distance: 50, font: 'Bold 20px Quicksand', scolor: '#005da2', align: 'tc', eval:'drop_03'}
 					]
 					groups: [
 						{

@@ -438,7 +438,7 @@ NEW ODA
                 id: 'pcpt1',
                 x: 130,
                 y: 195,
-                font: '11px Quicksand',
+                font: 'Bold 11px Quicksand',
                 margin: 5,
                 underline: {
                   y: 0
@@ -453,7 +453,7 @@ NEW ODA
                 id: 'pcpt2',
                 x: 230,
                 y: 175,
-                font: '11px Quicksand',
+                font: 'Bold 11px Quicksand',
                 margin: 5,
                 underline: {
                   y: 0
@@ -468,7 +468,7 @@ NEW ODA
                 id: 'pcpt3',
                 x: 183,
                 y: 177,
-                font: '11px Quicksand',
+                font: 'Bold 11px Quicksand',
                 margin: 5,
                 underline: {
                   y: 0
@@ -483,7 +483,7 @@ NEW ODA
                 id: 'pcpt4',
                 x: 315,
                 y: 180,
-                font: '11px Quicksand',
+                font: 'Bold 11px Quicksand',
                 margin: 5,
                 underline: {
                   y: 0
@@ -498,7 +498,7 @@ NEW ODA
                 id: 'pcpt5',
                 x: 410,
                 y: 160,
-                font: '11px Quicksand',
+                font: 'Bold 11px Quicksand',
                 margin: 5,
                 underline: {
                   y: 0
@@ -513,7 +513,7 @@ NEW ODA
                 id: 'pcpt6',
                 x: 468,
                 y: 153,
-                font: '11px Quicksand',
+                font: 'Bold 11px Quicksand',
                 margin: 5,
                 underline: {
                   y: 0
@@ -528,7 +528,7 @@ NEW ODA
                 id: 'pcpt7',
                 x: 580,
                 y: 165,
-                font: '11px Quicksand',
+                font: 'Bold 11px Quicksand',
                 margin: 5,
                 underline: {
                   y: 0
@@ -543,7 +543,7 @@ NEW ODA
                 id: 'pcpt8',
                 x: 472,
                 y: 186,
-                font: '11px Quicksand',
+                font: 'Bold 11px Quicksand',
                 margin: 5,
                 underline: {
                   y: 0
@@ -561,7 +561,7 @@ NEW ODA
                 index: 'was buying',
                 text: 'was buying',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
-                font: '18px Quicksand',
+                font: 'Bold 18px Quicksand',
                 afterSuccess: 'hide',
                 afterFail: 'return',
                 "eval": this.onDrop
@@ -573,7 +573,7 @@ NEW ODA
                 index: 'was dancing',
                 text: 'was dancing',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
-                font: '18px Quicksand',
+                font: 'Bold 18px Quicksand',
                 afterSuccess: 'hide',
                 afterFail: 'return',
                 "eval": this.onDrop
@@ -585,7 +585,7 @@ NEW ODA
                 index: 'was running',
                 text: 'was running',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
-                font: '18px Quicksand',
+                font: 'Bold 18px Quicksand',
                 afterSuccess: 'hide',
                 afterFail: 'return',
                 "eval": this.onDrop
@@ -597,7 +597,7 @@ NEW ODA
                 index: 'was shouting',
                 text: 'was shouting',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
-                font: '18px Quicksand',
+                font: 'Bold 18px Quicksand',
                 afterSuccess: 'hide',
                 afterFail: 'return',
                 "eval": this.onDrop
@@ -609,7 +609,7 @@ NEW ODA
                 index: 'were you doing',
                 text: 'were you doing',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
-                font: '18px Quicksand',
+                font: 'Bold 18px Quicksand',
                 afterSuccess: 'hide',
                 afterFail: 'return',
                 "eval": this.onDrop
@@ -621,7 +621,7 @@ NEW ODA
                 index: 'was visiting',
                 text: 'was visiting',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
-                font: '18px Quicksand',
+                font: 'Bold 18px Quicksand',
                 afterSuccess: 'hide',
                 afterFail: 'return',
                 "eval": this.onDrop
@@ -633,7 +633,7 @@ NEW ODA
                 index: 'was walking',
                 text: 'was walking',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
-                font: '18px Quicksand',
+                font: 'Bold 18px Quicksand',
                 afterSuccess: 'hide',
                 afterFail: 'return',
                 "eval": this.onDrop
@@ -645,7 +645,7 @@ NEW ODA
                 index: 'was watching',
                 text: 'was watching',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
-                font: '18px Quicksand',
+                font: 'Bold 18px Quicksand',
                 afterSuccess: 'hide',
                 afterFail: 'return',
                 "eval": this.onDrop

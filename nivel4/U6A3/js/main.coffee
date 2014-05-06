@@ -52,15 +52,15 @@ class U6A3 extends Oda
 						{type: 'img', id: 'foto', x: 50, y: 160}
 						{type: 'img', id: 'papel', x: 360, y: 150 }
 						{type: 'pcpt', id: 'pcpt1', x: 390, y: 195, font:'13px Dosis',lineHeight: 16, underline:{y:3}, margin: 5, scolor: '#00629f', stroke: 1, bcolor: 'rgba(255,255,255,0.01)'}
-						{type: 'ldrg', id: 'ldrg1', x: 140, y: 520, index: 'tallest', text: 'tallest', font: '22px Quicksand', color: '#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg2', x: 250, y: 520, index: 'oldest', text: 'oldest', font: '22px Quicksand', color: '#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return' }
-						{type: 'ldrg', id: 'ldrg3', x: 360, y: 520, index: 'cutest', text: 'cutest', font: '22px Quicksand', color: '#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return' }
+						{type: 'ldrg', id: 'ldrg1', x: 140, y: 520, index: 'tallest', text: 'tallest', font: 'Bold 22px Quicksand', color: '#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg2', x: 250, y: 520, index: 'oldest', text: 'oldest', font: 'Bold 22px Quicksand', color: '#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return' }
+						{type: 'ldrg', id: 'ldrg3', x: 360, y: 520, index: 'cutest', text: 'cutest', font: 'Bold 22px Quicksand', color: '#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return' }
 						{type: 'ldrg', id: 'ldrg4', x: 470, y: 520, index: 'longest', text: 'longest', font: '22px Quicksand', color: '#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return' }
-						{type: 'ldrg', id: 'ldrg5', x: 600, y: 520, index: 'funniest', text: 'funniest', font: '22px Quicksand', color: '#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg6', x: 190, y: 560, index: 'youngest', text: 'youngest', font:'22px Quicksand', color: '#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg7', x: 330, y: 560, index: 'best', text: 'best', font:'22px Quicksand', color: '#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg8', x: 420, y: 560, index: 'biggest', text: 'biggest', font:'22px Quicksand', color: '#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg9', x: 540, y: 560, index: 'smallest', text: 'smallest', font:'22px Quicksand', color: '#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg5', x: 600, y: 520, index: 'funniest', text: 'funniest', font: 'Bold 22px Quicksand', color: '#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg6', x: 190, y: 560, index: 'youngest', text: 'youngest', font:'Bold 22px Quicksand', color: '#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg7', x: 330, y: 560, index: 'best', text: 'best', font:'Bold 22px Quicksand', color: '#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg8', x: 420, y: 560, index: 'biggest', text: 'biggest', font:'Bold 22px Quicksand', color: '#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg9', x: 540, y: 560, index: 'smallest', text: 'smallest', font:'Bold 22px Quicksand', color: '#333', target: ['pcpt1'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
 						
 					]
 					groups: [

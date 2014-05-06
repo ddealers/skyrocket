@@ -456,7 +456,7 @@ NEW ODA
                 id: 'pcpt1',
                 x: 425,
                 y: 535,
-                font: '18px Quicksand',
+                font: 'Bold 18px Quicksand',
                 margin: 5,
                 align: 'tc',
                 lineHeight: 25,

@@ -121,7 +121,7 @@ class U6A2 extends Oda
 						{type: 'img', id: 'tap', x: 425, y: 360, align: 'mc'}
 						{type: 'img', id: 'thinnest', x: 425, y: 360, align: 'mc'}
 						{type: 'img', id: 'youngest', x: 425, y: 360, align: 'mc'}
-						{type: 'pcpt', id: 'pcpt1', x: 425, y: 535, font: '18px Quicksand', margin: 5, align: 'tc', lineHeight: 25, underline:{y:0}, bcolor: '#d7ecf9', scolor: '#00629f'}
+						{type: 'pcpt', id: 'pcpt1', x: 425, y: 535, font: 'Bold 18px Quicksand', margin: 5, align: 'tc', lineHeight: 25, underline:{y:0}, bcolor: '#d7ecf9', scolor: '#00629f'}
 					]
 					groups:[
 						{

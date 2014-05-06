@@ -153,50 +153,50 @@ class U3A3 extends Oda
 						{type: 'img', id: 'soda', x: 380, y: 338, align: 'mc'}
 						{type: 'img', id: 'caja', x: 640, y: 175}
 
-						{type: 'pcpt', id: 'pcpt1', x: 395, y: 510, font: '24px Arial Rounded MT Bold', underline:{y:3}, margin: 5, align: 'tc', scolor: '#F9101A'}
+						{type: 'pcpt', id: 'pcpt1', x: 395, y: 510, font: 'Bold 22px Quicksand', underline:{y:3}, margin: 5, align: 'tc', scolor: '#F9101A'}
 						{
 							type: 'btn', id: 'btn_1', x: 690, y: 210-10, noHover:true, index: 'act', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'act', name:'act', x:0, y:0, align:'center', font: '20px Arial Rounded MT Bold'}}]
+							states: [{txt: {text:'act', name:'act', x:0, y:0, align:'center', font: 'Bold 22px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'btn_2', x: 690, y: 233-10, noHover:true, index: 'dance', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'dance', name:'dance', x:0, y:0, align:'center', font: '20px Arial Rounded MT Bold'}}]
+							states: [{txt: {text:'dance', name:'dance', x:0, y:0, align:'center', font: 'Bold 22px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'btn_3', x: 690, y: 256-10, noHover:true, index: 'do', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'do', name:'do', x:0, y:0, align:'center', font: '20px Arial Rounded MT Bold'}}]
+							states: [{txt: {text:'do', name:'do', x:0, y:0, align:'center', font: 'Bold 22px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'btn_4', x: 690, y: 279-10, noHover:true, index: 'drink', target: 'pcpt1', eval: @btnClick 
-							states: [{txt: {text:'drink', name:'drink', x:0, y:0, align:'center', font: '20px Arial Rounded MT Bold'}}]
+							states: [{txt: {text:'drink', name:'drink', x:0, y:0, align:'center', font: 'Bold 22px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'btn_5', x: 690, y: 302-10, noHover:true, index: 'eat', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'eat', name:'eat', x:0, y:0, align:'center', font: '20px Arial Rounded MT Bold'}}]
+							states: [{txt: {text:'eat', name:'eat', x:0, y:0, align:'center', font: 'Bold 22px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'btn_6', x: 690, y: 325-10, noHover:true, index: 'make', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'make', name:'make', x:0, y:0, align:'center', font: '20px Arial Rounded MT Bold'}}]
+							states: [{txt: {text:'make', name:'make', x:0, y:0, align:'center', font: 'Bold 22px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'btn_7', x: 690, y: 348-10, noHover:true, index: 'play', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'play', name:'play', x:0, y:0, align:'center', font: '20px Arial Rounded MT Bold'}}]
+							states: [{txt: {text:'play', name:'play', x:0, y:0, align:'center', font: 'Bold 22px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'btn_8', x: 690, y: 371-10, noHover:true, index: 'read', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'read', name:'read', x:0, y:0, align:'center', font: '20px Arial Rounded MT Bold'}}]
+							states: [{txt: {text:'read', name:'read', x:0, y:0, align:'center', font: 'Bold 22px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'btn_9', x: 690, y: 394-10, noHover:true, index: 'sleep', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'sleep', name:'sleep', x:0, y:0, align:'center', font: '20px Arial Rounded MT Bold'}}]
+							states: [{txt: {text:'sleep', name:'sleep', x:0, y:0, align:'center', font: 'Bold 22px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'btn_10', x: 690, y: 417-10, noHover:true, index: 'watch', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'watch', name:'watch', x:0, y:0, align:'center', font: '20px Arial Rounded MT Bold'}}]
+							states: [{txt: {text:'watch', name:'watch', x:0, y:0, align:'center', font: 'Bold 22px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'btn_11', x: 690, y: 440-10, noHover:true, index: 'wear', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'wear', name:'wear', x:0, y:0, align:'center', font: '20px Arial Rounded MT Bold'}}]
+							states: [{txt: {text:'wear', name:'wear', x:0, y:0, align:'center', font: 'Bold 22px Quicksand'}}]
 						}
 					]
 					groups:[

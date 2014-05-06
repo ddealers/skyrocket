@@ -147,38 +147,38 @@ class U8A2 extends Oda
 						{type: 'img', id: 'theater', x: 380, y: 338, align: 'mc'}
 						{type: 'img', id: 'ladder', x: 380, y: 338, align: 'mc'}
 						{type: 'img', id: 'swimmer', x: 380, y: 338, align: 'mc'}
-						{type: 'pcpt', id: 'pcpt1', x: 450, y: 510, font: '24px Quicksand', underline:{y:0}, margin: 5, align: 'tc', scolor: '#009046'}
+						{type: 'pcpt', id: 'pcpt1', x: 450, y: 510, font: 'Bold 22px Quicksand', underline:{y:0}, margin: 5, align: 'tc', scolor: '#009046'}
 						{
 							type: 'btn', id: 'btn_1', x: 690, y: 220, index: 'break', target: 'pcpt1', noHover: true,eval: @btnClick
-							states: [{txt: {text:'break', name:'break', x:0, y:0, align:'center', font:'20px Quicksand'}}]
+							states: [{txt: {text:'break', name:'break', x:0, y:0, align:'center', font:'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'btn_2', x: 690, y: 250, index: 'crash', target: 'pcpt1', noHover: true, eval: @btnClick
-							states: [{txt: {text:'crash', name:'crash', x:0, y:0, align:'center', font:'20px Quicksand'}}]
+							states: [{txt: {text:'crash', name:'crash', x:0, y:0, align:'center', font:'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'btn_3', x: 690, y: 280, index: 'escape', target: 'pcpt1', noHover: true, eval: @btnClick
-							states: [{txt: {text:'escape', name:'escape', x:0, y:0, align:'center', font:'20px Quicksand'}}]
+							states: [{txt: {text:'escape', name:'escape', x:0, y:0, align:'center', font:'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'btn_4', x: 690, y: 310, index: 'explode', target: 'pcpt1', noHover: true, eval: @btnClick
-							states: [{txt: {text:'explode', name:'explode', x:0, y:0, align:'center', font:'20px Quicksand'}}]
+							states: [{txt: {text:'explode', name:'explode', x:0, y:0, align:'center', font:'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'btn_5', x: 690, y: 340, index: 'fall', target: 'pcpt1', noHover: true, eval: @btnClick
-							states: [{txt: {text:'fall', name:'fall', x:0, y:0, align:'center', font:'20px Quicksand'}}]
+							states: [{txt: {text:'fall', name:'fall', x:0, y:0, align:'center', font:'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'btn_6', x: 690, y: 370, index: 'help', target: 'pcpt1', noHover: true, eval: @btnClick
-							states: [{txt: {text:'help', name:'help', x:0, y:0, align:'center', font:'20px Quicksand'}}]
+							states: [{txt: {text:'help', name:'help', x:0, y:0, align:'center', font:'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'btn_7', x: 690, y: 400, index: 'hit', target: 'pcpt1', noHover: true, eval: @btnClick
-							states: [{txt: {text:'hit', name:'hit', x:0, y:0, align:'center', font:'20px Quicksand'}}]
+							states: [{txt: {text:'hit', name:'hit', x:0, y:0, align:'center', font:'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'btn_8', x: 690, y: 430, index: 'rain', target: 'pcpt1', noHover: true, eval: @btnClick
-							states: [{txt: {text:'rain', name:'rain', x:0, y:0, align:'center', font:'20px Quicksand'}}]
+							states: [{txt: {text:'rain', name:'rain', x:0, y:0, align:'center', font:'Bold 20px Quicksand'}}]
 						}
 					]
 					groups:[

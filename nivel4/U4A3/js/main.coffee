@@ -179,45 +179,45 @@ class U4A3 extends Oda
 						{type: 'img',  id:'walk' , x: 400, y: 308, align: 'mc'}
 						{type: 'img',  id:'write' , x: 400, y: 308, align: 'mc'}
 
-						{type: 'pcpt', id: 'pcpt1', x: 475, y: 540, font: '20px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A', uwidth: 90}
-						{type: 'txt', id: 'txt1', text:'/', x: 356, y: 460, font:'20px Quicksand', align: 'center', lineWidth: 250}
-						{type: 'txt', id: 'txt1', text:'/', x: 480, y: 460, font:'20px Quicksand', align: 'center', lineWidth: 250}
+						{type: 'pcpt', id: 'pcpt1', x: 475, y: 540, font: 'Bold 20px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A', uwidth: 90}
+						{type: 'txt', id: 'txt1', text:'/', x: 356, y: 460, font:'Bold 20px Quicksand', align: 'center', lineWidth: 250}
+						{type: 'txt', id: 'txt1', text:'/', x: 480, y: 460, font:'Bold 20px Quicksand', align: 'center', lineWidth: 250}
 
 						{
 							type: 'btn', id: 'playbtn', x: 300, y: 460,  index: 'play', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'play', name:'play', x:0, y:0, align:'center', font: '20px Quicksand'}}]
+							states: [{txt: {text:'play', name:'play', x:0, y:0, align:'center', font: 'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'readbtn', x: 300, y: 460,  index: 'read', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'read', name:'read', x:0, y:0, align:'center', font: '20px Quicksand'}}]
+							states: [{txt: {text:'read', name:'read', x:0, y:0, align:'center', font: 'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'walkbtn', x: 300, y: 460,  index: 'walk', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'walk', name:'walk', x:0, y:0, align:'center', font: '20px Quicksand'}}]
+							states: [{txt: {text:'walk', name:'walk', x:0, y:0, align:'center', font: 'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'buttonupbtn', x: 280, y: 460,  index: 'button up', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'button up', name:'button up', x:0, y:0, align:'center', font: '20px Quicksand'}}]
+							states: [{txt: {text:'button up', name:'button up', x:0, y:0, align:'center', font: 'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'count1btn', x: 300, y: 460,  index: 'count', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'count', name:'count', x:0, y:0, align:'center', font: '20px Quicksand'}}]
+							states: [{txt: {text:'count', name:'count', x:0, y:0, align:'center', font: 'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'cookbtn', x: 420, y: 460,  index: 'cook', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'cook', name:'cook', x:0, y:0, align:'center', font: '20px Quicksand'}}]
+							states: [{txt: {text:'cook', name:'cook', x:0, y:0, align:'center', font: 'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'writebtn', x: 420, y: 460,  index: 'write', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'write', name:'write', x:0, y:0, align:'center', font: '20px Quicksand'}}]
+							states: [{txt: {text:'write', name:'write', x:0, y:0, align:'center', font: 'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'count2btn', x: 420, y: 460,  index: 'count', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'count', name:'count', x:0, y:0, align:'center', font: '20px Quicksand'}}]
+							states: [{txt: {text:'count', name:'count', x:0, y:0, align:'center', font: 'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'saybtn', x: 420, y: 460,  index: 'say', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'say', name:'say', x:0, y:0, align:'center', font: '20px Quicksand'}}]
+							states: [{txt: {text:'say', name:'say', x:0, y:0, align:'center', font: 'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'drawbtn', x: 420, y: 460,  index: 'draw', target: 'pcpt1', eval: @btnClick
@@ -225,35 +225,35 @@ class U4A3 extends Oda
 						}
 						{
 							type: 'btn', id: 'ridebtn', x: 540, y: 460,  index: 'ride', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'ride', name:'ride', x:0, y:0, align:'center', font: '20px Quicksand'}}]
+							states: [{txt: {text:'ride', name:'ride', x:0, y:0, align:'center', font: 'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'standbtn', x: 540, y: 460,  index: 'stand', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'stand', name:'stand', x:0, y:0, align:'center', font: '20px Quicksand'}}]
+							states: [{txt: {text:'stand', name:'stand', x:0, y:0, align:'center', font: 'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'paintbtn', x: 540, y: 460,  index: 'paint', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'paint', name:'paint', x:0, y:0, align:'center', font: '20px Quicksand'}}]
+							states: [{txt: {text:'paint', name:'paint', x:0, y:0, align:'center', font: 'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'singbtn', x: 540, y: 460,  index: 'sing', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'sing', name:'sing', x:0, y:0, align:'center', font: '20px Quicksand'}}]
+							states: [{txt: {text:'sing', name:'sing', x:0, y:0, align:'center', font: 'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'tellbtn', x: 540, y: 460,  index: 'tell', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'tell', name:'tell', x:0, y:0, align:'center', font: '20px Quicksand'}}]
+							states: [{txt: {text:'tell', name:'tell', x:0, y:0, align:'center', font: 'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'usebtn', x: 540, y: 460,  index: 'use', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'use', name:'use', x:0, y:0, align:'center', font: '20px Quicksand'}}]
+							states: [{txt: {text:'use', name:'use', x:0, y:0, align:'center', font: 'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'turnonbtn', x: 540, y: 460,  index: 'turn on', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'turn on', name:'turn on', x:0, y:0, align:'center', font: '20px Quicksand'}}]
+							states: [{txt: {text:'turn on', name:'turn on', x:0, y:0, align:'center', font: 'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'count3btn', x: 530, y: 460,  index: 'count', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'count', name:'count', x:0, y:0, align:'center', font: '20px Quicksand'}}]
+							states: [{txt: {text:'count', name:'count', x:0, y:0, align:'center', font: 'Bold 20px Quicksand'}}]
 						}
 					]
 					groups:[

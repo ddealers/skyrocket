@@ -640,7 +640,7 @@ NEW ODA
                 id: 'pcpt1',
                 x: 433,
                 y: 470,
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 margin: 5,
                 align: 'tc',
                 scolor: '#F9101A'
@@ -649,7 +649,7 @@ NEW ODA
                 id: 'abc1',
                 x: 400,
                 y: 540,
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 fcolor: '#333',
                 uwidth: 22,
                 uheight: 34,

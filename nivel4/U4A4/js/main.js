@@ -213,7 +213,7 @@ NEW ODA
                 id: 'lbl1',
                 x: 400,
                 y: 490,
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 lineWidth: 600,
                 color: '#333',
                 align: 'center'
@@ -335,7 +335,7 @@ NEW ODA
                 id: 'lbl2',
                 x: 400,
                 y: 480,
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 lineWidth: 600,
                 color: '#333',
                 align: 'center'
@@ -457,7 +457,7 @@ NEW ODA
                 id: 'lbl3',
                 x: 400,
                 y: 480,
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 lineWidth: 600,
                 color: '#333',
                 align: 'center'
@@ -579,7 +579,7 @@ NEW ODA
                 id: 'lbl4',
                 x: 400,
                 y: 480,
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 lineWidth: 600,
                 color: '#333',
                 align: 'center'
@@ -675,7 +675,7 @@ NEW ODA
                 id: 'lbl5',
                 x: 400,
                 y: 490,
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 lineWidth: 600,
                 color: '#333',
                 align: 'center'

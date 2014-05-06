@@ -103,11 +103,11 @@ class U3A1 extends Oda
             {type: "idc", id: "g3", x: 362, y: 460, align: "bl",}
             {type: "idc", id: "g4", x: 438, y: 460, align: "bl",}
             {type: "idc", id: "g5", x: 566, y: 460, align: "bl",}
-            {type: "ldrg", id: "ldrg5", x: 170, y: 500, index: "Sandra", text: "Sandra", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
-            {type: "ldrg", id: "ldrg3", x: 295, y: 500, index: "Pia", text: "Pia", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
-            {type: "ldrg", id: "ldrg4", x: 360, y: 500, index: "Maria", text: "Maria", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
-            {type: "ldrg", id: "ldrg1", x: 455, y: 500, index: "Margaret", text: "Margaret", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
-            {type: "ldrg", id: "ldrg2", x: 600, y: 500, index: "Emily", text: "Emily", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+            {type: "ldrg", id: "ldrg5", x: 170, y: 500, index: "Sandra", text: "Sandra", font: "Bold 26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+            {type: "ldrg", id: "ldrg3", x: 295, y: 500, index: "Pia", text: "Pia", font: "Bold 26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+            {type: "ldrg", id: "ldrg4", x: 360, y: 500, index: "Maria", text: "Maria", font: "Bold 26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+            {type: "ldrg", id: "ldrg1", x: 455, y: 500, index: "Margaret", text: "Margaret", font: "Bold 26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+            {type: "ldrg", id: "ldrg2", x: 600, y: 500, index: "Emily", text: "Emily", font: "Bold 26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
             {
               type: "btn", id: "repeat", x: 740, y: 540, isRepeat: true
               states: [img: {name: "repeat", x: 0, y: 0, align: "mc"}]
@@ -171,11 +171,11 @@ class U3A1 extends Oda
             {type: "idc", id: "b3", x: 367, y: 460, align: "bl",}
             {type: "idc", id: "b4", x: 457, y: 460, align: "bl",}
             {type: "idc", id: "b5", x: 577, y: 460, align: "bl",}
-            {type: "ldrg", id: "ldrb5", x: 170, y: 500, index: "Paul", text: "Paul", font: "26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
-            {type: "ldrg", id: "ldrb3", x: 255, y: 500, index: "Hiro", text: "Hiro", font: "26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
-            {type: "ldrg", id: "ldrb4", x: 335, y: 500, index: "Barney", text: "Barney", font: "26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
-            {type: "ldrg", id: "ldrb1", x: 455, y: 500, index: "Panchito", text: "Panchito", font: "26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
-            {type: "ldrg", id: "ldrb2", x: 600, y: 500, index: "Roger", text: "Roger", font: "26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+            {type: "ldrg", id: "ldrb5", x: 170, y: 500, index: "Paul", text: "Paul", font: "Bold 26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+            {type: "ldrg", id: "ldrb3", x: 255, y: 500, index: "Hiro", text: "Hiro", font: "Bold 26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+            {type: "ldrg", id: "ldrb4", x: 335, y: 500, index: "Barney", text: "Barney", font: "Bold 26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+            {type: "ldrg", id: "ldrb1", x: 455, y: 500, index: "Panchito", text: "Panchito", font: "Bold 26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+            {type: "ldrg", id: "ldrb2", x: 600, y: 500, index: "Roger", text: "Roger", font: "Bold 26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
             {
               type: "btn", id: "repeat", x: 740, y: 540, isRepeat: true
               states: [img: {name: "repeat", x: 0, y: 0, align: "mc"}]

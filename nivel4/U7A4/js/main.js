@@ -137,7 +137,7 @@ NEW ODA
                 type: 'img',
                 id: 'marie',
                 x: 420,
-                y: 230
+                y: 210
               }, {
                 type: 'txt',
                 id: 't1',
@@ -189,7 +189,7 @@ NEW ODA
                 id: 'lbl1',
                 x: 400,
                 y: 510,
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 lineWidth: 600,
                 color: '#333',
                 align: 'center'
@@ -240,13 +240,13 @@ NEW ODA
                 type: 'img',
                 id: 'grandad',
                 x: 420,
-                y: 230
+                y: 210
               }, {
                 type: 'txt',
                 id: 't2',
                 text: ['I am Laurie and this is my granddad Pete. Life was hard for my great-granddad. He had to start working when he was very young. He left school at the age of 12 and worked his whole life. He used to tell me to enjoy life and study, because work was much harder! When he was young, he used to get up at 6 in the morning. His family washed outside, and they didn\'t have a bathroom. He was the oldest son and had to help his parents on the farm. He used to feed the horses and milk the cows, and that was before going to work! He used to take his brothers and his sister to school, and then he went to work in a factory. He used to work very long days. Life was difficult for a boy in those times.'],
                 x: 70,
-                y: 260,
+                y: 240,
                 lineWidth: 330,
                 font: '14px Dosis',
                 lineHeight: 20,
@@ -292,7 +292,7 @@ NEW ODA
                 id: 'lbl2',
                 x: 400,
                 y: 510,
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 lineWidth: 600,
                 color: '#333',
                 align: 'center'
@@ -343,7 +343,7 @@ NEW ODA
                 type: 'img',
                 id: 'sixties',
                 x: 420,
-                y: 230
+                y: 210
               }, {
                 type: 'txt',
                 id: 't3',
@@ -395,7 +395,7 @@ NEW ODA
                 id: 'lbl3',
                 x: 400,
                 y: 510,
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 lineWidth: 600,
                 color: '#333',
                 align: 'center'

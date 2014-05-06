@@ -302,7 +302,7 @@ NEW ODA
                 margin: 10,
                 uwidth: 150,
                 distance: 50,
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 scolor: '#005da2',
                 align: 'tc',
                 "eval": 'drop_03'

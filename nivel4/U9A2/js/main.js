@@ -385,7 +385,7 @@ NEW ODA
                 id: 'pcpt1',
                 x: 505,
                 y: 200,
-                font: '16px Quicksand',
+                font: 'Bold 16px Quicksand',
                 underline: {
                   y: 0
                 },
@@ -397,7 +397,7 @@ NEW ODA
                 id: 'pcpt2',
                 x: 505,
                 y: 200,
-                font: '16px Quicksand',
+                font: 'Bold 16px Quicksand',
                 underline: {
                   y: 0
                 },
@@ -409,7 +409,7 @@ NEW ODA
                 id: 'pcpt3',
                 x: 505,
                 y: 200,
-                font: '16px Quicksand',
+                font: 'Bold 16px Quicksand',
                 underline: {
                   y: 0
                 },
@@ -421,7 +421,7 @@ NEW ODA
                 id: 'pcpt4',
                 x: 505,
                 y: 200,
-                font: '16px Quicksand',
+                font: 'Bold 16px Quicksand',
                 underline: {
                   y: 0
                 },
@@ -433,7 +433,7 @@ NEW ODA
                 id: 'pcpt5',
                 x: 505,
                 y: 200,
-                font: '16px Quicksand',
+                font: 'Bold 16px Quicksand',
                 underline: {
                   y: 0
                 },
@@ -445,7 +445,7 @@ NEW ODA
                 id: 'pcpt6',
                 x: 505,
                 y: 200,
-                font: '16px Quicksand',
+                font: 'Bold 16px Quicksand',
                 underline: {
                   y: 0
                 },
@@ -457,7 +457,7 @@ NEW ODA
                 id: 'pcpt7',
                 x: 505,
                 y: 200,
-                font: '16px Quicksand',
+                font: 'Bold 16px Quicksand',
                 underline: {
                   y: 0
                 },
@@ -469,7 +469,7 @@ NEW ODA
                 id: 'pcpt8',
                 x: 505,
                 y: 200,
-                font: '16px Quicksand',
+                font: 'Bold 16px Quicksand',
                 underline: {
                   y: 0
                 },
@@ -481,7 +481,7 @@ NEW ODA
                 id: 'pcpt9',
                 x: 505,
                 y: 200,
-                font: '16px Quicksand',
+                font: 'Bold 16px Quicksand',
                 underline: {
                   y: 0
                 },
@@ -493,7 +493,7 @@ NEW ODA
                 id: 'pcpt10',
                 x: 505,
                 y: 200,
-                font: '16px Quicksand',
+                font: 'Bold 16px Quicksand',
                 underline: {
                   y: 0
                 },
@@ -509,7 +509,7 @@ NEW ODA
                 index: 'backpack',
                 text: 'backpack',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8', 'pcpt9', 'pcpt10'],
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 afterSuccess: 'origin',
                 afterFail: 'return',
                 "eval": this.onDrop
@@ -522,7 +522,7 @@ NEW ODA
                 index: 'rope',
                 text: 'rope',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8', 'pcpt9', 'pcpt10'],
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 afterSuccess: 'origin',
                 afterFail: 'return',
                 "eval": this.onDrop
@@ -535,7 +535,7 @@ NEW ODA
                 index: 'flashlight',
                 text: 'flashlight',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8', 'pcpt9', 'pcpt10'],
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 afterSuccess: 'origin',
                 afterFail: 'return',
                 "eval": this.onDrop
@@ -548,7 +548,7 @@ NEW ODA
                 index: 'helmet',
                 text: 'helmet',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8', 'pcpt9', 'pcpt10'],
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 afterSuccess: 'origin',
                 afterFail: 'return',
                 "eval": this.onDrop
@@ -561,7 +561,7 @@ NEW ODA
                 index: 'sleeping bag',
                 text: 'sleeping bag',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8', 'pcpt9', 'pcpt10'],
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 afterSuccess: 'origin',
                 afterFail: 'return',
                 "eval": this.onDrop
@@ -574,7 +574,7 @@ NEW ODA
                 index: 'fish',
                 text: 'fish',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8', 'pcpt9', 'pcpt10'],
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 afterSuccess: 'origin',
                 afterFail: 'return',
                 "eval": this.onDrop
@@ -587,7 +587,7 @@ NEW ODA
                 index: 'allergic',
                 text: 'allergic',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8', 'pcpt9', 'pcpt10'],
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 afterSuccess: 'origin',
                 afterFail: 'return',
                 "eval": this.onDrop
@@ -600,7 +600,7 @@ NEW ODA
                 index: 'swimsuit',
                 text: 'swimsuit',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8', 'pcpt9', 'pcpt10'],
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 afterSuccess: 'origin',
                 afterFail: 'return',
                 "eval": this.onDrop
@@ -613,7 +613,7 @@ NEW ODA
                 index: 'lifejacket',
                 text: 'lifejacket',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8', 'pcpt9', 'pcpt10'],
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 afterSuccess: 'origin',
                 afterFail: 'return',
                 "eval": this.onDrop
@@ -626,7 +626,7 @@ NEW ODA
                 index: 'hiking boots',
                 text: 'hiking boots',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8', 'pcpt9', 'pcpt10'],
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 afterSuccess: 'origin',
                 afterFail: 'return',
                 "eval": this.onDrop

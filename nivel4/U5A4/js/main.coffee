@@ -116,13 +116,13 @@ class U5A4 extends Oda
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'longer'}}	
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text5'}}			
-								{name: 'pcpt1', opts: {pattern:['Roger\'s book is', '#tcpt','#tcpt', '(long) Paul\'s.'], targets: [{text: 'longer'},{text: 'than'}]}}
+								{name: 'pcpt1', opts: {pattern:['Roger\'s book is', '#tcpt','#rtn','#tcpt', '(long) Paul\'s.'], targets: [{text: 'longer'},{text: 'than'}]}}
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'stronger'}}
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text6'}}			
-								{name: 'pcpt1', opts: {pattern:['Your brother is ', '#tcpt','#tcpt', '(strong) you.'], targets: [{text: 'stronger'},{text: 'than'}]}}
+								{name: 'pcpt1', opts: {pattern:['Your brother is ', '#tcpt','#rtn','#tcpt', '(strong) you.'], targets: [{text: 'stronger'},{text: 'than'}]}}
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
@@ -166,17 +166,17 @@ class U5A4 extends Oda
 						{type: 'img', id: 'farther', x: 425, y: 338, align: 'mc'}
 						{type: 'img', id: '9', x: 265, y: 523, align: 'mc'}
 						{type: 'img', id: '9', x: 590, y: 523, align: 'mc'}
-						{type: 'txt', id: 'text1', text: 'Lizzy is 10 years old and her sister is 3.', x:260, y:505, font:'14px Quicksand', align: 'center', lineWidth: 180}
-						{type: 'txt', id: 'text2', text: 'Patrick is thin. Louis is not thin. Yesterday it was 25 degrees.', x:260, y:505, font:'14px Quicksand', align: 'center', lineWidth: 180}
-						{type: 'txt', id: 'text3', text: 'It\'s hot today, 32 degrees! Yesterday it was 25 degrees.', x:260, y:505, font:'14px Quicksand', align: 'center', lineWidth: 180}
-						{type: 'txt', id: 'text4', text: 'This movie is very funny. The one we saw yesterday wasn\'t.','#rtn','Paul\'s book is only 200 pages.', x:260, y:505, font:'14px Quicksand', align: 'center', lineWidth: 180}
-						{type: 'txt', id: 'text5', text: 'Roger\'s book is long, 300 pages! Paul\'s book is only 200 pages.', x:260, y:505, font:'14px Quicksand', align: 'center', lineWidth: 180}
-						{type: 'txt', id: 'text6', text: 'I am strong, but my big brother is very strong.', x:260, y:505, font:'14px Quicksand', align: 'center', lineWidth: 180}
-						{type: 'txt', id: 'text7', text: 'My mom is a dancer. She jumps really high.', x:260, y:505, font:'14px Quicksand', align: 'center', lineWidth: 180}
-						{type: 'txt', id: 'text8', text: 'Laura got 9 on her exam. Samuel got a 7.', x:260, y:505, font:'14px Quicksand', align: 'center', lineWidth: 180}
-                        {type: 'txt', id: 'text9', text: 'Dennis scored a goal. He Kicked the ball hard.', x:260, y:505, font:'14px Quicksand', align: 'center', lineWidth: 180}
-                        {type: 'txt', id: 'text10', text: 'Liz lives next door to the school. Andrew lives five kilometers away.', x:260, y:505, font:'14px Quicksand', align: 'center', lineWidth: 180}
-						{type: 'pcpt', id: 'pcpt1', x: 590, y: 510, font: '14px Quicksand', margin: 5, align: 'tc', lineHeight: 20, underline:{y:0}, bcolor: '#d7ecf9', scolor: '#00629f'}
+						{type: 'txt', id: 'text1', text: 'Lizzy is 10 years old and her sister is 3.', x:260, y:505, font:'Bold 14px Quicksand', align: 'center', lineWidth: 180}
+						{type: 'txt', id: 'text2', text: 'Patrick is thin. Louis is not thin. Yesterday it was 25 degrees.', x:260, y:505, font:'Bold 14px Quicksand', align: 'center', lineWidth: 180}
+						{type: 'txt', id: 'text3', text: 'It\'s hot today, 32 degrees! Yesterday it was 25 degrees.', x:260, y:505, font:'Bold 14px Quicksand', align: 'center', lineWidth: 180}
+						{type: 'txt', id: 'text4', text: 'This movie is very funny. The one we saw yesterday wasn\'t.','#rtn','Paul\'s book is only 200 pages.', x:260, y:505, font:'Bold 14px Quicksand', align: 'center', lineWidth: 180}
+						{type: 'txt', id: 'text5', text: 'Roger\'s book is long, 300 pages! Paul\'s book is only 200 pages.', x:260, y:505, font:'Bold 14px Quicksand', align: 'center', lineWidth: 180}
+						{type: 'txt', id: 'text6', text: 'I am strong, but my big brother is very strong.', x:260, y:505, font:'Bold 14px Quicksand', align: 'center', lineWidth: 180}
+						{type: 'txt', id: 'text7', text: 'My mom is a dancer. She jumps really high.', x:260, y:505, font:'Bold 14px Quicksand', align: 'center', lineWidth: 180}
+						{type: 'txt', id: 'text8', text: 'Laura got 9 on her exam. Samuel got a 7.', x:260, y:505, font:'Bold 14px Quicksand', align: 'center', lineWidth: 180}
+                        {type: 'txt', id: 'text9', text: 'Dennis scored a goal. He Kicked the ball hard.', x:260, y:505, font:'Bold 14px Quicksand', align: 'center', lineWidth: 180}
+                        {type: 'txt', id: 'text10', text: 'Liz lives next door to the school. Andrew lives five kilometers away.', x:260, y:505, font:'Bold 14px Quicksand', align: 'center', lineWidth: 180}
+						{type: 'pcpt', id: 'pcpt1', x: 590, y: 510, font: 'Bold 14px Quicksand', margin: 5, align: 'tc', lineHeight: 20, underline:{y:0}, bcolor: '#d7ecf9', scolor: '#00629f'}
 					]
 					groups:[
 						{

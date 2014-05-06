@@ -145,80 +145,80 @@ class U8A4 extends Oda
 						{type: 'img',  id:'telepathy' , x: 400, y: 308, align: 'mc'}
 						{type: 'img',  id:'thieves' , x: 400, y: 308, align: 'mc'}
 						{type: 'img',  id:'wind' , x: 400, y: 308, align: 'mc'}
-						{type: 'pcpt', id: 'pcpt1', x: 433, y: 520, font: '20px Quicksand', lineHeight:35, underline: {y:0}, margin: 5, align: 'tc', scolor: '#009046'}
-						{type: 'txt', id: 'txt1', text:'/', x: 316, y: 460, font:'20px Quicksand', align: 'center', lineWidth: 250}
-						{type: 'txt', id: 'txt1', text:'/', x: 520, y: 460, font:'20px Quicksand', align: 'center', lineWidth: 250}
+						{type: 'pcpt', id: 'pcpt1', x: 433, y: 520, font: 'Bold 20px Quicksand', lineHeight:35, underline: {y:0}, margin: 5, align: 'tc', scolor: '#009046'}
+						{type: 'txt', id: 'txt1', text:'/', x: 316, y: 460, font:'Bold 20px Quicksand', align: 'center', lineWidth: 250}
+						{type: 'txt', id: 'txt1', text:'/', x: 520, y: 460, font:'Bold 20px Quicksand', align: 'center', lineWidth: 250}
 						{
 							type: 'btn', id: 'aregoingto', x: 200, y: 460, index: 'are going to', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'are going to', name: 'are going to', x:0, y:0, align:'center', font:'20px Quicksand'}}]
+							states: [{txt: {text:'are going to', name: 'are going to', x:0, y:0, align:'center', font:'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'arentgoingto', x: 200, y: 460, index: 'aren\'t going to', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'aren\'t going to', name: 'aren\'t going to', x:0, y:0, align:'center', font:'20px Quicksand'}}]
+							states: [{txt: {text:'aren\'t going to', name: 'aren\'t going to', x:0, y:0, align:'center', font:'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'isntgoingto', x: 200, y: 460, index: 'isn\'t going to', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'isn\'t going to', name: 'isn\'t going to', x:0, y:0, align:'center', font:'20px Quicksand'}}]
+							states: [{txt: {text:'isn\'t going to', name: 'isn\'t going to', x:0, y:0, align:'center', font:'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'isgoingto', x: 200, y: 460, index: 'is going to', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'is going to', name: 'is going to', x:0, y:0, align:'center', font:'20px Quicksand'}}]
+							states: [{txt: {text:'is going to', name: 'is going to', x:0, y:0, align:'center', font:'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'isgoing', x: 200, y: 460, index: 'is going', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'is going', name: 'is going', x:0, y:0, align:'center', font:'20px Quicksand'}}]
+							states: [{txt: {text:'is going', name: 'is going', x:0, y:0, align:'center', font:'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'aregoing', x: 200, y: 460, index: 'are going', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'are going', name: 'are going', x:0, y:0, align:'center', font:'20px Quicksand'}}]
+							states: [{txt: {text:'are going', name: 'are going', x:0, y:0, align:'center', font:'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'aregoingto2', x: 420, y: 460, index: 'are going to', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'are going to', name: 'are going to', x:0, y:0, align:'center', font:'20px Quicksand'}}]
+							states: [{txt: {text:'are going to', name: 'are going to', x:0, y:0, align:'center', font:'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'arentgoingto2', x: 420, y: 460, index: 'aren\'t going to', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'aren\'t going to', name: 'aren\'t going to', x:0, y:0, align:'center', font:'20px Quicksand'}}]
+							states: [{txt: {text:'aren\'t going to', name: 'aren\'t going to', x:0, y:0, align:'center', font:'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'isntgoingto2', x: 420, y: 460, index: 'isn\'t going to', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'isn\'t going to', name: 'isn\'t going to', x:0, y:0, align:'center', font:'20px Quicksand'}}]
+							states: [{txt: {text:'isn\'t going to', name: 'isn\'t going to', x:0, y:0, align:'center', font:'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'isgoingto2', x: 420, y: 460, index: 'is going to', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'is going to', name: 'is going to', x:0, y:0, align:'center', font:'20px Quicksand'}}]
+							states: [{txt: {text:'is going to', name: 'is going to', x:0, y:0, align:'center', font:'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'isgoing2', x: 420, y: 460, index: 'is going', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'is going', name: 'is going', x:0, y:0, align:'center', font:'20px Quicksand'}}]
+							states: [{txt: {text:'is going', name: 'is going', x:0, y:0, align:'center', font:'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'aregoing2', x: 420, y: 460, index: 'are going', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'are going', name: 'are going', x:0, y:0, align:'center', font:'20px Quicksand'}}]
+							states: [{txt: {text:'are going', name: 'are going', x:0, y:0, align:'center', font:'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'aregoingto3', x: 620, y: 460, index: 'are going to', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'are going to', name: 'are going to', x:0, y:0, align:'center', font:'20px Quicksand'}}]
+							states: [{txt: {text:'are going to', name: 'are going to', x:0, y:0, align:'center', font:'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'arentgoingto3', x: 620, y: 460, index: 'aren\'t going to', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'aren\'t going to', name: 'aren\'t going to', x:0, y:0, align:'center', font:'20px Quicksand'}}]
+							states: [{txt: {text:'aren\'t going to', name: 'aren\'t going to', x:0, y:0, align:'center', font:'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'isntgoingto3', x: 620, y: 460, index: 'isn\'t going to', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'isn\'t going to', name: 'isn\'t going to', x:0, y:0, align:'center', font:'20px Quicksand'}}]
+							states: [{txt: {text:'isn\'t going to', name: 'isn\'t going to', x:0, y:0, align:'center', font:'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'isgoingto3', x: 620, y: 460, index: 'is going to', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'is going to', name: 'is going to', x:0, y:0, align:'center', font:'20px Quicksand'}}]
+							states: [{txt: {text:'is going to', name: 'is going to', x:0, y:0, align:'center', font:'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'isgoing3', x: 620, y: 460, index: 'is going', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'is going', name: 'is going', x:0, y:0, align:'center', font:'20px Quicksand'}}]
+							states: [{txt: {text:'is going', name: 'is going', x:0, y:0, align:'center', font:'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'aregoing3', x: 620, y: 460, index: 'are going', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'are going', name: 'are going', x:0, y:0, align:'center', font:'20px Quicksand'}}]
+							states: [{txt: {text:'are going', name: 'are going', x:0, y:0, align:'center', font:'Bold 20px Quicksand'}}]
 						}
 					]
 					groups:[

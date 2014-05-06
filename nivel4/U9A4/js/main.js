@@ -1688,7 +1688,7 @@ NEW ODA
                 text: '0',
                 x: 178,
                 y: 275,
-                font: '24px Quicksand',
+                font: 'Bold 24px Quicksand',
                 align: 'center'
               }, {
                 type: 'txt',
@@ -1696,7 +1696,7 @@ NEW ODA
                 text: '0',
                 x: 182,
                 y: 375,
-                font: '24px Quicksand',
+                font: 'Bold 24px Quicksand',
                 align: 'center'
               }, {
                 type: 'caw',
@@ -1707,7 +1707,7 @@ NEW ODA
                 target: 'global',
                 "eval": this.onChoose,
                 label: {
-                  font: '18px Quicksand',
+                  font: 'Bold 18px Quicksand',
                   color: '#444'
                 },
                 bullets: {

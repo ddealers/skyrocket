@@ -105,11 +105,11 @@ class U5A2 extends Oda
 						{type: "idc", id: "g3", x: 362-3-40, y: 460, align: "bl"}
 						{type: "idc", id: "g4", x: 438-40, y: 460, align: "bl"}
 						{type: "idc", id: "g5", x: 602-40, y: 460, align: "bl"}
-						{type: "ldrg", id: "ldrg5", x: 130, y: 480, index: "Liu Yuan", text: "Liu Yuan", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
-						{type: "ldrg", id: "ldrg3", x: 265, y: 480, index: "Li Li", text: "Li Li", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
-						{type: "ldrg", id: "ldrg4", x: 350, y: 480, index: "Wen Li", text: "Wen Li", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
-						{type: "ldrg", id: "ldrg1", x: 485, y: 480, index: "Zhu Mei", text: "Zhu Mei", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
-						{type: "ldrg", id: "ldrg2", x: 650, y: 480, index: "Li Mei", text: "Li Mei", font: "26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+						{type: "ldrg", id: "ldrg5", x: 130, y: 480, index: "Liu Yuan", text: "Liu Yuan", font: "Bold 26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+						{type: "ldrg", id: "ldrg3", x: 265, y: 480, index: "Li Li", text: "Li Li", font: "Bold 26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+						{type: "ldrg", id: "ldrg4", x: 350, y: 480, index: "Wen Li", text: "Wen Li", font: "Bold 26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+						{type: "ldrg", id: "ldrg1", x: 485, y: 480, index: "Zhu Mei", text: "Zhu Mei", font: "Bold 26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+						{type: "ldrg", id: "ldrg2", x: 650, y: 480, index: "Li Mei", text: "Li Mei", font: "Bold 26px Quicksand", color: "#333", target: ["g1", "g2", "g3", "g4", "g5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
 						{
 							type: "btn", id: "repeat", x: 740, y: 540, isRepeat: true
 							states: [img: {name: "repeat", x: 0, y: 0, align: "mc"}]
@@ -170,11 +170,11 @@ class U5A2 extends Oda
 						{type: "idc", id: "b3", x: 307+20, y: 460, align: "bl",}
 						{type: "idc", id: "b4", x: 414+20, y: 460, align: "bl",}
 						{type: "idc", id: "b5", x: 520+20, y: 460, align: "bl",}
-						{type: "ldrg", id: "ldrb5", x: 140, y: 480, index: "Jim", text: "Jim", font: "26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
-						{type: "ldrg", id: "ldrb3", x: 245, y: 480, index: "Simon", text: "Simon", font: "26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
-						{type: "ldrg", id: "ldrb4", x: 375, y: 480, index: "Kris", text: "Kris", font: "26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
-						{type: "ldrg", id: "ldrb1", x: 485, y: 480, index: "Frank", text: "Frank", font: "26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
-						{type: "ldrg", id: "ldrb2", x: 620, y: 480, index: "Dirk", text: "Dirk", font: "26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+						{type: "ldrg", id: "ldrb5", x: 140, y: 480, index: "Jim", text: "Jim", font: "Bold 26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+						{type: "ldrg", id: "ldrb3", x: 245, y: 480, index: "Simon", text: "Simon", font: "Bold 26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+						{type: "ldrg", id: "ldrb4", x: 375, y: 480, index: "Kris", text: "Kris", font: "Bold 26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+						{type: "ldrg", id: "ldrb1", x: 485, y: 480, index: "Frank", text: "Frank", font: "Bold 26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
+						{type: "ldrg", id: "ldrb2", x: 620, y: 480, index: "Dirk", text: "Dirk", font: "Bold 26px Quicksand", color: "#333", target: ["b1", "b2", "b3", "b4", "b5"], eval: @evaluateDrop, afterSuccess: "hide", afterFail: "return"}
 						{
 							type: "btn", id: "repeat", x: 740, y: 540, isRepeat: true
 							states: [img: {name: "repeat", x: 0, y: 0, align: "mc"}]

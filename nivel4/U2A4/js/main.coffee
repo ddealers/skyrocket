@@ -98,7 +98,7 @@ class U2A4 extends Oda
 							]
 							[
 								{name:'global', opts:{success:2}}
-								{name: 'caw1', opts: {before:'It\'s always good to know the', opt1:'survive', opt2:'emergency', after:'procedures.'}}
+								{name: 'caw1', opts: {before:'It\'s always good to know the',opt1:'survive', opt2:'emergency', after:'procedures.'}}
 							]
 							[
 								{name:'global', opts:{success:1}}
@@ -106,7 +106,7 @@ class U2A4 extends Oda
 							]
 							[
 								{name:'global', opts:{success:1}}
-								{name: 'caw1', opts: {before:'Tell your mom and dad where you are', opt1:'going', opt2:'left.'}}
+								{name: 'caw1', opts: {before:'Tell your mom and dad where you are',opt1:'going', opt2:'left.'}}
 							]
 							[
 								{name:'global', opts:{success:1}}
@@ -127,7 +127,7 @@ class U2A4 extends Oda
 						}	
 						{
 							type: 'caw', id: 'caw1', x: 470, y: 510, align: 'tc', target: 'global', eval: @onChoose
-							label:{font:'18px Quicksand', color:'#444'}
+							label:{font:'Bold 18px Quicksand', color:'#444'}
 							bullets:{font:'18px Quicksand', color: '#000'}
 						}
 					]
