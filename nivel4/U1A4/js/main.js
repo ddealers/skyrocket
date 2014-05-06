@@ -67,8 +67,8 @@ NEW ODA
           y: 180,
           states: [
             {
-              text: ['Read the text. Then answer the questions, click on ', '#ital', 'or', '#ital'],
-              italics: ['true', 'false'],
+              text: ['Read the text. Then answer the questions, click on', '#ital', 'or', '#ital'],
+              italics: ['true', 'false.'],
               sound: 's/silence',
               played: false,
               custom: true
