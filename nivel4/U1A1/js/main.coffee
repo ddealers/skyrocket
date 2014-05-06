@@ -39,7 +39,7 @@ class U1A1 extends Oda
 				lib.scene.fail()
 		@game = 
 			header: 'header'
-			instructions: {x: 110, y: 115, states: [{text:'Read and choose the correct words.', sound:'s/silence', played: false}]}
+			instructions: {x: 110, y: 127, states: [{text:'Read and choose the correct words.', sound:'s/silence', played: false}]}
 			score:{type: 'points', x:20, y:500, init: 0, total: 12, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
 			scenes:[
 				{

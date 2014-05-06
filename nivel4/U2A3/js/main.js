@@ -237,7 +237,7 @@ NEW ODA
                 id: 'pcpt1',
                 x: 385,
                 y: 190,
-                font: '12px Quicksand',
+                font: 'Bold 12px Quicksand',
                 margin: 2,
                 scolor: '#F9101A',
                 stroke: 2
@@ -246,7 +246,7 @@ NEW ODA
                 id: 'pcpt2',
                 x: 385,
                 y: 225,
-                font: '12px Quicksand',
+                font: 'Bold 12px Quicksand',
                 margin: 2,
                 scolor: '#F9101A',
                 stroke: 2
@@ -255,7 +255,7 @@ NEW ODA
                 id: 'pcpt3',
                 x: 385,
                 y: 260,
-                font: '12px Quicksand',
+                font: 'Bold 12px Quicksand',
                 margin: 2,
                 scolor: '#F9101A',
                 stroke: 2
@@ -264,7 +264,7 @@ NEW ODA
                 id: 'pcpt4',
                 x: 385,
                 y: 295,
-                font: '12px Quicksand',
+                font: 'Bold 12px Quicksand',
                 margin: 2,
                 scolor: '#F9101A',
                 stroke: 2
@@ -273,7 +273,7 @@ NEW ODA
                 id: 'pcpt5',
                 x: 385,
                 y: 330,
-                font: '12px Quicksand',
+                font: 'Bold 12px Quicksand',
                 margin: 2,
                 scolor: '#F9101A',
                 stroke: 2
@@ -282,7 +282,7 @@ NEW ODA
                 id: 'pcpt6',
                 x: 385,
                 y: 365,
-                font: '12px Quicksand',
+                font: 'Bold 12px Quicksand',
                 margin: 2,
                 scolor: '#F9101A',
                 stroke: 2
@@ -291,7 +291,7 @@ NEW ODA
                 id: 'pcpt7',
                 x: 385,
                 y: 400,
-                font: '12px Quicksand',
+                font: 'Bold 12px Quicksand',
                 margin: 2,
                 scolor: '#F9101A',
                 stroke: 2
@@ -300,7 +300,7 @@ NEW ODA
                 id: 'pcpt8',
                 x: 385,
                 y: 435,
-                font: '12px Quicksand',
+                font: 'Bold 12px Quicksand',
                 margin: 2,
                 scolor: '#F9101A',
                 stroke: 2

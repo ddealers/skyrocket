@@ -468,7 +468,9 @@ NEW ODA
                       before: 'Margaret and Gina',
                       opt1: 'are',
                       opt2: 'aren\'t',
-                      after: ' coming to camp this year. // They are staying home.'
+                      after: 'coming to camp this year.',
+                      '#rtn': '#rtn',
+                      'They are staying home.': 'They are staying home.'
                     }
                   }
                 ], [
@@ -537,7 +539,9 @@ NEW ODA
                       before: 'Samantha and Fred',
                       opt1: 'aren\'t',
                       opt2: 'are',
-                      after: ' going horseback riding this afternoon. // They love horses!'
+                      after: ' going horseback riding this afternoon.',
+                      '#rtn': '#rtn',
+                      'They love horses!': 'They love horses!'
                     }
                   }
                 ], [
@@ -672,7 +676,9 @@ NEW ODA
                   }, {
                     name: 'caw1',
                     opts: {
-                      before: 'You didn\'t finish your homework, Bill! // You',
+                      before: 'You didn\'t finish your homework, Bill!',
+                      '#rtn': '#rtn',
+                      'You': 'You',
                       opt1: 'are',
                       opt2: 'aren\'t',
                       after: 'going to go to the party!'
@@ -744,7 +750,9 @@ NEW ODA
                       before: 'You',
                       opt1: 'aren\'t',
                       opt2: 'are',
-                      after: ' going to go cycling this afternoon. // Get your helmet!'
+                      after: ' going to go cycling this afternoon.',
+                      '#rtn': '#rtn',
+                      'Get your helmet!': 'Get your helmet!'
                     }
                   }
                 ], [
@@ -882,7 +890,9 @@ NEW ODA
                       before: 'I\'m',
                       opt1: 'going',
                       opt2: 'not going',
-                      after: 'to eat hotdogs. // They make me sick.'
+                      after: 'to eat hotdogs.',
+                      '#rtn': '#rtn',
+                      'They make me sick.': 'They make me sick.'
                     }
                   }
                 ], [
@@ -951,7 +961,9 @@ NEW ODA
                       before: 'Yippee! Mom and Dad are',
                       opt1: 'not going',
                       opt2: 'going',
-                      after: ' to bring my dog to camp. // I\'m so happy!'
+                      after: 'to bring my dog to camp.',
+                      '#rtn': '#rtn',
+                      'I\'m so happy!': 'I\'m so happy!'
                     }
                   }
                 ], [
@@ -1224,7 +1236,9 @@ NEW ODA
                   }, {
                     name: 'caw1',
                     opts: {
-                      before: 'Do you like fishing? // Yes, I',
+                      before: 'Do you like fishing?',
+                      '#rtn': '#rtn',
+                      'Yes, I': 'Yes, I',
                       opt1: 'do',
                       opt2: 'am',
                       after: '.'
@@ -1293,7 +1307,9 @@ NEW ODA
                   }, {
                     name: 'caw1',
                     opts: {
-                      before: 'Where are you going to go canoeing? // On the',
+                      before: 'Where are you going to go canoeing?',
+                      '#rtn': '#rtn',
+                      'On the': 'On the',
                       opt1: 'mountain',
                       opt2: 'lake',
                       after: '.'
@@ -1362,7 +1378,9 @@ NEW ODA
                   }, {
                     name: 'caw1',
                     opts: {
-                      before: 'Where are you going to go camping? // In a big',
+                      before: 'Where are you going to go camping?',
+                      '#rtn': '#rtn',
+                      'In a big': 'In a big',
                       opt1: 'nature',
                       opt2: 'tent',
                       after: '.'
@@ -1569,7 +1587,9 @@ NEW ODA
                   }, {
                     name: 'caw1',
                     opts: {
-                      before: 'Are you going to go hiking in the mountains? // Yes, we',
+                      before: 'Are you going to go hiking in the mountains?',
+                      '#rtn': '#rtn',
+                      'Yes, we': 'Yes, we',
                       opt1: 'are',
                       opt2: 'do',
                       after: '.'
@@ -1641,7 +1661,9 @@ NEW ODA
                       before: '',
                       opt1: 'Do',
                       opt2: 'Are',
-                      after: ' you going to take insect repellent? // Yes, we are.'
+                      after: ' you going to take insect repellent?',
+                      '#rtn': '#rtn',
+                      'Yes, we are.': 'Yes, we are.'
                     }
                   }
                 ]

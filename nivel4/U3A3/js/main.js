@@ -511,9 +511,9 @@ NEW ODA
               }, {
                 type: 'pcpt',
                 id: 'pcpt1',
-                x: 385,
+                x: 395,
                 y: 510,
-                font: '24px Quicksand',
+                font: '24px Arial Rounded MT Bold',
                 underline: {
                   y: 3
                 },
@@ -537,7 +537,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: '20px Arial Rounded MT Bold'
                     }
                   }
                 ]
@@ -558,7 +558,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: '20px Arial Rounded MT Bold'
                     }
                   }
                 ]
@@ -579,7 +579,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: '20px Arial Rounded MT Bold'
                     }
                   }
                 ]
@@ -600,7 +600,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: '20px Arial Rounded MT Bold'
                     }
                   }
                 ]
@@ -621,7 +621,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: '20px Arial Rounded MT Bold'
                     }
                   }
                 ]
@@ -642,7 +642,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: '20px Arial Rounded MT Bold'
                     }
                   }
                 ]
@@ -663,7 +663,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: '20px Arial Rounded MT Bold'
                     }
                   }
                 ]
@@ -684,7 +684,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: '20px Arial Rounded MT Bold'
                     }
                   }
                 ]
@@ -705,7 +705,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: '20px Arial Rounded MT Bold'
                     }
                   }
                 ]
@@ -726,7 +726,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: '20px Arial Rounded MT Bold'
                     }
                   }
                 ]
@@ -747,7 +747,7 @@ NEW ODA
                       x: 0,
                       y: 0,
                       align: 'center',
-                      font: '20px Quicksand'
+                      font: '20px Arial Rounded MT Bold'
                     }
                   }
                 ]
