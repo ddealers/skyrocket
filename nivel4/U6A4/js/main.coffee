@@ -99,7 +99,7 @@ class U6A4 extends Oda
 					}
 					containers:[
 						{type: 'img', id:'foto', name: 'act4_3', x: 420, y: 230}
-						{type: 'txt', id: 't3', text:['When Fred Astaire auditioned for a movie, they said, “He can\’t sing. Can’t act. Can dance a little. He made his first movie in 1933, at the age of 34. He made 9 more movies with his dancing co-star Ginger Rogers. Astaire married at the age of 34. He was very happy with his wife, Phyllis.'], x: 70, y: 260, lineWidth: 330, font:'14px Dosis',lineHeight: 25, align: 'left'}
+						{type: 'txt', id: 't3', text:['When Fred Astaire auditioned for a movie, they said, “He can\’t sing. Can’t act. Can dance a little." He made his first movie in 1933, at the age of 34. He made 9 more movies with his dancing co-star Ginger Rogers. Astaire married at the age of 34. He was very happy with his wife, Phyllis.'], x: 70, y: 260, lineWidth: 330, font:'14px Dosis',lineHeight: 25, align: 'left'}
 						{
 							type: 'btn', id: 'btnTrue3', x: 340, y: 555, index: true, target: 'lbl3', eval: @onClick
 							states:[img: {name:'true', x: 0, y: 0, align:'mc'}]

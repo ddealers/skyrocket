@@ -87,10 +87,10 @@ NEW ODA
         header: 'header',
         instructions: {
           x: 110,
-          y: 130,
+          y: 127,
           states: [
             {
-              text: 'Read and write the correct words.',
+              text: 'Read and choose the correct words.',
               sound: 's/silence',
               played: false
             }
@@ -410,7 +410,7 @@ NEW ODA
                 id: 'pcpt1',
                 x: 433,
                 y: 510,
-                font: '20px Quicksand',
+                font: 'Bold 20px Quicksand',
                 margin: 5,
                 align: 'tc',
                 scolor: '#F9101A'

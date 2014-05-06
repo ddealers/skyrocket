@@ -63,44 +63,109 @@ NEW ODA
       this.you = 0;
       this.canDrop = false;
       this.onDrop = function(dispatcher, target) {
-        var d, t;
+        var d, p, t, _ref, _ref1, _ref2, _ref3, _ref4, _ref5;
         d = lib[dispatcher];
         t = target.parent;
-        if (!_this.canDrop) {
-          d.afterFail();
-        }
-        if (d.index === t.success) {
-          lib.scene.success();
+        if (_this.canDrop === true) {
+          if ((_ref = t.name) === 'p1' || _ref === 'p4' || _ref === 'p7') {
+            console.log('column uno');
+            if (lib["p7"].sprite.currentFrame === 0) {
+              p = lib["p7"];
+            } else if (lib["p4"].sprite.currentFrame === 0) {
+              p = lib["p4"];
+            } else if (lib["p1"].sprite.currentFrame === 0) {
+              p = lib["p1"];
+            }
+          } else if ((_ref1 = t.name) === 'p2' || _ref1 === 'p5' || _ref1 === 'p8') {
+            console.log('column dos');
+            if (lib["p8"].sprite.currentFrame === 0) {
+              p = lib["p8"];
+            } else if (lib["p5"].sprite.currentFrame === 0) {
+              p = lib["p5"];
+            } else if (lib["p2"].sprite.currentFrame === 0) {
+              p = lib["p2"];
+            }
+          } else if ((_ref2 = t.name) === 'p3' || _ref2 === 'p6' || _ref2 === 'p9') {
+            console.log('column tres');
+            if (lib["p9"].sprite.currentFrame === 0) {
+              p = lib["p9"];
+            } else if (lib["p6"].sprite.currentFrame === 0) {
+              p = lib["p6"];
+            } else if (lib["p3"].sprite.currentFrame === 0) {
+              p = lib["p3"];
+            }
+          }
+          if ((_ref3 = p.name) === 'p7' || _ref3 === 'p8' || _ref3 === 'p9') {
+            TweenLite.from(p.sprite, 0.7, {
+              y: -226
+            });
+          } else if ((_ref4 = p.name) === 'p4' || _ref4 === 'p5' || _ref4 === 'p6') {
+            TweenLite.from(p.sprite, 0.4, {
+              y: -138
+            });
+          } else if ((_ref5 = p.name) === 'p1' || _ref5 === 'p2' || _ref5 === 'p3') {
+            TweenLite.from(p.sprite, 0.2, {
+              y: -50
+            });
+          }
+          p.goto(1);
+          console.log(p);
+          lib.scene.nextStep();
           d.afterSuccess();
-          t.goto(1);
+          _this.canDrop = false;
           return _this.evaluateWin();
         } else {
           return d.afterFail();
         }
       };
       this.onChoose = function(dispatcher) {
-        var blank, d, i, p, rand, _i;
+        var d, i, p, _i;
         d = lib[dispatcher];
         if (d.index === d2oda.evaluator.success) {
           createjs.Sound.play('s/good');
           return _this.canDrop = true;
         } else {
-          blank = new Array();
+          _this.blank = new Array();
           for (i = _i = 1; _i <= 9; i = ++_i) {
             if (lib["p" + i]) {
               p = lib["p" + i];
-              if (p.sprite.currentFrame === 0) {
-                blank.push(p);
-              }
+              _this.blank.push(p);
             }
           }
-          rand = Math.round(Math.random() * (blank.length - 1));
-          if (blank.length > 0) {
-            blank[rand].goto(2);
-          }
+          _this.random();
           lib.scene.fail();
+          _this.canDrop = false;
           lib.scene.nextStep();
           return _this.evaluateWin();
+        }
+      };
+      this.random = function() {
+        var p, rand, _ref, _ref1, _ref2;
+        rand = Math.round(Math.random() * 2.);
+        console.log(rand);
+        if (_this.blank[rand + 6].sprite.currentFrame === 0) {
+          p = _this.blank[rand + 6];
+        } else if (_this.blank[rand + 3].sprite.currentFrame === 0) {
+          p = _this.blank[rand + 3];
+        } else if (_this.blank[rand].sprite.currentFrame === 0) {
+          p = _this.blank[rand];
+        } else {
+          _this.random();
+          return;
+        }
+        p.goto(2);
+        if ((_ref = p.name) === 'p7' || _ref === 'p8' || _ref === 'p9') {
+          return TweenLite.from(p.sprite, 0.7, {
+            y: -226
+          });
+        } else if ((_ref1 = p.name) === 'p4' || _ref1 === 'p5' || _ref1 === 'p6') {
+          return TweenLite.from(p.sprite, 0.4, {
+            y: -138
+          });
+        } else if ((_ref2 = p.name) === 'p1' || _ref2 === 'p2' || _ref2 === 'p3') {
+          return TweenLite.from(p.sprite, 0.2, {
+            y: -50
+          });
         }
       };
       this.evaluateWin = function() {
@@ -150,19 +215,24 @@ NEW ODA
           _this.scoreUp('you');
         }
         if ((_this.getFrame('p3')) === 1 && (_this.getFrame('p5')) === 1 && (_this.getFrame('p7')) === 1) {
-          return _this.scoreUp('you');
+          _this.scoreUp('you');
+        }
+        if ((_this.getFrame('p1')) !== 0 && (_this.getFrame('p2')) !== 0 && (_this.getFrame('p3')) !== 0 && (_this.getFrame('p4')) !== 0 && (_this.getFrame('p5')) !== 0 && (_this.getFrame('p6')) !== 0 && (_this.getFrame('p7')) !== 0 && (_this.getFrame('p8')) !== 0 && (_this.getFrame('p9')) !== 0) {
+          return _this.reset();
         }
       };
       this.scoreUp = function(type) {
         switch (type) {
           case 'pc':
             _this.pc++;
+            createjs.Sound.play('s/wrong');
             lib.tverde.update({
               text: _this.pc
             });
             break;
           case 'you':
             _this.you++;
+            createjs.Sound.play('s/good');
             lib.tazul.update({
               text: _this.you
             });
@@ -176,12 +246,14 @@ NEW ODA
         }
       };
       this.reset = function() {
-        var i, _i, _results;
-        _results = [];
-        for (i = _i = 1; _i <= 9; i = ++_i) {
-          _results.push(lib["p" + i].goto(0));
-        }
-        return _results;
+        return d2oda.methods.delay(500, function() {
+          var i, _i, _results;
+          _results = [];
+          for (i = _i = 1; _i <= 9; i = ++_i) {
+            _results.push(lib["p" + i].goto(0));
+          }
+          return _results;
+        });
       };
       this.getFrame = function(obj) {
         return lib[obj].sprite.currentFrame;
@@ -418,7 +490,9 @@ NEW ODA
                       before: 'Margaret and Gina',
                       opt1: 'are',
                       opt2: 'aren\'t',
-                      after: ' coming to camp this year. // They are staying home.'
+                      after: 'coming to camp this year.',
+                      '#rtn': '#rtn',
+                      'They are staying home.': 'They are staying home.'
                     }
                   }
                 ], [
@@ -487,7 +561,9 @@ NEW ODA
                       before: 'Samantha and Fred',
                       opt1: 'aren\'t',
                       opt2: 'are',
-                      after: ' going horseback riding this afternoon. // They love horses!'
+                      after: ' going horseback riding this afternoon.',
+                      '#rtn': '#rtn',
+                      'They love horses!': 'They love horses!'
                     }
                   }
                 ], [
@@ -622,7 +698,9 @@ NEW ODA
                   }, {
                     name: 'caw1',
                     opts: {
-                      before: 'You didn\'t finish your homework, Bill! // You',
+                      before: 'You didn\'t finish your homework, Bill!',
+                      '#rtn': '#rtn',
+                      'You': 'You',
                       opt1: 'are',
                       opt2: 'aren\'t',
                       after: 'going to go to the party!'
@@ -694,7 +772,9 @@ NEW ODA
                       before: 'You',
                       opt1: 'aren\'t',
                       opt2: 'are',
-                      after: ' going to go cycling this afternoon. // Get your helmet!'
+                      after: ' going to go cycling this afternoon.',
+                      '#rtn': '#rtn',
+                      'Get your helmet!': 'Get your helmet!'
                     }
                   }
                 ], [
@@ -832,7 +912,9 @@ NEW ODA
                       before: 'I\'m',
                       opt1: 'going',
                       opt2: 'not going',
-                      after: 'to eat hotdogs. // They make me sick.'
+                      after: 'to eat hotdogs.',
+                      '#rtn': '#rtn',
+                      'They make me sick.': 'They make me sick.'
                     }
                   }
                 ], [
@@ -901,7 +983,9 @@ NEW ODA
                       before: 'Yippee! Mom and Dad are',
                       opt1: 'not going',
                       opt2: 'going',
-                      after: ' to bring my dog to camp. // I\'m so happy!'
+                      after: 'to bring my dog to camp.',
+                      '#rtn': '#rtn',
+                      'I\'m so happy!': 'I\'m so happy!'
                     }
                   }
                 ], [
@@ -1174,7 +1258,9 @@ NEW ODA
                   }, {
                     name: 'caw1',
                     opts: {
-                      before: 'Do you like fishing? // Yes, I',
+                      before: 'Do you like fishing?',
+                      '#rtn': '#rtn',
+                      'Yes, I': 'Yes, I',
                       opt1: 'do',
                       opt2: 'am',
                       after: '.'
@@ -1243,7 +1329,9 @@ NEW ODA
                   }, {
                     name: 'caw1',
                     opts: {
-                      before: 'Where are you going to go canoeing? // On the',
+                      before: 'Where are you going to go canoeing?',
+                      '#rtn': '#rtn',
+                      'On the': 'On the',
                       opt1: 'mountain',
                       opt2: 'lake',
                       after: '.'
@@ -1312,7 +1400,9 @@ NEW ODA
                   }, {
                     name: 'caw1',
                     opts: {
-                      before: 'Where are you going to go camping? // In a big',
+                      before: 'Where are you going to go camping?',
+                      '#rtn': '#rtn',
+                      'In a big': 'In a big',
                       opt1: 'nature',
                       opt2: 'tent',
                       after: '.'
@@ -1519,7 +1609,9 @@ NEW ODA
                   }, {
                     name: 'caw1',
                     opts: {
-                      before: 'Are you going to go hiking in the mountains? // Yes, we',
+                      before: 'Are you going to go hiking in the mountains?',
+                      '#rtn': '#rtn',
+                      'Yes, we': 'Yes, we',
                       opt1: 'are',
                       opt2: 'do',
                       after: '.'
@@ -1591,7 +1683,9 @@ NEW ODA
                       before: '',
                       opt1: 'Do',
                       opt2: 'Are',
-                      after: ' you going to take insect repellent? // Yes, we are.'
+                      after: ' you going to take insect repellent?',
+                      '#rtn': '#rtn',
+                      'Yes, we are.': 'Yes, we are.'
                     }
                   }
                 ]
@@ -1601,12 +1695,6 @@ NEW ODA
             },
             containers: [
               {
-                type: 'img',
-                id: 'threeinarow',
-                x: 420,
-                y: 350,
-                align: 'mc'
-              }, {
                 type: 'img',
                 id: 'mazul',
                 x: 80,
@@ -1648,6 +1736,51 @@ NEW ODA
                   font: '18px Quicksand',
                   color: '#000'
                 }
+              }, {
+                type: 'img',
+                id: 'pbase',
+                x: 278,
+                y: 233
+              }, {
+                type: 'img',
+                id: 'pbase',
+                x: 380,
+                y: 233
+              }, {
+                type: 'img',
+                id: 'pbase',
+                x: 482,
+                y: 233
+              }, {
+                type: 'img',
+                id: 'pbase',
+                x: 278,
+                y: 321
+              }, {
+                type: 'img',
+                id: 'pbase',
+                x: 380,
+                y: 321
+              }, {
+                type: 'img',
+                id: 'pbase',
+                x: 482,
+                y: 321
+              }, {
+                type: 'img',
+                id: 'pbase',
+                x: 278,
+                y: 409
+              }, {
+                type: 'img',
+                id: 'pbase',
+                x: 380,
+                y: 409
+              }, {
+                type: 'img',
+                id: 'pbase',
+                x: 482,
+                y: 409
               }, {
                 type: 'spr',
                 id: 'p1',
@@ -1713,48 +1846,44 @@ NEW ODA
                 y: 409
               }, {
                 type: 'drg',
+                id: 'pazul',
+                x: 80,
+                y: 260,
+                index: '1',
+                target: ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9'],
+                "eval": this.onDrop,
+                afterSuccess: 'origin',
+                afterFail: 'return'
+              }, {
+                type: 'img',
                 id: '1',
                 x: 670,
                 y: 200,
-                align: 'mc',
-                index: '1',
-                target: ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9'],
-                "eval": this.onDrop,
-                afterSuccess: 'origin',
-                afterFail: 'return'
+                align: 'mc'
               }, {
-                type: 'drg',
+                type: 'img',
                 id: '2',
                 x: 670,
                 y: 290,
-                align: 'mc',
-                index: '1',
-                target: ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9'],
-                "eval": this.onDrop,
-                afterSuccess: 'origin',
-                afterFail: 'return'
+                align: 'mc'
               }, {
-                type: 'drg',
+                type: 'img',
                 id: '3',
                 x: 670,
                 y: 380,
-                align: 'mc',
-                index: '1',
-                target: ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9'],
-                "eval": this.onDrop,
-                afterSuccess: 'origin',
-                afterFail: 'return'
+                align: 'mc'
               }, {
-                type: 'drg',
+                type: 'img',
                 id: '4',
                 x: 670,
                 y: 470,
-                align: 'mc',
-                index: '1',
-                target: ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9'],
-                "eval": this.onDrop,
-                afterSuccess: 'origin',
-                afterFail: 'return'
+                align: 'mc'
+              }, {
+                type: 'img',
+                id: 'threeinarow',
+                x: 420,
+                y: 350,
+                align: 'mc'
               }
             ],
             groups: []

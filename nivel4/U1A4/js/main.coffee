@@ -29,7 +29,7 @@ class U1A4 extends Oda
 			lib.scene.nextStep()
 		@game = 
 			header: 'header'
-			instructions: {x: 110, y: 130, states: [{text:['Read the text. Then answer the questions, click on ','#ital','or', '#ital'], italics:['true', 'false'], sound:'s/silence', played: false, custom:true}]}
+			instructions: {x: 110, y: 130, states: [{text:['Read the text. Then answer the questions, click on','#ital','or','#ital'],italics:['true','false.'], sound:'s/silence', played: false, custom:true}]}
 			score:{type: 'points', x:20, y:500, init: 0, total: 12, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
 			scenes:[
 				{
@@ -44,8 +44,8 @@ class U1A4 extends Oda
 						type: 'steps'
 					}
 					containers:[
-						{type: 'img',scale:0.5, id:'act4', x: 420, y: 210}
-						{type: 'txt', id: 't1', text:'My name is Hayden and I live in Florida. There are a lot of crocodiles there. My parents have a large farm with a lot of swamps everywhere. Swamps are forests with a lot of water. I like to swim but there is one problem: crocodiles love swamps! My parents tell me not to go in the water because it\'s dangerous. One morning I was fishing in the river and I saw baby crocodiles. They were cute, but... if you see babies, there is a mother crocodile close by! I knew I shouldn\'t fish close to a crocodile and I went back to the house.', x: 70, y: 240, lineWidth: 330, font:'14px Dosis',lineHeight: 25, align: 'left'}
+						{type: 'img',scale:0.5, id:'act4', x: 420, y: 190}
+						{type: 'txt', id: 't1', text:'My name is Hayden and I live in Florida. There are a lot of crocodiles there. My parents have a large farm with a lot of swamps everywhere. Swamps are forests with a lot of water. I like to swim but there is one problem: crocodiles love swamps! My parents tell me not to go in the water because it\'s dangerous. One morning I was fishing in the river and I saw baby crocodiles. They were cute, but... if you see babies, there is a mother crocodile close by! I knew I shouldn\'t fish close to a crocodile and I went back to the house.', x: 70, y: 225, lineWidth: 330, font:'14px Dosis',lineHeight: 25, align: 'left'}
 						{
 							type: 'btn', id: 'btnTrue', x: 340, y: 555, index: true, target: 'lbl1', eval: @onClick
 							states:[img: {name:'true', x: 0, y: 0, align:'mc'}]
@@ -58,7 +58,7 @@ class U1A4 extends Oda
 							type: 'btn', id: 'btnContinue', x: 700, y: 555, index: 'next', target: 'global', visible: false, eval: @continue
 							states:[img: {name:'continue', x: 0, y: 0, align:'mc'}]
 						}
-						{type: 'lbl', id: 'lbl1', x: 400, y: 490, font: '20px Quicksand', lineWidth:600, color: '#333', align: 'center'}
+						{type: 'lbl', id: 'lbl1', x: 400, y: 480, font: 'Bold 20px Quicksand', lineWidth:600, color: '#333', align: 'center'}
 					]
 					groups:[]
 				}
@@ -74,8 +74,8 @@ class U1A4 extends Oda
 						type: 'steps'
 					}
 					containers:[
-						{type: 'img',scale:0.5, id:'act4', name: 'act4_2', x: 420, y: 210}
-						{type: 'txt', id: 't2', text:'Many times the mother crocodile observed me from a distance. I called her Penelope. Penelope\'s baby crocodiles  got bigger and they started to move across the swamps. I wanted to make sure they were okay. I decided that I had to organize a registration system. My dad put put a tag on Penelope\'s back. (My dad is a trained biologist.) Penelope was number 1. When we finished, we had more than 20 crocodiles! Sometimes I could see the young crocodiles didn\'t have enough food and I wanted to feed them. But my mom said feeding wild crocodiles is illegal and very dangerous.', x: 70, y: 230, lineWidth: 330, font:'14px Dosis',lineHeight: 25, align: 'left'}
+						{type: 'img',scale:0.5, id:'act4', name: 'act4_2', x: 420, y: 190}
+						{type: 'txt', id: 't2', text:'Many times the mother crocodile observed me from a distance. I called her Penelope. Penelope\'s baby crocodiles  got bigger and they started to move across the swamps. I wanted to make sure they were okay. I decided that I had to organize a registration system. My dad put put a tag on Penelope\'s back. (My dad is a trained biologist.) Penelope was number 1. When we finished, we had more than 20 crocodiles! Sometimes I could see the young crocodiles didn\'t have enough food and I wanted to feed them. But my mom said feeding wild crocodiles is illegal and very dangerous.', x: 70, y: 210, lineWidth: 330, font:'14px Dosis',lineHeight: 25, align: 'left'}
 						{
 							type: 'btn', id: 'btnTrue2', x: 340, y: 555, index: true, target: 'lbl2', eval: @onClick
 							states:[img: {name:'true', x: 0, y: 0, align:'mc'}]
@@ -88,7 +88,7 @@ class U1A4 extends Oda
 							type: 'btn', id: 'btnContinue2', x: 700, y: 555, index: 'next', target: 'global', visible: false, eval: @continue
 							states:[img: {name:'continue', x: 0, y: 0, align:'mc'}]
 						}
-						{type: 'lbl', id: 'lbl2', x: 400, y: 490, font: '20px Quicksand', lineWidth:600, color: '#333', align: 'center'}
+						{type: 'lbl', id: 'lbl2', x: 400, y: 480, font: 'Bold 20px Quicksand', lineWidth:600, color: '#333', align: 'center'}
 					]
 					groups:[]
 				}
@@ -103,8 +103,8 @@ class U1A4 extends Oda
 						type: 'steps'
 					}
 					containers:[
-						{type: 'img',scale:0.5, id:'act4', name: 'act4_3', x: 420, y: 210}
-						{type: 'txt', id: 't3', text:'I started the Costa Crocodile Reserve about 5 years ago and now we have a team of about 12 people. We organize tours and educational visits for schools. We have to be very careful and we teach the children how to stay safe. We teach children to keep their arms and legs in the boat. The children eat their lunches a long way from the swamp!  All food stays in the recreation area. We don\'t want the kids to feed the crocodiles; it\'s too dangerous! We tell the kids to bring cameras and take a lot of photos. Seeing crocodiles is a unique experience.', x: 70, y: 240, lineWidth: 330, font:'14px Dosis',lineHeight: 25, align: 'left'}
+						{type: 'img',scale:0.5, id:'act4', name: 'act4_3', x: 420, y: 190}
+						{type: 'txt', id: 't3', text:'I started the Costa Crocodile Reserve about 5 years ago and now we have a team of about 12 people. We organize tours and educational visits for schools. We have to be very careful and we teach the children how to stay safe. We teach children to keep their arms and legs in the boat. The children eat their lunches a long way from the swamp!  All food stays in the recreation area. We don\'t want the kids to feed the crocodiles; it\'s too dangerous! We tell the kids to bring cameras and take a lot of photos. Seeing crocodiles is a unique experience.', x: 70, y: 225, lineWidth: 330, font:'14px Dosis',lineHeight: 25, align: 'left'}
 						{
 							type: 'btn', id: 'btnTrue3', x: 340, y: 555, index: true, target: 'lbl3', eval: @onClick
 							states:[img: {name:'true', x: 0, y: 0, align:'mc'}]
@@ -113,7 +113,7 @@ class U1A4 extends Oda
 							type: 'btn', id: 'btnFalse3', x: 460, y: 555, index: false, target: 'lbl3', eval: @onClick
 							states:[img: {name:'false', x: 0, y: 0, align:'mc'}]
 						}
-						{type: 'lbl', id: 'lbl3', x: 400, y: 490, font: '20px Quicksand', lineWidth:600, color: '#333', align: 'center'}
+						{type: 'lbl', id: 'lbl3', x: 400, y: 480, font: 'Bold 20px Quicksand', lineWidth:600, color: '#333', align: 'center'}
 					]
 					groups:[]
 				}

@@ -68,14 +68,14 @@ class U2A3 extends Oda
 							type: 'btn', id: 'repeat', x: 750, y: 515, isRepeat: true
 							states:[img: {name:'repeat', x: 0, y: 0, align:'tc'}]
 						}
-						{type: 'pcpt', id: 'pcpt1', x: 385, y: 190, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
-						{type: 'pcpt', id: 'pcpt2', x: 385, y: 225, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
-						{type: 'pcpt', id: 'pcpt3', x: 385, y: 260, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
-						{type: 'pcpt', id: 'pcpt4', x: 385, y: 295, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
-						{type: 'pcpt', id: 'pcpt5', x: 385, y: 330, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
-						{type: 'pcpt', id: 'pcpt6', x: 385, y: 365, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
-						{type: 'pcpt', id: 'pcpt7', x: 385, y: 400, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
-						{type: 'pcpt', id: 'pcpt8', x: 385, y: 435, font: '12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
+						{type: 'pcpt', id: 'pcpt1', x: 385, y: 190, font: 'Bold 12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
+						{type: 'pcpt', id: 'pcpt2', x: 385, y: 225, font: 'Bold 12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
+						{type: 'pcpt', id: 'pcpt3', x: 385, y: 260, font: 'Bold 12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
+						{type: 'pcpt', id: 'pcpt4', x: 385, y: 295, font: 'Bold 12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
+						{type: 'pcpt', id: 'pcpt5', x: 385, y: 330, font: 'Bold 12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
+						{type: 'pcpt', id: 'pcpt6', x: 385, y: 365, font: 'Bold 12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
+						{type: 'pcpt', id: 'pcpt7', x: 385, y: 400, font: 'Bold 12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
+						{type: 'pcpt', id: 'pcpt8', x: 385, y: 435, font: 'Bold 12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
 						 
 
 						{type: 'ldrg', id: 'ldrg1', x: 240,  y: 510, index: 'a party', text:'a party', font:'15px Quicksand', color:'#333', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}

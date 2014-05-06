@@ -27,12 +27,45 @@ class U9A4 extends Oda
 		@onDrop = (dispatcher, target) =>
 			d = lib[dispatcher]
 			t =  target.parent
-			if not @canDrop
-				d.afterFail()
-			if d.index is t.success
-				lib.scene.success()
+			
+			if @canDrop is true
+				
+				if t.name in ['p1', 'p4', 'p7']
+					console.log 'column uno'
+					if lib["p7"].sprite.currentFrame is 0
+						p = lib["p7"]
+					else if lib["p4"].sprite.currentFrame is 0
+						p = lib["p4"]	
+					else if lib["p1"].sprite.currentFrame is 0
+						p = lib["p1"]
+				else if t.name in ['p2', 'p5', 'p8']
+					console.log 'column dos'
+					if lib["p8"].sprite.currentFrame is 0
+						p = lib["p8"]
+					else if lib["p5"].sprite.currentFrame is 0
+						p = lib["p5"]
+					else if lib["p2"].sprite.currentFrame is 0
+						p = lib["p2"]
+				else if t.name in ['p3', 'p6', 'p9']
+					console.log 'column tres'
+					if lib["p9"].sprite.currentFrame is 0
+						p = lib["p9"]
+					else if lib["p6"].sprite.currentFrame is 0
+						p = lib["p6"]
+					else if lib["p3"].sprite.currentFrame is 0
+						p = lib["p3"]
+
+				if p.name in ['p7', 'p8', 'p9']
+					TweenLite.from p.sprite, 0.7, {y: -226}
+				else if p.name in ['p4', 'p5', 'p6']
+					TweenLite.from p.sprite, 0.4, {y: -138}
+				else if p.name in ['p1', 'p2', 'p3']
+					TweenLite.from p.sprite, 0.2, {y: -50}
+				p.goto 1
+				console.log p
+				lib.scene.nextStep()
 				d.afterSuccess()
-				t.goto 1
+				@canDrop = false
 				@evaluateWin()
 			else
 				d.afterFail()
@@ -42,17 +75,40 @@ class U9A4 extends Oda
 				createjs.Sound.play 's/good'
 				@canDrop = true
 			else
-				blank = new Array()
+				@blank = new Array()
 				for i in [1..9]
 					if lib["p#{i}"]
 						p = lib["p#{i}"]
-						if p.sprite.currentFrame is 0
-							blank.push p
-				rand = Math.round Math.random() * (blank.length - 1)
-				if blank.length > 0 then blank[rand].goto 2
+						@blank.push p
+				@random()
+
 				lib.scene.fail()
+				@canDrop = false
 				lib.scene.nextStep()
 				@evaluateWin()
+				
+		@random = () =>
+			rand = Math.round Math.random() * (2)
+			console.log rand
+
+			if @blank[rand + 6].sprite.currentFrame is 0 
+				p = @blank[rand + 6]
+			else if @blank[rand + 3].sprite.currentFrame is 0 
+				p = @blank[rand + 3]
+			else if @blank[rand].sprite.currentFrame is 0 
+				p = @blank[rand]
+			else 
+				@random()
+				return
+				
+			p.goto 2
+			if p.name in ['p7', 'p8', 'p9']
+					TweenLite.from p.sprite, 0.7, {y: -226}
+				else if p.name in ['p4', 'p5', 'p6']
+					TweenLite.from p.sprite, 0.4, {y: -138}
+				else if p.name in ['p1', 'p2', 'p3']
+					TweenLite.from p.sprite, 0.2, {y: -50}
+
 		@evaluateWin = () =>
 			if (@getFrame 'p1') is 2 and (@getFrame 'p2') is 2 and (@getFrame 'p3') is 2 then @scoreUp 'pc'
 			if (@getFrame 'p4') is 2 and (@getFrame 'p5') is 2 and (@getFrame 'p6') is 2 then @scoreUp 'pc'
@@ -71,22 +127,29 @@ class U9A4 extends Oda
 			if (@getFrame 'p3') is 1 and (@getFrame 'p6') is 1 and (@getFrame 'p9') is 1 then @scoreUp 'you'
 			if (@getFrame 'p1') is 1 and (@getFrame 'p5') is 1 and (@getFrame 'p9') is 1 then @scoreUp 'you'
 			if (@getFrame 'p3') is 1 and (@getFrame 'p5') is 1 and (@getFrame 'p7') is 1 then @scoreUp 'you'
+
+			if (@getFrame 'p1') isnt 0 and (@getFrame 'p2') isnt 0 and (@getFrame 'p3') isnt 0 and (@getFrame 'p4') isnt 0 and (@getFrame 'p5') isnt 0 and (@getFrame 'p6') isnt 0 and (@getFrame 'p7') isnt 0 and (@getFrame 'p8') isnt 0 and (@getFrame 'p9') isnt 0 then @reset()
 		@scoreUp = (type) =>
 			switch type
 				when 'pc'
 					@pc++
+					createjs.Sound.play 's/wrong'
 					lib.tverde.update {text: @pc}
 				when 'you'
 					@you++
+					createjs.Sound.play 's/good'
 					lib.tazul.update {text: @you}
 			if @pc >= 3 or @you >= 3
 				d2oda.methods.delay 2000, ->
 					lib.game.nextScene()
 			else
+
 				@reset()
 		@reset = () =>
-			for i in [1..9]
-				lib["p#{i}"].goto 0
+			d2oda.methods.delay 500, ->
+
+				for i in [1..9]
+					lib["p#{i}"].goto 0
 		@getFrame = (obj) =>
 			lib[obj].sprite.currentFrame
 		@game = 
@@ -134,7 +197,7 @@ class U9A4 extends Oda
 								{name: 'p7', opts:{success: '1', complete: true}}
 								{name: 'p8', opts:{success: '1', complete: true}}
 								{name: 'p9', opts:{success: '1', complete: true}}
-								{name: 'caw1', opts: {before:'Margaret and Gina', opt1:'are', opt2:'aren\'t', after:' coming to camp this year. // They are staying home.'}}
+								{name: 'caw1', opts: {before:'Margaret and Gina', opt1:'are', opt2:'aren\'t', after:'coming to camp this year.','#rtn','They are staying home.'}}
 							]
 							[
 								{name:'global', opts:{success:2}}
@@ -147,7 +210,7 @@ class U9A4 extends Oda
 								{name: 'p7', opts:{success: '1', complete: true}}
 								{name: 'p8', opts:{success: '1', complete: true}}
 								{name: 'p9', opts:{success: '1', complete: true}}
-								{name: 'caw1', opts: {before:'Samantha and Fred', opt1:'aren\'t', opt2:'are', after:' going horseback riding this afternoon. // They love horses!'}}
+								{name: 'caw1', opts: {before:'Samantha and Fred', opt1:'aren\'t', opt2:'are', after:' going horseback riding this afternoon.','#rtn','They love horses!'}}
 							]
 							[
 								{name:'global', opts:{success:2}}
@@ -173,7 +236,7 @@ class U9A4 extends Oda
 								{name: 'p7', opts:{success: '1', complete: true}}
 								{name: 'p8', opts:{success: '1', complete: true}}
 								{name: 'p9', opts:{success: '1', complete: true}}
-								{name: 'caw1', opts: {before:'You didn\'t finish your homework, Bill! // You', opt1:'are', opt2:'aren\'t', after:'going to go to the party!'}}
+								{name: 'caw1', opts: {before:'You didn\'t finish your homework, Bill!','#rtn','You', opt1:'are', opt2:'aren\'t', after:'going to go to the party!'}}
 							]
 							[
 								{name:'global', opts:{success:2}}
@@ -186,7 +249,7 @@ class U9A4 extends Oda
 								{name: 'p7', opts:{success: '1', complete: true}}
 								{name: 'p8', opts:{success: '1', complete: true}}
 								{name: 'p9', opts:{success: '1', complete: true}}
-								{name: 'caw1', opts: {before:'You', opt1:'aren\'t', opt2:'are', after:' going to go cycling this afternoon. // Get your helmet!'}}
+								{name: 'caw1', opts: {before:'You', opt1:'aren\'t', opt2:'are', after:' going to go cycling this afternoon.','#rtn','Get your helmet!'}}
 							]
 							[
 								{name:'global', opts:{success:2}}
@@ -212,7 +275,7 @@ class U9A4 extends Oda
 								{name: 'p7', opts:{success: '1', complete: true}}
 								{name: 'p8', opts:{success: '1', complete: true}}
 								{name: 'p9', opts:{success: '1', complete: true}}
-								{name: 'caw1', opts: {before:'I\'m', opt1:'going', opt2:'not going', after:'to eat hotdogs. // They make me sick.'}}
+								{name: 'caw1', opts: {before:'I\'m', opt1:'going', opt2:'not going', after:'to eat hotdogs.','#rtn','They make me sick.'}}
 							]
 							[
 								{name:'global', opts:{success:2}}
@@ -225,7 +288,7 @@ class U9A4 extends Oda
 								{name: 'p7', opts:{success: '1', complete: true}}
 								{name: 'p8', opts:{success: '1', complete: true}}
 								{name: 'p9', opts:{success: '1', complete: true}}
-								{name: 'caw1', opts: {before:'Yippee! Mom and Dad are', opt1:'not going', opt2:'going', after:' to bring my dog to camp. // I\'m so happy!'}}
+								{name: 'caw1', opts: {before:'Yippee! Mom and Dad are', opt1:'not going', opt2:'going', after:'to bring my dog to camp.','#rtn','I\'m so happy!'}}
 							]
 							[
 								{name:'global', opts:{success:2}}
@@ -277,7 +340,7 @@ class U9A4 extends Oda
 								{name: 'p7', opts:{success: '1', complete: true}}
 								{name: 'p8', opts:{success: '1', complete: true}}
 								{name: 'p9', opts:{success: '1', complete: true}}
-								{name: 'caw1', opts: {before:'Do you like fishing? // Yes, I', opt1:'do', opt2:'am', after:'.'}}
+								{name: 'caw1', opts: {before:'Do you like fishing?','#rtn','Yes, I', opt1:'do', opt2:'am', after:'.'}}
 							]
 							[
 								{name:'global', opts:{success:2}}
@@ -290,7 +353,7 @@ class U9A4 extends Oda
 								{name: 'p7', opts:{success: '1', complete: true}}
 								{name: 'p8', opts:{success: '1', complete: true}}
 								{name: 'p9', opts:{success: '1', complete: true}}
-								{name: 'caw1', opts: {before:'Where are you going to go canoeing? // On the', opt1:'mountain', opt2:'lake', after:'.'}}
+								{name: 'caw1', opts: {before:'Where are you going to go canoeing?','#rtn','On the', opt1:'mountain', opt2:'lake', after:'.'}}
 							]
 							[
 								{name:'global', opts:{success:2}}
@@ -303,7 +366,7 @@ class U9A4 extends Oda
 								{name: 'p7', opts:{success: '1', complete: true}}
 								{name: 'p8', opts:{success: '1', complete: true}}
 								{name: 'p9', opts:{success: '1', complete: true}}
-								{name: 'caw1', opts: {before:'Where are you going to go camping? // In a big', opt1:'nature', opt2:'tent', after:'.'}}
+								{name: 'caw1', opts: {before:'Where are you going to go camping?','#rtn','In a big', opt1:'nature', opt2:'tent', after:'.'}}
 							]
 							[
 								{name:'global', opts:{success:1}}
@@ -342,7 +405,7 @@ class U9A4 extends Oda
 								{name: 'p7', opts:{success: '1', complete: true}}
 								{name: 'p8', opts:{success: '1', complete: true}}
 								{name: 'p9', opts:{success: '1', complete: true}}
-								{name: 'caw1', opts: {before:'Are you going to go hiking in the mountains? // Yes, we', opt1:'are', opt2:'do', after:'.'}}
+								{name: 'caw1', opts: {before:'Are you going to go hiking in the mountains?','#rtn','Yes, we', opt1:'are', opt2:'do', after:'.'}}
 							]
 							[
 								{name:'global', opts:{success:2}}
@@ -355,14 +418,13 @@ class U9A4 extends Oda
 								{name: 'p7', opts:{success: '1', complete: true}}
 								{name: 'p8', opts:{success: '1', complete: true}}
 								{name: 'p9', opts:{success: '1', complete: true}}
-								{name: 'caw1', opts: {before:'', opt1:'Do', opt2:'Are', after:' you going to take insect repellent? // Yes, we are.'}}
+								{name: 'caw1', opts: {before:'', opt1:'Do', opt2:'Are', after:' you going to take insect repellent?','#rtn','Yes, we are.'}}
 							]
 						]
 						mixed: true
 						type: 'steps'
 					}
 					containers:[
-						{type: 'img', id: 'threeinarow', x: 420, y: 350, align: 'mc'}
 						{type: 'img', id: 'mazul', x: 80, y: 250}
 						{type: 'img', id: 'mverde', x: 80, y: 350}
 						{type: 'txt', id: 'tazul', text:'0', x: 178, y: 275, font:'24px Quicksand', align: 'center'}
@@ -372,6 +434,17 @@ class U9A4 extends Oda
 							label:{font:'18px Quicksand', color:'#444'}
 							bullets:{font:'18px Quicksand', color: '#000'}
 						}
+
+						{type: 'img', id: 'pbase', x: 278, y: 233}
+						{type: 'img', id: 'pbase', x: 380, y: 233}
+						{type: 'img', id: 'pbase', x: 482, y: 233}
+						{type: 'img', id: 'pbase', x: 278, y: 321}
+						{type: 'img', id: 'pbase', x: 380, y: 321}
+						{type: 'img', id: 'pbase', x: 482, y: 321}
+						{type: 'img', id: 'pbase', x: 278, y: 409}
+						{type: 'img', id: 'pbase', x: 380, y: 409}
+						{type: 'img', id: 'pbase', x: 482, y: 409}
+
 						{type: 'spr', id: 'p1', imgs: ['pbase','pazul','pverde'], frames: null, x: 278, y: 233}
 						{type: 'spr', id: 'p2', imgs: ['pbase','pazul','pverde'], frames: null, x: 380, y: 233}
 						{type: 'spr', id: 'p3', imgs: ['pbase','pazul','pverde'], frames: null, x: 482, y: 233}
@@ -381,12 +454,17 @@ class U9A4 extends Oda
 						{type: 'spr', id: 'p7', imgs: ['pbase','pazul','pverde'], frames: null, x: 278, y: 409}
 						{type: 'spr', id: 'p8', imgs: ['pbase','pazul','pverde'], frames: null, x: 380, y: 409}
 						{type: 'spr', id: 'p9', imgs: ['pbase','pazul','pverde'], frames: null, x: 482, y: 409}
-						{type: 'drg', id: '1', x: 670, y: 200, align:'mc', index: '1', target: ['p1','p2','p3','p4','p5','p6','p7','p8','p9'], eval: @onDrop, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'drg', id: '2', x: 670, y: 290, align:'mc', index: '1', target: ['p1','p2','p3','p4','p5','p6','p7','p8','p9'], eval: @onDrop, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'drg', id: '3', x: 670, y: 380, align:'mc', index: '1', target: ['p1','p2','p3','p4','p5','p6','p7','p8','p9'], eval: @onDrop, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'drg', id: '4', x: 670, y: 470, align:'mc', index: '1', target: ['p1','p2','p3','p4','p5','p6','p7','p8','p9'], eval: @onDrop, afterSuccess: 'origin', afterFail: 'return'}
+
 						
 						
+						{type: 'drg', id: 'pazul', x: 80, y: 260, index: '1', target: ['p1','p2','p3','p4','p5','p6','p7','p8','p9'], eval: @onDrop, afterSuccess: 'origin', afterFail: 'return'}
+
+						{type: 'img', id: '1', x: 670, y: 200, align:'mc'}
+						{type: 'img', id: '2', x: 670, y: 290, align:'mc'}
+						{type: 'img', id: '3', x: 670, y: 380, align:'mc'}
+						{type: 'img', id: '4', x: 670, y: 470, align:'mc'}
+						
+						{type: 'img', id: 'threeinarow', x: 420, y: 350, align: 'mc'}
 					]
 					groups:[]
 				}

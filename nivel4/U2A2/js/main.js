@@ -66,44 +66,109 @@ NEW ODA
       this.you = 0;
       this.canDrop = false;
       this.onDrop = function(dispatcher, target) {
-        var d, t;
+        var d, p, t, _ref, _ref1, _ref2, _ref3, _ref4, _ref5;
         d = lib[dispatcher];
         t = target.parent;
-        if (!_this.canDrop) {
-          d.afterFail();
-        }
-        if (d.index === t.success) {
-          lib.scene.success();
+        if (_this.canDrop === true) {
+          if ((_ref = t.name) === 'p1' || _ref === 'p4' || _ref === 'p7') {
+            console.log('column uno');
+            if (lib["p7"].sprite.currentFrame === 0) {
+              p = lib["p7"];
+            } else if (lib["p4"].sprite.currentFrame === 0) {
+              p = lib["p4"];
+            } else if (lib["p1"].sprite.currentFrame === 0) {
+              p = lib["p1"];
+            }
+          } else if ((_ref1 = t.name) === 'p2' || _ref1 === 'p5' || _ref1 === 'p8') {
+            console.log('column dos');
+            if (lib["p8"].sprite.currentFrame === 0) {
+              p = lib["p8"];
+            } else if (lib["p5"].sprite.currentFrame === 0) {
+              p = lib["p5"];
+            } else if (lib["p2"].sprite.currentFrame === 0) {
+              p = lib["p2"];
+            }
+          } else if ((_ref2 = t.name) === 'p3' || _ref2 === 'p6' || _ref2 === 'p9') {
+            console.log('column tres');
+            if (lib["p9"].sprite.currentFrame === 0) {
+              p = lib["p9"];
+            } else if (lib["p6"].sprite.currentFrame === 0) {
+              p = lib["p6"];
+            } else if (lib["p3"].sprite.currentFrame === 0) {
+              p = lib["p3"];
+            }
+          }
+          if ((_ref3 = p.name) === 'p7' || _ref3 === 'p8' || _ref3 === 'p9') {
+            TweenLite.from(p.sprite, 0.7, {
+              y: -226
+            });
+          } else if ((_ref4 = p.name) === 'p4' || _ref4 === 'p5' || _ref4 === 'p6') {
+            TweenLite.from(p.sprite, 0.4, {
+              y: -138
+            });
+          } else if ((_ref5 = p.name) === 'p1' || _ref5 === 'p2' || _ref5 === 'p3') {
+            TweenLite.from(p.sprite, 0.2, {
+              y: -50
+            });
+          }
+          p.goto(1);
+          console.log(p);
+          lib.scene.nextStep();
           d.afterSuccess();
-          t.goto(1);
+          _this.canDrop = false;
           return _this.evaluateWin();
         } else {
           return d.afterFail();
         }
       };
       this.onChoose = function(dispatcher) {
-        var blank, d, i, p, rand, _i;
+        var d, i, p, _i;
         d = lib[dispatcher];
         if (d.index === d2oda.evaluator.success) {
           createjs.Sound.play('s/good');
           return _this.canDrop = true;
         } else {
-          blank = new Array();
+          _this.blank = new Array();
           for (i = _i = 1; _i <= 9; i = ++_i) {
             if (lib["p" + i]) {
               p = lib["p" + i];
-              if (p.sprite.currentFrame === 0) {
-                blank.push(p);
-              }
+              _this.blank.push(p);
             }
           }
-          rand = Math.round(Math.random() * (blank.length - 1));
-          if (blank.length > 0) {
-            blank[rand].goto(2);
-          }
+          _this.random();
           lib.scene.fail();
+          _this.canDrop = false;
           lib.scene.nextStep();
           return _this.evaluateWin();
+        }
+      };
+      this.random = function() {
+        var p, rand, _ref, _ref1, _ref2;
+        rand = Math.round(Math.random() * 2.);
+        console.log(rand);
+        if (_this.blank[rand + 6].sprite.currentFrame === 0) {
+          p = _this.blank[rand + 6];
+        } else if (_this.blank[rand + 3].sprite.currentFrame === 0) {
+          p = _this.blank[rand + 3];
+        } else if (_this.blank[rand].sprite.currentFrame === 0) {
+          p = _this.blank[rand];
+        } else {
+          _this.random();
+          return;
+        }
+        p.goto(2);
+        if ((_ref = p.name) === 'p7' || _ref === 'p8' || _ref === 'p9') {
+          return TweenLite.from(p.sprite, 0.7, {
+            y: -226
+          });
+        } else if ((_ref1 = p.name) === 'p4' || _ref1 === 'p5' || _ref1 === 'p6') {
+          return TweenLite.from(p.sprite, 0.4, {
+            y: -138
+          });
+        } else if ((_ref2 = p.name) === 'p1' || _ref2 === 'p2' || _ref2 === 'p3') {
+          return TweenLite.from(p.sprite, 0.2, {
+            y: -50
+          });
         }
       };
       this.evaluateWin = function() {
@@ -153,19 +218,24 @@ NEW ODA
           _this.scoreUp('you');
         }
         if ((_this.getFrame('p3')) === 1 && (_this.getFrame('p5')) === 1 && (_this.getFrame('p7')) === 1) {
-          return _this.scoreUp('you');
+          _this.scoreUp('you');
+        }
+        if ((_this.getFrame('p1')) !== 0 && (_this.getFrame('p2')) !== 0 && (_this.getFrame('p3')) !== 0 && (_this.getFrame('p4')) !== 0 && (_this.getFrame('p5')) !== 0 && (_this.getFrame('p6')) !== 0 && (_this.getFrame('p7')) !== 0 && (_this.getFrame('p8')) !== 0 && (_this.getFrame('p9')) !== 0) {
+          return _this.reset();
         }
       };
       this.scoreUp = function(type) {
         switch (type) {
           case 'pc':
             _this.pc++;
+            createjs.Sound.play('s/wrong');
             lib.tverde.update({
               text: _this.pc
             });
             break;
           case 'you':
             _this.you++;
+            createjs.Sound.play('s/good');
             lib.tazul.update({
               text: _this.you
             });
@@ -179,12 +249,14 @@ NEW ODA
         }
       };
       this.reset = function() {
-        var i, _i, _results;
-        _results = [];
-        for (i = _i = 1; _i <= 9; i = ++_i) {
-          _results.push(lib["p" + i].goto(0));
-        }
-        return _results;
+        return d2oda.methods.delay(500, function() {
+          var i, _i, _results;
+          _results = [];
+          for (i = _i = 1; _i <= 9; i = ++_i) {
+            _results.push(lib["p" + i].goto(0));
+          }
+          return _results;
+        });
       };
       this.getFrame = function(obj) {
         return lib[obj].sprite.currentFrame;
@@ -1329,27 +1401,21 @@ NEW ODA
             containers: [
               {
                 type: 'img',
-                id: 'threeinarow',
-                x: 420,
-                y: 350,
-                align: 'mc'
+                id: 'mverde',
+                x: 80,
+                y: 350
               }, {
                 type: 'img',
                 id: 'mazul',
                 x: 80,
                 y: 250
               }, {
-                type: 'img',
-                id: 'mverde',
-                x: 80,
-                y: 350
-              }, {
                 type: 'txt',
                 id: 'tazul',
                 text: '0',
                 x: 178,
                 y: 275,
-                font: '24px Quicksand',
+                font: 'Bold 24px Quicksand',
                 align: 'center'
               }, {
                 type: 'txt',
@@ -1357,7 +1423,7 @@ NEW ODA
                 text: '0',
                 x: 182,
                 y: 375,
-                font: '24px Quicksand',
+                font: 'Bold 24px Quicksand',
                 align: 'center'
               }, {
                 type: 'caw',
@@ -1368,13 +1434,58 @@ NEW ODA
                 target: 'global',
                 "eval": this.onChoose,
                 label: {
-                  font: '18px Quicksand',
+                  font: 'Bold 18px Quicksand',
                   color: '#444'
                 },
                 bullets: {
                   font: '18px Quicksand',
                   color: '#000'
                 }
+              }, {
+                type: 'img',
+                id: 'pbase',
+                x: 278,
+                y: 233
+              }, {
+                type: 'img',
+                id: 'pbase',
+                x: 380,
+                y: 233
+              }, {
+                type: 'img',
+                id: 'pbase',
+                x: 482,
+                y: 233
+              }, {
+                type: 'img',
+                id: 'pbase',
+                x: 278,
+                y: 321
+              }, {
+                type: 'img',
+                id: 'pbase',
+                x: 380,
+                y: 321
+              }, {
+                type: 'img',
+                id: 'pbase',
+                x: 482,
+                y: 321
+              }, {
+                type: 'img',
+                id: 'pbase',
+                x: 278,
+                y: 409
+              }, {
+                type: 'img',
+                id: 'pbase',
+                x: 380,
+                y: 409
+              }, {
+                type: 'img',
+                id: 'pbase',
+                x: 482,
+                y: 409
               }, {
                 type: 'spr',
                 id: 'p1',
@@ -1439,60 +1550,51 @@ NEW ODA
                 x: 482,
                 y: 409
               }, {
-                type: 'drg',
+                type: 'img',
                 id: 'binoculars',
                 x: 670,
                 y: 200,
-                align: 'mc',
-                index: '1',
-                target: ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9'],
-                "eval": this.onDrop,
-                afterSuccess: 'origin',
-                afterFail: 'return'
+                align: 'mc'
               }, {
-                type: 'drg',
+                type: 'img',
                 id: 'compass',
                 x: 670,
                 y: 270,
-                align: 'mc',
-                index: '1',
-                target: ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9'],
-                "eval": this.onDrop,
-                afterSuccess: 'origin',
-                afterFail: 'return'
+                align: 'mc'
               }, {
-                type: 'drg',
+                type: 'img',
                 id: 'knife',
                 x: 670,
                 y: 340,
-                align: 'mc',
-                index: '1',
-                target: ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9'],
-                "eval": this.onDrop,
-                afterSuccess: 'origin',
-                afterFail: 'return'
+                align: 'mc'
               }, {
-                type: 'drg',
+                type: 'img',
                 id: 'string',
                 x: 670,
                 y: 410,
-                align: 'mc',
+                align: 'mc'
+              }, {
+                type: 'img',
+                id: 'whistle',
+                x: 670,
+                y: 480,
+                align: 'mc'
+              }, {
+                type: 'drg',
+                id: 'pazul',
+                x: 80,
+                y: 260,
                 index: '1',
                 target: ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9'],
                 "eval": this.onDrop,
                 afterSuccess: 'origin',
                 afterFail: 'return'
               }, {
-                type: 'drg',
-                id: 'whistle',
-                x: 670,
-                y: 480,
-                align: 'mc',
-                index: '1',
-                target: ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9'],
-                "eval": this.onDrop,
-                afterSuccess: 'origin',
-                afterFail: 'return'
+                type: 'img',
+                id: 'threeinarow',
+                x: 420,
+                y: 350,
+                align: 'mc'
               }
             ],
             groups: []

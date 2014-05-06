@@ -28,12 +28,45 @@ class U2A2 extends Oda
 		@onDrop = (dispatcher, target) =>
 			d = lib[dispatcher]
 			t =  target.parent
-			if not @canDrop
-				d.afterFail()
-			if d.index is t.success
-				lib.scene.success()
+			
+			if @canDrop is true
+				
+				if t.name in ['p1', 'p4', 'p7']
+					console.log 'column uno'
+					if lib["p7"].sprite.currentFrame is 0
+						p = lib["p7"]
+					else if lib["p4"].sprite.currentFrame is 0
+						p = lib["p4"]	
+					else if lib["p1"].sprite.currentFrame is 0
+						p = lib["p1"]
+				else if t.name in ['p2', 'p5', 'p8']
+					console.log 'column dos'
+					if lib["p8"].sprite.currentFrame is 0
+						p = lib["p8"]
+					else if lib["p5"].sprite.currentFrame is 0
+						p = lib["p5"]
+					else if lib["p2"].sprite.currentFrame is 0
+						p = lib["p2"]
+				else if t.name in ['p3', 'p6', 'p9']
+					console.log 'column tres'
+					if lib["p9"].sprite.currentFrame is 0
+						p = lib["p9"]
+					else if lib["p6"].sprite.currentFrame is 0
+						p = lib["p6"]
+					else if lib["p3"].sprite.currentFrame is 0
+						p = lib["p3"]
+
+				if p.name in ['p7', 'p8', 'p9']
+					TweenLite.from p.sprite, 0.7, {y: -226}
+				else if p.name in ['p4', 'p5', 'p6']
+					TweenLite.from p.sprite, 0.4, {y: -138}
+				else if p.name in ['p1', 'p2', 'p3']
+					TweenLite.from p.sprite, 0.2, {y: -50}
+				p.goto 1
+				console.log p
+				lib.scene.nextStep()
 				d.afterSuccess()
-				t.goto 1
+				@canDrop = false
 				@evaluateWin()
 			else
 				d.afterFail()
@@ -43,17 +76,40 @@ class U2A2 extends Oda
 				createjs.Sound.play 's/good'
 				@canDrop = true
 			else
-				blank = new Array()
+				@blank = new Array()
 				for i in [1..9]
 					if lib["p#{i}"]
 						p = lib["p#{i}"]
-						if p.sprite.currentFrame is 0
-							blank.push p
-				rand = Math.round Math.random() * (blank.length - 1)
-				if blank.length > 0 then blank[rand].goto 2
+						@blank.push p
+				@random()
+
 				lib.scene.fail()
+				@canDrop = false
 				lib.scene.nextStep()
 				@evaluateWin()
+				
+		@random = () =>
+			rand = Math.round Math.random() * (2)
+			console.log rand
+
+			if @blank[rand + 6].sprite.currentFrame is 0 
+				p = @blank[rand + 6]
+			else if @blank[rand + 3].sprite.currentFrame is 0 
+				p = @blank[rand + 3]
+			else if @blank[rand].sprite.currentFrame is 0 
+				p = @blank[rand]
+			else 
+				@random()
+				return
+				
+			p.goto 2
+			if p.name in ['p7', 'p8', 'p9']
+					TweenLite.from p.sprite, 0.7, {y: -226}
+				else if p.name in ['p4', 'p5', 'p6']
+					TweenLite.from p.sprite, 0.4, {y: -138}
+				else if p.name in ['p1', 'p2', 'p3']
+					TweenLite.from p.sprite, 0.2, {y: -50}
+
 		@evaluateWin = () =>
 			if (@getFrame 'p1') is 2 and (@getFrame 'p2') is 2 and (@getFrame 'p3') is 2 then @scoreUp 'pc'
 			if (@getFrame 'p4') is 2 and (@getFrame 'p5') is 2 and (@getFrame 'p6') is 2 then @scoreUp 'pc'
@@ -72,22 +128,29 @@ class U2A2 extends Oda
 			if (@getFrame 'p3') is 1 and (@getFrame 'p6') is 1 and (@getFrame 'p9') is 1 then @scoreUp 'you'
 			if (@getFrame 'p1') is 1 and (@getFrame 'p5') is 1 and (@getFrame 'p9') is 1 then @scoreUp 'you'
 			if (@getFrame 'p3') is 1 and (@getFrame 'p5') is 1 and (@getFrame 'p7') is 1 then @scoreUp 'you'
+
+			if (@getFrame 'p1') isnt 0 and (@getFrame 'p2') isnt 0 and (@getFrame 'p3') isnt 0 and (@getFrame 'p4') isnt 0 and (@getFrame 'p5') isnt 0 and (@getFrame 'p6') isnt 0 and (@getFrame 'p7') isnt 0 and (@getFrame 'p8') isnt 0 and (@getFrame 'p9') isnt 0 then @reset()
 		@scoreUp = (type) =>
 			switch type
 				when 'pc'
 					@pc++
+					createjs.Sound.play 's/wrong'
 					lib.tverde.update {text: @pc}
 				when 'you'
 					@you++
+					createjs.Sound.play 's/good'
 					lib.tazul.update {text: @you}
 			if @pc >= 3 or @you >= 3
 				d2oda.methods.delay 2000, ->
 					lib.game.nextScene()
 			else
+
 				@reset()
 		@reset = () =>
-			for i in [1..9]
-				lib["p#{i}"].goto 0
+			d2oda.methods.delay 500, ->
+
+				for i in [1..9]
+					lib["p#{i}"].goto 0
 		@getFrame = (obj) =>
 			lib[obj].sprite.currentFrame
 		@game = 
@@ -311,16 +374,26 @@ class U2A2 extends Oda
 						type: 'steps'
 					}
 					containers:[
-						{type: 'img', id: 'threeinarow', x: 420, y: 350, align: 'mc'}
-						{type: 'img', id: 'mazul', x: 80, y: 250}
 						{type: 'img', id: 'mverde', x: 80, y: 350}
-						{type: 'txt', id: 'tazul', text:'0', x: 178, y: 275, font:'24px Quicksand', align: 'center'}
-						{type: 'txt', id: 'tverde', text:'0', x: 182, y: 375, font:'24px Quicksand', align: 'center'}
+						{type: 'img', id: 'mazul', x: 80, y: 250}
+						{type: 'txt', id: 'tazul', text:'0', x: 178, y: 275, font:'Bold 24px Quicksand', align: 'center'}
+						{type: 'txt', id: 'tverde', text:'0', x: 182, y: 375, font:'Bold 24px Quicksand', align: 'center'}
 						{
 							type: 'caw', id: 'caw1', x: 415, y: 530, align: 'tc', target: 'global', eval: @onChoose
-							label:{font:'18px Quicksand', color:'#444'}
+							label:{font:'Bold 18px Quicksand', color:'#444'}
 							bullets:{font:'18px Quicksand', color: '#000'}
 						}
+
+						{type: 'img', id: 'pbase', x: 278, y: 233}
+						{type: 'img', id: 'pbase', x: 380, y: 233}
+						{type: 'img', id: 'pbase', x: 482, y: 233}
+						{type: 'img', id: 'pbase', x: 278, y: 321}
+						{type: 'img', id: 'pbase', x: 380, y: 321}
+						{type: 'img', id: 'pbase', x: 482, y: 321}
+						{type: 'img', id: 'pbase', x: 278, y: 409}
+						{type: 'img', id: 'pbase', x: 380, y: 409}
+						{type: 'img', id: 'pbase', x: 482, y: 409}
+						
 						{type: 'spr', id: 'p1', imgs: ['pbase','pazul','pverde'], frames: null, x: 278, y: 233}
 						{type: 'spr', id: 'p2', imgs: ['pbase','pazul','pverde'], frames: null, x: 380, y: 233}
 						{type: 'spr', id: 'p3', imgs: ['pbase','pazul','pverde'], frames: null, x: 482, y: 233}
@@ -330,12 +403,16 @@ class U2A2 extends Oda
 						{type: 'spr', id: 'p7', imgs: ['pbase','pazul','pverde'], frames: null, x: 278, y: 409}
 						{type: 'spr', id: 'p8', imgs: ['pbase','pazul','pverde'], frames: null, x: 380, y: 409}
 						{type: 'spr', id: 'p9', imgs: ['pbase','pazul','pverde'], frames: null, x: 482, y: 409}
-						{type: 'drg', id: 'binoculars', x: 670, y: 200, align:'mc', index: '1', target: ['p1','p2','p3','p4','p5','p6','p7','p8','p9'], eval: @onDrop, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'drg', id: 'compass', x: 670, y: 270, align:'mc', index: '1', target: ['p1','p2','p3','p4','p5','p6','p7','p8','p9'], eval: @onDrop, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'drg', id: 'knife', x: 670, y: 340, align:'mc', index: '1', target: ['p1','p2','p3','p4','p5','p6','p7','p8','p9'], eval: @onDrop, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'drg', id: 'string', x: 670, y: 410, align:'mc', index: '1', target: ['p1','p2','p3','p4','p5','p6','p7','p8','p9'], eval: @onDrop, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'drg', id: 'whistle', x: 670, y: 480, align:'mc', index: '1', target: ['p1','p2','p3','p4','p5','p6','p7','p8','p9'], eval: @onDrop, afterSuccess: 'origin', afterFail: 'return'}
+
+						{type: 'img', id: 'binoculars', x: 670, y: 200, align: 'mc'}
+						{type: 'img', id: 'compass', x: 670, y: 270, align: 'mc'}
+						{type: 'img', id: 'knife', x: 670, y: 340, align: 'mc'}
+						{type: 'img', id: 'string', x: 670, y: 410, align: 'mc'}
+						{type: 'img', id: 'whistle', x: 670, y: 480, align: 'mc'}
 						
+						{type: 'drg', id: 'pazul', x: 80, y: 260, index: '1', target: ['p1','p2','p3','p4','p5','p6','p7','p8','p9'], eval: @onDrop, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'img', id: 'threeinarow', x: 420, y: 350, align: 'mc'}
+
 					]
 					groups:[]
 				}

@@ -76,7 +76,7 @@ class U1A2 extends Oda
 			###
 		@game = 
 			header: 'header' 
-			instructions: {x: 110, y: 130, states: [{text:['Read and write','#ital','or','#ital'], italics: ['should', 'shouldn\'t.'], sound:'s/silence', played: false, custom:true}]}
+			instructions: {x: 110, y: 130, states: [{text:['Read and write','#ital','or','#ital'],italics:['should','shouldn\'t.'], sound:'s/silence', played: false, custom:true}]}
 			score:{type: 'points', x:20, y:500, init: 0, total: 12, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
 			scenes:[
 				{
@@ -174,19 +174,19 @@ class U1A2 extends Oda
 						{type: 'img', id: 'swim', x: 400, y: 328, align: 'mc'}
 						{type: 'img', id: 'globo1', x: 260, y: 520, align: 'mc'}
 						{type: 'img', id: 'globo2', x: 530, y: 520, align: 'mc'}
-						{type: 'txt', id: 't1', text:'Good dog! Have some of my cookie.', x: 165, y: 505, lineWidth: 200, font:'16px Quicksand', align: 'left'}
-						{type: 'txt', id: 't2', text:'It\'s nice to be outside.', x: 165, y: 505, lineWidth: 200, font:'16px Quicksand', align: 'left'}
-						{type: 'txt', id: 't3', text:'Dad, it hurts!', x: 165, y: 505, lineWidth: 200, font:'16px Quicksand', align: 'left'}
-						{type: 'txt', id: 't4', text:'Mom, the cookies are ready!', x: 165, y: 505, lineWidth: 200, font:'16px Quicksand', align: 'left'}
-						{type: 'txt', id: 't5', text:'Mom, there\'s a lot of cat hair on the sofa.', x: 165, y: 505, lineWidth: 200, font:'16px Quicksand', align: 'left'}
-						{type: 'txt', id: 't6', text:'I was thirsty, so I got a big soda!', x: 165, y: 505, lineWidth: 200, font:'16px Quicksand', align: 'left'}
-						{type: 'txt', id: 't7', text:'Come, doggie!', x: 165, y: 505, lineWidth: 200, font:'16px Quicksand', align: 'left'}
-						{type: 'txt', id: 't8', text:'It\'s so nice in the sun.', x: 165, y: 505, lineWidth: 200, font:'16px Quicksand', align: 'left'}
-						{type: 'txt', id: 't9', text:'I feel terrible, Mom.', x: 165, y: 505, lineWidth: 200, font:'16px Quicksand', align: 'left'}
-						{type: 'txt', id: 't10', text:'I love this food!', x: 165, y: 505, lineWidth: 200, font:'16px Quicksand', align: 'left'}
-						{type: 'txt', id: 't11', text:'I don\'t have a lot of homework, Dad.', x: 165, y: 505, lineWidth: 200, font:'16px Quicksand', align: 'left'}
-						{type: 'txt', id: 't12', text:'Mom, can I swim now?', x: 165, y: 505, lineWidth: 200, font:'16px Quicksand', align: 'left'}
-						{type: 'pcpt',lineHeight: 25, id: 'pcpt1', x: 390, y: 510, font: '16px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A'}
+						{type: 'txt', id: 't1', text:'Good dog! Have some of my cookie.', x: 165, y: 505, lineWidth: 200, font:'Bold 16px Quicksand', align: 'left'}
+						{type: 'txt', id: 't2', text:'It\'s nice to be outside.', x: 165, y: 505, lineWidth: 200, font:'Bold 16px Quicksand', align: 'left'}
+						{type: 'txt', id: 't3', text:'Dad, it hurts!', x: 165, y: 505, lineWidth: 200, font:'Bold 16px Quicksand', align: 'left'}
+						{type: 'txt', id: 't4', text:'Mom, the cookies are ready!', x: 165, y: 505, lineWidth: 200, font:'Bold 16px Quicksand', align: 'left'}
+						{type: 'txt', id: 't5', text:'Mom, there\'s a lot of cat hair on the sofa.', x: 165, y: 505, lineWidth: 200, font:'Bold 16px Quicksand', align: 'left'}
+						{type: 'txt', id: 't6', text:'I was thirsty, so I got a big soda!', x: 165, y: 505, lineWidth: 200, font:'Bold 16px Quicksand', align: 'left'}
+						{type: 'txt', id: 't7', text:'Come, doggie!', x: 165, y: 505, lineWidth: 200, font:'Bold 16px Quicksand', align: 'left'}
+						{type: 'txt', id: 't8', text:'It\'s so nice in the sun.', x: 165, y: 505, lineWidth: 200, font:'Bold 16px Quicksand', align: 'left'}
+						{type: 'txt', id: 't9', text:'I feel terrible, Mom.', x: 165, y: 505, lineWidth: 200, font:'Bold 16px Quicksand', align: 'left'}
+						{type: 'txt', id: 't10', text:'I love this food!', x: 165, y: 505, lineWidth: 200, font:'Bold 16px Quicksand', align: 'left'}
+						{type: 'txt', id: 't11', text:'I don\'t have a lot of homework, Dad.', x: 165, y: 505, lineWidth: 200, font:'Bold 16px Quicksand', align: 'left'}
+						{type: 'txt', id: 't12', text:'Mom, can I swim now?', x: 165, y: 505, lineWidth: 200, font:'Bold 16px Quicksand', align: 'left'}
+						{type: 'pcpt',lineHeight: 25, id: 'pcpt1', x: 390, y: 510, font: 'Bold 16px Quicksand', margin: 5, align: 'tl', scolor: '#F9101A'}
 					]
 					groups:[
 						{

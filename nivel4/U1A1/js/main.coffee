@@ -39,7 +39,7 @@ class U1A1 extends Oda
 				lib.scene.fail()
 		@game = 
 			header: 'header'
-			instructions: {x: 110, y: 130, states: [{text:'Read and write the correct words.', sound:'s/silence', played: false}]}
+			instructions: {x: 110, y: 127, states: [{text:'Read and choose the correct words.', sound:'s/silence', played: false}]}
 			score:{type: 'points', x:20, y:500, init: 0, total: 12, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
 			scenes:[
 				{
@@ -110,7 +110,7 @@ class U1A1 extends Oda
 						{type: 'img', id: 'stomachache', x: 433, y: 328, align: 'mc'}
 						{type: 'img', id: 'thirsty', x: 433, y: 328, align: 'mc'}
 						{type: 'img', id: 'toothache', x: 433, y: 328, align: 'mc'}
-						{type: 'pcpt', id: 'pcpt1', x: 433, y: 510, font: '20px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A'}
+						{type: 'pcpt', id: 'pcpt1', x: 433, y: 510, font: 'Bold 20px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A'}
 						{
 							type: 'btn', id: 'btn_1', x: 140, y: 155, index: 'aspirin', target: 'pcpt1', eval: @btnClick
 							states: [{txt: {text:'aspirin', name:'aspirin', x:0, y:0, align:'center', font: '20px Quicksand'}}]
