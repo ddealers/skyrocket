@@ -886,10 +886,10 @@ class Instructions extends Component
 			for texto in @states[@currentState].text
 				if texto is '#ital'
 
-					@label = new createjs.Text @states[@currentState].italics[it], 'italic 15px Roboto', '#000'
+					@label = new createjs.Text @states[@currentState].italics[it], 'italic 19px Roboto', '#000'
 					it++
 				else 
-					@label = new createjs.Text texto, '15px Roboto', '#000'
+					@label = new createjs.Text texto, '19px Roboto', '#000'
 				@label.x = npos
 				@addChild @label
 				console.log @label
@@ -897,7 +897,7 @@ class Instructions extends Component
 				
 
 		else
-			@label = new createjs.Text @states[@currentState].text, '15px Roboto', '#000'
+			@label = new createjs.Text @states[@currentState].text, '19px Roboto', '#000'
 			@label.x = 14
 			@addChild @label
 		@addChild triangle

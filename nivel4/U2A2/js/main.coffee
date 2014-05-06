@@ -105,22 +105,29 @@ class U2A2 extends Oda
 			if (@getFrame 'p3') is 1 and (@getFrame 'p6') is 1 and (@getFrame 'p9') is 1 then @scoreUp 'you'
 			if (@getFrame 'p1') is 1 and (@getFrame 'p5') is 1 and (@getFrame 'p9') is 1 then @scoreUp 'you'
 			if (@getFrame 'p3') is 1 and (@getFrame 'p5') is 1 and (@getFrame 'p7') is 1 then @scoreUp 'you'
+
+			if (@getFrame 'p1') isnt 0 and (@getFrame 'p2') isnt 0 and (@getFrame 'p3') isnt 0 and (@getFrame 'p4') isnt 0 and (@getFrame 'p5') isnt 0 and (@getFrame 'p6') isnt 0 and (@getFrame 'p7') isnt 0 and (@getFrame 'p8') isnt 0 and (@getFrame 'p9') isnt 0 then @reset()
 		@scoreUp = (type) =>
 			switch type
 				when 'pc'
 					@pc++
+					createjs.Sound.play 's/wrong'
 					lib.tverde.update {text: @pc}
 				when 'you'
 					@you++
+					createjs.Sound.play 's/good'
 					lib.tazul.update {text: @you}
 			if @pc >= 3 or @you >= 3
 				d2oda.methods.delay 2000, ->
 					lib.game.nextScene()
 			else
+
 				@reset()
 		@reset = () =>
-			for i in [1..9]
-				lib["p#{i}"].goto 0
+			d2oda.methods.delay 500, ->
+
+				for i in [1..9]
+					lib["p#{i}"].goto 0
 		@getFrame = (obj) =>
 			lib[obj].sprite.currentFrame
 		@game = 
@@ -344,9 +351,8 @@ class U2A2 extends Oda
 						type: 'steps'
 					}
 					containers:[
-						{type: 'img', id: 'threeinarow', x: 420, y: 350, align: 'mc'}
-						{type: 'img', id: 'mazul', x: 80, y: 250}
 						{type: 'img', id: 'mverde', x: 80, y: 350}
+						{type: 'img', id: 'mazul', x: 80, y: 250}
 						{type: 'txt', id: 'tazul', text:'0', x: 178, y: 275, font:'24px Quicksand', align: 'center'}
 						{type: 'txt', id: 'tverde', text:'0', x: 182, y: 375, font:'24px Quicksand', align: 'center'}
 						{
@@ -354,6 +360,7 @@ class U2A2 extends Oda
 							label:{font:'18px Quicksand', color:'#444'}
 							bullets:{font:'18px Quicksand', color: '#000'}
 						}
+						{type: 'img', id: 'threeinarow', x: 420, y: 350, align: 'mc'}
 						{type: 'spr', id: 'p1', imgs: ['pbase','pazul','pverde'], frames: null, x: 278, y: 233}
 						{type: 'spr', id: 'p2', imgs: ['pbase','pazul','pverde'], frames: null, x: 380, y: 233}
 						{type: 'spr', id: 'p3', imgs: ['pbase','pazul','pverde'], frames: null, x: 482, y: 233}

@@ -193,19 +193,24 @@ NEW ODA
           _this.scoreUp('you');
         }
         if ((_this.getFrame('p3')) === 1 && (_this.getFrame('p5')) === 1 && (_this.getFrame('p7')) === 1) {
-          return _this.scoreUp('you');
+          _this.scoreUp('you');
+        }
+        if ((_this.getFrame('p1')) !== 0 && (_this.getFrame('p2')) !== 0 && (_this.getFrame('p3')) !== 0 && (_this.getFrame('p4')) !== 0 && (_this.getFrame('p5')) !== 0 && (_this.getFrame('p6')) !== 0 && (_this.getFrame('p7')) !== 0 && (_this.getFrame('p8')) !== 0 && (_this.getFrame('p9')) !== 0) {
+          return _this.reset();
         }
       };
       this.scoreUp = function(type) {
         switch (type) {
           case 'pc':
             _this.pc++;
+            createjs.Sound.play('s/wrong');
             lib.tverde.update({
               text: _this.pc
             });
             break;
           case 'you':
             _this.you++;
+            createjs.Sound.play('s/good');
             lib.tazul.update({
               text: _this.you
             });
@@ -219,12 +224,14 @@ NEW ODA
         }
       };
       this.reset = function() {
-        var i, _i, _results;
-        _results = [];
-        for (i = _i = 1; _i <= 9; i = ++_i) {
-          _results.push(lib["p" + i].goto(0));
-        }
-        return _results;
+        return d2oda.methods.delay(500, function() {
+          var i, _i, _results;
+          _results = [];
+          for (i = _i = 1; _i <= 9; i = ++_i) {
+            _results.push(lib["p" + i].goto(0));
+          }
+          return _results;
+        });
       };
       this.getFrame = function(obj) {
         return lib[obj].sprite.currentFrame;
@@ -1645,12 +1652,6 @@ NEW ODA
             containers: [
               {
                 type: 'img',
-                id: 'threeinarow',
-                x: 420,
-                y: 350,
-                align: 'mc'
-              }, {
-                type: 'img',
                 id: 'mazul',
                 x: 80,
                 y: 250
@@ -1691,6 +1692,12 @@ NEW ODA
                   font: '18px Quicksand',
                   color: '#000'
                 }
+              }, {
+                type: 'img',
+                id: 'threeinarow',
+                x: 420,
+                y: 350,
+                align: 'mc'
               }, {
                 type: 'spr',
                 id: 'p1',
