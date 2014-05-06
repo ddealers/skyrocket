@@ -52,7 +52,7 @@ class U4A4 extends Oda
 
 					containers:[
 						{type: 'img', id:'image', x: 420, y: 195}
-						{type: 'txt', id: 't1', text:'Come to our special summer sourses in July and August! We know that children like to learn in different ways. We help you develop the talents you already have. Do you like to draw, sing, dance or hike? We have the perfect course for you! Experts say that there are eight different ways of learning, and we have classes for all of them. Here we present four of our most popular summer workshops.', x: 70, y: 260, lineWidth: 330, font:'14px Dosis',lineHeight: 25, align: 'left'}
+						{type: 'txt', id: 't1', text:'Come to our special summer courses in July and August! We know that children like to learn in different ways. We help you develop the talents you already have. Do you like to draw, sing, dance or hike? We have the perfect course for you! Experts say that there are eight different ways of learning, and we have classes for all of them. Here we present four of our most popular summer workshops.', x: 70, y: 260, lineWidth: 330, font:'14px Dosis',lineHeight: 25, align: 'left'}
 						{
 							type: 'btn', id: 'btnTrue', x: 340, y: 555, index: true, target: 'lbl1', eval: @onClick
 							states:[img: {name:'true', x: 0, y: 0, align:'mc'}]
