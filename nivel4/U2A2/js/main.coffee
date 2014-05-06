@@ -24,36 +24,69 @@ class U2A2 extends Oda
 		]
 		@pc = 0
 		@you = 0
-		@canDrop = false
 		@onDrop = (dispatcher, target) =>
 			d = lib[dispatcher]
 			t =  target.parent
-			if not @canDrop
-				d.afterFail()
 			if d.index is t.success
-				lib.scene.success()
+				if t.name is 'p1'
+					if lib['p7'].sprite.currentFrame is 0
+						lib['p7'].goto 1
+					else if lib['p4'].sprite.currentFrame is 0
+						lib['p4'].goto 1
+					else
+						lib['p1'].goto 1
+				else if t.name is 'p2'
+					if lib['p8'].sprite.currentFrame is 0
+						lib['p8'].goto 1
+					else if lib['p5'].sprite.currentFrame is 0
+						lib['p5'].goto 1
+					else
+						lib['p2'].goto 1
+				else if t.name is 'p3'
+					if lib['p9'].sprite.currentFrame is 0
+						lib['p9'].goto 1
+					else if lib['p6'].sprite.currentFrame is 0
+						lib['p6'].goto 1
+					else
+						lib['p3'].goto 1
 				d.afterSuccess()
-				t.goto 1
-				@evaluateWin()
+				d.disableDrag = true
+				d2oda.methods.delay 300, =>
+					lib.scene.success()
+					@evaluateWin()
 			else
 				d.afterFail()
 		@onChoose = (dispatcher) =>
 			d = lib[dispatcher]
 			if d.index is d2oda.evaluator.success
 				createjs.Sound.play 's/good'
-				@canDrop = true
+				lib.pazul.disableDrag = false
 			else
-				blank = new Array()
-				for i in [1..9]
+				if not @evaluate79(2)
+					if not @evaluate46(2)
+						@evaluate13(2)
+				lib.scene.fail()
+				lib.scene.nextStep()
+				@evaluateWin()
+		@evaluate13 = (token) =>
+			@evaluateBlanks(1, 3, token)
+		@evaluate46 = (token) =>
+			@evaluateBlanks(4, 6, token)
+		@evaluate79 = (token) =>
+			@evaluateBlanks(7, 9, token)
+		@evaluateBlanks = (min, max, token) =>
+			blank = new Array()
+			for i in [min..max]
 					if lib["p#{i}"]
 						p = lib["p#{i}"]
 						if p.sprite.currentFrame is 0
 							blank.push p
-				rand = Math.round Math.random() * (blank.length - 1)
-				if blank.length > 0 then blank[rand].goto 2
-				lib.scene.fail()
-				lib.scene.nextStep()
-				@evaluateWin()
+			rand = Math.round Math.random() * (blank.length - 1)
+			if blank.length > 0
+				blank[rand].goto token
+				true
+			else
+				false
 		@evaluateWin = () =>
 			if (@getFrame 'p1') is 2 and (@getFrame 'p2') is 2 and (@getFrame 'p3') is 2 then @scoreUp 'pc'
 			if (@getFrame 'p4') is 2 and (@getFrame 'p5') is 2 and (@getFrame 'p6') is 2 then @scoreUp 'pc'
@@ -307,7 +340,7 @@ class U2A2 extends Oda
 								{name: 'caw1', opts: {before:'They used large water bottles', opt1:'to', opt2:'for', after:'making the raft.'}}
 							]
 						]
-						mixed: true
+						#mixed: true
 						type: 'steps'
 					}
 					containers:[
@@ -330,12 +363,12 @@ class U2A2 extends Oda
 						{type: 'spr', id: 'p7', imgs: ['pbase','pazul','pverde'], frames: null, x: 278, y: 409}
 						{type: 'spr', id: 'p8', imgs: ['pbase','pazul','pverde'], frames: null, x: 380, y: 409}
 						{type: 'spr', id: 'p9', imgs: ['pbase','pazul','pverde'], frames: null, x: 482, y: 409}
-						{type: 'drg', id: 'binoculars', x: 670, y: 200, align:'mc', index: '1', target: ['p1','p2','p3','p4','p5','p6','p7','p8','p9'], eval: @onDrop, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'drg', id: 'compass', x: 670, y: 270, align:'mc', index: '1', target: ['p1','p2','p3','p4','p5','p6','p7','p8','p9'], eval: @onDrop, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'drg', id: 'knife', x: 670, y: 340, align:'mc', index: '1', target: ['p1','p2','p3','p4','p5','p6','p7','p8','p9'], eval: @onDrop, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'drg', id: 'string', x: 670, y: 410, align:'mc', index: '1', target: ['p1','p2','p3','p4','p5','p6','p7','p8','p9'], eval: @onDrop, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'drg', id: 'whistle', x: 670, y: 480, align:'mc', index: '1', target: ['p1','p2','p3','p4','p5','p6','p7','p8','p9'], eval: @onDrop, afterSuccess: 'origin', afterFail: 'return'}
-						
+						{type: 'drg', id: 'pazul', x: 107, y: 287, align:'mc', disableDrag: true, index: '1', target: ['p1','p2','p3','p4','p5','p6','p7','p8','p9'], eval: @onDrop, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'img', id: 'binoculars', x: 670, y: 200, align: 'mc'}
+						{type: 'img', id: 'compass', x: 670, y: 270, align: 'mc'}
+						{type: 'img', id: 'knife', x: 670, y: 340, align: 'mc'}
+						{type: 'img', id: 'string', x: 670, y: 410, align: 'mc'}
+						{type: 'img', id: 'whistle', x: 670, y: 480, align: 'mc'}
 					]
 					groups:[]
 				}

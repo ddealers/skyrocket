@@ -64,46 +64,89 @@ NEW ODA
       ];
       this.pc = 0;
       this.you = 0;
-      this.canDrop = false;
       this.onDrop = function(dispatcher, target) {
         var d, t;
         d = lib[dispatcher];
         t = target.parent;
-        if (!_this.canDrop) {
-          d.afterFail();
-        }
         if (d.index === t.success) {
-          lib.scene.success();
+          if (t.name === 'p1') {
+            if (lib['p7'].sprite.currentFrame === 0) {
+              lib['p7'].goto(1);
+            } else if (lib['p4'].sprite.currentFrame === 0) {
+              lib['p4'].goto(1);
+            } else {
+              lib['p1'].goto(1);
+            }
+          } else if (t.name === 'p2') {
+            if (lib['p8'].sprite.currentFrame === 0) {
+              lib['p8'].goto(1);
+            } else if (lib['p5'].sprite.currentFrame === 0) {
+              lib['p5'].goto(1);
+            } else {
+              lib['p2'].goto(1);
+            }
+          } else if (t.name === 'p3') {
+            if (lib['p9'].sprite.currentFrame === 0) {
+              lib['p9'].goto(1);
+            } else if (lib['p6'].sprite.currentFrame === 0) {
+              lib['p6'].goto(1);
+            } else {
+              lib['p3'].goto(1);
+            }
+          }
           d.afterSuccess();
-          t.goto(1);
-          return _this.evaluateWin();
+          d.disableDrag = true;
+          return d2oda.methods.delay(300, function() {
+            lib.scene.success();
+            return _this.evaluateWin();
+          });
         } else {
           return d.afterFail();
         }
       };
       this.onChoose = function(dispatcher) {
-        var blank, d, i, p, rand, _i;
+        var d;
         d = lib[dispatcher];
         if (d.index === d2oda.evaluator.success) {
           createjs.Sound.play('s/good');
-          return _this.canDrop = true;
+          return lib.pazul.disableDrag = false;
         } else {
-          blank = new Array();
-          for (i = _i = 1; _i <= 9; i = ++_i) {
-            if (lib["p" + i]) {
-              p = lib["p" + i];
-              if (p.sprite.currentFrame === 0) {
-                blank.push(p);
-              }
+          if (!_this.evaluate79(2)) {
+            if (!_this.evaluate46(2)) {
+              _this.evaluate13(2);
             }
-          }
-          rand = Math.round(Math.random() * (blank.length - 1));
-          if (blank.length > 0) {
-            blank[rand].goto(2);
           }
           lib.scene.fail();
           lib.scene.nextStep();
           return _this.evaluateWin();
+        }
+      };
+      this.evaluate13 = function(token) {
+        return _this.evaluateBlanks(1, 3, token);
+      };
+      this.evaluate46 = function(token) {
+        return _this.evaluateBlanks(4, 6, token);
+      };
+      this.evaluate79 = function(token) {
+        return _this.evaluateBlanks(7, 9, token);
+      };
+      this.evaluateBlanks = function(min, max, token) {
+        var blank, i, p, rand, _i;
+        blank = new Array();
+        for (i = _i = min; min <= max ? _i <= max : _i >= max; i = min <= max ? ++_i : --_i) {
+          if (lib["p" + i]) {
+            p = lib["p" + i];
+            if (p.sprite.currentFrame === 0) {
+              blank.push(p);
+            }
+          }
+        }
+        rand = Math.round(Math.random() * (blank.length - 1));
+        if (blank.length > 0) {
+          blank[rand].goto(token);
+          return true;
+        } else {
+          return false;
         }
       };
       this.evaluateWin = function() {
@@ -1323,7 +1366,6 @@ NEW ODA
                   }
                 ]
               ],
-              mixed: true,
               type: 'steps'
             },
             containers: [
@@ -1440,59 +1482,46 @@ NEW ODA
                 y: 409
               }, {
                 type: 'drg',
+                id: 'pazul',
+                x: 107,
+                y: 287,
+                align: 'mc',
+                disableDrag: true,
+                index: '1',
+                target: ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9'],
+                "eval": this.onDrop,
+                afterSuccess: 'origin',
+                afterFail: 'return'
+              }, {
+                type: 'img',
                 id: 'binoculars',
                 x: 670,
                 y: 200,
-                align: 'mc',
-                index: '1',
-                target: ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9'],
-                "eval": this.onDrop,
-                afterSuccess: 'origin',
-                afterFail: 'return'
+                align: 'mc'
               }, {
-                type: 'drg',
+                type: 'img',
                 id: 'compass',
                 x: 670,
                 y: 270,
-                align: 'mc',
-                index: '1',
-                target: ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9'],
-                "eval": this.onDrop,
-                afterSuccess: 'origin',
-                afterFail: 'return'
+                align: 'mc'
               }, {
-                type: 'drg',
+                type: 'img',
                 id: 'knife',
                 x: 670,
                 y: 340,
-                align: 'mc',
-                index: '1',
-                target: ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9'],
-                "eval": this.onDrop,
-                afterSuccess: 'origin',
-                afterFail: 'return'
+                align: 'mc'
               }, {
-                type: 'drg',
+                type: 'img',
                 id: 'string',
                 x: 670,
                 y: 410,
-                align: 'mc',
-                index: '1',
-                target: ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9'],
-                "eval": this.onDrop,
-                afterSuccess: 'origin',
-                afterFail: 'return'
+                align: 'mc'
               }, {
-                type: 'drg',
+                type: 'img',
                 id: 'whistle',
                 x: 670,
                 y: 480,
-                align: 'mc',
-                index: '1',
-                target: ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9'],
-                "eval": this.onDrop,
-                afterSuccess: 'origin',
-                afterFail: 'return'
+                align: 'mc'
               }
             ],
             groups: []

@@ -385,7 +385,7 @@ LIBRARY
             height: h
           }
         });
-        animation = new createjs.BitmapAnimation(sprite);
+        animation = new createjs.Sprite(sprite);
         animation.x = x;
         animation.y = y;
         animation.width = w;
@@ -1758,24 +1758,23 @@ LIBRARY
     }
 
     Instructions.prototype.initialize = function(opts) {
-      var it, npos, texto, triangle, _i, _len, _ref2;
+      var it, npos, texto, triangle, _i, _len, _ref2, _ref3;
       this.Container_initialize();
       this.x = opts.x;
       this.y = opts.y;
       this.states = opts.states;
       this.playing = false;
       this.currentState = 0;
-      this.custom = this.states[this.currentState].custom;
-      console.log(this.custom);
+      this.custom = (_ref2 = this.states[this.currentState].custom) != null ? _ref2 : false;
       triangle = new createjs.Shape();
       triangle.graphics.beginFill('#bcd748').moveTo(0, 0).lineTo(8, 5).lineTo(0, 10);
       triangle.y = 5;
       if (this.custom === true) {
         it = 0;
         npos = 14;
-        _ref2 = this.states[this.currentState].text;
-        for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
-          texto = _ref2[_i];
+        _ref3 = this.states[this.currentState].text;
+        for (_i = 0, _len = _ref3.length; _i < _len; _i++) {
+          texto = _ref3[_i];
           if (texto === '#ital') {
             this.label = new createjs.Text(this.states[this.currentState].italics[it], 'italic 15px Roboto', '#000');
             it++;
@@ -2268,7 +2267,7 @@ LIBRARY
     }
 
     DragContainer.prototype.initialize = function(opts) {
-      var b, t, _i, _len, _ref2, _ref3,
+      var b, t, _i, _len, _ref2, _ref3, _ref4,
         _this = this;
       this.Container_initialize();
       Module.extend(this, d2oda.methods);
@@ -2284,6 +2283,7 @@ LIBRARY
       this.index = opts.index;
       this["eval"] = opts["eval"];
       this.droptargets = new Array();
+      this.disableDrag = (_ref3 = opts.disableDrag) != null ? _ref3 : false;
       b = this.createBitmap(this.name, opts.id, 0, 0);
       this.bmpname = opts.name;
       this.bmpid = opts.id;
@@ -2331,9 +2331,9 @@ LIBRARY
       }
       if (this.target) {
         if (this.isArray(this.target)) {
-          _ref3 = this.target;
-          for (_i = 0, _len = _ref3.length; _i < _len; _i++) {
-            t = _ref3[_i];
+          _ref4 = this.target;
+          for (_i = 0, _len = _ref4.length; _i < _len; _i++) {
+            t = _ref4[_i];
             lib[t].observer.subscribe(ComponentObserver.UPDATED, this.update);
           }
         } else {
@@ -2366,6 +2366,9 @@ LIBRARY
     DragContainer.prototype.handleMouseDown = function(e) {
       var offset, posX, posY,
         _this = this;
+      if (this.disableDrag) {
+        return;
+      }
       posX = e.stageX / d2oda.stage.r;
       posY = e.stageY / d2oda.stage.r;
       offset = {

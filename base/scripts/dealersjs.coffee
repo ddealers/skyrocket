@@ -148,7 +148,7 @@ window.d2oda.methods ?= class Methods
 		w = spriteImgs[0].width
 		h = spriteImgs[0].height
 		sprite = new createjs.SpriteSheet (images: spriteImgs, animations: anim, frames: {width: w, height: h})
-		animation = new createjs.BitmapAnimation sprite
+		animation = new createjs.Sprite sprite
 		animation.x = x
 		animation.y = y
 		animation.width = w
@@ -874,9 +874,8 @@ class Instructions extends Component
 		@states = opts.states
 		@playing = false
 		@currentState = 0
-		@custom = @states[@currentState].custom
-		console.log @custom
-
+		@custom = @states[@currentState].custom ? false
+		
 		triangle = new createjs.Shape()
 		triangle.graphics.beginFill('#bcd748').moveTo(0,0).lineTo(8,5).lineTo(0,10)
 		triangle.y = 5
@@ -1197,6 +1196,7 @@ class DragContainer extends Component
 		@index = opts.index
 		@eval = opts.eval
 		@droptargets = new Array()
+		@disableDrag = opts.disableDrag ? false
 		b = @createBitmap @name, opts.id, 0, 0
 		@bmpname = opts.name
 		@bmpid = opts.id
@@ -1240,6 +1240,7 @@ class DragContainer extends Component
 		else
 			@droptargets = @target.droptargets
 	handleMouseDown: (e) =>
+		if @disableDrag then return
 		posX = e.stageX / d2oda.stage.r
 		posY = e.stageY / d2oda.stage.r
 		offset = x: posX - @x, y: posY - @y
