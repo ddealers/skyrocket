@@ -3297,7 +3297,7 @@ LIBRARY
     }
 
     PhraseCompleterContainer.prototype.initialize = function(opts) {
-      var _ref10, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8, _ref9;
+      var _ref10, _ref11, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8, _ref9;
       this.Container_initialize();
       Module.extend(this, d2oda.actions);
       Module.extend(this, d2oda.methods);
@@ -3315,6 +3315,7 @@ LIBRARY
       this.underline = (_ref10 = opts.underline) != null ? _ref10 : {
         y: 5
       };
+      this.clickable = (_ref11 = opts.clickable) != null ? _ref11 : true;
       this.lineHeight = opts.lineHeight;
       this.currentTarget = 0;
       this.observer = new ComponentObserver();
@@ -3357,6 +3358,7 @@ LIBRARY
             }
           }
           hopts.underline = this.underline;
+          hopts.clickable = this.clickable;
           h = new TextCompleterContainer(hopts, this.font, this.fcolor, this.bcolor, this.scolor, this.stroke, npos, ypos);
           this.droptargets.push(h);
           this.add(h, false);
@@ -4310,7 +4312,7 @@ LIBRARY
     }
 
     TextCompleterContainer.prototype.initialize = function(opts, font, fcolor, bcolor, scolor, stroke, x, y) {
-      var _ref2, _ref3, _ref4, _ref5,
+      var _ref2, _ref3, _ref4, _ref5, _ref6,
         _this = this;
       this.Container_initialize();
       Module.extend(this, d2oda.methods);
@@ -4325,7 +4327,8 @@ LIBRARY
       this.bcolor = bcolor != null ? bcolor : '#FFF';
       this.stroke = stroke != null ? stroke : 1;
       this.scolor = scolor != null ? scolor : '#333';
-      this.underline = (_ref5 = opts.underline) != null ? _ref5 : false;
+      this.clickable = (_ref5 = opts.clickable) != null ? _ref5 : true;
+      this.underline = (_ref6 = opts.underline) != null ? _ref6 : false;
       this.word = '';
       if (this.underline) {
         this.back.graphics.f(this.bcolor).dr(0, 0, this.width, this.height).ss(this.stroke).s(this.scolor).mt(0, this.height + this.underline.y).lt(this.width, this.height + this.underline.y);
@@ -4333,17 +4336,19 @@ LIBRARY
         this.back.graphics.f(this.bcolor).dr(0, 0, this.width, this.height).ss(this.stroke).s(this.scolor).mt(0, this.height + 5).lt(this.width, this.height + 5);
       }
       this.add(this.back, false);
-      return this.addEventListener('click', function() {
-        if (_this.parent) {
-          _this.parent.clearChildren();
-        }
-        _this.writeEnabled = true;
-        if (opts.underline) {
-          return _this.back.graphics.c().f(_this.hexToRGB(_this.bcolor, 0.2)).dr(0, 0, _this.width, _this.height).ss(_this.stroke).s(_this.scolor).mt(0, _this.height + _this.underline.y).lt(_this.width, _this.height + _this.underline.y);
-        } else {
-          return _this.back.graphics.c().f(_this.hexToRGB(_this.bcolor, 0.2)).dr(0, 0, _this.width, _this.height).ss(_this.stroke).s(_this.scolor).mt(0, _this.height + 5).lt(_this.width, _this.height + 5);
-        }
-      });
+      if (this.clickable) {
+        return this.addEventListener('click', function() {
+          if (_this.parent) {
+            _this.parent.clearChildren();
+          }
+          _this.writeEnabled = true;
+          if (opts.underline) {
+            return _this.back.graphics.c().f(_this.hexToRGB(_this.bcolor, 0.2)).dr(0, 0, _this.width, _this.height).ss(_this.stroke).s(_this.scolor).mt(0, _this.height + _this.underline.y).lt(_this.width, _this.height + _this.underline.y);
+          } else {
+            return _this.back.graphics.c().f(_this.hexToRGB(_this.bcolor, 0.2)).dr(0, 0, _this.width, _this.height).ss(_this.stroke).s(_this.scolor).mt(0, _this.height + 5).lt(_this.width, _this.height + 5);
+          }
+        });
+      }
     };
 
     TextCompleterContainer.prototype.hexToRGB = function(hex, alpha) {
