@@ -113,19 +113,19 @@ class U1A1 extends Oda
 						{type: 'pcpt', id: 'pcpt1', x: 433, y: 510, font: 'Bold 20px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A'}
 						{
 							type: 'btn', id: 'btn_1', x: 140, y: 155, index: 'aspirin', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'aspirin', name:'aspirin', x:0, y:0, align:'center', font: '20px Quicksand'}}]
+							states: [{txt: {text:'aspirin', name:'aspirin', x:0, y:0, align:'center', font: 'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'btn_2', x: 140, y: 185, index: 'bites', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'bites', name:'bites', x:0, y:0, align:'center', font: '20px Quicksand'}}]
+							states: [{txt: {text:'bites', name:'bites', x:0, y:0, align:'center', font: 'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'btn_3', x: 140, y: 215, index: 'clean', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'clean', name:'clean', x:0, y:0, align:'center', font: '20px Quicksand'}}]
+							states: [{txt: {text:'clean', name:'clean', x:0, y:0, align:'center', font: 'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'btn_4', x: 140, y: 245, index: 'cotton', target: 'pcpt1', eval: @btnClick 
-							states: [{txt: {text:'cotton', name:'cotton', x:0, y:0, align:'center', font: '20px Quicksand'}}]
+							states: [{txt: {text:'cotton', name:'cotton', x:0, y:0, align:'center', font: 'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'btn_5', x: 140, y: 275, index: 'disinfectant', target: 'pcpt1', eval: @btnClick
@@ -133,15 +133,15 @@ class U1A1 extends Oda
 						}
 						{
 							type: 'btn', id: 'btn_6', x: 140, y: 305, index: 'fever', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'fever', name:'fever', x:0, y:0, align:'center', font: '20px Quicksand'}}]
+							states: [{txt: {text:'fever', name:'fever', x:0, y:0, align:'center', font: 'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'btn_7', x: 140, y: 335, index: 'hungry', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'hungry', name:'hungry', x:0, y:0, align:'center', font: '20px Quicksand'}}]
+							states: [{txt: {text:'hungry', name:'hungry', x:0, y:0, align:'center', font: 'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'btn_8', x: 140, y: 365, index: 'rash', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'rash', name:'rash', x:0, y:0, align:'center', font: '20px Quicksand'}}]
+							states: [{txt: {text:'rash', name:'rash', x:0, y:0, align:'center', font: 'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'btn_9', x: 140, y: 395, index: 'stomachache', target: 'pcpt1', eval: @btnClick
@@ -149,7 +149,7 @@ class U1A1 extends Oda
 						}
 						{
 							type: 'btn', id: 'btn_10', x: 140, y: 425, index: 'sunscreen', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'sunscreen', name:'sunscreen', x:0, y:0, align:'center', font: '20px Quicksand'}}]
+							states: [{txt: {text:'sunscreen', name:'sunscreen', x:0, y:0, align:'center', font: 'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'btn_11', x: 140, y: 460, index: 'throat', target: 'pcpt1', eval: @btnClick
@@ -157,7 +157,7 @@ class U1A1 extends Oda
 						}
 						{
 							type: 'btn', id: 'btn_12', x: 140, y: 490, index: 'toothache', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'toothache', name:'toothache', x:0, y:0, align:'center', font: '20px Quicksand'}}]
+							states: [{txt: {text:'toothache', name:'toothache', x:0, y:0, align:'center', font: 'Bold 20px Quicksand'}}]
 						}
 
 					]

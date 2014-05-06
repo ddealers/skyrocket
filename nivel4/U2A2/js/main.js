@@ -1378,14 +1378,14 @@ NEW ODA
             containers: [
               {
                 type: 'img',
-                id: 'mverde',
-                x: 80,
-                y: 350
-              }, {
-                type: 'img',
                 id: 'mazul',
                 x: 80,
                 y: 250
+              }, {
+                type: 'img',
+                id: 'mverde',
+                x: 80,
+                y: 350
               }, {
                 type: 'txt',
                 id: 'tazul',
@@ -1405,7 +1405,7 @@ NEW ODA
               }, {
                 type: 'caw',
                 id: 'caw1',
-                x: 415,
+                x: 400,
                 y: 530,
                 align: 'tc',
                 target: 'global',

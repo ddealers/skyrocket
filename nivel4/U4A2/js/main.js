@@ -256,7 +256,7 @@ NEW ODA
                 type: 'img',
                 id: 'sick',
                 x: 400,
-                y: 290,
+                y: 295,
                 align: 'mc'
               }, {
                 type: 'img',
@@ -274,7 +274,7 @@ NEW ODA
                 type: 'img',
                 id: 'concert',
                 x: 400,
-                y: 290,
+                y: 297,
                 align: 'mc'
               }, {
                 type: 'img',

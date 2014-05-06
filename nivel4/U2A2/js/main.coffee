@@ -351,12 +351,12 @@ class U2A2 extends Oda
 						type: 'steps'
 					}
 					containers:[
-						{type: 'img', id: 'mverde', x: 80, y: 350}
 						{type: 'img', id: 'mazul', x: 80, y: 250}
+						{type: 'img', id: 'mverde', x: 80, y: 350}
 						{type: 'txt', id: 'tazul', text:'0', x: 178, y: 275, font:'Bold 24px Quicksand', align: 'center'}
 						{type: 'txt', id: 'tverde', text:'0', x: 182, y: 375, font:'Bold 24px Quicksand', align: 'center'}
 						{
-							type: 'caw', id: 'caw1', x: 415, y: 530, align: 'tc', target: 'global', eval: @onChoose
+							type: 'caw', id: 'caw1', x: 400, y: 530, align: 'tc', target: 'global', eval: @onChoose
 							label:{font:'Bold 18px Quicksand', color:'#444'}
 							bullets:{font:'18px Quicksand', color: '#000'}
 						}
