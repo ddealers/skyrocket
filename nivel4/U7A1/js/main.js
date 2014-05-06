@@ -333,7 +333,7 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['When I was a kid, I used to read ', '#rtn', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '. Superman was my favorite.'],
+                      pattern: ['When I was a kid, I used to read ', '#rtn', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', ' ', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '. Superman was my favorite.'],
                       targets: [
                         {
                           text: 'c',

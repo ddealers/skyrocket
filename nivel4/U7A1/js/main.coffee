@@ -57,7 +57,7 @@ class U7A1 extends Oda
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'comicbook'}}
-								{name: 'pcpt1', opts:{pattern:['When I was a kid, I used to read ','#rtn', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt','. Superman was my favorite.'], targets: [{text:'c', width: 30},{text:'o', width: 30},{text:'m', width: 30},{text:'i', width: 30},{text:'c', width: 30},{text:'b', width: 30},{text:'o', width: 30},{text:'o', width: 30},{text:'k', width: 30},{text:'s', width: 30}]}}
+								{name: 'pcpt1', opts:{pattern:['When I was a kid, I used to read ','#rtn', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt',' ', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt','. Superman was my favorite.'], targets: [{text:'c', width: 30},{text:'o', width: 30},{text:'m', width: 30},{text:'i', width: 30},{text:'c', width: 30},{text:'b', width: 30},{text:'o', width: 30},{text:'o', width: 30},{text:'k', width: 30},{text:'s', width: 30}]}}
 							]
 
 							[
