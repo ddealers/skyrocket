@@ -468,7 +468,7 @@ NEW ODA
                       before: 'Margaret and Gina',
                       opt1: 'are',
                       opt2: 'aren\'t',
-                      after: ' coming to camp this year. // They are staying home.'
+                      after: ' coming to camp this year.//They are staying home.'
                     }
                   }
                 ], [
@@ -537,7 +537,7 @@ NEW ODA
                       before: 'Samantha and Fred',
                       opt1: 'aren\'t',
                       opt2: 'are',
-                      after: ' going horseback riding this afternoon. // They love horses!'
+                      after: ' going horseback riding this afternoon.//They love horses!'
                     }
                   }
                 ], [
@@ -672,7 +672,7 @@ NEW ODA
                   }, {
                     name: 'caw1',
                     opts: {
-                      before: 'You didn\'t finish your homework, Bill! // You',
+                      before: 'You didn\'t finish your homework, Bill!//You',
                       opt1: 'are',
                       opt2: 'aren\'t',
                       after: 'going to go to the party!'
@@ -744,7 +744,7 @@ NEW ODA
                       before: 'You',
                       opt1: 'aren\'t',
                       opt2: 'are',
-                      after: ' going to go cycling this afternoon. // Get your helmet!'
+                      after: ' going to go cycling this afternoon.//Get your helmet!'
                     }
                   }
                 ], [
@@ -882,7 +882,7 @@ NEW ODA
                       before: 'I\'m',
                       opt1: 'going',
                       opt2: 'not going',
-                      after: 'to eat hotdogs. // They make me sick.'
+                      after: 'to eat hotdogs.//They make me sick.'
                     }
                   }
                 ], [
@@ -951,7 +951,7 @@ NEW ODA
                       before: 'Yippee! Mom and Dad are',
                       opt1: 'not going',
                       opt2: 'going',
-                      after: ' to bring my dog to camp. // I\'m so happy!'
+                      after: ' to bring my dog to camp.//I\'m so happy!'
                     }
                   }
                 ], [
@@ -1017,7 +1017,7 @@ NEW ODA
                   }, {
                     name: 'caw1',
                     opts: {
-                      before: 'Candice is allergic to pink food coloring. // She',
+                      before: 'Candice is allergic to pink food coloring.//She',
                       opt1: 'is',
                       opt2: 'isn\'t',
                       after: 'going to eat pink candy. '
@@ -1224,7 +1224,7 @@ NEW ODA
                   }, {
                     name: 'caw1',
                     opts: {
-                      before: 'Do you like fishing? // Yes, I',
+                      before: 'Do you like fishing?//Yes, I',
                       opt1: 'do',
                       opt2: 'am',
                       after: '.'
@@ -1293,7 +1293,7 @@ NEW ODA
                   }, {
                     name: 'caw1',
                     opts: {
-                      before: 'Where are you going to go canoeing? // On the',
+                      before: 'Where are you going to go canoeing?//On the',
                       opt1: 'mountain',
                       opt2: 'lake',
                       after: '.'
@@ -1362,7 +1362,7 @@ NEW ODA
                   }, {
                     name: 'caw1',
                     opts: {
-                      before: 'Where are you going to go camping? // In a big',
+                      before: 'Where are you going to go camping?//In a big',
                       opt1: 'nature',
                       opt2: 'tent',
                       after: '.'
@@ -1500,7 +1500,7 @@ NEW ODA
                   }, {
                     name: 'caw1',
                     opts: {
-                      before: 'Where are you going to go camping? // In a big',
+                      before: 'Where are you going to go camping?//In a big',
                       opt1: 'nature',
                       opt2: 'tent',
                       after: '.'
@@ -1569,7 +1569,7 @@ NEW ODA
                   }, {
                     name: 'caw1',
                     opts: {
-                      before: 'Are you going to go hiking in the mountains? // Yes, we',
+                      before: 'Are you going to go hiking in the mountains?//Yes, we',
                       opt1: 'are',
                       opt2: 'do',
                       after: '.'
@@ -1641,7 +1641,7 @@ NEW ODA
                       before: '',
                       opt1: 'Do',
                       opt2: 'Are',
-                      after: ' you going to take insect repellent? // Yes, we are.'
+                      after: ' you going to take insect repellent?//Yes, we are.'
                     }
                   }
                 ]
