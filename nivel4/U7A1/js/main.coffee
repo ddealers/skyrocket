@@ -70,7 +70,7 @@ class U7A1 extends Oda
 							]
 							[
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'typewriter'}}
-								{name: 'pcpt1', opts:{pattern:['People used to write with','#rtn', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt',',','#rtn','not with computers.'], targets: [{text:'t', width: 30},{text:'y', width: 30},{text:'p', width: 30},{text:'e', width: 30},{text:'w', width: 30},{text:'r', width: 30},{text:'i', width: 30},{text:'t', width: 30},{text:'e', width: 30},{text:'r', width: 30},{text:'s', width: 30}]}}
+								{name: 'pcpt1', opts:{pattern:['People used to write with','#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt',',','#rtn','not with computers.'], targets: [{text:'t', width: 30},{text:'y', width: 30},{text:'p', width: 30},{text:'e', width: 30},{text:'w', width: 30},{text:'r', width: 30},{text:'i', width: 30},{text:'t', width: 30},{text:'e', width: 30},{text:'r', width: 30},{text:'s', width: 30}]}}
 							]
 						]
 						
@@ -89,8 +89,8 @@ class U7A1 extends Oda
 						{type: 'img', id: 'recordplayer', x: 433, y: 300, align: 'mc'}
 						{type: 'img', id: 'toaster', x: 433, y: 300, align: 'mc'}
 						{type: 'img', id: 'typewriter', x: 433, y: 300, align: 'mc'}
-						{type: 'pcpt', id: 'pcpt1', x: 433, y: 450, font: 'Bold 20px Quicksand', lineHeight: 20, margin: 5, align: 'tc', scolor: '#009046'}
-						{type: 'abc', id: 'abc1', x: 430, y: 540, font:'Bold 20px Quicksand', fcolor:'#333', uwidth: 22, uheight: 34, margin: 10, target:'pcpt1', eval: 'click_O1', clickable:true }
+						{type: 'pcpt', id: 'pcpt1', x: 413, y: 445, font: 'Bold 20px Quicksand', lineHeight: 25, margin: 5, align: 'tc', scolor: '#009046'}
+						{type: 'abc', id: 'abc1', x: 430, y: 545, font:'Bold 20px Quicksand', fcolor:'#333', uwidth: 22, uheight: 34, margin: 10, target:'pcpt1', eval: 'click_O1', clickable:true }
 					]
 					groups:[
 						{

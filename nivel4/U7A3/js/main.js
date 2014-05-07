@@ -503,7 +503,7 @@ NEW ODA
                 index: 'black and white',
                 text: 'black and white',
                 target: ['pcpt1', 'pcpt2', 'pcpt3', 'pcpt4', 'pcpt5', 'pcpt6', 'pcpt7', 'pcpt8'],
-                font: '18px Quicksand',
+                font: 'Bold 18px Quicksand',
                 afterSuccess: 'origin',
                 afterFail: 'return',
                 "eval": this.onDrop

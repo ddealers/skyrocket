@@ -886,7 +886,7 @@ class Instructions extends Component
 			for texto in @states[@currentState].text
 				if texto is '#ital'
 
-					@label = new createjs.Text @states[@currentState].italics[it], 'italic 20px Roboto', '#000'
+					@label = new createjs.Text @states[@currentState].italics[it], 'Bold italic 20px Roboto', '#000'
 					it++
 				else 
 					@label = new createjs.Text texto, '20px Roboto', '#000'

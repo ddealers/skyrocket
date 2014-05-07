@@ -462,7 +462,7 @@ NEW ODA
                   }, {
                     name: 'pcpt1',
                     opts: {
-                      pattern: ['People used to write with', '#rtn', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', ',', '#rtn', 'not with computers.'],
+                      pattern: ['People used to write with', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', '#tcpt', ',', '#rtn', 'not with computers.'],
                       targets: [
                         {
                           text: 't',
@@ -576,10 +576,10 @@ NEW ODA
               }, {
                 type: 'pcpt',
                 id: 'pcpt1',
-                x: 433,
-                y: 450,
+                x: 413,
+                y: 445,
                 font: 'Bold 20px Quicksand',
-                lineHeight: 20,
+                lineHeight: 25,
                 margin: 5,
                 align: 'tc',
                 scolor: '#009046'
@@ -587,7 +587,7 @@ NEW ODA
                 type: 'abc',
                 id: 'abc1',
                 x: 430,
-                y: 540,
+                y: 545,
                 font: 'Bold 20px Quicksand',
                 fcolor: '#333',
                 uwidth: 22,

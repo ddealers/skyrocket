@@ -400,7 +400,6 @@ class U9A4 extends Oda
 								{name: 'p9', opts:{success: '1', complete: true}}
 
 								{name: 'caw1', opts: {before:'Are you going to go hiking in the mountains?//Yes, we', opt1:'are', opt2:'do', after:'.'}}
-
 							]
 							[
 								{name:'global', opts:{success:2}}
