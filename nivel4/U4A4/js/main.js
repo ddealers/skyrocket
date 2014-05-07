@@ -146,7 +146,7 @@ NEW ODA
               }, {
                 type: 'txt',
                 id: 't1',
-                text: 'Come to our special summer sourses in July and August! We know that children like to learn in different ways. We help you develop the talents you already have. Do you like to draw, sing, dance or hike? We have the perfect course for you! Experts say that there are eight different ways of learning, and we have classes for all of them. Here we present four of our most popular summer workshops.',
+                text: 'Come to our special summer courses in July and August! We know that children like to learn in different ways. We help you develop the talents you already have. Do you like to draw, sing, dance or hike? We have the perfect course for you! Experts say that there are eight different ways of learning, and we have classes for all of them. Here we present four of our most popular summer workshops.',
                 x: 70,
                 y: 260,
                 lineWidth: 330,

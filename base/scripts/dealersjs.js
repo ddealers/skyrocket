@@ -2706,23 +2706,31 @@ LIBRARY
       this.target = opts.target;
       this["eval"] = opts["eval"];
       this.label = opts.label;
+      this.posicion = opts.posicion;
       return this.bullets = opts.bullets;
     };
 
     ChooseAWordContainer.prototype.update = function(opts) {
-      var after, before, hito1, hito2, margen, opt1, opt2, slash,
+      var after, before, hito1, hito2, margen, opt1, opt2, sentence, sentenceAfter, sentenceBefore, sentenceb, slash, xp, yep, yp, _i, _j, _len, _len1,
         _this = this;
       this.removeAllChildren();
-      before = this.createText("" + this.name + "_before", opts.before, this.label.font, this.label.color, 0, 0);
-      this.add(before);
-      opt1 = this.createText("" + this.name + "_opt1", opts.opt1, "bold " + this.bullets.font, this.bullets.color, before.x + before.getMeasuredWidth() + 10, 0);
+      yep = 0;
+      sentenceBefore = opts.before.split('//');
+      console.log(sentenceBefore);
+      for (_i = 0, _len = sentenceBefore.length; _i < _len; _i++) {
+        sentenceb = sentenceBefore[_i];
+        before = this.createText("" + this.name + "before", sentenceb, this.label.font, this.label.color, 0, 0 + yep);
+        this.add(before);
+        yep = yep + 30;
+      }
+      opt1 = this.createText("" + this.name + "_opt1", opts.opt1, "bold " + this.bullets.font, this.bullets.color, before.x + before.getMeasuredWidth() + 10, before.y);
       hito1 = new createjs.Shape();
       hito1.graphics.beginFill('#000').drawRect(-5, -3, opt1.getMeasuredWidth() + 10, opt1.getMeasuredHeight() + 6);
       opt1.hitArea = hito1;
       opt1.index = 1;
-      slash = this.createText("" + this.name + "_slash", '/', this.label.font, this.label.color, opt1.x + opt1.getMeasuredWidth() + 10, 0);
+      slash = this.createText("" + this.name + "_slash", '/', this.label.font, this.label.color, opt1.x + opt1.getMeasuredWidth() + 10, before.y);
       this.add(slash);
-      opt2 = this.createText("" + this.name + "_opt2", opts.opt2, "bold " + this.bullets.font, this.bullets.color, slash.x + slash.getMeasuredWidth() + 10, 0);
+      opt2 = this.createText("" + this.name + "_opt2", opts.opt2, "bold " + this.bullets.font, this.bullets.color, slash.x + slash.getMeasuredWidth() + 10, before.y);
       hito2 = new createjs.Shape();
       hito2.graphics.beginFill('#000').drawRect(-5, -3, opt2.getMeasuredWidth() + 10, opt2.getMeasuredHeight() + 6);
       opt2.hitArea = hito2;
@@ -2732,8 +2740,17 @@ LIBRARY
       } else {
         margen = 10;
       }
-      after = this.createText("" + this.name + "_after", opts.after, this.label.font, this.label.color, opt2.x + opt2.getMeasuredWidth() + margen, 0);
-      this.add(after);
+      yp = before.y;
+      xp = opt2.x + opt2.getMeasuredWidth() + margen;
+      sentenceAfter = opts.after.split('//');
+      console.log(sentenceAfter);
+      for (_j = 0, _len1 = sentenceAfter.length; _j < _len1; _j++) {
+        sentence = sentenceAfter[_j];
+        after = this.createText("" + this.name + "_after", sentence, this.label.font, this.label.color, xp, 0 + yp);
+        this.add(after);
+        yp = yp + 30;
+        xp = 0;
+      }
       this.add(opt1);
       opt1.addEventListener('mouseover', function() {
         return TweenLite.to(opt1, 0.5, {

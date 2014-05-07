@@ -74,8 +74,10 @@ class U1A4 extends Oda
 						type: 'steps'
 					}
 					containers:[
+
 						{type: 'img',scale:0.5, id:'act4', name: 'act4_2', x: 420, y: 190}
-						{type: 'txt', id: 't2', text:'Many times the mother crocodile observed me from a distance. I called her Penelope. Penelope\'s baby crocodiles  got bigger and they started to move across the swamps. I wanted to make sure they were okay. I decided that I had to organize a registration system. My dad put put a tag on Penelope\'s back. (My dad is a trained biologist.) Penelope was number 1. When we finished, we had more than 20 crocodiles! Sometimes I could see the young crocodiles didn\'t have enough food and I wanted to feed them. But my mom said feeding wild crocodiles is illegal and very dangerous.', x: 70, y: 210, lineWidth: 330, font:'14px Dosis',lineHeight: 25, align: 'left'}
+						{type: 'txt', id: 't2', text:'Many times the mother crocodile observed me from a distance. I called her Penelope. Penelope\'s baby crocodiles  got bigger and they started to move across the swamps. I wanted to make sure they were okay. I decided that I had to organize a registration system. My dad put a tag on Penelope\'s back. (My dad is a trained biologist.) Penelope was number 1. When we finished, we had more than 20 crocodiles! Sometimes I could see the young crocodiles didn\'t have enough food and I wanted to feed them. But my mom said feeding wild crocodiles is illegal and very dangerous.', x: 70, y: 230, lineWidth: 330, font:'14px Dosis',lineHeight: 25, align: 'left'}
+
 						{
 							type: 'btn', id: 'btnTrue2', x: 340, y: 555, index: true, target: 'lbl2', eval: @onClick
 							states:[img: {name:'true', x: 0, y: 0, align:'mc'}]
