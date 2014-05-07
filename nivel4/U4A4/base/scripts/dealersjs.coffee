@@ -885,7 +885,6 @@ class Instructions extends Component
 			npos = 14
 			for texto in @states[@currentState].text
 				if texto is '#ital'
-
 					@label = new createjs.Text @states[@currentState].italics[it], 'italic 20px Roboto', '#000'
 					it++
 				else 
