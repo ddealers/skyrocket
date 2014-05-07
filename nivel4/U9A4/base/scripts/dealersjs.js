@@ -2711,18 +2711,22 @@ LIBRARY
     };
 
     ChooseAWordContainer.prototype.update = function(opts) {
-      var after, before, hito1, hito2, margen, opt1, opt2, sentence, sentenceAfter, sentenceBefore, sentenceb, slash, xp, yep, yp, _i, _j, _len, _len1,
+      var after, before, hito1, hito2, margen, maxWidth, npos, opt1, opt2, sentence, sentenceAfter, sentenceBefore, sentenceb, slash, xp, yep, yp, _i, _j, _len, _len1,
         _this = this;
       this.removeAllChildren();
       yep = 0;
       sentenceBefore = opts.before.split('//');
       console.log(sentenceBefore);
+      maxWidth = 0;
       for (_i = 0, _len = sentenceBefore.length; _i < _len; _i++) {
         sentenceb = sentenceBefore[_i];
         before = this.createText("" + this.name + "before", sentenceb, this.label.font, this.label.color, 0, 0 + yep);
-        console.log(before);
         this.add(before);
+        npos = +before.x + before.getMeasuredWidth();
         yep = yep + 30;
+        if (npos > maxWidth) {
+          maxWidth = npos;
+        }
       }
       opt1 = this.createText("" + this.name + "_opt1", opts.opt1, "bold " + this.bullets.font, this.bullets.color, before.x + before.getMeasuredWidth() + 10, before.y);
       hito1 = new createjs.Shape();
@@ -2749,6 +2753,10 @@ LIBRARY
         sentence = sentenceAfter[_j];
         after = this.createText("" + this.name + "_after", sentence, this.label.font, this.label.color, xp, 0 + yp);
         this.add(after);
+        npos = +after.x + after.getMeasuredWidth();
+        if (npos > maxWidth) {
+          maxWidth = npos;
+        }
         yp = yp + 30;
         xp = 0;
       }
@@ -2780,7 +2788,7 @@ LIBRARY
       opt2.addEventListener('click', function() {
         return d2oda.evaluator.evaluate(_this["eval"], "" + _this.name + "_opt2", _this.target);
       });
-      this.width = after.x + after.getMeasuredWidth();
+      this.width = maxWidth;
       this.setPosition('tc');
       return TweenLite.from(this, 0.5, {
         y: this.y - 20,

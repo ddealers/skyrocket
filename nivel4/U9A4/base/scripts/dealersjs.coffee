@@ -1451,12 +1451,14 @@ class ChooseAWordContainer extends Component
 		
 		sentenceBefore = opts.before.split '//'
 		console.log sentenceBefore
+		maxWidth = 0
 
 		for sentenceb in sentenceBefore
 			before = @createText "#{@name}before", sentenceb, @label.font, @label.color, 0, 0 + yep
-			console.log before
 			@add before
+			npos =+ before.x + before.getMeasuredWidth()
 			yep = yep + 30
+			maxWidth = npos if npos > maxWidth
 			
 
 		opt1 = @createText "#{@name}_opt1", opts.opt1, "bold #{@bullets.font}", @bullets.color, before.x + before.getMeasuredWidth() + 10, before.y
@@ -1486,6 +1488,10 @@ class ChooseAWordContainer extends Component
 		for sentence in sentenceAfter
 			after = @createText "#{@name}_after", sentence, @label.font, @label.color, xp, 0 + yp
 			@add after
+
+			npos =+ after.x + after.getMeasuredWidth()
+			maxWidth = npos if npos > maxWidth
+
 			yp = yp + 30
 			xp = 0
 
@@ -1505,7 +1511,7 @@ class ChooseAWordContainer extends Component
 		opt2.addEventListener 'click', =>
 			d2oda.evaluator.evaluate @eval, "#{@name}_opt2", @target
 		
-		@width = after.x + after.getMeasuredWidth()
+		@width = maxWidth
 		@setPosition 'tc'
 		TweenLite.from @, 0.5, {y: @y - 20, alpha: 0}
 	isComplete: ->
