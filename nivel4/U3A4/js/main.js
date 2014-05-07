@@ -119,7 +119,7 @@ NEW ODA
           y: 130,
           states: [
             {
-              text: 'Read and drag the correct options.',
+              text: 'Click on a character, read and drag the correct options.',
               sound: 's/silence',
               played: false
             }

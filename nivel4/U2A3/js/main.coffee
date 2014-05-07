@@ -78,14 +78,14 @@ class U2A3 extends Oda
 						{type: 'pcpt', id: 'pcpt8', x: 385, y: 435, font: 'Bold 12px Quicksand', margin: 2, scolor: '#F9101A', stroke: 2}
 						 
 
-						{type: 'ldrg', id: 'ldrg1', x: 240,  y: 510, index: 'a party', text:'a party', font:'15px Quicksand', color:'#333', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg2', x: 320, y: 510, index: 'Christmas Day', text:'Christmas Day', font:'15px Quicksand', color:'#333', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg3', x: 460, y: 510, index: 'four', text:'four', font:'15px Quicksand', color:'#333', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg4', x: 515, y: 510, index: 'in 2005', text:'in 2005', font:'15px Quicksand', color:'#333', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg5', x: 255, y: 530, index: 'money', text:'money', font:'15px Quicksand', color:'#333', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg6', x: 335, y: 530, index: 'new friends', text:'new friends', font:'15px Quicksand', color:'#333', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg7', x: 455, y: 530, index: 'Patrick', text:'Patrick', font:'15px Quicksand', color:'#333', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
-						{type: 'ldrg', id: 'ldrg8', x: 535, y: 530, index: 'ten', text:'ten', font:'15px Quicksand', color:'#333', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg1', x: 240,  y: 510, index: 'a party', text:'a party', font:'Bold 15px Quicksand', color:'#333', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg2', x: 320, y: 510, index: 'Christmas Day', text:'Christmas Day', font:'Bold 15px Quicksand', color:'#333', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg3', x: 460, y: 510, index: 'four', text:'four', font:'Bold 15px Quicksand', color:'#333', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg4', x: 515, y: 510, index: 'in 2005', text:'in 2005', font:'Bold 15px Quicksand', color:'#333', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg5', x: 255, y: 530, index: 'money', text:'money', font:'Bold 15px Quicksand', color:'#333', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg6', x: 335, y: 530, index: 'new friends', text:'new friends', font:'Bold 15px Quicksand', color:'#333', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg7', x: 455, y: 530, index: 'Patrick', text:'Patrick', font:'Bold 15px Quicksand', color:'#333', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'ldrg', id: 'ldrg8', x: 535, y: 530, index: 'ten', text:'ten', font:'Bold 15px Quicksand', color:'#333', target: ['pcpt1','pcpt2','pcpt3','pcpt4','pcpt5','pcpt6','pcpt7','pcpt8'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
 					]
 					groups: [
 						{
@@ -154,9 +154,9 @@ class U2A3 extends Oda
 						
 						{
 							type: 'chs', id: 'chs1', x: 400, y: 100, align: 'tc', target: 'global', eval: @evaluateGlobal01
-							label:{font:'18px Quicksand', color:'#333'}
-							caption:{font:'20px Quicksand', color:'#333'}
-							bullets:{font:'12px Quicksand', color: '#000', lineWidth: 300}
+							label:{font:'bold 18px Quicksand', color:'#333'}
+							caption:{font:'bold 20px Quicksand', color:'#333'}
+							bullets:{font:'bold 12px Quicksand', color: '#000', lineWidth: 300}
 						}
 					]
 					groups: []
