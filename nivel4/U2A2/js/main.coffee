@@ -28,21 +28,21 @@ class U2A2 extends Oda
 			d = lib[dispatcher]
 			t =  target.parent
 			if d.index is t.success
-				if t.name is 'p1'
+				if t.name in ['p1','p4','p7']
 					if lib['p7'].sprite.currentFrame is 0
 						lib['p7'].goto 1
 					else if lib['p4'].sprite.currentFrame is 0
 						lib['p4'].goto 1
 					else
 						lib['p1'].goto 1
-				else if t.name is 'p2'
+				else if t.name in ['p2','p5','p8']
 					if lib['p8'].sprite.currentFrame is 0
 						lib['p8'].goto 1
 					else if lib['p5'].sprite.currentFrame is 0
 						lib['p5'].goto 1
 					else
 						lib['p2'].goto 1
-				else if t.name is 'p3'
+				else if t.name in ['p3','p6','p9']
 					if lib['p9'].sprite.currentFrame is 0
 						lib['p9'].goto 1
 					else if lib['p6'].sprite.currentFrame is 0
