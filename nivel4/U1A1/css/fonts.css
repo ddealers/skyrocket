@@ -1,0 +1,21 @@
+@font-face {
+	font-family: 'Roboto';
+	font-style: normal;
+	src: url('fonts/Roboto_regular.ttf')
+}
+@font-face {
+	font-family: 'Dosis';
+	src: url('fonts/Dosis_regular.ttf')
+}
+@font-face {
+	font-family: 'Quicksand';
+	font-style: Bold;
+	font-weight: 700;
+	src: url('fonts/Quicksand_700.ttf')
+}
+@font-face {
+	font-family: 'Roboto';
+	font-style: italic;
+	font-weight: 500;
+	src: url('fonts/Roboto_500italic.ttf')
+}

@@ -51,7 +51,7 @@ class U3A4 extends Oda
 				lib.scene.fail()
 		@game = 
 			header: 'header'
-			instructions: {x: 110, y: 130, states: [{text:'Read and drag the correct options.', sound:'s/silence', played: false}]}
+			instructions: {x: 110, y: 130, states: [{text:'Click on a character, read and drag the correct options.', sound:'s/silence', played: false}]}
 			score:{type: 'points', x:20, y:500, init: 0, total: 8, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
 			scenes:[
 				{

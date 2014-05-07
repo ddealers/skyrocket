@@ -1776,7 +1776,7 @@ LIBRARY
         for (_i = 0, _len = _ref3.length; _i < _len; _i++) {
           texto = _ref3[_i];
           if (texto === '#ital') {
-            this.label = new createjs.Text(this.states[this.currentState].italics[it], 'italic 20px Roboto', '#000');
+            this.label = new createjs.Text(this.states[this.currentState].italics[it], 'Bold italic 20px Roboto', '#000');
             it++;
           } else {
             this.label = new createjs.Text(texto, '20px Roboto', '#000');
