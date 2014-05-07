@@ -65,11 +65,11 @@ NEW ODA
       this.pc = 0;
       this.you = 0;
       this.onDrop = function(dispatcher, target) {
-        var d, t;
+        var d, t, _ref, _ref1, _ref2;
         d = lib[dispatcher];
         t = target.parent;
         if (d.index === t.success) {
-          if (t.name === 'p1') {
+          if ((_ref = t.name) === 'p1' || _ref === 'p4' || _ref === 'p7') {
             if (lib['p7'].sprite.currentFrame === 0) {
               lib['p7'].goto(1);
             } else if (lib['p4'].sprite.currentFrame === 0) {
@@ -77,7 +77,7 @@ NEW ODA
             } else {
               lib['p1'].goto(1);
             }
-          } else if (t.name === 'p2') {
+          } else if ((_ref1 = t.name) === 'p2' || _ref1 === 'p5' || _ref1 === 'p8') {
             if (lib['p8'].sprite.currentFrame === 0) {
               lib['p8'].goto(1);
             } else if (lib['p5'].sprite.currentFrame === 0) {
@@ -85,7 +85,7 @@ NEW ODA
             } else {
               lib['p2'].goto(1);
             }
-          } else if (t.name === 'p3') {
+          } else if ((_ref2 = t.name) === 'p3' || _ref2 === 'p6' || _ref2 === 'p9') {
             if (lib['p9'].sprite.currentFrame === 0) {
               lib['p9'].goto(1);
             } else if (lib['p6'].sprite.currentFrame === 0) {
