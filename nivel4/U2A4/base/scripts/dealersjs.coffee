@@ -1154,7 +1154,7 @@ class SpriteAnimContainer extends Component
 		framerate = opts.framerate ? 24
 		console.log framerate
 		@spritesheet = new createjs.SpriteSheet {framerate: framerate, images: spriteImgs, frames: opts.frames, animations: opts.animations}
-		@animation = new createjs.BitmapAnimation @spritesheet
+		@animation = new createjs.Sprite @spritesheet
 		@add @animation, false
 		@animation.gotoAndStop @labels[@currentLabel]
 	nextAnimation: ->

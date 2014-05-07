@@ -154,9 +154,9 @@ class U2A3 extends Oda
 						
 						{
 							type: 'chs', id: 'chs1', x: 400, y: 100, align: 'tc', target: 'global', eval: @evaluateGlobal01
-							label:{font:'18px Quicksand', color:'#333'}
-							caption:{font:'20px Quicksand', color:'#333'}
-							bullets:{font:'12px Quicksand', color: '#000', lineWidth: 300}
+							label:{font:'bold 18px Quicksand', color:'#333'}
+							caption:{font:'bold 20px Quicksand', color:'#333'}
+							bullets:{font:'bold 12px Quicksand', color: '#000', lineWidth: 300}
 						}
 					]
 					groups: []

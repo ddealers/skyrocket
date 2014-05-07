@@ -2209,7 +2209,7 @@ LIBRARY
         frames: opts.frames,
         animations: opts.animations
       });
-      this.animation = new createjs.BitmapAnimation(this.spritesheet);
+      this.animation = new createjs.Sprite(this.spritesheet);
       this.add(this.animation, false);
       return this.animation.gotoAndStop(this.labels[this.currentLabel]);
     };

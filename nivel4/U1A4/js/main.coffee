@@ -66,7 +66,7 @@ class U1A4 extends Oda
 					answers: {
 						collection: [
 							[{name:'lbl2', opts:{text:'If you want to take care of wild animals, you should register them.', success:true}}]
-							[{name:'lbl2', opts:{text:'You should train to work with crcocodiles.', success:true}}]
+							[{name:'lbl2', opts:{text:'You should train to work with crocodiles.', success:true}}]
 							[{name:'lbl2', opts:{text:'Hayden\'s father marked more than 20 crocodiles.', success:true}}]
 							[{name:'lbl2', opts:{text:'You should feed wild crocodiles if they look hungry.', success:false}}]
 							[{name:'btnContinue2', opts:{visible:true}}]

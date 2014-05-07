@@ -66,7 +66,7 @@ class U1A3 extends Oda
 			createjs.Sound.play lib.scene.snd
 		@game = 
 			header: 'header'
-			instructions: {x: 110, y: 130, states: [{text:'Push the number and listen, look and drag to the correct box.', sound:'s/silence', played: false}]}
+			instructions: {x: 110, y: 130, states: [{text:'Push the buttons then listen, look and drag to the correct box.', sound:'s/silence', played: false}]}
 			score:{type: 'points', x:20, y:500, init: 0, total: 12, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
 			scenes:[
 				{
