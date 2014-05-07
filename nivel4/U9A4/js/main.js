@@ -468,9 +468,7 @@ NEW ODA
                       before: 'Margaret and Gina',
                       opt1: 'are',
                       opt2: 'aren\'t',
-                      after: 'coming to camp this year.',
-                      '#rtn': '#rtn',
-                      'They are staying home.': 'They are staying home.'
+                      after: 'coming to camp this year. They are staying home.'
                     }
                   }
                 ], [

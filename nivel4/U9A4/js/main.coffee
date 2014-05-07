@@ -174,7 +174,7 @@ class U9A4 extends Oda
 								{name: 'p7', opts:{success: '1', complete: true}}
 								{name: 'p8', opts:{success: '1', complete: true}}
 								{name: 'p9', opts:{success: '1', complete: true}}
-								{name: 'caw1', opts: {before:'Margaret and Gina', opt1:'are', opt2:'aren\'t', after:'coming to camp this year.','#rtn','They are staying home.'}}
+								{name: 'caw1', opts: {before:'Margaret and Gina', opt1:'are', opt2:'aren\'t', after:'coming to camp this year. They are staying home.'}}
 							]
 							[
 								{name:'global', opts:{success:2}}

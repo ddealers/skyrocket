@@ -183,7 +183,7 @@ NEW ODA
                 y: 520,
                 index: 'longest',
                 text: 'longest',
-                font: '22px Quicksand',
+                font: 'Bold 22px Quicksand',
                 color: '#333',
                 target: ['pcpt1'],
                 "eval": this.evaluateDrop02_01,

@@ -110,7 +110,7 @@ class U1A1 extends Oda
 						{type: 'img', id: 'stomachache', x: 433, y: 328, align: 'mc'}
 						{type: 'img', id: 'thirsty', x: 433, y: 328, align: 'mc'}
 						{type: 'img', id: 'toothache', x: 433, y: 328, align: 'mc'}
-						{type: 'pcpt', id: 'pcpt1', x: 433, y: 510, underline: {y:0}, clickable: false, font: 'Bold 20px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A'}
+						{type: 'pcpt', id: 'pcpt1', x: 433, y: 520, underline: {y:0}, clickable: false, font: 'Bold 20px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A'}
 						{
 							type: 'btn', id: 'btn_1', x: 140, y: 155, index: 'aspirin', target: 'pcpt1', eval: @btnClick
 							states: [{txt: {text:'aspirin', name:'aspirin', x:0, y:0, align:'center', font: 'Bold 20px Quicksand'}}]
