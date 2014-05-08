@@ -118,7 +118,7 @@ class U9A4 extends Oda
 					@you++
 					createjs.Sound.play 's/good'
 					lib.tazul.update {text: @you}
-			if @pc >= 3 or @you >= 3
+			if @pc >= 5 or @you >= 5
 				d2oda.methods.delay 500, =>
 					@pc = 0
 					@you = 0

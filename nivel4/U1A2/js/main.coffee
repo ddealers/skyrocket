@@ -34,46 +34,24 @@ class U1A2 extends Oda
 			pattern = /[a-z]/i
 			str = String.fromCharCode keycode
 			target = lib[window.target].getEnabledTarget()
-			targ = target.success.split '||'
-			#console.log targ
-			if keycode is 8
-				target.write '<-'
-			else if keycode is 13
-				fail = false
-				if target.write() in targ
-					target.complete = true
-				else
-					fail = true
-					lib.scene.fail()
-				if not fail then lib.scene.success true,false
-			else if keycode is 32
-				target.write '-'
-			else if keycode is 222
-				target.write '\''
-			else if pattern.test str
-				target.write str.toLowerCase()
-		@btnClick = (dispatcher, target) =>
-			###
-			d = lib[dispatcher]
-			t = lib[target]
-			a = d.index
-			b = t.droptargets
-			c = t.currentTarget
-			console.log d,t,a,b,c
-			console.log a, b[c].success
-			if a is b[c].success
-				verb = prompt "Enter the correct form of #{d.index}"
-				if verb is b[c].text.text
-					b[c].complete = true
-					b[c].update()
-					t.currentTarget++
-				if t.currentTarget is b.length
-					lib.scene.success()
-				else
-					lib.scene.fail()
-			else
-				lib.scene.fail false 
-			###
+			if target.success
+				targ = target.success.split '||'
+				if keycode is 8
+					target.write '<-'
+				else if keycode is 13
+					fail = false
+					if target.write() in targ
+						target.complete = true
+					else
+						fail = true
+						lib.scene.fail()
+					if not fail then lib.scene.success true,false
+				else if keycode is 32
+					target.write '-'
+				else if keycode is 222
+					target.write '\''
+				else if pattern.test str
+					target.write str.toLowerCase()
 		@game = 
 			header: 'header' 
 			instructions: {x: 110, y: 130, states: [{text:['Read and write','#ital','or','#ital'],italics:['should','shouldn\'t.'], sound:'s/silence', played: false, custom:true}]}

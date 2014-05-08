@@ -203,7 +203,7 @@ NEW ODA
               text: _this.you
             });
         }
-        if (_this.pc >= 3 || _this.you >= 3) {
+        if (_this.pc >= 5 || _this.you >= 5) {
           return d2oda.methods.delay(500, function() {
             _this.pc = 0;
             _this.you = 0;

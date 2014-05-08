@@ -892,19 +892,19 @@ class Instructions extends Component
 		if @custom is true
 			it = 0
 			npos = 14
+			newLabel = []
 			for texto in @states[@currentState].text
 				if texto is '#ital'
-
-					@label = new createjs.Text @states[@currentState].italics[it], 'italic 20px Roboto', '#000'
+					nl = new createjs.Text @states[@currentState].italics[it], 'italic 20px Roboto', '#000'
+					nl.x = npos
+					npos += nl.getMeasuredWidth()
 					it++
-				else 
-					@label = new createjs.Text texto, '20px Roboto', '#000'
-				@label.x = npos
-				@addChild @label
-				console.log @label
-				npos = npos + @label.getMeasuredWidth() + 5
-				
-
+				else
+					nl = new createjs.Text texto, '20px Roboto', '#000'
+					nl.x = npos
+					npos += nl.getMeasuredWidth() + 5
+				@addChild nl
+				newLabel.push nl
 		else
 			@label = new createjs.Text @states[@currentState].text, '20px Roboto', '#000'
 			@label.x = 14

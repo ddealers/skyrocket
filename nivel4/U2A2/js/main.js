@@ -206,7 +206,7 @@ NEW ODA
               text: _this.you
             });
         }
-        if (_this.pc >= 3 || _this.you >= 3) {
+        if (_this.pc >= 5 || _this.you >= 5) {
           return d2oda.methods.delay(500, function() {
             _this.pc = 0;
             _this.you = 0;
@@ -1398,11 +1398,7 @@ NEW ODA
               }, {
                 type: 'caw',
                 id: 'caw1',
-<<<<<<< HEAD
                 x: 420,
-=======
-                x: 410,
->>>>>>> 621fd507c62c791feb31312eff47398ba0380a1e
                 y: 530,
                 align: 'tc',
                 target: 'global',

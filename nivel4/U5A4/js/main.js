@@ -13,7 +13,6 @@ NEW ODA
     __extends(U5A4, _super);
 
     function U5A4() {
-      var _this = this;
       this.manifest = [
         {
           id: '10',
@@ -98,30 +97,6 @@ NEW ODA
           src: 'silence.mp3'
         }
       ];
-      this.btnClick = function(dispatcher, target) {
-        /*
-        			d = lib[dispatcher]
-        			t = lib[target]
-        			a = d.index
-        			b = t.droptargets
-        			c = t.currentTarget
-        			console.log d,t,a,b,c
-        			console.log a, b[c].success
-        			if a is b[c].success
-        				verb = prompt "Enter the correct form of #{d.index}"
-        				if verb is b[c].text.text
-        					b[c].complete = true
-        					b[c].update()
-        					t.currentTarget++
-        				if t.currentTarget is b.length
-        					lib.scene.success()
-        				else
-        					lib.scene.fail()
-        			else
-        				lib.scene.fail false
-        */
-
-      };
       this.onkeydown = function(e) {
         var fail, keycode, pattern, str, target, word, _i, _len, _ref;
         e.preventDefault();
