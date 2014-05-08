@@ -21,7 +21,11 @@ window.dealersjs.mobile ?= class Mobile
     	@user_agent.indexOf('android') > -1
     @isMobile = ->
     	@user_agent.indexOf('mobile') > -1
-    Mobile
+	@isWindows = ->
+		@user_agent.indexOf('windows') > -1
+	@isMac = ->
+		@user_agent.indexOf('macintosh') > -1
+	Mobile
 	
 window.d2oda.utilities ?= class Utilities
 	@shuffleNoRepeat = (a, len) ->
@@ -896,7 +900,8 @@ class Instructions extends Component
 				if texto is '#ital'
 					nl = new createjs.Text @states[@currentState].italics[it], 'italic 20px Roboto', '#000'
 					nl.x = npos
-					npos += nl.getMeasuredWidth()
+					if dealersjs.mobile.isWindows() then npos += nl.getMeasuredWidth() + 7
+					if dealersjs.mobile.isMac() then npos += nl.getMeasuredWidth()
 					it++
 				else
 					nl = new createjs.Text texto, '20px Roboto', '#000'
