@@ -82,7 +82,7 @@ class U9A3 extends Oda
 						{type: 'img', id: 'hamburguesa', x: 520, y: 243, align: 'tl'}
 						{type: 'img', id: 'rosa', x: 633, y: 243, align: 'tl'}
 						{type: 'img', id: 'fiesta', x: 742, y: 243, align: 'tl'}
-						{type: 'swct', id: 'wcpt1', x: 460, y: 460, margin: 10, uwidth: 150, distance: 10, font: 'Bold 20px Quicksand', scolor: '#F00', align: 'tc', eval:@drop}
+						{type: 'swct', id: 'wcpt1', x: 460, y: 460, margin: 10, uwidth: 150, distance: 10, font: 'Bold 20px Quicksand', scolor: '#008F4C', align: 'tc', eval:@drop}
 					]
 					groups: [
 						{
