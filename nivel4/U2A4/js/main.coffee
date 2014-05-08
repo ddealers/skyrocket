@@ -44,7 +44,7 @@ class U2A4 extends Oda
 						collection: [
 							[
 								{name:'global', opts:{success:1}}
-								{name: 'caw1', opts: {before:'Put on all your clothes to stay', opt1:'warm', opt2:'wet.'}}
+								{name: 'caw1', opts: {before:'Put on all your clothes to stay', opt1:'warm', opt2:'wet',after:'.'}}
 							]
 							[
 								{name:'global', opts:{success:2}}

@@ -58,7 +58,7 @@ LIBRARY
         return this.user_agent.indexOf('mobile') > -1;
       };
 
-      Mobil;
+      Mobile;
 
       return Mobile;
 

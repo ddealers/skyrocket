@@ -269,7 +269,7 @@ NEW ODA
                   {
                     name: 'pcpt5',
                     opts: {
-                      pattern: ['Cars were a lot', '#tcpt', ' in the 1970s', '#rtn', '#tcpt', 'they are now.'],
+                      pattern: ['Cars were a lot', '#tcpt', 'in the 1970s', '#rtn', '#tcpt', 'they are now.'],
                       targets: [
                         {
                           text: 'slower',
