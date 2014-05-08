@@ -768,7 +768,7 @@ NEW ODA
                 font: 'Bold 20px Quicksand',
                 margin: 5,
                 align: 'tc',
-                scolor: '#F9101A',
+                scolor: '#005da2',
                 uwidth: 90
               }, {
                 type: 'txt',
