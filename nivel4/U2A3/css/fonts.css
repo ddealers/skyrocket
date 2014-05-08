@@ -1,7 +1,7 @@
 @font-face {
 	font-family: 'Roboto';
 	font-style: normal;
-	src: url('../fonts/Roboto_regular.ttf')
+	src: url('../fonts/Roboto_regular.ttf'),url('../fonts/roboto_regular-webfont.woff')
 }
 @font-face {
 	font-family: 'Dosis';
@@ -18,5 +18,5 @@
 	font-family: 'Roboto';
 	font-style: italic;
 	font-weight: 500;
-	src: url('../fonts/Roboto_500italic.ttf')
+	src: url('../fonts/Roboto_500italic.ttf'),url('../fonts/roboto_500italic-webfont.woff')
 }

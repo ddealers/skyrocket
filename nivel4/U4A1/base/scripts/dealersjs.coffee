@@ -21,7 +21,7 @@ window.dealersjs.mobile ?= class Mobile
     	@user_agent.indexOf('android') > -1
     @isMobile = ->
     	@user_agent.indexOf('mobile') > -1
-    Mobile
+    Mobil
 	
 window.d2oda.utilities ?= class Utilities
 	@shuffleNoRepeat = (a, len) ->

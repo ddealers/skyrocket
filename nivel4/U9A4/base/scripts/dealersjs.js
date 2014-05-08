@@ -395,7 +395,6 @@ LIBRARY
           currentFrame: 0
         });
         this.setPosition(position, animation);
-        console.log(animation);
         return animation;
       };
 
