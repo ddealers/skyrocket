@@ -1406,7 +1406,7 @@ NEW ODA
               }, {
                 type: 'caw',
                 id: 'caw1',
-                x: 400,
+                x: 420,
                 y: 530,
                 align: 'tc',
                 target: 'global',

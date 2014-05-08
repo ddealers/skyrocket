@@ -96,7 +96,7 @@ class U2A4 extends Oda
 							]
 							[
 								{name:'global', opts:{success:2}}
-								{name: 'caw1', opts: {before:'You can survive without food for a few days, but you need', opt1:'fire', opt2:'water', }}
+								{name: 'caw1', opts: {before:'You can survive without food for a few days, but you need', opt1:'fire', opt2:'water', after:'.' }}
 							]
 							[
 								{name:'global', opts:{success:2}}
@@ -112,11 +112,11 @@ class U2A4 extends Oda
 							]
 							[
 								{name:'global', opts:{success:1}}
-								{name: 'caw1', opts: {before:'Stay with your group; don\'t walk', opt1:'alone', opt2:'fast.'}}
+								{name: 'caw1', opts: {before:'Stay with your group; don\'t walk', opt1:'alone', opt2:'fast', after:'.'}}
 							]
 							[
 								{name:'global', opts:{success:1}}
-								{name: 'caw1', opts: {before:'Tell your mom and dad where you are',opt1:'going', opt2:'left.'}}
+								{name: 'caw1', opts: {before:'Tell your mom and dad where you are',opt1:'going', opt2:'left', after:'.'}}
 							]
 							[
 								{name:'global', opts:{success:1}}
@@ -136,7 +136,7 @@ class U2A4 extends Oda
 							animations: {init:[0,1, false], uno:[1,2, false], dos:[2,3, false], tres:[3,4, false], cuatro:[4,5, false], cinco:[5,6, false], seis:[6,7, false], siete:[7,8, false], ocho:[8,9, false], nueve:[9,10, false]}
 						}	
 						{
-							type: 'caw', id: 'caw1', x: 470, y: 510, align: 'tc', target: 'global', eval: @onChoose
+							type: 'caw', id: 'caw1', x: 450, y: 510, align: 'tc', target: 'global', eval: @onChoose
 							label:{font:'Bold 18px Quicksand', color:'#444'}
 							bullets:{font:'18px Quicksand', color: '#000'}
 						}
