@@ -1480,32 +1480,43 @@ class ChooseAWordContainer extends Component
 		@bullets = opts.bullets
 	update: (opts) ->
 		@removeAllChildren()
-		before = @createText "#{@name}_before", opts.before, @label.font, @label.color, 0, 0 
-		@add before
-
-		opt1 = @createText "#{@name}_opt1", opts.opt1, "bold #{@bullets.font}", @bullets.color, before.x + before.getMeasuredWidth() + 10, 0
+		yep = 0
+		sentenceBefore = opts.before.split '//'
+		for sentenceb in sentenceBefore
+			before = @createText "#{@name}_before", sentenceb, @label.font, @label.color, 0, yep
+			@add before
+			yep += 30
+		
+		opt1 = @createText "#{@name}_opt1", opts.opt1, "bold #{@bullets.font}", @bullets.color, before.x + before.getMeasuredWidth() + 10, before.y
 		hito1 = new createjs.Shape()
 		hito1.graphics.beginFill('#000').drawRect(-5, -3, opt1.getMeasuredWidth() + 10, opt1.getMeasuredHeight() + 6)
 		opt1.hitArea = hito1
 		opt1.index = 1
 
-		slash = @createText "#{@name}_slash", '/', @label.font, @label.color, opt1.x + opt1.getMeasuredWidth() + 10, 0 
+		slash = @createText "#{@name}_slash", '/', @label.font, @label.color, opt1.x + opt1.getMeasuredWidth() + 10, before.y 
 		@add slash
 
-		opt2 = @createText "#{@name}_opt2", opts.opt2, "bold #{@bullets.font}", @bullets.color, slash.x + slash.getMeasuredWidth() + 10, 0
+		opt2 = @createText "#{@name}_opt2", opts.opt2, "bold #{@bullets.font}", @bullets.color, slash.x + slash.getMeasuredWidth() + 10, before.y
 		hito2 = new createjs.Shape()
 		hito2.graphics.beginFill('#000').drawRect(-5, -3, opt2.getMeasuredWidth() + 10, opt2.getMeasuredHeight() + 6)
 		opt2.hitArea = hito2
 		opt2.index = 2
-
+	
 		if opts.after is '.'
 			margen = 0
 		else
 			margen = 10
-
-		after = @createText "#{@name}_after", opts.after, @label.font, @label.color, opt2.x + opt2.getMeasuredWidth() + margen, 0 
-		@add after
-
+		
+		yp = before.y
+		xp = opt2.x + opt2.getMeasuredWidth() + margen
+		sentenceAfter = opts.after.split '//'
+		
+		for sentence in sentenceAfter
+			after = @createText "#{@name}_after", sentence, @label.font, @label.color, xp, 0 + yp
+			@add after
+			yp += 30
+			xp = 0
+		
 		@add opt1
 		opt1.addEventListener 'mouseover', =>
 			TweenLite.to opt1, 0.5, {alpha: 0.5}
@@ -1521,8 +1532,8 @@ class ChooseAWordContainer extends Component
 			TweenLite.to opt2, 0.5, {alpha: 1}
 		opt2.addEventListener 'click', =>
 			d2oda.evaluator.evaluate @eval, "#{@name}_opt2", @target
-
-		@width = after.x + after.getMeasuredWidth()
+		
+		@width = @getBounds().width
 		@setPosition 'tc'
 		TweenLite.from @, 0.5, {y: @y - 20, alpha: 0}
 	isComplete: ->

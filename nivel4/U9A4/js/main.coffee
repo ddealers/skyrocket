@@ -120,11 +120,9 @@ class U9A4 extends Oda
 				d2oda.methods.delay 2000, ->
 					lib.game.nextScene()
 			else
-
 				@reset()
 		@reset = () =>
 			d2oda.methods.delay 500, ->
-
 				for i in [1..9]
 					lib["p#{i}"].goto 0
 		@getFrame = (obj) =>
@@ -314,7 +312,7 @@ class U9A4 extends Oda
 								{name: 'p7', opts:{success: '1', complete: true}}
 								{name: 'p8', opts:{success: '1', complete: true}}
 								{name: 'p9', opts:{success: '1', complete: true}}
-								{name: 'caw1', opts: {before:'', opt1:'I are', opt2:'I\'m', after:'going to learn how to play guitar this summer.'}}
+								{name: 'caw1', opts: {before:'I', opt1:'are', opt2:'\'m', after:'going to learn how to play guitar this summer.'}}
 							]
 							[
 								{name:'global', opts:{success:1}}
@@ -426,7 +424,7 @@ class U9A4 extends Oda
 						{type: 'txt', id: 'tazul', text:'0', x: 178, y: 275, font:'Bold 24px Quicksand', align: 'center'}
 						{type: 'txt', id: 'tverde', text:'0', x: 182, y: 375, font:'Bold 24px Quicksand', align: 'center'}
 						{
-							type: 'caw', id: 'caw1', x: 400, y: 530, align: 'tc', target: 'global', eval: @onChoose
+							type: 'caw', id: 'caw1', x: 435, y: 530, align: 'tc', target: 'global', eval: @onChoose
 							label:{font:'Bold 18px Quicksand', color:'#444'}
 							bullets:{font:'18px Quicksand', color: '#000'}
 						}
