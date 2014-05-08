@@ -126,7 +126,8 @@ NEW ODA
                     opts: {
                       before: 'Put on all your clothes to stay',
                       opt1: 'warm',
-                      opt2: 'wet.'
+                      opt2: 'wet',
+                      after: '.'
                     }
                   }
                 ], [
