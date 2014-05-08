@@ -579,7 +579,7 @@ NEW ODA
                 x: 413,
                 y: 445,
                 font: 'Bold 20px Quicksand',
-                lineHeight: 25,
+                lineHeight: 32,
                 margin: 5,
                 align: 'tc',
                 scolor: '#009046'
