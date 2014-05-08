@@ -320,7 +320,8 @@ NEW ODA
                     opts: {
                       before: 'You can survive without food for a few days, but you need',
                       opt1: 'fire',
-                      opt2: 'water'
+                      opt2: 'water',
+                      after: '.'
                     }
                   }
                 ], [
@@ -379,7 +380,8 @@ NEW ODA
                     opts: {
                       before: 'Stay with your group; don\'t walk',
                       opt1: 'alone',
-                      opt2: 'fast.'
+                      opt2: 'fast',
+                      after: '.'
                     }
                   }
                 ], [
@@ -393,7 +395,8 @@ NEW ODA
                     opts: {
                       before: 'Tell your mom and dad where you are',
                       opt1: 'going',
-                      opt2: 'left.'
+                      opt2: 'left',
+                      after: '.'
                     }
                   }
                 ], [
@@ -441,7 +444,7 @@ NEW ODA
               }, {
                 type: 'caw',
                 id: 'caw1',
-                x: 470,
+                x: 450,
                 y: 510,
                 align: 'tc',
                 target: 'global',

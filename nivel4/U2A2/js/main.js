@@ -12,6 +12,12 @@ NEW ODA
   U2A2 = (function(_super) {
     __extends(U2A2, _super);
 
+    U2A2.prototype.initGame = function() {
+      this.pc = 0;
+      this.you = 0;
+      return U2A2.__super__.initGame.call(this);
+    };
+
     function U2A2() {
       var _this = this;
       this.manifest = [
@@ -62,8 +68,6 @@ NEW ODA
           src: 'silence.mp3'
         }
       ];
-      this.pc = 0;
-      this.you = 0;
       this.onDrop = function(dispatcher, target) {
         var d, t, _ref, _ref1, _ref2;
         d = lib[dispatcher];
@@ -116,7 +120,7 @@ NEW ODA
               _this.evaluate13(2);
             }
           }
-          lib.scene.fail();
+          lib.scene.fail(false);
           lib.scene.nextStep();
           return _this.evaluateWin();
         }
@@ -151,54 +155,38 @@ NEW ODA
       };
       this.evaluateWin = function() {
         if ((_this.getFrame('p1')) === 2 && (_this.getFrame('p2')) === 2 && (_this.getFrame('p3')) === 2) {
-          _this.scoreUp('pc');
-        }
-        if ((_this.getFrame('p4')) === 2 && (_this.getFrame('p5')) === 2 && (_this.getFrame('p6')) === 2) {
-          _this.scoreUp('pc');
-        }
-        if ((_this.getFrame('p7')) === 2 && (_this.getFrame('p8')) === 2 && (_this.getFrame('p9')) === 2) {
-          _this.scoreUp('pc');
-        }
-        if ((_this.getFrame('p1')) === 2 && (_this.getFrame('p4')) === 2 && (_this.getFrame('p7')) === 2) {
-          _this.scoreUp('pc');
-        }
-        if ((_this.getFrame('p2')) === 2 && (_this.getFrame('p5')) === 2 && (_this.getFrame('p8')) === 2) {
-          _this.scoreUp('pc');
-        }
-        if ((_this.getFrame('p3')) === 2 && (_this.getFrame('p6')) === 2 && (_this.getFrame('p9')) === 2) {
-          _this.scoreUp('pc');
-        }
-        if ((_this.getFrame('p1')) === 2 && (_this.getFrame('p5')) === 2 && (_this.getFrame('p9')) === 2) {
-          _this.scoreUp('pc');
-        }
-        if ((_this.getFrame('p3')) === 2 && (_this.getFrame('p5')) === 2 && (_this.getFrame('p7')) === 2) {
-          _this.scoreUp('pc');
-        }
-        if ((_this.getFrame('p1')) === 1 && (_this.getFrame('p2')) === 1 && (_this.getFrame('p3')) === 1) {
-          _this.scoreUp('you');
-        }
-        if ((_this.getFrame('p4')) === 1 && (_this.getFrame('p5')) === 1 && (_this.getFrame('p6')) === 1) {
-          _this.scoreUp('you');
-        }
-        if ((_this.getFrame('p7')) === 1 && (_this.getFrame('p8')) === 1 && (_this.getFrame('p9')) === 1) {
-          _this.scoreUp('you');
-        }
-        if ((_this.getFrame('p1')) === 1 && (_this.getFrame('p4')) === 1 && (_this.getFrame('p7')) === 1) {
-          _this.scoreUp('you');
-        }
-        if ((_this.getFrame('p2')) === 1 && (_this.getFrame('p5')) === 1 && (_this.getFrame('p8')) === 1) {
-          _this.scoreUp('you');
-        }
-        if ((_this.getFrame('p3')) === 1 && (_this.getFrame('p6')) === 1 && (_this.getFrame('p9')) === 1) {
-          _this.scoreUp('you');
-        }
-        if ((_this.getFrame('p1')) === 1 && (_this.getFrame('p5')) === 1 && (_this.getFrame('p9')) === 1) {
-          _this.scoreUp('you');
-        }
-        if ((_this.getFrame('p3')) === 1 && (_this.getFrame('p5')) === 1 && (_this.getFrame('p7')) === 1) {
-          _this.scoreUp('you');
-        }
-        if ((_this.getFrame('p1')) !== 0 && (_this.getFrame('p2')) !== 0 && (_this.getFrame('p3')) !== 0 && (_this.getFrame('p4')) !== 0 && (_this.getFrame('p5')) !== 0 && (_this.getFrame('p6')) !== 0 && (_this.getFrame('p7')) !== 0 && (_this.getFrame('p8')) !== 0 && (_this.getFrame('p9')) !== 0) {
+          return _this.scoreUp('pc');
+        } else if ((_this.getFrame('p4')) === 2 && (_this.getFrame('p5')) === 2 && (_this.getFrame('p6')) === 2) {
+          return _this.scoreUp('pc');
+        } else if ((_this.getFrame('p7')) === 2 && (_this.getFrame('p8')) === 2 && (_this.getFrame('p9')) === 2) {
+          return _this.scoreUp('pc');
+        } else if ((_this.getFrame('p1')) === 2 && (_this.getFrame('p4')) === 2 && (_this.getFrame('p7')) === 2) {
+          return _this.scoreUp('pc');
+        } else if ((_this.getFrame('p2')) === 2 && (_this.getFrame('p5')) === 2 && (_this.getFrame('p8')) === 2) {
+          return _this.scoreUp('pc');
+        } else if ((_this.getFrame('p3')) === 2 && (_this.getFrame('p6')) === 2 && (_this.getFrame('p9')) === 2) {
+          return _this.scoreUp('pc');
+        } else if ((_this.getFrame('p1')) === 2 && (_this.getFrame('p5')) === 2 && (_this.getFrame('p9')) === 2) {
+          return _this.scoreUp('pc');
+        } else if ((_this.getFrame('p3')) === 2 && (_this.getFrame('p5')) === 2 && (_this.getFrame('p7')) === 2) {
+          return _this.scoreUp('pc');
+        } else if ((_this.getFrame('p1')) === 1 && (_this.getFrame('p2')) === 1 && (_this.getFrame('p3')) === 1) {
+          return _this.scoreUp('you');
+        } else if ((_this.getFrame('p4')) === 1 && (_this.getFrame('p5')) === 1 && (_this.getFrame('p6')) === 1) {
+          return _this.scoreUp('you');
+        } else if ((_this.getFrame('p7')) === 1 && (_this.getFrame('p8')) === 1 && (_this.getFrame('p9')) === 1) {
+          return _this.scoreUp('you');
+        } else if ((_this.getFrame('p1')) === 1 && (_this.getFrame('p4')) === 1 && (_this.getFrame('p7')) === 1) {
+          return _this.scoreUp('you');
+        } else if ((_this.getFrame('p2')) === 1 && (_this.getFrame('p5')) === 1 && (_this.getFrame('p8')) === 1) {
+          return _this.scoreUp('you');
+        } else if ((_this.getFrame('p3')) === 1 && (_this.getFrame('p6')) === 1 && (_this.getFrame('p9')) === 1) {
+          return _this.scoreUp('you');
+        } else if ((_this.getFrame('p1')) === 1 && (_this.getFrame('p5')) === 1 && (_this.getFrame('p9')) === 1) {
+          return _this.scoreUp('you');
+        } else if ((_this.getFrame('p3')) === 1 && (_this.getFrame('p5')) === 1 && (_this.getFrame('p7')) === 1) {
+          return _this.scoreUp('you');
+        } else if ((_this.getFrame('p1')) !== 0 && (_this.getFrame('p2')) !== 0 && (_this.getFrame('p3')) !== 0 && (_this.getFrame('p4')) !== 0 && (_this.getFrame('p5')) !== 0 && (_this.getFrame('p6')) !== 0 && (_this.getFrame('p7')) !== 0 && (_this.getFrame('p8')) !== 0 && (_this.getFrame('p9')) !== 0) {
           return _this.reset();
         }
       };
@@ -218,8 +206,11 @@ NEW ODA
               text: _this.you
             });
         }
-        if (_this.pc >= 3 || _this.you >= 3) {
-          return d2oda.methods.delay(2000, function() {
+        if (_this.pc >= 5 || _this.you >= 5) {
+          return d2oda.methods.delay(500, function() {
+            _this.pc = 0;
+            _this.you = 0;
+            _this.reset();
             return lib.game.nextScene();
           });
         } else {
@@ -257,7 +248,7 @@ NEW ODA
           x: 20,
           y: 500,
           init: 0,
-          total: 16,
+          total: 15,
           aimg: 'c1',
           acolor: '#333',
           bimg: 'c2',
@@ -1374,7 +1365,8 @@ NEW ODA
                 ]
               ],
               mixed: true,
-              type: 'steps'
+              type: 'limit',
+              limit: 15
             },
             containers: [
               {
@@ -1406,7 +1398,7 @@ NEW ODA
               }, {
                 type: 'caw',
                 id: 'caw1',
-                x: 400,
+                x: 420,
                 y: 530,
                 align: 'tc',
                 target: 'global',

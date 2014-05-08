@@ -14,7 +14,6 @@ NEW ODA
     __extends(U1A2, _super);
 
     function U1A2() {
-      var _this = this;
       this.manifest = [
         {
           id: 'burger',
@@ -82,51 +81,29 @@ NEW ODA
         pattern = /[a-z]/i;
         str = String.fromCharCode(keycode);
         target = lib[window.target].getEnabledTarget();
-        targ = target.success.split('||');
-        if (keycode === 8) {
-          return target.write('<-');
-        } else if (keycode === 13) {
-          fail = false;
-          if (_ref = target.write(), __indexOf.call(targ, _ref) >= 0) {
-            target.complete = true;
-          } else {
-            fail = true;
-            lib.scene.fail();
+        if (target.success) {
+          targ = target.success.split('||');
+          if (keycode === 8) {
+            return target.write('<-');
+          } else if (keycode === 13) {
+            fail = false;
+            if (_ref = target.write(), __indexOf.call(targ, _ref) >= 0) {
+              target.complete = true;
+            } else {
+              fail = true;
+              lib.scene.fail();
+            }
+            if (!fail) {
+              return lib.scene.success(true, false);
+            }
+          } else if (keycode === 32) {
+            return target.write('-');
+          } else if (keycode === 222) {
+            return target.write('\'');
+          } else if (pattern.test(str)) {
+            return target.write(str.toLowerCase());
           }
-          if (!fail) {
-            return lib.scene.success(true, false);
-          }
-        } else if (keycode === 32) {
-          return target.write('-');
-        } else if (keycode === 222) {
-          return target.write('\'');
-        } else if (pattern.test(str)) {
-          return target.write(str.toLowerCase());
         }
-      };
-      this.btnClick = function(dispatcher, target) {
-        /*
-        			d = lib[dispatcher]
-        			t = lib[target]
-        			a = d.index
-        			b = t.droptargets
-        			c = t.currentTarget
-        			console.log d,t,a,b,c
-        			console.log a, b[c].success
-        			if a is b[c].success
-        				verb = prompt "Enter the correct form of #{d.index}"
-        				if verb is b[c].text.text
-        					b[c].complete = true
-        					b[c].update()
-        					t.currentTarget++
-        				if t.currentTarget is b.length
-        					lib.scene.success()
-        				else
-        					lib.scene.fail()
-        			else
-        				lib.scene.fail false
-        */
-
       };
       this.game = {
         header: 'header',

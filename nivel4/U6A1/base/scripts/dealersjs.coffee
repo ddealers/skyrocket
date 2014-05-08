@@ -151,7 +151,6 @@ window.d2oda.methods ?= class Methods
 		animation = new createjs.Sprite sprite
 		animation.set {x: x, y: y, width: w, height: h, name: name, currentFrame: 0}
 		@setPosition position, animation
-		console.log animation
 		animation
 	@insertSprite = (name, imgs, anim=null, x, y, position = 'tl') ->
 		animation = @createSprite name, imgs, anim, x, y, position
@@ -892,19 +891,19 @@ class Instructions extends Component
 		if @custom is true
 			it = 0
 			npos = 14
+			newLabel = []
 			for texto in @states[@currentState].text
 				if texto is '#ital'
-
-					@label = new createjs.Text @states[@currentState].italics[it], 'italic 20px Roboto', '#000'
+					nl = new createjs.Text @states[@currentState].italics[it], 'italic 20px Roboto', '#000'
+					nl.x = npos
+					npos += nl.getMeasuredWidth()
 					it++
-				else 
-					@label = new createjs.Text texto, '20px Roboto', '#000'
-				@label.x = npos
-				@addChild @label
-				console.log @label
-				npos = npos + @label.getMeasuredWidth() + 5
-				
-
+				else
+					nl = new createjs.Text texto, '20px Roboto', '#000'
+					nl.x = npos
+					npos += nl.getMeasuredWidth() + 5
+				@addChild nl
+				newLabel.push nl
 		else
 			@label = new createjs.Text @states[@currentState].text, '20px Roboto', '#000'
 			@label.x = 14
@@ -1168,7 +1167,7 @@ class SpriteAnimContainer extends Component
 		framerate = opts.framerate ? 24
 		console.log framerate
 		@spritesheet = new createjs.SpriteSheet {framerate: framerate, images: spriteImgs, frames: opts.frames, animations: opts.animations}
-		@animation = new createjs.BitmapAnimation @spritesheet
+		@animation = new createjs.Sprite @spritesheet
 		@add @animation, false
 		@animation.gotoAndStop @labels[@currentLabel]
 	nextAnimation: ->
@@ -1539,7 +1538,7 @@ class CardContainer extends Component
 			if @currentX > @cols - 1
 				@currentX = 0 
 				@fila++
-		
+		 
 		@shuffleAnswers = shuffleAnswers = d2oda.utilities.shuffleNoRepeat shuffledCartas, 6
 		@delay 15000, ->
 			for carta in cardcollection

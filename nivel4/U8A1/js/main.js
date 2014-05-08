@@ -337,7 +337,7 @@ NEW ODA
                   {
                     name: 'pcct9',
                     opts: {
-                      pattern: ['If I could have a superpower, I would read people\'s', '#tcpt', 'to know what they think!'],
+                      pattern: ['If I could have a superpower, I would read people\'s', '#tcpt', 'to know', '#rtn', 'what they think!'],
                       targets: [
                         {
                           text: 'minds',
@@ -402,13 +402,13 @@ NEW ODA
               {
                 type: 'img',
                 id: 'caja',
-                x: 154,
+                x: 160,
                 y: 510
               }, {
                 type: 'img',
                 id: 'superhero',
                 x: 230,
-                y: 190
+                y: 205
               }, {
                 type: 'pcpt',
                 id: 'pcct1',
@@ -530,7 +530,7 @@ NEW ODA
                 type: 'pcpt',
                 id: 'pcct10',
                 x: 80,
-                y: 417,
+                y: 431,
                 uwidth: 70,
                 font: 'Bold 12px Quicksand',
                 underline: {

@@ -89,7 +89,7 @@ class U8A1 extends Oda
 								{name: 'grpder', opts:{type: 'fadeIn', target: 'shoes'}}
 							]
 							[
-								{name: 'pcct9', opts:{pattern:['If I could have a superpower, I would read people\'s','#tcpt','to know what they think!'], targets: [{text:'minds',maxlenght:'glasses'}]}}
+								{name: 'pcct9', opts:{pattern:['If I could have a superpower, I would read people\'s','#tcpt','to know', '#rtn', 'what they think!'], targets: [{text:'minds',maxlenght:'glasses'}]}}
 								{name: 'grpizq', opts:{type: 'fadeIn', target: 'books'}}
 								{name: 'grpmid', opts:{type: 'fadeIn', target: 'glasses'}}
 								{name: 'grpder', opts:{type: 'fadeIn', target: 'minds'}}
@@ -105,8 +105,8 @@ class U8A1 extends Oda
 						type: 'steps'
 					}
 					containers:[
-						{type: 'img', id: 'caja', x: 154, y: 510}
-						{type: 'img', id: 'superhero', x: 230, y:190}
+						{type: 'img', id: 'caja', x: 160, y: 510}
+						{type: 'img', id: 'superhero', x: 230, y:205}
  						{type: 'pcpt', id: 'pcct1', x: 	80, y: 190, uwidth : 70 ,font: 'Bold 12px Quicksand', underline:{y:0}, margin: 5, scolor: '#009046', stroke: 2}
 						{type: 'pcpt', id: 'pcct2', x: 80, y: 213, uwidth : 70, font: 'Bold 12px Quicksand', underline:{y:0}, margin: 5, scolor: '#009046', stroke: 2}
 						{type: 'pcpt', id: 'pcct3', x: 80, y: 236, uwidth : 80 , font: 'Bold 12px Quicksand', underline:{y:0}, margin: 5, scolor: '#009046', stroke: 2}
@@ -116,7 +116,7 @@ class U8A1 extends Oda
 						{type: 'pcpt', id: 'pcct7', x: 80, y: 348, uwidth : 70 , font: 'Bold 12px Quicksand', underline:{y:0}, margin: 5, scolor: '#009046', stroke: 2}
 						{type: 'pcpt', id: 'pcct8', x: 80, y: 371, uwidth : 70 , font: 'Bold 12px Quicksand', underline:{y:0}, margin: 5, scolor: '#009046', stroke: 2}
 						{type: 'pcpt', id: 'pcct9', x: 80, y: 394, uwidth : 70 , font: 'Bold 12px Quicksand', underline:{y:0}, margin: 5, scolor: '#009046', stroke: 2}
-						{type: 'pcpt', id: 'pcct10', x: 80, y: 417, uwidth : 70 , font: 'Bold 12px Quicksand', underline:{y:0}, margin: 5, scolor: '#009046', stroke: 2}
+						{type: 'pcpt', id: 'pcct10', x: 80, y: 431, uwidth : 70 , font: 'Bold 12px Quicksand', underline:{y:0}, margin: 5, scolor: '#009046', stroke: 2}
 						{type: 'ldrg', id: 'electricity', x: 220,  y: 530, index: 'electricity', text:'electricity', font:'Bold 15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8', 'pcct9', 'pcct10'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
 						{type: 'ldrg', id: 'eyes', x: 220,  y: 530, index: 'eyes', text:'eyes', font:'Bold 15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8', 'pcct9', 'pcct10'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}
 						{type: 'ldrg', id: 'walk', x: 220,  y: 530, index: 'walk', text:'walk', font:'Bold 15px Quicksand', color:'#333', target: ['pcct1','pcct2','pcct3','pcct4','pcct5','pcct6','pcct7','pcct8', 'pcct9', 'pcct10'], eval: @evaluateDrop02_01, afterSuccess: 'origin', afterFail: 'return'}

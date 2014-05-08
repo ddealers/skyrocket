@@ -62,7 +62,7 @@ class U7A2 extends Oda
 								{name: 'grpder', opts:{type: 'fadeIn', target: 'longer2'}}
 							]
 							[
-								{name: 'pcpt3', opts:{pattern:['When my parents were young, radios were','#rtn','#tcpt','#tcpt','than they are now.'], targets: [{text:'bigger', maxlength:'bigger'},{text:'than', maxlength:'bigger'}]}}
+								{name: 'pcpt3', opts:{pattern:['When my parents were young, radios were','#rtn','#tcpt','#tcpt','they are now.'], targets: [{text:'bigger', maxlength:'bigger'},{text:'than', maxlength:'bigger'}]}}
 								{name: 'grpnum', opts:{type: 'fadeIn', target: 'text3'}}
 								{name: 'grpizq', opts:{type: 'fadeIn', target: 'large'}}
 								{name: 'grpmid', opts:{type: 'fadeIn', target: 'than'}}

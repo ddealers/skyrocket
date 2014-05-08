@@ -4,6 +4,10 @@ NEW ODA
 
 ###
 class U9A4 extends Oda
+	initGame: ->
+		@pc = 0
+		@you = 0
+		super()
 	constructor: ->
 		@manifest = [
 			{ id: 'c1', src: 'circulo_1.png' }
@@ -21,8 +25,6 @@ class U9A4 extends Oda
 			{ id: 'mverde', src: 'verde.png' }
 			{ id: 's/silence', src: 'silence.mp3' }
 		]
-		@pc = 0
-		@you = 0
 		@onDrop = (dispatcher, target) =>
 			d = lib[dispatcher]
 			t =  target.parent.parent
@@ -64,7 +66,7 @@ class U9A4 extends Oda
 				if not @evaluate79(2)
 					if not @evaluate46(2)
 						@evaluate13(2)
-				lib.scene.fail()
+				lib.scene.fail false
 				lib.scene.nextStep()
 				@evaluateWin()
 		@evaluate13 = (token) =>
@@ -88,24 +90,24 @@ class U9A4 extends Oda
 				false
 		@evaluateWin = () =>
 			if (@getFrame 'p1') is 2 and (@getFrame 'p2') is 2 and (@getFrame 'p3') is 2 then @scoreUp 'pc'
-			if (@getFrame 'p4') is 2 and (@getFrame 'p5') is 2 and (@getFrame 'p6') is 2 then @scoreUp 'pc'
-			if (@getFrame 'p7') is 2 and (@getFrame 'p8') is 2 and (@getFrame 'p9') is 2 then @scoreUp 'pc'
-			if (@getFrame 'p1') is 2 and (@getFrame 'p4') is 2 and (@getFrame 'p7') is 2 then @scoreUp 'pc'
-			if (@getFrame 'p2') is 2 and (@getFrame 'p5') is 2 and (@getFrame 'p8') is 2 then @scoreUp 'pc'
-			if (@getFrame 'p3') is 2 and (@getFrame 'p6') is 2 and (@getFrame 'p9') is 2 then @scoreUp 'pc'
-			if (@getFrame 'p1') is 2 and (@getFrame 'p5') is 2 and (@getFrame 'p9') is 2 then @scoreUp 'pc'
-			if (@getFrame 'p3') is 2 and (@getFrame 'p5') is 2 and (@getFrame 'p7') is 2 then @scoreUp 'pc'
+			else if (@getFrame 'p4') is 2 and (@getFrame 'p5') is 2 and (@getFrame 'p6') is 2 then @scoreUp 'pc'
+			else if (@getFrame 'p7') is 2 and (@getFrame 'p8') is 2 and (@getFrame 'p9') is 2 then @scoreUp 'pc'
+			else if (@getFrame 'p1') is 2 and (@getFrame 'p4') is 2 and (@getFrame 'p7') is 2 then @scoreUp 'pc'
+			else if (@getFrame 'p2') is 2 and (@getFrame 'p5') is 2 and (@getFrame 'p8') is 2 then @scoreUp 'pc'
+			else if (@getFrame 'p3') is 2 and (@getFrame 'p6') is 2 and (@getFrame 'p9') is 2 then @scoreUp 'pc'
+			else if (@getFrame 'p1') is 2 and (@getFrame 'p5') is 2 and (@getFrame 'p9') is 2 then @scoreUp 'pc'
+			else if (@getFrame 'p3') is 2 and (@getFrame 'p5') is 2 and (@getFrame 'p7') is 2 then @scoreUp 'pc'
 
-			if (@getFrame 'p1') is 1 and (@getFrame 'p2') is 1 and (@getFrame 'p3') is 1 then @scoreUp 'you'
-			if (@getFrame 'p4') is 1 and (@getFrame 'p5') is 1 and (@getFrame 'p6') is 1 then @scoreUp 'you'
-			if (@getFrame 'p7') is 1 and (@getFrame 'p8') is 1 and (@getFrame 'p9') is 1 then @scoreUp 'you'
-			if (@getFrame 'p1') is 1 and (@getFrame 'p4') is 1 and (@getFrame 'p7') is 1 then @scoreUp 'you'
-			if (@getFrame 'p2') is 1 and (@getFrame 'p5') is 1 and (@getFrame 'p8') is 1 then @scoreUp 'you'
-			if (@getFrame 'p3') is 1 and (@getFrame 'p6') is 1 and (@getFrame 'p9') is 1 then @scoreUp 'you'
-			if (@getFrame 'p1') is 1 and (@getFrame 'p5') is 1 and (@getFrame 'p9') is 1 then @scoreUp 'you'
-			if (@getFrame 'p3') is 1 and (@getFrame 'p5') is 1 and (@getFrame 'p7') is 1 then @scoreUp 'you'
+			else if (@getFrame 'p1') is 1 and (@getFrame 'p2') is 1 and (@getFrame 'p3') is 1 then @scoreUp 'you'
+			else if (@getFrame 'p4') is 1 and (@getFrame 'p5') is 1 and (@getFrame 'p6') is 1 then @scoreUp 'you'
+			else if (@getFrame 'p7') is 1 and (@getFrame 'p8') is 1 and (@getFrame 'p9') is 1 then @scoreUp 'you'
+			else if (@getFrame 'p1') is 1 and (@getFrame 'p4') is 1 and (@getFrame 'p7') is 1 then @scoreUp 'you'
+			else if (@getFrame 'p2') is 1 and (@getFrame 'p5') is 1 and (@getFrame 'p8') is 1 then @scoreUp 'you'
+			else if (@getFrame 'p3') is 1 and (@getFrame 'p6') is 1 and (@getFrame 'p9') is 1 then @scoreUp 'you'
+			else if (@getFrame 'p1') is 1 and (@getFrame 'p5') is 1 and (@getFrame 'p9') is 1 then @scoreUp 'you'
+			else if (@getFrame 'p3') is 1 and (@getFrame 'p5') is 1 and (@getFrame 'p7') is 1 then @scoreUp 'you'
 
-			if (@getFrame 'p1') isnt 0 and (@getFrame 'p2') isnt 0 and (@getFrame 'p3') isnt 0 and (@getFrame 'p4') isnt 0 and (@getFrame 'p5') isnt 0 and (@getFrame 'p6') isnt 0 and (@getFrame 'p7') isnt 0 and (@getFrame 'p8') isnt 0 and (@getFrame 'p9') isnt 0 then @reset()
+			else if (@getFrame 'p1') isnt 0 and (@getFrame 'p2') isnt 0 and (@getFrame 'p3') isnt 0 and (@getFrame 'p4') isnt 0 and (@getFrame 'p5') isnt 0 and (@getFrame 'p6') isnt 0 and (@getFrame 'p7') isnt 0 and (@getFrame 'p8') isnt 0 and (@getFrame 'p9') isnt 0 then @reset()
 		@scoreUp = (type) =>
 			switch type
 				when 'pc'
@@ -116,13 +118,16 @@ class U9A4 extends Oda
 					@you++
 					createjs.Sound.play 's/good'
 					lib.tazul.update {text: @you}
-			if @pc >= 3 or @you >= 3
-				d2oda.methods.delay 2000, ->
+			if @pc >= 5 or @you >= 5
+				d2oda.methods.delay 500, =>
+					@pc = 0
+					@you = 0
+					@reset()
 					lib.game.nextScene()
 			else
 				@reset()
 		@reset = () =>
-			d2oda.methods.delay 500, ->
+			d2oda.methods.delay 500, =>
 				for i in [1..9]
 					lib["p#{i}"].goto 0
 		@getFrame = (obj) =>
@@ -130,7 +135,7 @@ class U9A4 extends Oda
 		@game = 
 			header: 'header'
 			instructions: {x: 110, y: 130, states: [{text:'Choose the correct option. Then drag a token to beat the computer.', sound:'s/silence', played: false}]}
-			score:{type: 'points', x:20, y:500, init: 0, total: 16, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
+			score:{type: 'points', x:20, y:500, init: 0, total: 15, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
 			scenes:[
 				{
 					answers: {
@@ -416,7 +421,8 @@ class U9A4 extends Oda
 							]
 						]
 						mixed: true
-						type: 'steps'
+						type: 'limit'
+						limit: 15
 					}
 					containers:[
 						{type: 'img', id: 'mazul', x: 80, y: 250}

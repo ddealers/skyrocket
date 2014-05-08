@@ -395,7 +395,6 @@ LIBRARY
           currentFrame: 0
         });
         this.setPosition(position, animation);
-        console.log(animation);
         return animation;
       };
 
@@ -1784,7 +1783,7 @@ LIBRARY
     }
 
     Instructions.prototype.initialize = function(opts) {
-      var it, npos, texto, triangle, _i, _len, _ref2, _ref3;
+      var it, newLabel, nl, npos, texto, triangle, _i, _len, _ref2, _ref3;
       this.Container_initialize();
       this.x = opts.x;
       this.y = opts.y;
@@ -1798,19 +1797,22 @@ LIBRARY
       if (this.custom === true) {
         it = 0;
         npos = 14;
+        newLabel = [];
         _ref3 = this.states[this.currentState].text;
         for (_i = 0, _len = _ref3.length; _i < _len; _i++) {
           texto = _ref3[_i];
           if (texto === '#ital') {
-            this.label = new createjs.Text(this.states[this.currentState].italics[it], 'italic 20px Roboto', '#000');
+            nl = new createjs.Text(this.states[this.currentState].italics[it], 'italic 20px Roboto', '#000');
+            nl.x = npos;
+            npos += nl.getMeasuredWidth();
             it++;
           } else {
-            this.label = new createjs.Text(texto, '20px Roboto', '#000');
+            nl = new createjs.Text(texto, '20px Roboto', '#000');
+            nl.x = npos;
+            npos += nl.getMeasuredWidth() + 5;
           }
-          this.label.x = npos;
-          this.addChild(this.label);
-          console.log(this.label);
-          npos = npos + this.label.getMeasuredWidth() + 5;
+          this.addChild(nl);
+          newLabel.push(nl);
         }
       } else {
         this.label = new createjs.Text(this.states[this.currentState].text, '20px Roboto', '#000');
@@ -2242,7 +2244,7 @@ LIBRARY
         frames: opts.frames,
         animations: opts.animations
       });
-      this.animation = new createjs.BitmapAnimation(this.spritesheet);
+      this.animation = new createjs.Sprite(this.spritesheet);
       this.add(this.animation, false);
       return this.animation.gotoAndStop(this.labels[this.currentLabel]);
     };

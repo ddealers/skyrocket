@@ -112,7 +112,7 @@ class U5A1 extends Oda
 						{type: 'img', id: 'shoes', x: 400, y: 320, align: 'mc'}
 						{type: 'img', id: 'team', x: 400, y: 320, align: 'mc'}
 						{type: 'img', id: 'train', x: 400, y: 320, align: 'mc'}
-						{type: 'pcpt', id: 'pcpt1', x: 433, y: 470, font: 'Bold 20px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A'}
+						{type: 'pcpt', id: 'pcpt1', x: 433, y: 470, font: 'Bold 20px Quicksand', margin: 5, align: 'tc', scolor: '#005da2'}
 						{type: 'abc', id: 'abc1', x: 400, y: 540, font:'Bold 20px Quicksand', fcolor:'#333', uwidth: 22, uheight: 34, margin: 10, target:'pcpt1', eval: 'click_O1', clickable:true }
 									
 					]
