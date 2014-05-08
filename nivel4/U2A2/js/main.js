@@ -67,7 +67,7 @@ NEW ODA
       this.onDrop = function(dispatcher, target) {
         var d, t, _ref, _ref1, _ref2;
         d = lib[dispatcher];
-        t = target.parent;
+        t = target.parent.parent;
         if (d.index === t.success) {
           if ((_ref = t.name) === 'p1' || _ref === 'p4' || _ref === 'p7') {
             if (lib['p7'].sprite.currentFrame === 0) {
@@ -1373,6 +1373,7 @@ NEW ODA
                   }
                 ]
               ],
+              mixed: true,
               type: 'steps'
             },
             containers: [
@@ -1490,8 +1491,8 @@ NEW ODA
               }, {
                 type: 'drg',
                 id: 'pazul',
-                x: 107,
-                y: 287,
+                x: 81,
+                y: 263,
                 align: 'mc',
                 disableDrag: true,
                 index: '1',

@@ -25,7 +25,7 @@ class U9A4 extends Oda
 		@you = 0
 		@onDrop = (dispatcher, target) =>
 			d = lib[dispatcher]
-			t =  target.parent
+			t =  target.parent.parent
 			if d.index is t.success
 				if t.name in ['p1','p4','p7']
 					if lib['p7'].sprite.currentFrame is 0
@@ -440,7 +440,7 @@ class U9A4 extends Oda
 						{type: 'spr', id: 'p7', imgs: ['pbase','pazul','pverde'], frames: null, x: 278, y: 409}
 						{type: 'spr', id: 'p8', imgs: ['pbase','pazul','pverde'], frames: null, x: 380, y: 409}
 						{type: 'spr', id: 'p9', imgs: ['pbase','pazul','pverde'], frames: null, x: 482, y: 409}
-						{type: 'drg', id: 'pazul', x: 107, y: 287, align:'mc', disableDrag: true, index: '1', target: ['p1','p2','p3','p4','p5','p6','p7','p8','p9'], eval: @onDrop, afterSuccess: 'origin', afterFail: 'return'}
+						{type: 'drg', id: 'pazul', x: 81, y: 263, align:'mc', disableDrag: true, index: '1', target: ['p1','p2','p3','p4','p5','p6','p7','p8','p9'], eval: @onDrop, afterSuccess: 'origin', afterFail: 'return'}
 						{type: 'img', id: '1', x: 670, y: 200, align:'mc'}
 						{type: 'img', id: '2', x: 670, y: 290, align:'mc'}
 						{type: 'img', id: '3', x: 670, y: 380, align:'mc'}
