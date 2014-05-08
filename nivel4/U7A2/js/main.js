@@ -189,7 +189,7 @@ NEW ODA
                   {
                     name: 'pcpt3',
                     opts: {
-                      pattern: ['When my parents were young, radios were', '#rtn', '#tcpt', '#tcpt', 'than they are now.'],
+                      pattern: ['When my parents were young, radios were', '#rtn', '#tcpt', '#tcpt', 'they are now.'],
                       targets: [
                         {
                           text: 'bigger',

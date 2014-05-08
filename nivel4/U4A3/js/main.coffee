@@ -179,7 +179,7 @@ class U4A3 extends Oda
 						{type: 'img',  id:'walk' , x: 400, y: 308, align: 'mc'}
 						{type: 'img',  id:'write' , x: 400, y: 308, align: 'mc'}
 
-						{type: 'pcpt', id: 'pcpt1', x: 475, y: 540, font: 'Bold 20px Quicksand', margin: 5, align: 'tc', scolor: '#F9101A', uwidth: 90}
+						{type: 'pcpt', id: 'pcpt1', x: 475, y: 540, font: 'Bold 20px Quicksand', margin: 5, align: 'tc', scolor: '#005da2', uwidth: 90}
 						{type: 'txt', id: 'txt1', text:'/', x: 356, y: 460, font:'Bold 20px Quicksand', align: 'center', lineWidth: 250}
 						{type: 'txt', id: 'txt1', text:'/', x: 480, y: 460, font:'Bold 20px Quicksand', align: 'center', lineWidth: 250}
 

@@ -64,14 +64,14 @@ class U8A3 extends Oda
 					containers:[
 						{type: 'idc', id: 'zone2', x: 411, y: 340, align: 'mc'}
 						{type: 'idc', id: 'zone1', x: 170, y: 340, align: 'mc'}
-						{type: 'drg', id: '1', x: 620, y: 220, align:'mc', index: '1', target: ['zone2','zone1'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
-						{type: 'drg', id: '2', x: 700, y: 300, align:'mc', index: '2', target: ['zone2','zone1'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
-						{type: 'drg', id: '3', x: 700, y: 220, align:'mc', index: '3', target: ['zone2','zone1'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
-						{type: 'drg', id: '4', x: 620, y: 460, align:'mc', index: '4', target: ['zone2','zone1'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
-						{type: 'drg', id: '5', x: 700, y: 380, align:'mc', index: '5', target: ['zone2','zone1'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
-						{type: 'drg', id: '6', x: 700, y: 460, align:'mc', index: '6', target: ['zone2','zone1'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
-						{type: 'drg', id: '7', x: 620, y: 300, align:'mc', index: '7', target: ['zone2','zone1'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
-						{type: 'drg', id: '8', x: 620, y: 380, align:'mc', index: '8', target: ['zone2','zone1'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: '1', x: 620, y: 190, align:'mc', index: '1', target: ['zone2','zone1'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: '2', x: 700, y: 270, align:'mc', index: '2', target: ['zone2','zone1'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: '3', x: 700, y: 190, align:'mc', index: '3', target: ['zone2','zone1'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: '4', x: 620, y: 430, align:'mc', index: '4', target: ['zone2','zone1'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: '5', x: 700, y: 350, align:'mc', index: '5', target: ['zone2','zone1'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: '6', x: 700, y: 430, align:'mc', index: '6', target: ['zone2','zone1'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: '7', x: 620, y: 270, align:'mc', index: '7', target: ['zone2','zone1'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
+						{type: 'drg', id: '8', x: 620, y: 350, align:'mc', index: '8', target: ['zone2','zone1'], eval: @onDrop, click: @onClick, afterSuccess: 'drop', afterFail: 'return'}
 						{
 							type: 'btn', id: 'repeat', x: 710, y: 540, isRepeat: true
 							states:[img: {name:'repeat', x: 0, y: 0, align:'mc'}]

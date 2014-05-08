@@ -1398,11 +1398,7 @@ NEW ODA
               }, {
                 type: 'caw',
                 id: 'caw1',
-<<<<<<< HEAD
                 x: 420,
-=======
-                x: 410,
->>>>>>> 621fd507c62c791feb31312eff47398ba0380a1e
                 y: 530,
                 align: 'tc',
                 target: 'global',
