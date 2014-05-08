@@ -512,7 +512,6 @@ class Oda
 		lib.preloader = new Preloader()
 		lib.mainContainer = new MainContainer()
 		assetsurl = 'assets/'
-		
 		def_manifest = [
 			{id: 'sg', src: "#{ assetsurl }start_game.png"},
       		{id: 'pa', src: "#{ assetsurl }play_again.png"},
@@ -520,7 +519,6 @@ class Oda
       		{id: 's/good', src: "#{ assetsurl }good.mp3"},
       		{id: 's/wrong', src: "#{ assetsurl }wrong.mp3"}  
 		]
-
 		@manifest = for item in @manifest
 			{ id:"#{ item.id }", src:"#{ assetsurl + item.src}" }
 		

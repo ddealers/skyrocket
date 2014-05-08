@@ -386,13 +386,16 @@ LIBRARY
           }
         });
         animation = new createjs.Sprite(sprite);
-        animation.x = x;
-        animation.y = y;
-        animation.width = w;
-        animation.height = h;
-        animation.name = name;
-        animation.currentFrame = 0;
+        animation.set({
+          x: x,
+          y: y,
+          width: w,
+          height: h,
+          name: name,
+          currentFrame: 0
+        });
         this.setPosition(position, animation);
+        console.log(animation);
         return animation;
       };
 
@@ -1103,9 +1106,20 @@ LIBRARY
     };
 
     Oda.prototype.playInstructions = function() {
-      var inst;
+      var inst, sg, sh, startGame;
       if (dealersjs.mobile.isIOS() || dealersjs.mobile.isAndroid()) {
-        lib.mainContainer.insertBitmap('start', 'sg', d2oda.stage.w / 2, d2oda.stage.h / 2, 'mc');
+        sg = d2oda.methods.createBitmap('start', 'sg', 0, 0, 'mc');
+        sg.mouseEnabled = false;
+        sh = new createjs.Shape();
+        sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-sg.width / 2, -sg.height / 2, sg.width, sg.height);
+        startGame = new createjs.Container();
+        startGame.set({
+          name: 'start',
+          x: d2oda.stage.w / 2,
+          y: d2oda.stage.h / 2
+        });
+        startGame.addChild(sg, sh);
+        lib.mainContainer.add(startGame);
         lib.start.addEventListener('click', this.initMobileInstructions);
         return TweenLite.from(lib.start, 0.3, {
           alpha: 0,
@@ -1138,8 +1152,20 @@ LIBRARY
     };
 
     Oda.prototype.endGame = function() {
+      var pa, playAgain, sh;
       createjs.Sound.stop();
-      lib.mainContainer.insertBitmap('play_again', 'pa', d2oda.stage.w / 2, d2oda.stage.h / 2, 'mc');
+      pa = d2oda.methods.createBitmap('play_again', 'pa', 0, 0, 'mc');
+      pa.mouseEnabled = false;
+      sh = new createjs.Shape();
+      sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-pa.width / 2, -pa.height / 2, pa.width, pa.height);
+      playAgain = new createjs.Container();
+      playAgain.set({
+        name: 'play_again',
+        x: d2oda.stage.w / 2,
+        y: d2oda.stage.h / 2
+      });
+      playAgain.addChild(pa, sh);
+      lib.mainContainer.add(playAgain);
       lib.play_again.addEventListener('click', this.handlePlayAgain);
       return TweenLite.from(lib.play_again, 0.5, {
         alpha: 0,
@@ -2098,7 +2124,7 @@ LIBRARY
     }
 
     SpriteContainer.prototype.initialize = function(opts) {
-      var align, _ref2, _ref3, _ref4, _ref5;
+      var align, container, _ref2, _ref3, _ref4, _ref5;
       this.Container_initialize();
       Module.extend(this, d2oda.methods);
       Module.extend(this, d2oda.actions);
@@ -2109,12 +2135,19 @@ LIBRARY
       this.scaleX = (_ref4 = opts.scale) != null ? _ref4 : 1;
       this.scaleY = (_ref5 = opts.scale) != null ? _ref5 : 1;
       this.sprite = this.createSprite(this.name, opts.imgs, opts.frames, 0, 0, align);
+      this.sprite.mouseEnabled = false;
+      this.sh = new createjs.Shape();
+      this.sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(0, 0, this.sprite.width, this.sprite.height);
+      container = new createjs.Container();
+      container.set({
+        name: "" + this.name + "_container"
+      });
+      container.addChild(this.sprite, this.sh);
       this.width = this.sprite.width;
       this.height = this.sprite.height;
-      this.mouseEnabled = true;
       this.droptargets = new Array();
       this.observer = new ComponentObserver();
-      return this.add(this.sprite, false);
+      return this.add(container, false);
     };
 
     SpriteContainer.prototype.prevFrame = function() {
@@ -2145,7 +2178,7 @@ LIBRARY
     SpriteContainer.prototype.update = function(opts) {
       var _ref2;
       this.complete = (_ref2 = opts.complete) != null ? _ref2 : false;
-      this.droptargets = [this.sprite];
+      this.droptargets = [this.sh];
       this.success = opts.success;
       this.storyboard = opts.storyboard;
       return this.observer.notify(ComponentObserver.UPDATED);
@@ -2209,7 +2242,7 @@ LIBRARY
         frames: opts.frames,
         animations: opts.animations
       });
-      this.animation = new createjs.Sprite(this.spritesheet);
+      this.animation = new createjs.BitmapAnimation(this.spritesheet);
       this.add(this.animation, false);
       return this.animation.gotoAndStop(this.labels[this.currentLabel]);
     };
@@ -2267,7 +2300,7 @@ LIBRARY
     }
 
     DragContainer.prototype.initialize = function(opts) {
-      var b, t, _i, _len, _ref2, _ref3, _ref4,
+      var b, container, sh, t, _i, _len, _ref2, _ref3, _ref4,
         _this = this;
       this.Container_initialize();
       Module.extend(this, d2oda.methods);
@@ -2284,11 +2317,8 @@ LIBRARY
       this["eval"] = opts["eval"];
       this.droptargets = new Array();
       this.disableDrag = (_ref3 = opts.disableDrag) != null ? _ref3 : false;
-      b = this.createBitmap(this.name, opts.id, 0, 0);
       this.bmpname = opts.name;
       this.bmpid = opts.id;
-      this.width = b.width;
-      this.height = b.height;
       this.dragged = false;
       this.setPosition(opts.align);
       switch (opts.afterSuccess) {
@@ -2323,7 +2353,18 @@ LIBRARY
         case 'origin':
           this.afterFail = this.setInOrigin;
       }
-      this.add(b, false);
+      b = this.createBitmap(this.name, opts.id, 0, 0);
+      b.mouseEnabled = false;
+      sh = new createjs.Shape();
+      sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(0, 0, b.width, b.height);
+      container = new createjs.Container();
+      container.set({
+        name: "" + this.name + "_container"
+      });
+      container.addChild(b, sh);
+      this.add(container, false);
+      this.width = b.width;
+      this.height = b.height;
       if (this.isArray(opts.target)) {
         this.target = opts.target;
       } else {
@@ -2490,7 +2531,7 @@ LIBRARY
     };
 
     ButtonContainer.prototype.setImageText = function(img, txt) {
-      var align, b, color, font, hit, t, text, x, y, _ref10, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8, _ref9;
+      var align, b, color, container, font, hit, sh, t, text, x, y, _ref10, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8, _ref9;
       this.removeAllChildren();
       this.alpha = 1;
       if (img) {
@@ -2498,10 +2539,45 @@ LIBRARY
         y = (_ref3 = img.y) != null ? _ref3 : 0;
         align = (_ref4 = img.align) != null ? _ref4 : '';
         b = this.createBitmap('img', img.name, x, y, align);
+        b.mouseEnabled = false;
+        sh = new createjs.Shape();
+        switch (align) {
+          case 'tc':
+            sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width / 2, 0, b.width, b.height);
+            break;
+          case 'tr':
+            sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width, 0, b.width, b.height);
+            break;
+          case 'ml':
+            sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(0, -b.height / 2, b.width, b.height);
+            break;
+          case 'mc':
+            sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width / 2, -b.height / 2, b.width, b.height);
+            break;
+          case 'mr':
+            sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width, -b.height / 2, b.width, b.height);
+            break;
+          case 'bl':
+            sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(0, -b.height, b.width, b.height);
+            break;
+          case 'bc':
+            sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width / 2, -b.height, b.width, b.height);
+            break;
+          case 'br':
+            sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width, -b.height, b.width, b.height);
+            break;
+          default:
+            this.setReg(obj, 0, 0);
+        }
+        container = new createjs.Container();
+        container.set({
+          name: "" + this.name + "_container"
+        });
+        container.addChild(b, sh);
         if (img.scale) {
           b.scaleX = b.scaleY = img.scale;
         }
-        this.add(b, false);
+        this.add(container, false);
       }
       if (txt) {
         text = (_ref5 = txt.text) != null ? _ref5 : '';
@@ -2710,19 +2786,25 @@ LIBRARY
     };
 
     ChooseAWordContainer.prototype.update = function(opts) {
-      var after, before, hito1, hito2, margen, opt1, opt2, slash,
+      var after, before, hito1, hito2, margen, opt1, opt2, sentence, sentenceAfter, sentenceBefore, sentenceb, slash, xp, yep, yp, _i, _j, _len, _len1,
         _this = this;
       this.removeAllChildren();
-      before = this.createText("" + this.name + "_before", opts.before, this.label.font, this.label.color, 0, 0);
-      this.add(before);
-      opt1 = this.createText("" + this.name + "_opt1", opts.opt1, "bold " + this.bullets.font, this.bullets.color, before.x + before.getMeasuredWidth() + 10, 0);
+      yep = 0;
+      sentenceBefore = opts.before.split('//');
+      for (_i = 0, _len = sentenceBefore.length; _i < _len; _i++) {
+        sentenceb = sentenceBefore[_i];
+        before = this.createText("" + this.name + "_before", sentenceb, this.label.font, this.label.color, 0, yep);
+        this.add(before);
+        yep += 30;
+      }
+      opt1 = this.createText("" + this.name + "_opt1", opts.opt1, "bold " + this.bullets.font, this.bullets.color, before.x + before.getMeasuredWidth() + 10, before.y);
       hito1 = new createjs.Shape();
       hito1.graphics.beginFill('#000').drawRect(-5, -3, opt1.getMeasuredWidth() + 10, opt1.getMeasuredHeight() + 6);
       opt1.hitArea = hito1;
       opt1.index = 1;
-      slash = this.createText("" + this.name + "_slash", '/', this.label.font, this.label.color, opt1.x + opt1.getMeasuredWidth() + 10, 0);
+      slash = this.createText("" + this.name + "_slash", '/', this.label.font, this.label.color, opt1.x + opt1.getMeasuredWidth() + 10, before.y);
       this.add(slash);
-      opt2 = this.createText("" + this.name + "_opt2", opts.opt2, "bold " + this.bullets.font, this.bullets.color, slash.x + slash.getMeasuredWidth() + 10, 0);
+      opt2 = this.createText("" + this.name + "_opt2", opts.opt2, "bold " + this.bullets.font, this.bullets.color, slash.x + slash.getMeasuredWidth() + 10, before.y);
       hito2 = new createjs.Shape();
       hito2.graphics.beginFill('#000').drawRect(-5, -3, opt2.getMeasuredWidth() + 10, opt2.getMeasuredHeight() + 6);
       opt2.hitArea = hito2;
@@ -2732,8 +2814,16 @@ LIBRARY
       } else {
         margen = 10;
       }
-      after = this.createText("" + this.name + "_after", opts.after, this.label.font, this.label.color, opt2.x + opt2.getMeasuredWidth() + margen, 0);
-      this.add(after);
+      yp = before.y;
+      xp = opt2.x + opt2.getMeasuredWidth() + margen;
+      sentenceAfter = opts.after.split('//');
+      for (_j = 0, _len1 = sentenceAfter.length; _j < _len1; _j++) {
+        sentence = sentenceAfter[_j];
+        after = this.createText("" + this.name + "_after", sentence, this.label.font, this.label.color, xp, 0 + yp);
+        this.add(after);
+        yp += 30;
+        xp = 0;
+      }
       this.add(opt1);
       opt1.addEventListener('mouseover', function() {
         return TweenLite.to(opt1, 0.5, {
@@ -2762,7 +2852,7 @@ LIBRARY
       opt2.addEventListener('click', function() {
         return d2oda.evaluator.evaluate(_this["eval"], "" + _this.name + "_opt2", _this.target);
       });
-      this.width = after.x + after.getMeasuredWidth();
+      this.width = this.getBounds().width;
       this.setPosition('tc');
       return TweenLite.from(this, 0.5, {
         y: this.y - 20,

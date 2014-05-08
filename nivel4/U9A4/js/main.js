@@ -64,7 +64,7 @@ NEW ODA
       this.onDrop = function(dispatcher, target) {
         var d, t, _ref, _ref1, _ref2;
         d = lib[dispatcher];
-        t = target.parent;
+        t = target.parent.parent;
         if (d.index === t.success) {
           if ((_ref = t.name) === 'p1' || _ref === 'p4' || _ref === 'p7') {
             if (lib['p7'].sprite.currentFrame === 0) {
@@ -1155,9 +1155,9 @@ NEW ODA
                   }, {
                     name: 'caw1',
                     opts: {
-                      before: '',
-                      opt1: 'I are',
-                      opt2: 'I\'m',
+                      before: 'I',
+                      opt1: 'are',
+                      opt2: '\'m',
                       after: 'going to learn how to play guitar this summer.'
                     }
                   }
@@ -1679,7 +1679,7 @@ NEW ODA
               }, {
                 type: 'caw',
                 id: 'caw1',
-                x: 400,
+                x: 435,
                 y: 530,
                 align: 'tc',
                 target: 'global',
@@ -1764,8 +1764,8 @@ NEW ODA
               }, {
                 type: 'drg',
                 id: 'pazul',
-                x: 107,
-                y: 287,
+                x: 81,
+                y: 263,
                 align: 'mc',
                 disableDrag: true,
                 index: '1',

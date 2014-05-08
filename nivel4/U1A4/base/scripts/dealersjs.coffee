@@ -149,13 +149,9 @@ window.d2oda.methods ?= class Methods
 		h = spriteImgs[0].height
 		sprite = new createjs.SpriteSheet (images: spriteImgs, animations: anim, frames: {width: w, height: h})
 		animation = new createjs.Sprite sprite
-		animation.x = x
-		animation.y = y
-		animation.width = w
-		animation.height = h
-		animation.name = name
-		animation.currentFrame = 0
+		animation.set {x: x, y: y, width: w, height: h, name: name, currentFrame: 0}
 		@setPosition position, animation
+		console.log animation
 		animation
 	@insertSprite = (name, imgs, anim=null, x, y, position = 'tl') ->
 		animation = @createSprite name, imgs, anim, x, y, position
@@ -550,7 +546,14 @@ class Oda
 		@playInstructions()
 	playInstructions: =>
 		if dealersjs.mobile.isIOS() or dealersjs.mobile.isAndroid()
-			lib.mainContainer.insertBitmap 'start', 'sg', d2oda.stage.w / 2, d2oda.stage.h / 2, 'mc'
+			sg = d2oda.methods.createBitmap 'start', 'sg', 0, 0, 'mc'
+			sg.mouseEnabled = false
+			sh = new createjs.Shape()
+			sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-sg.width / 2, -sg.height / 2, sg.width, sg.height)
+			startGame = new createjs.Container()
+			startGame.set {name: 'start', x: d2oda.stage.w / 2, y: d2oda.stage.h / 2}
+			startGame.addChild sg, sh
+			lib.mainContainer.add startGame
 			lib.start.addEventListener 'click', @initMobileInstructions
 			TweenLite.from lib.start, 0.3, { alpha: 0, y: lib.start + 20 }
 		else
@@ -567,7 +570,14 @@ class Oda
 		lib.game.start()
 	endGame: =>
 		createjs.Sound.stop()
-		lib.mainContainer.insertBitmap 'play_again', 'pa', d2oda.stage.w / 2, d2oda.stage.h / 2, 'mc'
+		pa = d2oda.methods.createBitmap 'play_again', 'pa', 0, 0, 'mc'
+		pa.mouseEnabled = false
+		sh = new createjs.Shape()
+		sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-pa.width / 2, -pa.height / 2, pa.width, pa.height)
+		playAgain = new createjs.Container()
+		playAgain.set {name: 'play_again', x: d2oda.stage.w / 2, y: d2oda.stage.h / 2}
+		playAgain.addChild pa, sh
+		lib.mainContainer.add playAgain
 		lib.play_again.addEventListener 'click', @handlePlayAgain
 		TweenLite.from lib.play_again, 0.5, { alpha: 0, y: lib.play_again.y - 20 }
 	handlePlayAgain: (e) =>
@@ -668,7 +678,6 @@ class MainContainer
 		@
 	warningComplete: =>
 		@x = @prevX
-
 	window.MainContainer = MainContainer
 
 class Observer
@@ -1099,12 +1108,17 @@ class SpriteContainer extends Component
 		@scaleX = opts.scale ? 1
 		@scaleY = opts.scale ? 1
 		@sprite = @createSprite @name, opts.imgs, opts.frames, 0, 0, align
+		@sprite.mouseEnabled = false
+		@sh = new createjs.Shape()
+		@sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(0, 0, @sprite.width, @sprite.height)
+		container = new createjs.Container()
+		container.set {name: "#{@name}_container"}
+		container.addChild @sprite, @sh
 		@width = @sprite.width
 		@height = @sprite.height
-		@mouseEnabled = true
 		@droptargets = new Array()
 		@observer = new ComponentObserver()
-		@add @sprite, false
+		@add container, false
 	prevFrame: ->
 		cf = @sprite.currentFrame - 1
 		@sprite.gotoAndStop cf
@@ -1119,7 +1133,7 @@ class SpriteContainer extends Component
 		@sprite.gotoAndStop frame
 	update:(opts) ->
 		@complete = opts.complete ? false
-		@droptargets = [@sprite]
+		@droptargets = [@sh]
 		@success = opts.success
 		@storyboard = opts.storyboard
 		@observer.notify ComponentObserver.UPDATED
@@ -1197,11 +1211,8 @@ class DragContainer extends Component
 		@eval = opts.eval
 		@droptargets = new Array()
 		@disableDrag = opts.disableDrag ? false
-		b = @createBitmap @name, opts.id, 0, 0
 		@bmpname = opts.name
 		@bmpid = opts.id
-		@width = b.width
-		@height = b.height
 		@dragged = false
 		@setPosition opts.align
 		switch opts.afterSuccess
@@ -1216,7 +1227,16 @@ class DragContainer extends Component
 			when 'inplace' then @afterFail = @putInPlace
 			when 'return' then @afterFail = @returnToPlace
 			when 'origin' then @afterFail = @setInOrigin
-		@add b, false
+		b = @createBitmap @name, opts.id, 0, 0
+		b.mouseEnabled = false
+		sh = new createjs.Shape()
+		sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(0, 0, b.width, b.height)
+		container = new createjs.Container()
+		container.set {name: "#{@name}_container"}
+		container.addChild b, sh
+		@add container, false
+		@width = b.width
+		@height = b.height
 		if @isArray opts.target 
 			@target = opts.target
 		else
@@ -1321,8 +1341,23 @@ class ButtonContainer extends Component
 			y = img.y ? 0
 			align = img.align ? ''
 			b = @createBitmap 'img', img.name, x, y, align
+			b.mouseEnabled = false
+			sh = new createjs.Shape()
+			switch align
+				when 'tc' then sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width / 2, 0, b.width, b.height)
+				when 'tr' then sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width, 0, b.width, b.height)
+				when 'ml' then sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(0, -b.height / 2, b.width, b.height)
+				when 'mc' then sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width / 2, -b.height / 2, b.width, b.height)
+				when 'mr' then sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width, -b.height / 2, b.width, b.height)
+				when 'bl' then sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(0, -b.height, b.width, b.height)
+				when 'bc' then sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width / 2, -b.height, b.width, b.height)
+				when 'br' then sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width, -b.height, b.width, b.height)
+				else @setReg obj, 0, 0
+			container = new createjs.Container()
+			container.set {name: "#{@name}_container"}
+			container.addChild b, sh
 			if img.scale then b.scaleX = b.scaleY = img.scale
-			@add b, false
+			@add container, false
 		if txt
 			text = txt.text ? ''
 			font = txt.font ? '20px Arial'
@@ -1445,32 +1480,43 @@ class ChooseAWordContainer extends Component
 		@bullets = opts.bullets
 	update: (opts) ->
 		@removeAllChildren()
-		before = @createText "#{@name}_before", opts.before, @label.font, @label.color, 0, 0 
-		@add before
-
-		opt1 = @createText "#{@name}_opt1", opts.opt1, "bold #{@bullets.font}", @bullets.color, before.x + before.getMeasuredWidth() + 10, 0
+		yep = 0
+		sentenceBefore = opts.before.split '//'
+		for sentenceb in sentenceBefore
+			before = @createText "#{@name}_before", sentenceb, @label.font, @label.color, 0, yep
+			@add before
+			yep += 30
+		
+		opt1 = @createText "#{@name}_opt1", opts.opt1, "bold #{@bullets.font}", @bullets.color, before.x + before.getMeasuredWidth() + 10, before.y
 		hito1 = new createjs.Shape()
 		hito1.graphics.beginFill('#000').drawRect(-5, -3, opt1.getMeasuredWidth() + 10, opt1.getMeasuredHeight() + 6)
 		opt1.hitArea = hito1
 		opt1.index = 1
 
-		slash = @createText "#{@name}_slash", '/', @label.font, @label.color, opt1.x + opt1.getMeasuredWidth() + 10, 0 
+		slash = @createText "#{@name}_slash", '/', @label.font, @label.color, opt1.x + opt1.getMeasuredWidth() + 10, before.y 
 		@add slash
 
-		opt2 = @createText "#{@name}_opt2", opts.opt2, "bold #{@bullets.font}", @bullets.color, slash.x + slash.getMeasuredWidth() + 10, 0
+		opt2 = @createText "#{@name}_opt2", opts.opt2, "bold #{@bullets.font}", @bullets.color, slash.x + slash.getMeasuredWidth() + 10, before.y
 		hito2 = new createjs.Shape()
 		hito2.graphics.beginFill('#000').drawRect(-5, -3, opt2.getMeasuredWidth() + 10, opt2.getMeasuredHeight() + 6)
 		opt2.hitArea = hito2
 		opt2.index = 2
-
+	
 		if opts.after is '.'
 			margen = 0
 		else
 			margen = 10
-
-		after = @createText "#{@name}_after", opts.after, @label.font, @label.color, opt2.x + opt2.getMeasuredWidth() + margen, 0 
-		@add after
-
+		
+		yp = before.y
+		xp = opt2.x + opt2.getMeasuredWidth() + margen
+		sentenceAfter = opts.after.split '//'
+		
+		for sentence in sentenceAfter
+			after = @createText "#{@name}_after", sentence, @label.font, @label.color, xp, 0 + yp
+			@add after
+			yp += 30
+			xp = 0
+		
 		@add opt1
 		opt1.addEventListener 'mouseover', =>
 			TweenLite.to opt1, 0.5, {alpha: 0.5}
@@ -1486,8 +1532,8 @@ class ChooseAWordContainer extends Component
 			TweenLite.to opt2, 0.5, {alpha: 1}
 		opt2.addEventListener 'click', =>
 			d2oda.evaluator.evaluate @eval, "#{@name}_opt2", @target
-
-		@width = after.x + after.getMeasuredWidth()
+		
+		@width = @getBounds().width
 		@setPosition 'tc'
 		TweenLite.from @, 0.5, {y: @y - 20, alpha: 0}
 	isComplete: ->
