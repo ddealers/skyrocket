@@ -8,8 +8,9 @@ $(document).ready(function(){
 			if( oda.initialize ) oda.initialize();
 			if( oda.init ) oda.init();
 		},
-		google: {
-			families: ['Quicksand','Dosis','Roboto']
+		custom: {
+			families: ['Quicksand','Dosis','Roboto'],
+			urls: '/css/fonts.css'
 		}
 	}
 	WebFont.load(WebFontConfig);

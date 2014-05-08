@@ -36,28 +36,6 @@ class U5A4 extends Oda
 			{ id: 's/silence' , src: 'silence.mp3' }
 
 		]
-		@btnClick = (dispatcher, target) =>
-			###
-			d = lib[dispatcher]
-			t = lib[target]
-			a = d.index
-			b = t.droptargets
-			c = t.currentTarget
-			console.log d,t,a,b,c
-			console.log a, b[c].success
-			if a is b[c].success
-				verb = prompt "Enter the correct form of #{d.index}"
-				if verb is b[c].text.text
-					b[c].complete = true
-					b[c].update()
-					t.currentTarget++
-				if t.currentTarget is b.length
-					lib.scene.success()
-				else
-					lib.scene.fail()
-			else
-				lib.scene.fail false
-			###
 		@onkeydown = (e) ->
 			e.preventDefault()
 			e.stopPropagation()
