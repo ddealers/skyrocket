@@ -5,7 +5,7 @@ LIBRARY
 
 
 (function() {
-  var ABCContainer, Actions, Behaviors, ButtonContainer, CardContainer, ChooseAWordContainer, ChooseContainer, CloneCompleterContainer, CloneContainer, Component, ComponentGroup, ComponentObserver, CrossWordsContainer, DragContainer, Evaluator, Game, GameObserver, GridContainer, ImageCompleterContainer, ImageContainer, ImageDropContainer, ImageWordCompleterContainer, Instructions, LabelContainer, LetterContainer, LetterDragContainer, MainContainer, Methods, Mobile, Module, Observer, Oda, PhraseCloneContainer, PhraseCompleterContainer, Preloader, Scene, SceneFactory, SceneObserver, SceneStack, Score, ScrambledWordContainer, SpriteAnimContainer, SpriteContainer, StepContainer, StepsContainer, TextCloneContainer, TextCompleterContainer, TextContainer, Utilities, WordCompleterContainer, WordSearchContainer, WriteContainer, moduleKeywords, _base, _base1, _base2, _base3, _base4, _base5, _base6, _ref, _ref1, _ref2,
+  var ABCContainer, Actions, Behaviors, ButtonContainer, CardContainer, CartaContainer, ChooseAWordContainer, ChooseContainer, CloneCompleterContainer, CloneContainer, Component, ComponentGroup, ComponentObserver, CrossWordsContainer, DragContainer, Evaluator, Game, GameObserver, GridContainer, ImageCompleterContainer, ImageContainer, ImageDropContainer, ImageWordCompleterContainer, Instructions, LabelContainer, LetterContainer, LetterDragContainer, MainContainer, Methods, Mobile, Module, Observer, Oda, PhraseCloneContainer, PhraseCompleterContainer, Preloader, Scene, SceneFactory, SceneObserver, SceneStack, Score, ScrambledWordContainer, SpriteAnimContainer, SpriteContainer, StepContainer, StepsContainer, TextCloneContainer, TextCompleterContainer, TextContainer, Utilities, WordCompleterContainer, WordSearchContainer, WriteContainer, moduleKeywords, _base, _base1, _base2, _base3, _base4, _base5, _base6, _ref, _ref1, _ref2,
     __slice = [].slice,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
@@ -395,7 +395,6 @@ LIBRARY
           currentFrame: 0
         });
         this.setPosition(position, animation);
-        console.log(animation);
         return animation;
       };
 
@@ -2647,6 +2646,177 @@ LIBRARY
 
   })(Component);
 
+  CartaContainer = (function(_super) {
+    __extends(CartaContainer, _super);
+
+    CartaContainer.prototype = new createjs.Container();
+
+    CartaContainer.prototype.Container_initialize = CartaContainer.prototype.initialize;
+
+    function CartaContainer(opts) {
+      this.initialize(opts);
+    }
+
+    CartaContainer.prototype.initialize = function(opts) {
+      var _ref2, _ref3, _ref4,
+        _this = this;
+      this.Container_initialize();
+      Module.extend(this, d2oda.actions);
+      Module.extend(this, d2oda.methods);
+      Module.extend(this, d2oda.utilities);
+      this.x = opts.x;
+      this.y = opts.y;
+      this.visible = (_ref2 = opts.visible) != null ? _ref2 : true;
+      this.index = opts.index;
+      this.name = (_ref3 = opts.name) != null ? _ref3 : opts.id;
+      this.scale = (_ref4 = opts.scale) != null ? _ref4 : 1;
+      this.states = opts.states;
+      this["eval"] = opts["eval"];
+      this.currentState = 0;
+      this.setImageText(this.states[this.currentState].img, this.states[this.currentState].txt);
+      if (this.isArray(opts.target)) {
+        this.target = opts.target;
+      } else {
+        this.target = lib[opts.target];
+      }
+      if (opts.target) {
+        this.target = lib[opts.target];
+      }
+      this.addEventListener('mouseover', function() {
+        return TweenLite.to(_this, 0.5, {
+          scaleX: 1.2,
+          scaleY: 1.2
+        });
+      });
+      this.addEventListener('mouseout', function() {
+        return TweenLite.to(_this, 0.5, {
+          scaleX: _this.scale,
+          scaleY: _this.scale
+        });
+      });
+      if (opts.noHover) {
+        return this.removeAllEventListeners();
+      }
+    };
+
+    CartaContainer.prototype.setImageText = function(img, txt) {
+      var align, b, color, container, font, hit, sh, t, text, x, y, _ref10, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8, _ref9;
+      this.removeAllChildren();
+      this.alpha = 1;
+      if (img) {
+        x = (_ref2 = img.x) != null ? _ref2 : 0;
+        y = (_ref3 = img.y) != null ? _ref3 : 0;
+        align = (_ref4 = img.align) != null ? _ref4 : '';
+        b = this.createBitmap('img', img.name, x, y, align);
+        b.mouseEnabled = false;
+        sh = new createjs.Shape();
+        switch (align) {
+          case 'tc':
+            sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width / 2, 0, b.width, b.height);
+            break;
+          case 'tr':
+            sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width, 0, b.width, b.height);
+            break;
+          case 'ml':
+            sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(0, -b.height / 2, b.width, b.height);
+            break;
+          case 'mc':
+            sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width / 2, -b.height / 2, b.width, b.height);
+            break;
+          case 'mr':
+            sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width, -b.height / 2, b.width, b.height);
+            break;
+          case 'bl':
+            sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(0, -b.height, b.width, b.height);
+            break;
+          case 'bc':
+            sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width / 2, -b.height, b.width, b.height);
+            break;
+          case 'br':
+            sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width, -b.height, b.width, b.height);
+            break;
+          default:
+            this.setReg(obj, 0, 0);
+        }
+        container = new createjs.Container();
+        container.set({
+          name: "" + this.name + "_container"
+        });
+        container.addChild(b, sh);
+        if (img.scale) {
+          b.scaleX = b.scaleY = img.scale;
+        }
+        this.add(container, false);
+      }
+      if (txt) {
+        text = (_ref5 = txt.text) != null ? _ref5 : '';
+        font = (_ref6 = txt.font) != null ? _ref6 : '20px Arial';
+        color = (_ref7 = txt.color) != null ? _ref7 : '#333';
+        x = (_ref8 = txt.x) != null ? _ref8 : 0;
+        y = (_ref9 = txt.y) != null ? _ref9 : 0;
+        align = (_ref10 = txt.align) != null ? _ref10 : '';
+        t = this.createText('txt', text, font, color, x, y, align);
+        if (txt.lineWidth) {
+          t.lineWidth = txt.lineWidth;
+        }
+        hit = new createjs.Shape();
+        switch (align) {
+          case 'center':
+            hit.graphics.beginFill('#000').drawRect(-5 - t.getMeasuredWidth() / 2, -3, t.getMeasuredWidth() + 10, t.getMeasuredHeight() + 6);
+            break;
+          case 'right':
+            hit.graphics.beginFill('#000').drawRect(-5 - t.getMeasuredWidth(), -3, t.getMeasuredWidth() + 10, t.getMeasuredHeight() + 6);
+            break;
+          default:
+            hit.graphics.beginFill('#000').drawRect(-5, -3, t.getMeasuredWidth() + 10, t.getMeasuredHeight() + 6);
+        }
+        t.hitArea = hit;
+        return this.add(t, false);
+      }
+    };
+
+    CartaContainer.prototype.updateState = function() {
+      var _this = this;
+      this.currentState++;
+      if (this.currentState < this.states.length) {
+        TweenLite.killTweensOf(this);
+        this.setImageText(this.states[this.currentState].img, this.states[this.currentState].txt);
+        this.addEventListener('click', function() {
+          return d2oda.evaluator.evaluate(_this["eval"], _this.name, _this.target);
+        });
+        this.scaleX = this.scaleY = this.scale;
+        if (this.states[this.currentState].removeListeners) {
+          this.removeAllEventListeners();
+        }
+        return TweenLite.from(this, 0.3, {
+          alpha: 0
+        });
+      } else {
+        return this.currentState--;
+      }
+    };
+
+    CartaContainer.prototype.update = function(opts) {
+      TweenLite.killTweensOf(this);
+      if (opts.img || opts.txt) {
+        this.setImageText(opts.img, opts.txt);
+      }
+      if (opts.visible) {
+        this.visible = opts.visible;
+      }
+      return TweenLite.from(this, 0.5, {
+        alpha: 0
+      });
+    };
+
+    CartaContainer.prototype.isComplete = function() {
+      return true;
+    };
+
+    return CartaContainer;
+
+  })(Component);
+
   CardContainer = (function(_super) {
     __extends(CardContainer, _super);
 
@@ -2718,7 +2888,7 @@ LIBRARY
             }
           ]
         };
-        d = new ButtonContainer(lopts);
+        d = new CartaContainer(lopts);
         cardcollection.push(d);
         this.add(d);
         console.log(d);
@@ -2731,7 +2901,7 @@ LIBRARY
         }
       }
       this.shuffleAnswers = shuffleAnswers = d2oda.utilities.shuffleNoRepeat(shuffledCartas, 6);
-      this.delay(5000, function() {
+      this.delay(15000, function() {
         var _j, _len1;
         for (_j = 0, _len1 = cardcollection.length; _j < _len1; _j++) {
           carta = cardcollection[_j];

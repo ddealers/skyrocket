@@ -151,7 +151,6 @@ window.d2oda.methods ?= class Methods
 		animation = new createjs.Sprite sprite
 		animation.set {x: x, y: y, width: w, height: h, name: name, currentFrame: 0}
 		@setPosition position, animation
-		console.log animation
 		animation
 	@insertSprite = (name, imgs, anim=null, x, y, position = 'tl') ->
 		animation = @createSprite name, imgs, anim, x, y, position
@@ -1396,6 +1395,106 @@ class ButtonContainer extends Component
 	isComplete: ->
 		true
 
+
+class CartaContainer extends Component
+	CartaContainer.prototype = new createjs.Container()
+	CartaContainer::Container_initialize = CartaContainer::initialize
+	constructor: (opts) ->
+		@initialize opts
+	CartaContainer::initialize = (opts) ->
+		@Container_initialize()
+		Module.extend @, d2oda.actions
+		Module.extend @, d2oda.methods
+		Module.extend @, d2oda.utilities
+		@x = opts.x
+		@y = opts.y
+		@visible = opts.visible ? true
+		@index = opts.index
+		@name = opts.name ? opts.id
+		@scale = opts.scale ? 1
+		@states = opts.states
+		@eval = opts.eval
+		@currentState = 0
+		@setImageText @states[@currentState].img, @states[@currentState].txt
+		if @isArray opts.target 
+			@target = opts.target
+		else
+			@target = lib[opts.target]
+		if opts.target then @target = lib[opts.target]
+		@addEventListener 'mouseover', =>
+			TweenLite.to @, 0.5, {scaleX: 1.2, scaleY: 1.2}
+		@addEventListener 'mouseout', =>
+			TweenLite.to @, 0.5, {scaleX: @scale, scaleY: @scale}
+		if opts.noHover then @removeAllEventListeners()
+
+	setImageText: (img, txt) ->
+		@removeAllChildren()
+		@alpha = 1
+		if img
+			x = img.x ? 0
+			y = img.y ? 0
+			align = img.align ? ''
+			b = @createBitmap 'img', img.name, x, y, align
+			b.mouseEnabled = false
+			sh = new createjs.Shape()
+			switch align
+				when 'tc' then sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width / 2, 0, b.width, b.height)
+				when 'tr' then sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width, 0, b.width, b.height)
+				when 'ml' then sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(0, -b.height / 2, b.width, b.height)
+				when 'mc' then sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width / 2, -b.height / 2, b.width, b.height)
+				when 'mr' then sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width, -b.height / 2, b.width, b.height)
+				when 'bl' then sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(0, -b.height, b.width, b.height)
+				when 'bc' then sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width / 2, -b.height, b.width, b.height)
+				when 'br' then sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width, -b.height, b.width, b.height)
+				else @setReg obj, 0, 0
+			container = new createjs.Container()
+			container.set {name: "#{@name}_container"}
+			container.addChild b, sh
+			if img.scale then b.scaleX = b.scaleY = img.scale
+			@add container, false
+		if txt
+			text = txt.text ? ''
+			font = txt.font ? '20px Arial'
+			color = txt.color ? '#333'
+			x = txt.x ? 0
+			y = txt.y ? 0
+			align = txt.align ? ''
+			t = @createText 'txt', text, font, color, x, y, align
+			if txt.lineWidth then t.lineWidth = txt.lineWidth
+			hit = new createjs.Shape()
+			switch align
+				when 'center'
+					hit.graphics.beginFill('#000').drawRect(-5 -t.getMeasuredWidth() / 2, -3, t.getMeasuredWidth() + 10, t.getMeasuredHeight() + 6)
+				when 'right'
+					hit.graphics.beginFill('#000').drawRect(-5 -t.getMeasuredWidth(), -3, t.getMeasuredWidth() + 10, t.getMeasuredHeight() + 6)
+				else
+					hit.graphics.beginFill('#000').drawRect(-5, -3, t.getMeasuredWidth() + 10, t.getMeasuredHeight() + 6)
+			t.hitArea = hit
+			@add t, false
+	updateState: () ->
+		@currentState++
+		if @currentState < @states.length
+			TweenLite.killTweensOf @
+			@setImageText @states[@currentState].img, @states[@currentState].txt
+
+
+			@addEventListener 'click', =>
+				d2oda.evaluator.evaluate @eval, @name, @target
+			@scaleX = @scaleY = @scale
+			if @states[@currentState].removeListeners
+				@removeAllEventListeners()
+			TweenLite.from @, 0.3, {alpha: 0}
+		else
+			@currentState--
+	update: (opts) ->
+		TweenLite.killTweensOf @
+		if opts.img or opts.txt then @setImageText opts.img, opts.txt
+		if opts.visible then @visible = opts.visible
+		TweenLite.from @, 0.5, {alpha: 0}
+	isComplete: ->
+		true
+
+
 class CardContainer extends Component
 	CardContainer.prototype = new createjs.Container()
 	CardContainer::Container_initialize = CardContainer::initialize
@@ -1428,7 +1527,7 @@ class CardContainer extends Component
 			x = @currentX * @distx 
 			y = @fila * @disty
 			lopts = {id:"carta_#{@currentCard}", x: x, y: y, index: carta, target: @target, eval: @eval, states:[{img: {name: carta, x: 0, y: 0, align: 'mc'}},{img: {name: @card, x: 0, y: 0, align: 'mc'}},{img: {name: carta, x: 0, y: 0, align: 'mc'}}]}
-			d = new ButtonContainer lopts
+			d = new CartaContainer lopts
 			cardcollection.push d
 			@add d
 			console.log d
@@ -1439,9 +1538,9 @@ class CardContainer extends Component
 			if @currentX > @cols - 1
 				@currentX = 0 
 				@fila++
-		
+		 
 		@shuffleAnswers = shuffleAnswers = d2oda.utilities.shuffleNoRepeat shuffledCartas, 6
-		@delay 5000, ->
+		@delay 15000, ->
 			for carta in cardcollection
 				carta.updateState()
 				@checkcard 

@@ -21,7 +21,7 @@ window.dealersjs.mobile ?= class Mobile
     	@user_agent.indexOf('android') > -1
     @isMobile = ->
     	@user_agent.indexOf('mobile') > -1
-    Mobile
+    Mobil
 	
 window.d2oda.utilities ?= class Utilities
 	@shuffleNoRepeat = (a, len) ->
@@ -151,7 +151,6 @@ window.d2oda.methods ?= class Methods
 		animation = new createjs.Sprite sprite
 		animation.set {x: x, y: y, width: w, height: h, name: name, currentFrame: 0}
 		@setPosition position, animation
-		console.log animation
 		animation
 	@insertSprite = (name, imgs, anim=null, x, y, position = 'tl') ->
 		animation = @createSprite name, imgs, anim, x, y, position

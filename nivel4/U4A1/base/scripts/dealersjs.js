@@ -58,7 +58,7 @@ LIBRARY
         return this.user_agent.indexOf('mobile') > -1;
       };
 
-      Mobile;
+      Mobil;
 
       return Mobile;
 
@@ -395,7 +395,6 @@ LIBRARY
           currentFrame: 0
         });
         this.setPosition(position, animation);
-        console.log(animation);
         return animation;
       };
 
