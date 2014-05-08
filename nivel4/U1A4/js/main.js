@@ -232,7 +232,7 @@ NEW ODA
                   {
                     name: 'lbl2',
                     opts: {
-                      text: 'You should train to work with crcocodiles.',
+                      text: 'You should train to work with crocodiles.',
                       success: true
                     }
                   }

@@ -546,15 +546,15 @@ NEW ODA
                 target: 'global',
                 "eval": this.evaluateGlobal01,
                 label: {
-                  font: '18px Quicksand',
+                  font: 'bold 18px Quicksand',
                   color: '#333'
                 },
                 caption: {
-                  font: '20px Quicksand',
+                  font: 'bold 20px Quicksand',
                   color: '#333'
                 },
                 bullets: {
-                  font: '12px Quicksand',
+                  font: 'bold 12px Quicksand',
                   color: '#000',
                   lineWidth: 300
                 }

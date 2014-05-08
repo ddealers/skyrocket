@@ -156,7 +156,7 @@ NEW ODA
           y: 130,
           states: [
             {
-              text: 'Push the number and listen, look and drag to the correct box.',
+              text: 'Push the buttons then listen, look and drag to the correct box.',
               sound: 's/silence',
               played: false
             }

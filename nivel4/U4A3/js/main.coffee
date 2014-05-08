@@ -221,7 +221,7 @@ class U4A3 extends Oda
 						}
 						{
 							type: 'btn', id: 'drawbtn', x: 420, y: 460,  index: 'draw', target: 'pcpt1', eval: @btnClick
-							states: [{txt: {text:'draw', name:'draw', x:0, y:0, align:'center', font: '20px Quicksand'}}]
+							states: [{txt: {text:'draw', name:'draw', x:0, y:0, align:'center', font: 'Bold 20px Quicksand'}}]
 						}
 						{
 							type: 'btn', id: 'ridebtn', x: 540, y: 460,  index: 'ride', target: 'pcpt1', eval: @btnClick
