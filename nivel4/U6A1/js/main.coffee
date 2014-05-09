@@ -62,7 +62,6 @@ class U6A1 extends Oda
                 				{name: 'cards1', opts:{}}
               				]				
 						]
-						mixed: false
 						type: 'steps'
 					}
 					containers:[
@@ -89,7 +88,6 @@ class U6A1 extends Oda
 
               				]				
 						]
-						mixed: false
 						type: 'steps'
 					}
 					containers:[
