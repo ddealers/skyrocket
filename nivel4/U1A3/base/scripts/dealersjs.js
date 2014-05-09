@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 /*
 
 LIBRARY
@@ -5219,4 +5217,3 @@ LIBRARY
   })(Component);
 
 }).call(this);
->>>>>>> 0da990c631c4f3f657ecfec3e016b28e6969a4b9
