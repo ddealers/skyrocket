@@ -99,9 +99,6 @@ NEW ODA
           id: 's/jazzband',
           src: 'jazzband.mp3'
         }, {
-          id: 's/lista',
-          src: 'lista.txt'
-        }, {
           id: 's/musician',
           src: 'musician.mp3'
         }, {

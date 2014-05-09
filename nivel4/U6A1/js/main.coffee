@@ -11,7 +11,6 @@ class U6A1 extends Oda
 			{id:'c2', src:'circulo2.png'}
 			{id:'c1', src:'cirulo1.png'}
 			{id:'startgame', src:'start_game.png'}
-
 			{id:'bass', src:'clarinet.png'}
 			{id:'clarinet', src:'clarinet.png'}
 			{id:'comedian', src:'comedian.png'}
@@ -35,7 +34,6 @@ class U6A1 extends Oda
 			{id:'s/comedian', src:'comedian.mp3'}
 			{id:'s/dancers', src:'dancers.mp3'}
 			{id:'s/jazzband', src:'jazzband.mp3'}
-			{id:'s/lista', src:'lista.txt'}
 			{id:'s/musician', src:'musician.mp3'}
 			{id:'s/painter', src:'painter.mp3'}
 			{id:'s/piano', src:'piano.mp3'}
@@ -45,8 +43,7 @@ class U6A1 extends Oda
 			{id:'s/trombone', src:'trombone.mp3'}
 			{id:'s/trumpet' , src:'trumpet.mp3'}
 			{id:'s/tuba', src:'tuba.mp3'}
-			{ id: 's/silence' , src: 'silence.mp3' }
-
+			{ id:'s/silence' , src: 'silence.mp3' }
 		]
 	
 		@game = 
@@ -102,8 +99,7 @@ class U6A1 extends Oda
 							states:[{img: {name:'repeat', x: 0, y: 0,align: 'mc'}}]
 						}		
 					]
-					groups:[
-					]
+					groups:[]
 				}
 			]
 		super()
