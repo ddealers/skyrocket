@@ -32,19 +32,20 @@ class U6A2 extends Oda
 			pattern = /[a-z]/i
 			str = String.fromCharCode keycode
 			target = lib[window.target].getEnabledTarget()
-			if keycode is 8
-				target.write '<-'
-			else if keycode is 13
-				fail = false
-				for target in lib[window.target].droptargets
-					if target.success is target.write()
-						target.complete = true
-					else
-						fail = true
-						lib.scene.fail()
-				if not fail then lib.scene.success true,false
-			else if pattern.test str
-				target.write str.toLowerCase()
+			if target.success
+				if keycode is 8
+					target.write '<-'
+				else if keycode is 13
+					fail = false
+					for target in lib[window.target].droptargets
+						if target.success is target.write()
+							target.complete = true
+						else
+							fail = true
+							lib.scene.fail()
+					if not fail then lib.scene.success true,false
+				else if pattern.test str
+					target.write str.toLowerCase()
 		@game = 
 			header: 'header'
 			instructions: {x: 110, y: 130, states: [{text:'Complete the sentences with the superlative.', sound:'s/silence', played: false}]}
