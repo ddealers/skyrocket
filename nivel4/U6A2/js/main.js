@@ -73,7 +73,7 @@ NEW ODA
         pattern = /[a-z]/i;
         str = String.fromCharCode(keycode);
         target = lib[window.target].getEnabledTarget();
-        if (target.success) {
+        if (target.success && !target.complete) {
           if (keycode === 8) {
             return target.write('<-');
           } else if (keycode === 13) {

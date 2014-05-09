@@ -32,7 +32,7 @@ class U6A2 extends Oda
 			pattern = /[a-z]/i
 			str = String.fromCharCode keycode
 			target = lib[window.target].getEnabledTarget()
-			if target.success
+			if target.success && !target.complete
 				if keycode is 8
 					target.write '<-'
 				else if keycode is 13
