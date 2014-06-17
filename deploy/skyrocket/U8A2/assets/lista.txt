@@ -1,0 +1,28 @@
+{id:'baby', src:'baby'}
+{id:'bus', src:'bus'}
+{id:'car1', src:'car1'}
+{id:'car2', src:'car2'}
+{id:'c2', src:'circilo_2'}
+{id:'c1', src:'circulo_1'}
+{id:'explode', src:'explode'}
+{id:'header', src:'header'}
+{id:'ladder', src:'ladder'}
+{id:'lineas', src:'lineas'}
+{id:'pantalla', src:'pantalla-01'}
+{id:'swimmer', src:'swimmer'}
+{id:'swing', src:'swing'}
+{id:'theater', src:'theater'}
+{id:'wolfman', src:'wolfman'}
+
+
+baby
+bus
+car1
+car2
+explode
+ladder
+lineas
+swimmer
+swing
+theater
+wolfman

@@ -1,0 +1,20 @@
+{id:'bridge', src:'bridge.png'}
+{id:'c2', src:'circilo_2.png'}
+{id:'c1', src:'circulo_1.png'}
+{id:'drown', src:'drown.png'}
+{id:'invisible', src:'invisible.png'}
+{id:'kidnapped', src:'kidnapped.png'}
+{id:'kitten', src:'kitten.png'}
+{id:'pantalla', src:'pantalla-01.png'}
+{id:'telepathy', src:'telepathy.png'}
+{id:'thieves', src:'thieves.png'}
+{id:'wind', src:'wind.png'}
+
+bridge
+drown
+invisible
+kidnapped
+kitten
+telepathy
+thieves
+wind

@@ -1,0 +1,32 @@
+{id:'1', src:'castle.png'
+{id:'2', src:'swin.png'
+{id:'3', src:'glasses.png'
+{id:'4', src:'shoes.png'
+{id:'5', src:'fly.png'
+{id:'6', src:'strong.png'
+{id:'7', src:'freeze.png'
+{id:'8', src:'gloves.png'
+{id:'couldnt', src:'fishboy.png'
+{id:'could', src:'zapman.png'
+{id:'header', src:'header.png'
+{id:'pantalla', src:'pantalla-01.png'
+
+
+
+
+castle.png
+swin.png
+glasses.png
+shoes.png
+
+fly.png
+strong.png
+freeze.png
+gloves.png
+
+
+fishboy.png
+zapman.png
+
+header.png
+pantalla-01.png

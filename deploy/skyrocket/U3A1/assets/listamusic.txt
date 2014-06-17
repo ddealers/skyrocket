@@ -1,0 +1,11 @@
+{id: 'Panchito', src: 'Panchito.mp3' }
+{id: 'Hiro', src: 'Hiro.mp3' }
+{id: 'Roger', src: 'Roger.mp3' }
+{id: 'Margaret', src: 'Margaret.mp3' }
+{id: 'Pia', src: 'Pia.mp3' }
+{id: 'Maria', src: 'Maria.mp3' }
+{id: 'Paul', src: 'Paul.mp3' }
+{id: 'Emily', src: 'Emily.mp3' }
+{id: 'Barney', src: 'Barney.mp3' }
+{id: 'Sandra', src: 'Sandra.mp3' }
+{id: 'lista', src: 'lista.txt' }

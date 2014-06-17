@@ -82,52 +82,52 @@ NEW ODA
           src: 'tuba.png'
         }, {
           id: 's/banjo',
-          src: 'banjo.mp3'
+          src: 'banjo_1.ogg'
         }, {
           id: 's/bass',
-          src: 'bass.mp3'
+          src: 'bass_1.ogg'
         }, {
           id: 's/clarinet',
-          src: 'clarinet.mp3'
+          src: 'clarinet_1.ogg'
         }, {
           id: 's/comedian',
-          src: 'comedian.mp3'
+          src: 'comedian_1.ogg'
         }, {
           id: 's/dancers',
-          src: 'dancers.mp3'
+          src: 'dancers_1.ogg'
         }, {
           id: 's/jazzband',
-          src: 'jazzband.mp3'
+          src: 'jazzband_1.ogg'
         }, {
           id: 's/musician',
-          src: 'musician.mp3'
+          src: 'musician_1.ogg'
         }, {
           id: 's/painter',
-          src: 'painter.mp3'
+          src: 'painter_1.ogg'
         }, {
           id: 's/piano',
-          src: 'piano.mp3'
+          src: 'piano_1.ogg'
         }, {
           id: 's/saxophone',
-          src: 'saxophone.mp3'
+          src: 'saxophone_1.ogg'
         }, {
           id: 's/sculptor',
-          src: 'sculptor.mp3'
+          src: 'sculptor_1.ogg'
         }, {
           id: 's/singers',
-          src: 'singers.mp3'
+          src: 'singers_1.ogg'
         }, {
           id: 's/trombone',
-          src: 'trombone.mp3'
+          src: 'trombone_1.ogg'
         }, {
           id: 's/trumpet',
-          src: 'trumpet.mp3'
+          src: 'trumpet_1.ogg'
         }, {
           id: 's/tuba',
-          src: 'tuba.mp3'
+          src: 'tuba_1.ogg'
         }, {
           id: 's/silence',
-          src: 'silence.mp3'
+          src: 'silence_1.ogg'
         }
       ];
       this.game = {
