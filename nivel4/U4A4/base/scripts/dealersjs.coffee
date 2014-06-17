@@ -902,6 +902,8 @@ class Instructions extends Component
 					nl.x = npos
 					if dealersjs.mobile.isWindows() then npos += nl.getMeasuredWidth() + 7
 					if dealersjs.mobile.isMac() then npos += nl.getMeasuredWidth()
+					if dealersjs.mobile.isAndroid() then npos += nl.getMeasuredWidth() + 7  
+					if dealersjs.mobile.isIOS() then npos += nl.getMeasuredWidth() + 7
 					it++
 				else
 					nl = new createjs.Text texto, '20px Roboto', '#000'

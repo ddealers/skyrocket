@@ -1818,6 +1818,12 @@ LIBRARY
             if (dealersjs.mobile.isMac()) {
               npos += nl.getMeasuredWidth();
             }
+            if (dealersjs.mobile.isAndroid()) {
+              npos += nl.getMeasuredWidth() + 7;
+            }
+            if (dealersjs.mobile.isIOS()) {
+              npos += nl.getMeasuredWidth() + 7;
+            }
             it++;
           } else {
             nl = new createjs.Text(texto, '20px Roboto', '#000');
