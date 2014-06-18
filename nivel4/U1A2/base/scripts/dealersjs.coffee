@@ -2460,7 +2460,7 @@ class TextCompleterContainer extends Component
 		@add @back, false
 		if @clickable
 			@addEventListener 'click', =>
-				if isAndroid() or isIOS()
+				if dealersjs.mobile.isAndroid() or dealersjs.mobile.isIOS()
 					$('#input').focus();
 					$('#input').trigger('click');
 				if @parent

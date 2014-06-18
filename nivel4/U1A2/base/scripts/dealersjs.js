@@ -4449,7 +4449,7 @@ LIBRARY
       this.add(this.back, false);
       if (this.clickable) {
         return this.addEventListener('click', function() {
-          if (isAndroid() || isIOS()) {
+          if (dealersjs.mobile.isAndroid() || dealersjs.mobile.isIOS()) {
             $('#input').focus();
             $('#input').trigger('click');
           }
