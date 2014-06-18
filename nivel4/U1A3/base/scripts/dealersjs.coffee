@@ -2859,7 +2859,10 @@ class Scene extends Component
 						when 'snd'
 							@snd = target.opts.id
 							createjs.Sound.stop()
-							snd = createjs.Sound.play target.opts.id
+							if dealersjs.mobile.isAndroid()
+								snd = createjs.Sound.play target.opts.android
+							else
+								snd = createjs.Sound.play target.opts.id
 							if target.opts.successoncomplete
 								snd.addEventListener 'complete', @sndsuccess
 							false
