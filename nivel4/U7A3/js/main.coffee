@@ -31,13 +31,21 @@ class U7A3 extends Oda
 			#{id:'waltz', src:'ship.png'}
 			#{id:'television', src:'ship.png'}
 			{ id: 's/5' , src: 'boat.mp3' }
+			{ id: 's/5.1' , src: 'boat_1.ogg' }
 			{ id: 's/3' , src: 'cassettes.mp3' }
+			{ id: 's/3.1' , src: 'cassettes_1.ogg' }
 			{ id: 's/6' , src: 'hippydad.mp3' }
+			{ id: 's/6.1' , src: 'hippydad_1.ogg' }
 			{ id: 's/7' , src: 'hippymom.mp3' }
+			{ id: 's/7.1' , src: 'hippymom_1.ogg' }
 			{ id: 's/4' , src: 'mini.mp3' }
+			{ id: 's/4.1' , src: 'mini_1.ogg' }
 			{ id: 's/8' , src: 'phone.mp3' }
+			{ id: 's/8.1' , src: 'phone_1.ogg' }
 			{ id: 's/1' , src: 'radio.mp3' }
+			{ id: 's/1.1' , src: 'radio_1.ogg' }
 			{ id: 's/2' , src: 'records.mp3' }
+			{ id: 's/2.1' , src: 'records_1.ogg' }
 			#{ id: 's/television' , src: 'television.mp3' }
 			#{ id: 's/waltz' , src: 'waltz.mp3' }
 			{ id: 's/silence' , src: 'silence.mp3' }

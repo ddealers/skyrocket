@@ -31,7 +31,9 @@ class U4A1 extends Oda
 			{id:'Noam', src:'Noam.png'}
 			{id:'repeat', src:'repeat.png'}
 			{id:'s/Joe', src:'Joe.mp3'}
+			{id:'s/Joe.1', src:'Joe_1.ogg'}
 			{id:'s/Noam', src:'Noam.mp3'}
+			{id:'s/Noam.1', src:'Noam_1.ogg'}
 			{ id: 's/silence', src: 'silence.mp3' }
 		]
 		@onDrop = (dispatcher, target) =>
@@ -65,7 +67,7 @@ class U4A1 extends Oda
 										success:['4','7','6']
 									}
 								}
-								{name:'snd', opts:{id:'s/Noam'}}
+								{name:'snd', opts:{id:'s/Noam',android:'s/Noam.1'}}
 							]
 						]
 						type: 'steps'
@@ -101,7 +103,7 @@ class U4A1 extends Oda
 										success:['3b','5b','6b']
 									}
 								}
-								{name:'snd', opts:{id:'s/Joe'}}
+								{name:'snd', opts:{id:'s/Joe',android:"s/Joe.1"}}
 							]
 						]
 						type: 'steps'

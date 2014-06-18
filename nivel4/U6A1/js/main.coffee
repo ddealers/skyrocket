@@ -28,21 +28,36 @@ class U6A1 extends Oda
 			{id:'trombone', src:'trombone.png'}
 			{id:'trumpet', src:'trumpet.png'}
 			{id:'tuba', src:'tuba.png'}
-			{id:'s/banjo', src:'banjo_1.ogg'}
-			{id:'s/bass', src:'bass_1.ogg'}
-			{id:'s/clarinet', src:'clarinet_1.ogg'}
-			{id:'s/comedian', src:'comedian_1.ogg'}
-			{id:'s/dancers', src:'dancers_1.ogg'}
-			{id:'s/jazzband', src:'jazzband_1.ogg'}
-			{id:'s/musician', src:'musician_1.ogg'}
-			{id:'s/painter', src:'painter_1.ogg'}
-			{id:'s/piano', src:'piano_1.ogg'}
-			{id:'s/saxophone', src:'saxophone_1.ogg'}
-			{id:'s/sculptor', src:'sculptor_1.ogg'}
-			{id:'s/singers', src:'singers_1.ogg'}
-			{id:'s/trombone', src:'trombone_1.ogg'}
-			{id:'s/trumpet' , src:'trumpet_1.ogg'}
-			{id:'s/tuba', src:'tuba_1.ogg'}
+			{id:'s/banjo', src:'banjo.mp3'}
+			{id:'s/banjo.1', src:'banjo_1.ogg'}
+			{id:'s/bass', src:'bass.mp3'}
+			{id:'s/bass.1', src:'bass_1.ogg'}
+			{id:'s/clarinet', src:'clarinet.pm3'}
+			{id:'s/clarinet.1', src:'clarinet_1.ogg'}
+			{id:'s/comedian', src:'comedian.mp3'}
+			{id:'s/comedian.1', src:'comedian_1.ogg'}
+			{id:'s/dancers', src:'dancers.mp3'}
+			{id:'s/dancers.1', src:'dancers_1.ogg'}
+			{id:'s/jazzband', src:'jazzband.mp3'}
+			{id:'s/jazzband.1', src:'jazzband_1.ogg'}
+			{id:'s/musician', src:'musician.mp3'}
+			{id:'s/musician.1', src:'musician_1.ogg'}
+			{id:'s/painter', src:'painter.mp3'}
+			{id:'s/painter.1', src:'painter_1.ogg'}
+			{id:'s/piano', src:'piano.mp3'}
+			{id:'s/piano.1', src:'piano_1.ogg'}
+			{id:'s/saxophone', src:'saxophone.mp3'}
+			{id:'s/saxophone.1', src:'saxophone_1.ogg'}
+			{id:'s/sculptor', src:'sculptor.mp3'}
+			{id:'s/sculptor.1', src:'sculptor_1.ogg'}
+			{id:'s/singers', src:'singers.mp3'}
+			{id:'s/singers.1', src:'singers_1.ogg'}
+			{id:'s/trombone', src:'trombone.mp3'}
+			{id:'s/trombone.1', src:'trombone_1.ogg'}
+			{id:'s/trumpet' , src:'trumpet.mp3'}
+			{id:'s/trumpet.1' , src:'trumpet_1.ogg'}
+			{id:'s/tuba', src:'tuba.mp3'}
+			{id:'s/tuba.1', src:'tuba_1.ogg'}
 			{ id:'s/silence' , src: 'silence_1.ogg' }
 		]
 	

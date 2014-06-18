@@ -80,38 +80,74 @@ NEW ODA
           id: 's/1',
           src: '1.mp3'
         }, {
+          id: 's/1.1',
+          src: '1_1.ogg'
+        }, {
           id: 's/2',
           src: '2.mp3'
+        }, {
+          id: 's/2.1',
+          src: '2_1.ogg'
         }, {
           id: 's/3',
           src: '3.mp3'
         }, {
+          id: 's/3.1',
+          src: '3_1.ogg'
+        }, {
           id: 's/4',
           src: '4.mp3'
+        }, {
+          id: 's/4.1',
+          src: '4_1.ogg'
         }, {
           id: 's/5',
           src: '5.mp3'
         }, {
+          id: 's/5.1',
+          src: '5_1.ogg'
+        }, {
           id: 's/6',
           src: '6.mp3'
+        }, {
+          id: 's/6.1',
+          src: '6_1.ogg'
         }, {
           id: 's/a',
           src: 'A.mp3'
         }, {
+          id: 's/a.1',
+          src: 'A_1.ogg'
+        }, {
           id: 's/b',
           src: 'B.mp3'
+        }, {
+          id: 's/b.1',
+          src: 'B_1.ogg'
         }, {
           id: 's/c',
           src: 'C.mp3'
         }, {
+          id: 's/c.1',
+          src: 'C_1.ogg'
+        }, {
           id: 's/d',
           src: 'D.mp3'
+        }, {
+          id: 's/d.1',
+          src: 'D_1.ogg'
         }, {
           id: 's/e',
           src: 'E.mp3'
         }, {
+          id: 's/e.1',
+          src: 'E_1.ogg'
+        }, {
           id: 's/f',
           src: 'F.mp3'
+        }, {
+          id: 's/f.1',
+          src: 'F_1.ogg'
         }, {
           id: 's/silence',
           src: 'silence.mp3'
@@ -145,7 +181,11 @@ NEW ODA
           d.dragged = false;
           return;
         }
-        lib.scene.snd = "s/" + d.index;
+        if (dealersjs.mobile.isAndroid()) {
+          lib.scene.snd = "s/" + d.index + ".1";
+        } else {
+          lib.scene.snd = "s/" + d.index;
+        }
         createjs.Sound.stop();
         return createjs.Sound.play(lib.scene.snd);
       };

@@ -5181,7 +5181,11 @@ LIBRARY
               case 'snd':
                 this.snd = target.opts.id;
                 createjs.Sound.stop();
-                snd = createjs.Sound.play(target.opts.id);
+                if (dealersjs.mobile.isAndroid()) {
+                  snd = createjs.Sound.play(target.opts.android);
+                } else {
+                  snd = createjs.Sound.play(target.opts.id);
+                }
                 if (target.opts.successoncomplete) {
                   snd.addEventListener('complete', this.sndsuccess);
                 }

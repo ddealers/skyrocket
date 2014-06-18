@@ -23,15 +23,25 @@ class U5A2 extends Oda
 			{id:'pantalla01', src: 'pantalla-01.png'}
 			{id:'pantalla201', src: 'pantalla2-01.png'}
 			{id:'s/Dirk', src: 'Dirk.mp3'}
+			{id:'s/Dirk.1', src: 'Dirk_1.ogg'}
 			{id:'s/Frank', src: 'Frank.mp3'}
+			{id:'s/Frank.1', src: 'Frank_1.ogg'}
 			{id:'s/Jim', src: 'Jim.mp3'}
+			{id:'s/Jim.1', src: 'Jim_1.ogg'}
 			{id:'s/Kris', src: 'Kris.mp3'}
+			{id:'s/Kris.1', src: 'Kris_1.ogg'}
 			{id:'s/Simon', src: 'Simon.mp3'}
+			{id:'s/Simon.1', src: 'Simon_1.ogg'}
 			{id:'s/Lili', src: 'Lili.mp3'}
+			{id:'s/Lili.1', src: 'Lili_1.ogg'}
 			{id:'s/LiMin', src: 'LiMin.mp3'}
+			{id:'s/LiMin.1', src: 'LiMin_1.ogg'}
 			{id:'s/LiuYuan', src: 'LiuYuan.mp3'}
+			{id:'s/LiuYuan.1', src: 'LiuYuan_1.ogg'}
 			{id:'s/WenLi', src: 'WenLi.mp3'}
+			{id:'s/WenLi.1', src: 'WenLi_1.ogg'}
 			{id:'s/ZhuMei', src: 'ZhuMei.mp3'}
+			{id:'s/ZhuMei.1', src: 'ZhuMei_1.ogg'}
 			{id: "s/silence", src: "silence.mp3"}
 		]
 		@evaluateDrop = (dispatcher, target) ->
@@ -56,7 +66,7 @@ class U5A2 extends Oda
 					answers: {
 						collection: [ 
 							[
-								{name: 'snd', opts:{id:'s/WenLi'}}
+								{name: 'snd', opts:{id:'s/WenLi',android:"s/WenLi.1"}}
 								{
 									name: "g1"
 									opts:
@@ -64,15 +74,15 @@ class U5A2 extends Oda
 								}
 							]
 							[
-								{name: 'snd', opts:{id:'s/LiMin'}}
+								{name: 'snd', opts:{id:'s/LiMin',android:"s/LiMin.1"}}
 								{
 									name: "g3"
 									opts:
-										success: ["Li Mei"]
+										success: ["Li Min"]
 								}
 							]
 							[
-		                		{name: 'snd', opts:{id:'s/LiuYuan'}}
+		                		{name: 'snd', opts:{id:'s/LiuYuan',android:"s/LiuYuan.1"}}
 								{
 									name: "g2"
 									opts:
@@ -80,7 +90,7 @@ class U5A2 extends Oda
 								}
 							]
 							[
-								{name: 'snd', opts:{id:'s/Lili'}}
+								{name: 'snd', opts:{id:'s/Lili',android:"s/Lili.1"}}
 								{
 									name: "g4"
 									opts:
@@ -88,7 +98,7 @@ class U5A2 extends Oda
 								}
 							]
 							[
-								{name: 'snd', opts:{id:'s/ZhuMei'}}
+								{name: 'snd', opts:{id:'s/ZhuMei',android:"s/ZhuMei.1"}}
 								{
 									name: "g5"
 									opts:
@@ -121,7 +131,7 @@ class U5A2 extends Oda
 					answers: {
 						collection: [
 							[
-								{name: 'snd', opts:{id:'s/Dirk'}}
+								{name: 'snd', opts:{id:'s/Dirk',android:"s/Dirk.1"}}
 								{
 									name: "b1"
 									opts:
@@ -129,7 +139,7 @@ class U5A2 extends Oda
 								}
 							]
 							[
-								{name: 'snd', opts:{id:'s/Kris'}}
+								{name: 'snd', opts:{id:'s/Kris',android:"s/Kris.1"}}
 								{
 									name: "b2"
 									opts:
@@ -137,7 +147,7 @@ class U5A2 extends Oda
 								}
 							]
 							[
-								{name: 'snd', opts:{id:'s/Jim'}}
+								{name: 'snd', opts:{id:'s/Jim',android:"s/Jim.1"}}
 								{
 									name: "b3"
 									opts:
@@ -145,7 +155,7 @@ class U5A2 extends Oda
 								}
 							]
 							[
-								{name: 'snd', opts:{id:'s/Simon'}}
+								{name: 'snd', opts:{id:'s/Simon',android:"s/Simon.1"}}
 								{
 									name: "b4"
 									opts:
@@ -153,7 +163,7 @@ class U5A2 extends Oda
 								}
 							]
 							[
-								{name: 'snd', opts:{id:'s/Frank'}}
+								{name: 'snd', opts:{id:'s/Frank',android:"s/Frank.1"}}
 								{
 									name: "b5"
 									opts:

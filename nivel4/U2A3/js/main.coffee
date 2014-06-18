@@ -15,6 +15,7 @@ class U2A3 extends Oda
 			{id: 'ready', src: 'ready.png' }
 			{id: 'repeat', src: 'repeat.png' }
 			{id: 's/travel', src: 'Travel.mp3' }
+			{id: 's/travel.1', src: 'Travel_1.ogg' }
 			{id: 's/silence', src: 'silence.mp3' }
 		]
 		@evaluateGlobal01 = (dispatcher) ->
@@ -46,7 +47,7 @@ class U2A3 extends Oda
 					answers: {
 						collection: [ 
 							[
-								{name: 'snd', opts:{id:'s/travel'}}
+								{name: 'snd', opts:{id:'s/travel',android:"s/travel.1"}}
 
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'family'}}
 								{name: 'pcpt1', opts:{pattern:['We met in Africa ', '#tcpt',' years ago.'], targets: [{text:'ten', maxlength:'Christmas Day'}]}}
