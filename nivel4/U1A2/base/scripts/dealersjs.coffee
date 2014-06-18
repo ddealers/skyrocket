@@ -2460,6 +2460,9 @@ class TextCompleterContainer extends Component
 		@add @back, false
 		if @clickable
 			@addEventListener 'click', =>
+				if isAndroid() or isIOS()
+					$('#input').focus();
+					$('#input').trigger('click');
 				if @parent
 					@parent.clearChildren()
 				@writeEnabled = on
