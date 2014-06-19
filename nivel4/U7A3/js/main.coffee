@@ -78,7 +78,11 @@ class U7A3 extends Oda
 			lib.grp_pcpt.update {type:'fadeIn', target:"pcpt#{sel + 1}"}
 			lib.grp_img.update {type:'fadeIn', target:"q#{sel + 1}"}
 			createjs.Sound.stop()
-			createjs.Sound.play "s/#{sel + 1}"
+			if dealersjs.mobile.isAndroid()
+				snd = "s/#{sel + 1}.1"
+			else
+				snd = "s/#{sel + 1}"
+			createjs.Sound.play snd
 		@game = 
 			header: 'header'
 			instructions: {x: 110, y: 130, states: [{text:'Change the channels, listen and drag the correct options.', sound:'s/silence', played: false}]}

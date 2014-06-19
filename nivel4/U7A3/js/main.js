@@ -163,7 +163,7 @@ NEW ODA
         }
       };
       this.btnChannel = function(dispatcher) {
-        var d, sel;
+        var d, sel, snd;
         _this.inic();
         d = lib[dispatcher];
         sel = _this.channels[d.index];
@@ -176,7 +176,12 @@ NEW ODA
           target: "q" + (sel + 1)
         });
         createjs.Sound.stop();
-        return createjs.Sound.play("s/" + (sel + 1));
+        if (dealersjs.mobile.isAndroid()) {
+          snd = "s/" + (sel + 1) + ".1";
+        } else {
+          snd = "s/" + (sel + 1);
+        }
+        return createjs.Sound.play(snd);
       };
       this.game = {
         header: 'header',

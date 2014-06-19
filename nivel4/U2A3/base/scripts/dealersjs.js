@@ -5201,7 +5201,12 @@ LIBRARY
                 }
                 break;
               default:
-                _results.push(lib[target.name].update(target.opts));
+                lib[target.name].update(target.opts);
+                if (lib[target.name].cache) {
+                  _results.push(lib[target.name].cache(0, -3, lib[target.name].getBounds().width, lib[target.name].getBounds().height + 3));
+                } else {
+                  _results.push(void 0);
+                }
             }
           }
           return _results;

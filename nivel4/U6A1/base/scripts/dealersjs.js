@@ -2922,9 +2922,13 @@ LIBRARY
           this.checkcard;
         }
         d2oda.evaluator.success = shuffleAnswers[0];
-        return createjs.Sound.play("s/" + shuffleAnswers[0]);
+        if (dealersjs.mobile.isAndroid()) {
+          lib.scene.snd = "s/" + shuffleAnswers[0] + ".1";
+        } else {
+          lib.scene.snd = "s/" + shuffleAnswers[0];
+        }
+        return createjs.Sound.play(lib.scene.snd);
       });
-      lib.scene.snd = "s/" + this.shuffleAnswers[0];
       return this.i = 0;
     };
 
@@ -2934,8 +2938,12 @@ LIBRARY
       if (this.i < this.shuffleAnswers.length) {
         d2oda.evaluator.success = this.shuffleAnswers[this.i];
         console.log(d2oda.evaluator.success);
-        lib.scene.snd = "s/" + this.shuffleAnswers[this.i];
-        return createjs.Sound.play("s/" + this.shuffleAnswers[this.i]);
+        if (dealersjs.mobile.isAndroid()) {
+          lib.scene.snd = "s/" + this.shuffleAnswers[this.i] + ".1";
+        } else {
+          lib.scene.snd = "s/" + this.shuffleAnswers[this.i];
+        }
+        return createjs.Sound.play(lib.scene.snd);
       }
     };
 
@@ -5352,7 +5360,11 @@ LIBRARY
               case 'snd':
                 this.snd = target.opts.id;
                 createjs.Sound.stop();
-                snd = createjs.Sound.play(target.opts.id);
+                if (dealersjs.mobile.isAndroid()) {
+                  snd = createjs.Sound.play(target.opts.android);
+                } else {
+                  snd = createjs.Sound.play(target.opts.id);
+                }
                 if (target.opts.successoncomplete) {
                   snd.addEventListener('complete', this.sndsuccess);
                 }

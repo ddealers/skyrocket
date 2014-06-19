@@ -1915,6 +1915,7 @@ class PhraseCompleterContainer extends Component
 		@width = maxWidth
 		@setPosition @align
 		@observer.notify ComponentObserver.UPDATED
+		#@updateCache()
 		TweenLite.from @, 0.3, {alpha: 0, y: @y - 10}
 	clearChildren: ->
 		for target in @droptargets
@@ -2873,6 +2874,8 @@ class Scene extends Component
 								@window.onkeydown = target.opts.keydown
 						else
 							lib[target.name].update target.opts
+							if lib[target.name].cache then lib[target.name].cache 0,-3,lib[target.name].getBounds().width, lib[target.name].getBounds().height+3
+							
 	nextStep: ->
 		console.log 'next step'
 		@observer.notify SceneObserver.NEXT_STEP
