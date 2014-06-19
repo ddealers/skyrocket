@@ -2460,7 +2460,7 @@ class TextCompleterContainer extends Component
 		@add @back, false
 		if @clickable
 			@addEventListener 'click', =>
-				$('#input').focus();
+				#$('#input').focus();
 				if @parent
 					@parent.clearChildren()
 				@writeEnabled = on

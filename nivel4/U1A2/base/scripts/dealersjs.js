@@ -4449,7 +4449,6 @@ LIBRARY
       this.add(this.back, false);
       if (this.clickable) {
         return this.addEventListener('click', function() {
-          $('#input').focus();
           if (_this.parent) {
             _this.parent.clearChildren();
           }
