@@ -63,8 +63,11 @@ NEW ODA
         complete = true;
         if (a.index === b.success) {
           b.update();
+          d2oda.methods.delay(300, function() {
+            return b.parent.updateCache();
+          });
           a.afterSuccess();
-          target.complete = true;
+          b.complete = true;
           return lib.scene.success(true, false);
         } else {
           a.afterFail();

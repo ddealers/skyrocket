@@ -73,8 +73,11 @@ class U9A2 extends Oda
 			sel = @channels[d.index]
 			lib.grp_pcpt.update {type:'fadeIn', target:"pcpt#{sel + 1}"}
 			lib.grp_img.update {type:'fadeIn', target:"q#{sel + 1}"}
-			createjs.Sound.stop()
-			createjs.Sound.play "s/#{sel + 1}"
+			if dealersjs.mobile.isAndroid()
+				snd = "s/#{sel + 1}.1"
+			else
+				snd = "s/#{sel + 1}"
+			createjs.Sound.play snd
 		@inic = () =>
 			if @channels then return
 			chnls = [0,1,2,3,4,5,6,7,8,9]

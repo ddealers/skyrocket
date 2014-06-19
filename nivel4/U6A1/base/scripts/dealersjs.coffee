@@ -1541,17 +1541,17 @@ class CardContainer extends Component
 			if @currentX > @cols - 1
 				@currentX = 0 
 				@fila++
-		
 		@shuffleAnswers = shuffleAnswers = d2oda.utilities.shuffleNoRepeat shuffledCartas, 6
 		@delay 16000, ->
 			for carta in cardcollection
 				carta.updateState()
 				@checkcard 
 			d2oda.evaluator.success = shuffleAnswers[0]
-			createjs.Sound.play "s/#{shuffleAnswers[0]}"
-
-		lib.scene.snd = "s/#{@shuffleAnswers[0]}"
-
+			if dealersjs.mobile.isAndroid()
+				lib.scene.snd = "s/#{shuffleAnswers[0]}.1"
+			else
+				lib.scene.snd = "s/#{shuffleAnswers[0]}"
+			createjs.Sound.play lib.scene.snd
 		@i = 0
 	nextCard: () ->
 		@i++
@@ -1560,8 +1560,11 @@ class CardContainer extends Component
 		if @i < @shuffleAnswers.length
 			d2oda.evaluator.success = @shuffleAnswers[@i]
 			console.log d2oda.evaluator.success
-			lib.scene.snd = "s/#{@shuffleAnswers[@i]}"
-			createjs.Sound.play "s/#{@shuffleAnswers[@i]}"
+			if dealersjs.mobile.isAndroid()
+				lib.scene.snd = "s/#{@shuffleAnswers[@i]}.1"
+			else
+				lib.scene.snd = "s/#{@shuffleAnswers[@i]}"
+			createjs.Sound.play lib.scene.snd
 	isComplete: ->
 		true
 
@@ -2957,7 +2960,10 @@ class Scene extends Component
 						when 'snd'
 							@snd = target.opts.id
 							createjs.Sound.stop()
-							snd = createjs.Sound.play target.opts.id
+							if dealersjs.mobile.isAndroid()
+								snd = createjs.Sound.play target.opts.android
+							else
+								snd = createjs.Sound.play target.opts.id
 							if target.opts.successoncomplete
 								snd.addEventListener 'complete', @sndsuccess
 							false

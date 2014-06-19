@@ -94,7 +94,7 @@ NEW ODA
           src: 'bass_1.ogg'
         }, {
           id: 's/clarinet',
-          src: 'clarinet.pm3'
+          src: 'clarinet.mp3'
         }, {
           id: 's/clarinet.1',
           src: 'clarinet_1.ogg'
@@ -172,7 +172,7 @@ NEW ODA
           src: 'tuba_1.ogg'
         }, {
           id: 's/silence',
-          src: 'silence_1.ogg'
+          src: 'silence.mp3'
         }
       ];
       this.game = {
