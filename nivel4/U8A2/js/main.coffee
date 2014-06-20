@@ -29,28 +29,46 @@ class U8A2 extends Oda
 			e.stopPropagation()
 			word = ''
 			keycode = e.keyCode || e.which
-			console.log keycode
-			pattern = /[a-z]/i
-			str = String.fromCharCode keycode
 			target = lib[window.target].getEnabledTarget()
-			targ = target.success.split '||'
-			#console.log targ
-			if keycode is 8
-				target.write '<-'
-			else if keycode is 13
-				fail = false
-				if target.write() in targ
-					target.complete = true
-				else
-					fail = true
-					lib.scene.fail()
-				if not fail then lib.scene.success true,false
-			else if keycode is 32
-				target.write '-'
-			else if keycode is 222
-				target.write '\''
-			else if pattern.test str
-				target.write str.toLowerCase()
+			if keycode is 0 and modal.open
+				str = modal.inp.val()
+				if target.success
+					targ = target.success.split '||'
+					if keycode is 13
+						fail = false
+						if target.write() in targ
+							modal.clear()
+							target.complete = true
+						else
+							fail = true
+							lib.scene.fail()
+						modal.hide()
+						if not fail then lib.scene.success true,false
+					else
+						target.writeText str.toLowerCase()
+			else
+				pattern = /[a-z]/i
+				str = String.fromCharCode keycode
+				if target.success
+					targ = target.success.split '||'
+					if keycode is 8
+						target.write '<-'
+					else if keycode is 13
+						fail = false
+						if target.write() in targ
+							modal.clear()
+							target.complete = true
+						else
+							fail = true
+							lib.scene.fail()
+						modal.hide()
+						if not fail then lib.scene.success true,false
+					else if keycode is 32
+						target.write '-'
+					else if keycode is 222
+						target.write '\''
+					else if pattern.test str
+						target.write str.toLowerCase()
 		@btnClick = (dispatcher, target) =>
 			###
 			d = lib[dispatcher]

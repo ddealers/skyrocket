@@ -29,23 +29,46 @@ class U6A2 extends Oda
 			e.stopPropagation()
 			word = ''
 			keycode = e.keyCode || e.which
-			pattern = /[a-z]/i
-			str = String.fromCharCode keycode
 			target = lib[window.target].getEnabledTarget()
-			if target.success && !target.complete
-				if keycode is 8
-					target.write '<-'
-				else if keycode is 13
-					fail = false
-					for target in lib[window.target].droptargets
-						if target.success is target.write()
+			if keycode is 0 and modal.open
+				str = modal.inp.val()
+				if target.success
+					targ = target.success.split '||'
+					if keycode is 13
+						fail = false
+						if target.write() in targ
+							modal.clear()
 							target.complete = true
 						else
 							fail = true
 							lib.scene.fail()
-					if not fail then lib.scene.success true,false
-				else if pattern.test str
-					target.write str.toLowerCase()
+						modal.hide()
+						if not fail then lib.scene.success true,false
+					else
+						target.writeText str.toLowerCase()
+			else
+				pattern = /[a-z]/i
+				str = String.fromCharCode keycode
+				if target.success
+					targ = target.success.split '||'
+					if keycode is 8
+						target.write '<-'
+					else if keycode is 13
+						fail = false
+						if target.write() in targ
+							modal.clear()
+							target.complete = true
+						else
+							fail = true
+							lib.scene.fail()
+						modal.hide()
+						if not fail then lib.scene.success true,false
+					else if keycode is 32
+						target.write '-'
+					else if keycode is 222
+						target.write '\''
+					else if pattern.test str
+						target.write str.toLowerCase()
 		@game = 
 			header: 'header'
 			instructions: {x: 110, y: 130, states: [{text:'Complete the sentences with the superlative.', sound:'s/silence', played: false}]}

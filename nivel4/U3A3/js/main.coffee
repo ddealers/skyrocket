@@ -53,19 +53,46 @@ class U3A3 extends Oda
 			e.stopPropagation()
 			word = ''
 			keycode = e.keyCode || e.which
-			pattern = /[a-z]/i
-			str = String.fromCharCode keycode
 			target = lib[window.target].getEnabledTarget()
-			if keycode is 8
-				target.write '<-'
-			else if keycode is 13
-				if target.success is target.write()
-					target.complete = true
-					lib.scene.success true,false
-				else 
-					lib.scene.fail()
-			else if pattern.test str
-				target.write str.toLowerCase()
+			if keycode is 0 and modal.open
+				str = modal.inp.val()
+				if target.success
+					targ = target.success.split '||'
+					if keycode is 13
+						fail = false
+						if target.write() in targ
+							modal.clear()
+							target.complete = true
+						else
+							fail = true
+							lib.scene.fail()
+						modal.hide()
+						if not fail then lib.scene.success true,false
+					else
+						target.writeText str.toLowerCase()
+			else
+				pattern = /[a-z]/i
+				str = String.fromCharCode keycode
+				if target.success
+					targ = target.success.split '||'
+					if keycode is 8
+						target.write '<-'
+					else if keycode is 13
+						fail = false
+						if target.write() in targ
+							modal.clear()
+							target.complete = true
+						else
+							fail = true
+							lib.scene.fail()
+						modal.hide()
+						if not fail then lib.scene.success true,false
+					else if keycode is 32
+						target.write '-'
+					else if keycode is 222
+						target.write '\''
+					else if pattern.test str
+						target.write str.toLowerCase()
 		@game = 
 			header: 'header'
 			instructions: {x: 110, y: 130, states: [{text:'Choose the verb and write it in the correct form.', sound:'s/silence', played: false}]}

@@ -4443,6 +4443,9 @@ LIBRARY
       this.add(this.back, false);
       if (this.clickable) {
         return this.addEventListener('click', function() {
+          if (dealersjs.mobile.isAndroid() || dealersjs.mobile.isIOS()) {
+            modal.show();
+          }
           if (_this.parent) {
             _this.parent.clearChildren();
           }
@@ -4496,6 +4499,16 @@ LIBRARY
         this.word += char;
       }
       return this.text.text = this.word;
+    };
+
+    TextCompleterContainer.prototype.writeText = function(txt) {
+      if (!this.text.parent) {
+        this.text.textAlign = 'center';
+        this.text.x = this.width / 2;
+        this.add(this.text, false);
+      }
+      this.word = txt;
+      return this.text.text = txt;
     };
 
     TextCompleterContainer.prototype.setRectOutline = function(bcolor, stroke, scolor) {

@@ -7,7 +7,8 @@ NEW ODA
 (function() {
   var U6A2,
     __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+    __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   U6A2 = (function(_super) {
     __extends(U6A2, _super);
@@ -65,34 +66,60 @@ NEW ODA
         }
       ];
       this.onkeydown = function(e) {
-        var fail, keycode, pattern, str, target, word, _i, _len, _ref;
+        var fail, keycode, pattern, str, targ, target, word, _ref, _ref1;
         e.preventDefault();
         e.stopPropagation();
         word = '';
         keycode = e.keyCode || e.which;
-        pattern = /[a-z]/i;
-        str = String.fromCharCode(keycode);
         target = lib[window.target].getEnabledTarget();
-        if (target.success && !target.complete) {
-          if (keycode === 8) {
-            return target.write('<-');
-          } else if (keycode === 13) {
-            fail = false;
-            _ref = lib[window.target].droptargets;
-            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-              target = _ref[_i];
-              if (target.success === target.write()) {
+        if (keycode === 0 && modal.open) {
+          str = modal.inp.val();
+          if (target.success) {
+            targ = target.success.split('||');
+            if (keycode === 13) {
+              fail = false;
+              if (_ref = target.write(), __indexOf.call(targ, _ref) >= 0) {
+                modal.clear();
                 target.complete = true;
               } else {
                 fail = true;
                 lib.scene.fail();
               }
+              modal.hide();
+              if (!fail) {
+                return lib.scene.success(true, false);
+              }
+            } else {
+              return target.writeText(str.toLowerCase());
             }
-            if (!fail) {
-              return lib.scene.success(true, false);
+          }
+        } else {
+          pattern = /[a-z]/i;
+          str = String.fromCharCode(keycode);
+          if (target.success) {
+            targ = target.success.split('||');
+            if (keycode === 8) {
+              return target.write('<-');
+            } else if (keycode === 13) {
+              fail = false;
+              if (_ref1 = target.write(), __indexOf.call(targ, _ref1) >= 0) {
+                modal.clear();
+                target.complete = true;
+              } else {
+                fail = true;
+                lib.scene.fail();
+              }
+              modal.hide();
+              if (!fail) {
+                return lib.scene.success(true, false);
+              }
+            } else if (keycode === 32) {
+              return target.write('-');
+            } else if (keycode === 222) {
+              return target.write('\'');
+            } else if (pattern.test(str)) {
+              return target.write(str.toLowerCase());
             }
-          } else if (pattern.test(str)) {
-            return target.write(str.toLowerCase());
           }
         }
       };

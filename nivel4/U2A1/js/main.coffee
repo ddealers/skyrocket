@@ -24,17 +24,50 @@ class U2A1 extends Oda
 			{ id: 's/silence', src: 'silence.mp3' }
 		]
 		@onkeydown = (e) ->
+			e.preventDefault()
+			e.stopPropagation()
+			word = ''
 			keycode = e.keyCode || e.which
-			pattern = /[a-z]/i
-			str = String.fromCharCode keycode
-			if pattern.test str
-				target = lib[window.target].getEnabledTarget()
-				console.log target.success, str
-				if target.success.toUpperCase() is str
-					target.update {complete:true}
-					target.parent.evaluateWords()
-				else
-					lib.scene.fail()
+			target = lib[window.target].getEnabledTarget()
+			if keycode is 0 and modal.open
+				str = modal.inp.val()
+				if target.success
+					targ = target.success.split '||'
+					if keycode is 13
+						fail = false
+						if target.write() in targ
+							modal.clear()
+							target.complete = true
+						else
+							fail = true
+							lib.scene.fail()
+						modal.hide()
+						if not fail then lib.scene.success true,false
+					else
+						target.writeText str.toLowerCase()
+			else
+				pattern = /[a-z]/i
+				str = String.fromCharCode keycode
+				if target.success
+					targ = target.success.split '||'
+					if keycode is 8
+						target.write '<-'
+					else if keycode is 13
+						fail = false
+						if target.write() in targ
+							modal.clear()
+							target.complete = true
+						else
+							fail = true
+							lib.scene.fail()
+						modal.hide()
+						if not fail then lib.scene.success true,false
+					else if keycode is 32
+						target.write '-'
+					else if keycode is 222
+						target.write '\''
+					else if pattern.test str
+						target.write str.toLowerCase()
 		@game = 
 			header: 'header'
 			instructions: {x: 110, y: 130, states: [{text:'Click on the number and write the correct answer.', sound:'s/silence', played: false}]}

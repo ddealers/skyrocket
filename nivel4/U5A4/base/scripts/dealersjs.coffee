@@ -2458,6 +2458,8 @@ class TextCompleterContainer extends Component
 		@add @back, false
 		if @clickable
 			@addEventListener 'click', =>
+				if dealersjs.mobile.isAndroid() or dealersjs.mobile.isIOS()
+					modal.show()
 				if @parent
 					@parent.clearChildren()
 				@writeEnabled = on
@@ -2493,6 +2495,13 @@ class TextCompleterContainer extends Component
 		else
 			@word += char
 		@text.text = @word
+	writeText: (txt) ->
+		if not @text.parent
+			@text.textAlign = 'center'
+			@text.x = @width / 2
+			@add @text, false
+		@word = txt
+		@text.text = txt
 	setRectOutline: (bcolor, stroke, scolor) ->
 		@back.graphics.f(bcolor).ss(stroke).s(scolor).dr(0, 0, @width, @height)
 	update: (opts) ->
