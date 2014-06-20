@@ -4449,6 +4449,9 @@ LIBRARY
       this.add(this.back, false);
       if (this.clickable) {
         return this.addEventListener('click', function() {
+          if (dealersjs.mobile.isAndroid() || dealersjs.mobile.isIOS()) {
+            modal.show();
+          }
           if (_this.parent) {
             _this.parent.clearChildren();
           }

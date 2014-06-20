@@ -26,11 +26,10 @@ class U1A2 extends Oda
 			{ id: 's/silence', src: 'silence.mp3' }
 		]
 		@onkeydown = (e) ->
-			e.preventDefault()
+			#e.preventDefault()
 			e.stopPropagation()
 			word = ''
 			keycode = e.keyCode || e.which
-			console.log keycode
 			pattern = /[a-z]/i
 			str = String.fromCharCode keycode
 			target = lib[window.target].getEnabledTarget()
@@ -41,10 +40,12 @@ class U1A2 extends Oda
 				else if keycode is 13
 					fail = false
 					if target.write() in targ
+						modal.clear()
 						target.complete = true
 					else
 						fail = true
 						lib.scene.fail()
+					modal.hide()
 					if not fail then lib.scene.success true,false
 				else if keycode is 32
 					target.write '-'
