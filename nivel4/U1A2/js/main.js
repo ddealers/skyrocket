@@ -72,36 +72,60 @@ NEW ODA
         }
       ];
       this.onkeydown = function(e) {
-        var fail, keycode, pattern, str, targ, target, word, _ref;
+        var fail, keycode, pattern, str, targ, target, word, _ref, _ref1;
+        e.preventDefault();
         e.stopPropagation();
         word = '';
         keycode = e.keyCode || e.which;
-        pattern = /[a-z]/i;
-        str = String.fromCharCode(keycode);
         target = lib[window.target].getEnabledTarget();
-        if (target.success) {
-          targ = target.success.split('||');
-          if (keycode === 8) {
-            return target.write('<-');
-          } else if (keycode === 13) {
-            fail = false;
-            if (_ref = target.write(), __indexOf.call(targ, _ref) >= 0) {
-              modal.clear();
-              target.complete = true;
+        if (keycode === 0 && modal.open) {
+          str = modal.inp.val();
+          if (target.success) {
+            targ = target.success.split('||');
+            if (keycode === 13) {
+              fail = false;
+              if (_ref = target.write(), __indexOf.call(targ, _ref) >= 0) {
+                modal.clear();
+                target.complete = true;
+              } else {
+                fail = true;
+                lib.scene.fail();
+              }
+              modal.hide();
+              if (!fail) {
+                return lib.scene.success(true, false);
+              }
             } else {
-              fail = true;
-              lib.scene.fail();
+              return target.writeText(str.toLowerCase());
             }
-            modal.hide();
-            if (!fail) {
-              return lib.scene.success(true, false);
+          }
+        } else {
+          pattern = /[a-z]/i;
+          str = String.fromCharCode(keycode);
+          if (target.success) {
+            targ = target.success.split('||');
+            if (keycode === 8) {
+              return target.write('<-');
+            } else if (keycode === 13) {
+              fail = false;
+              if (_ref1 = target.write(), __indexOf.call(targ, _ref1) >= 0) {
+                modal.clear();
+                target.complete = true;
+              } else {
+                fail = true;
+                lib.scene.fail();
+              }
+              modal.hide();
+              if (!fail) {
+                return lib.scene.success(true, false);
+              }
+            } else if (keycode === 32) {
+              return target.write('-');
+            } else if (keycode === 222) {
+              return target.write('\'');
+            } else if (pattern.test(str)) {
+              return target.write(str.toLowerCase());
             }
-          } else if (keycode === 32) {
-            return target.write('-');
-          } else if (keycode === 222) {
-            return target.write('\'');
-          } else if (pattern.test(str)) {
-            return target.write(str.toLowerCase());
           }
         }
       };
