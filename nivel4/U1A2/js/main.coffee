@@ -26,7 +26,7 @@ class U1A2 extends Oda
 			{ id: 's/silence', src: 'silence.mp3' }
 		]
 		@onkeydown = (e) ->
-			#e.preventDefault()
+			e.preventDefault()
 			e.stopPropagation()
 			word = ''
 			keycode = e.keyCode || e.which

@@ -73,6 +73,7 @@ NEW ODA
       ];
       this.onkeydown = function(e) {
         var fail, keycode, pattern, str, targ, target, word, _ref;
+        e.preventDefault();
         e.stopPropagation();
         word = '';
         keycode = e.keyCode || e.which;

@@ -2458,6 +2458,8 @@ class TextCompleterContainer extends Component
 		@add @back, false
 		if @clickable
 			@addEventListener 'click', =>
+				if dealersjs.mobile.isAndroid() or dealersjs.mobile.isIOS()
+					modal.show()
 				if @parent
 					@parent.clearChildren()
 				@writeEnabled = on
