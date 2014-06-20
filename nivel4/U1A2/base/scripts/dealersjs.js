@@ -4507,6 +4507,16 @@ LIBRARY
       return this.text.text = this.word;
     };
 
+    TextCompleterContainer.prototype.writeText = function(txt) {
+      if (!this.text.parent) {
+        this.text.textAlign = 'center';
+        this.text.x = this.width / 2;
+        this.add(this.text, false);
+      }
+      this.word = txt;
+      return this.text.text = txt;
+    };
+
     TextCompleterContainer.prototype.setRectOutline = function(bcolor, stroke, scolor) {
       return this.back.graphics.f(bcolor).ss(stroke).s(scolor).dr(0, 0, this.width, this.height);
     };
