@@ -2156,7 +2156,10 @@ class CrossWordsContainer extends Component
 			j = 0
 			i++
 		@observer.notify ComponentObserver.UPDATED
-		TweenLite.from @, 0.3, {alpha: 0, y: @y - 10}
+		@cache -20,-20,@getBounds().width + 25,@getBounds().height + 25
+		TweenLite.from @, 0.5, {alpha: 0, y: @y - 10, onComplete: @nocache, onCompleteParams: [@]}
+	nocache: (tgt) ->
+		tgt.uncache()
 	fadeOut: (obj) ->
 		TweenMax.killTweensOf obj
 		TweenLite.killTweensOf obj
@@ -2877,6 +2880,9 @@ class Scene extends Component
 							if target.opts.keydown
 								@window.target = target.opts.target
 								@window.onkeyup = target.opts.keydown
+								@window.onkeydown = (e) ->
+									e.preventDefault()
+									e.stopPropagation()
 						else
 							lib[target.name].update target.opts
 	nextStep: ->

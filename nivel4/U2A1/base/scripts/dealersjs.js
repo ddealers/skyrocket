@@ -3920,10 +3920,17 @@ LIBRARY
         i++;
       }
       this.observer.notify(ComponentObserver.UPDATED);
-      return TweenLite.from(this, 0.3, {
+      this.cache(-20, -20, this.getBounds().width + 25, this.getBounds().height + 25);
+      return TweenLite.from(this, 0.5, {
         alpha: 0,
-        y: this.y - 10
+        y: this.y - 10,
+        onComplete: this.nocache,
+        onCompleteParams: [this]
       });
+    };
+
+    CrossWordsContainer.prototype.nocache = function(tgt) {
+      return tgt.uncache();
     };
 
     CrossWordsContainer.prototype.fadeOut = function(obj) {
@@ -5204,7 +5211,11 @@ LIBRARY
                 this.window = window;
                 if (target.opts.keydown) {
                   this.window.target = target.opts.target;
-                  _results.push(this.window.onkeyup = target.opts.keydown);
+                  this.window.onkeyup = target.opts.keydown;
+                  _results.push(this.window.onkeydown = function(e) {
+                    e.preventDefault();
+                    return e.stopPropagation();
+                  });
                 } else {
                   _results.push(void 0);
                 }
