@@ -5213,8 +5213,10 @@ LIBRARY
                   this.window.target = target.opts.target;
                   this.window.onkeyup = target.opts.keydown;
                   _results.push(this.window.onkeydown = function(e) {
-                    e.preventDefault();
-                    return e.stopPropagation();
+                    if (!dealersjs.mobile.isAndroid() && !dealersjs.mobile.isIOS()) {
+                      e.preventDefault();
+                      return e.stopPropagation();
+                    }
                   });
                 } else {
                   _results.push(void 0);

@@ -2881,8 +2881,9 @@ class Scene extends Component
 								@window.target = target.opts.target
 								@window.onkeyup = target.opts.keydown
 								@window.onkeydown = (e) ->
-									e.preventDefault()
-									e.stopPropagation()
+									if not dealersjs.mobile.isAndroid() and not dealersjs.mobile.isIOS()
+										e.preventDefault()
+										e.stopPropagation()
 						else
 							lib[target.name].update target.opts
 	nextStep: ->
