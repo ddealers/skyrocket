@@ -24,12 +24,10 @@ class U2A1 extends Oda
 			{ id: 's/silence', src: 'silence.mp3' }
 		]
 		@onkeydown = (e) ->
-			e.preventDefault()
-			e.stopPropagation()
 			word = ''
 			keycode = e.keyCode || e.which
 			target = lib[window.target].getEnabledTarget()
-			if keycode is 0 and modal.open
+			if keycode is 0 or modal.open
 				str = modal.inp.val()
 				if target.success
 					targ = target.success.split '||'
@@ -46,6 +44,8 @@ class U2A1 extends Oda
 					else
 						target.writeText str.toLowerCase()
 			else
+				e.stopPropagation()
+				e.preventDefault()
 				pattern = /[a-z]/i
 				str = String.fromCharCode keycode
 				if target.success
