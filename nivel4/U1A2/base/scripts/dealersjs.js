@@ -5210,7 +5210,7 @@ LIBRARY
                 this.window = window;
                 if (target.opts.keydown) {
                   this.window.target = target.opts.target;
-                  _results.push(this.window.onkeydown = target.opts.keydown);
+                  _results.push(this.window.onkeyup = target.opts.keydown);
                 } else {
                   _results.push(void 0);
                 }

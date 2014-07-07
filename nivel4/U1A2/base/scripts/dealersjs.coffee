@@ -2878,7 +2878,7 @@ class Scene extends Component
 							@window = window
 							if target.opts.keydown
 								@window.target = target.opts.target
-								@window.onkeydown = target.opts.keydown
+								@window.onkeyup = target.opts.keydown
 						else
 							lib[target.name].update target.opts
 	nextStep: ->

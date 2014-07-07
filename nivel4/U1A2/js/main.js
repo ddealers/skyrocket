@@ -73,12 +73,11 @@ NEW ODA
       ];
       this.onkeydown = function(e) {
         var fail, keycode, pattern, str, targ, target, word, _ref, _ref1;
-        e.preventDefault();
         e.stopPropagation();
         word = '';
         keycode = e.keyCode || e.which;
         target = lib[window.target].getEnabledTarget();
-        if (keycode === 0 && modal.open) {
+        if (modal.open) {
           str = modal.inp.val();
           if (target.success) {
             targ = target.success.split('||');
