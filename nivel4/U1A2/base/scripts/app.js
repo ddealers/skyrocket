@@ -20,7 +20,7 @@ $(document).ready(function(){
 		},
 		init: function(){
 			modal.btn.on('click', function(e){
-				event = new Event('keydown');
+				event = new Event('keyup');
 				event.which = 13;
 				window.dispatchEvent(event);
 				modal.hide();

@@ -49,12 +49,13 @@ class U3A3 extends Oda
 				lib.scene.fail false 
 			###
 		@onkeydown = (e) ->
+		    #e.preventDefault()
 			e.preventDefault()
 			e.stopPropagation()
 			word = ''
 			keycode = e.keyCode || e.which
 			target = lib[window.target].getEnabledTarget()
-			if keycode is 0 and modal.open
+			if modal.open
 				str = modal.inp.val()
 				if target.success
 					targ = target.success.split '||'

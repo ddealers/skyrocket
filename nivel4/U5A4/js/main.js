@@ -105,7 +105,7 @@ NEW ODA
         word = '';
         keycode = e.keyCode || e.which;
         target = lib[window.target].getEnabledTarget();
-        if (keycode === 0 && modal.open) {
+        if (modal.open) {
           str = modal.inp.val();
           if (target.success) {
             targ = target.success.split('||');
