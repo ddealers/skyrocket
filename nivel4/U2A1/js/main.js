@@ -111,14 +111,17 @@ NEW ODA
               }
               modal.hide();
               if (!fail) {
-                return lib.scene.success(true, false);
+                lib.scene.success(false);
               }
+              return target.parent.evaluateWords();
             } else if (keycode === 32) {
               return target.write('-');
             } else if (keycode === 222) {
               return target.write('\'');
             } else if (pattern.test(str)) {
-              return target.write(str.toLowerCase());
+              if (target.word.length < 1) {
+                return target.write(str.toLowerCase());
+              }
             }
           }
         }

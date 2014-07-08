@@ -2129,13 +2129,18 @@ class CrossWordsContainer extends Component
 		@removeAllChildren()
 		@words = opts.words
 		for k in [1..@words.length]
-			txt = @insertText "txt#{k}", "#{k}", @font, @fcolor, @words[k-1].x, @words[k-1].y
+			txt = @createText "txt#{k}", "#{k}", @font, @fcolor, @words[k-1].x, @words[k-1].y
 			if @words[k-1].eval
 				txt.eval = @words[k-1].eval
 				txt.target = @words[k-1].target
 				txt.index = @words[k-1].index
 				txt.addEventListener 'click', (e) =>
 					d2oda.evaluator.evaluate e.target.eval, e.target.name, e.target.target
+				hit = new createjs.Shape()
+				hit.graphics.beginFill('#000').drawRect(-5, -3, txt.getMeasuredWidth() + 10, txt.getMeasuredHeight() + 6)
+				txt.hitArea = hit
+			@add txt
+
 		i = 0
 		j = 0
 		for row in opts.matrix
@@ -2180,7 +2185,11 @@ class CrossWordsContainer extends Component
 			wordComplete = true
 			for obj in coords
 				if not lib["l#{obj}"].complete
-					wordComplete = false
+					targ = lib["l#{obj}"].success.split '||'
+					if lib["l#{obj}"].write() in targ
+						lib["l#{obj}"].complete = true
+					else
+						wordComplete = false
 			if not word.complete
 				if wordComplete
 					word.complete = true

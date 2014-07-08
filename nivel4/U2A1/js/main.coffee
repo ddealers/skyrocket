@@ -62,13 +62,15 @@ class U2A1 extends Oda
 							fail = true
 							lib.scene.fail()
 						modal.hide()
-						if not fail then lib.scene.success true,false
+						if not fail then lib.scene.success false
+						target.parent.evaluateWords()
 					else if keycode is 32
 						target.write '-'
 					else if keycode is 222
 						target.write '\''
 					else if pattern.test str
-						target.write str.toLowerCase()
+						if target.word.length < 1
+							target.write str.toLowerCase()
 		@game = 
 			header: 'header'
 			instructions: {x: 110, y: 130, states: [{text:'Click on the number and write the correct answer.', sound:'s/silence', played: false}]}

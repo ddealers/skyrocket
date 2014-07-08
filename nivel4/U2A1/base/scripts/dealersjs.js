@@ -3871,12 +3871,12 @@ LIBRARY
     };
 
     CrossWordsContainer.prototype.update = function(opts) {
-      var column, i, j, k, row, tcc, txt, _i, _j, _k, _len, _len1, _ref2, _ref3,
+      var column, hit, i, j, k, row, tcc, txt, _i, _j, _k, _len, _len1, _ref2, _ref3,
         _this = this;
       this.removeAllChildren();
       this.words = opts.words;
       for (k = _i = 1, _ref2 = this.words.length; 1 <= _ref2 ? _i <= _ref2 : _i >= _ref2; k = 1 <= _ref2 ? ++_i : --_i) {
-        txt = this.insertText("txt" + k, "" + k, this.font, this.fcolor, this.words[k - 1].x, this.words[k - 1].y);
+        txt = this.createText("txt" + k, "" + k, this.font, this.fcolor, this.words[k - 1].x, this.words[k - 1].y);
         if (this.words[k - 1]["eval"]) {
           txt["eval"] = this.words[k - 1]["eval"];
           txt.target = this.words[k - 1].target;
@@ -3884,7 +3884,11 @@ LIBRARY
           txt.addEventListener('click', function(e) {
             return d2oda.evaluator.evaluate(e.target["eval"], e.target.name, e.target.target);
           });
+          hit = new createjs.Shape();
+          hit.graphics.beginFill('#000').drawRect(-5, -3, txt.getMeasuredWidth() + 10, txt.getMeasuredHeight() + 6);
+          txt.hitArea = hit;
         }
+        this.add(txt);
       }
       i = 0;
       j = 0;
@@ -3970,7 +3974,7 @@ LIBRARY
     };
 
     CrossWordsContainer.prototype.evaluateWords = function() {
-      var coords, obj, word, wordComplete, _i, _j, _len, _len1, _ref2, _results;
+      var coords, obj, targ, word, wordComplete, _i, _j, _len, _len1, _ref2, _ref3, _results;
       _ref2 = this.words;
       _results = [];
       for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
@@ -3980,7 +3984,12 @@ LIBRARY
         for (_j = 0, _len1 = coords.length; _j < _len1; _j++) {
           obj = coords[_j];
           if (!lib["l" + obj].complete) {
-            wordComplete = false;
+            targ = lib["l" + obj].success.split('||');
+            if (_ref3 = lib["l" + obj].write(), __indexOf.call(targ, _ref3) >= 0) {
+              lib["l" + obj].complete = true;
+            } else {
+              wordComplete = false;
+            }
           }
         }
         if (!word.complete) {
