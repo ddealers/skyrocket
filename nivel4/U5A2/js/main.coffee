@@ -74,11 +74,11 @@ class U5A2 extends Oda
 								}
 							]
 							[
-								{name: 'snd', opts:{id:'s/LiMei',android:"s/LiMei.1"}}
+								{name: 'snd', opts:{id:'s/LiMin',android:"s/LiMin.1"}}
 								{
 									name: "g3"
 									opts:
-										success: ["Li Mei"]
+										success: ["Li Min"]
 								}
 							]
 							[
