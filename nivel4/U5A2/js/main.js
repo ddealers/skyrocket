@@ -189,13 +189,13 @@ NEW ODA
                   {
                     name: 'snd',
                     opts: {
-                      id: 's/LiMin',
-                      android: "s/LiMin.1"
+                      id: 's/LiMei',
+                      android: "s/LiMei.1"
                     }
                   }, {
                     name: "g3",
                     opts: {
-                      success: ["Li Min"]
+                      success: ["Li Mei"]
                     }
                   }
                 ], [
