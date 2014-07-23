@@ -20,10 +20,11 @@ $(document).ready(function(){
 		},
 		init: function(){
 			modal.btn.on('click', function(e){
+				if(modal.inp.val()!=""){
 				event = new Event('keyup');
 				event.which = 13;
 				window.dispatchEvent(event);
-				modal.hide();
+				modal.hide();}
 			});
 			modal.hide();
 		}
