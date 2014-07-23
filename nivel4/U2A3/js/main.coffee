@@ -15,7 +15,7 @@ class U2A3 extends Oda
 			{id: 'ready', src: 'ready.png' }
 			{id: 'repeat', src: 'repeat.png' }
 			{id: 's/travel', src: 'Travel.mp3' }
-			{id: 's/travel.1', src: 'Travel_1.ogg' }
+			{id: 's/travel.1', src: 'Travelsong.ogg' }
 			{id: 's/silence', src: 'silence.mp3' }
 		]
 		@evaluateGlobal01 = (dispatcher) ->
