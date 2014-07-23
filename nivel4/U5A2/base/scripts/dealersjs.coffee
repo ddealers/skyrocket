@@ -2857,11 +2857,12 @@ class Scene extends Component
 							d2oda.evaluator.success = target.opts.success
 							false
 						when 'snd'
-							@snd = target.opts.id
 							createjs.Sound.stop()
 							if dealersjs.mobile.isAndroid()
+								@snd = target.opts.android
 								snd = createjs.Sound.play target.opts.android
 							else
+								@snd = target.opts.id
 								snd = createjs.Sound.play target.opts.id
 							if target.opts.successoncomplete
 								snd.addEventListener 'complete', @sndsuccess

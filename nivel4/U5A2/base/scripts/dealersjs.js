@@ -5179,11 +5179,12 @@ LIBRARY
                 _results.push(false);
                 break;
               case 'snd':
-                this.snd = target.opts.id;
                 createjs.Sound.stop();
                 if (dealersjs.mobile.isAndroid()) {
+                  this.snd = target.opts.android;
                   snd = createjs.Sound.play(target.opts.android);
                 } else {
+                  this.snd = target.opts.id;
                   snd = createjs.Sound.play(target.opts.id);
                 }
                 if (target.opts.successoncomplete) {
