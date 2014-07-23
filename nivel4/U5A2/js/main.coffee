@@ -78,7 +78,7 @@ class U5A2 extends Oda
 								{
 									name: "g3"
 									opts:
-										success: ["Li Min"]
+										success: ["Li Mei"]
 								}
 							]
 							[

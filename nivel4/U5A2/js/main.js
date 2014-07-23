@@ -195,7 +195,7 @@ NEW ODA
                   }, {
                     name: "g3",
                     opts: {
-                      success: ["Li Min"]
+                      success: ["Li Mei"]
                     }
                   }
                 ], [
