@@ -954,7 +954,7 @@ class WriteContainer extends Component
 		@name = opts.name ? opts.id
 		font = opts.font ? 'Arial 20px'
 		fcolor = opts.color ? '#333'
-		@stroke = opts.stroke ? 3
+		@stroke = opts.stroke ? 1
 		@scolor = opts.scolor ? '#333'
 		@bcolor = opts.bcolor ? '#FFF'
 		align = opts.align ? ''

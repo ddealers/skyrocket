@@ -25,6 +25,8 @@ class U2A1 extends Oda
 		]
 		@onkeydown = (e) ->
 			#e.stopPropagation()
+			e.preventDefault()
+			e.stopPropagation()
 			word = ''
 			keycode = e.keyCode || e.which
 			target = lib[window.target].getEnabledTarget()
@@ -45,8 +47,6 @@ class U2A1 extends Oda
 					else
 						target.writeText str.toLowerCase()
 			else
-				e.stopPropagation()
-				e.preventDefault()
 				pattern = /[a-z]/i
 				str = String.fromCharCode keycode
 				if target.success
