@@ -1807,7 +1807,7 @@ LIBRARY
         for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
           texto = _ref1[_i];
           if (texto === '#ital') {
-            nl = new createjs.Text(this.states[this.currentState].italics[it], 'italic 20px Roboto', '#000');
+            nl = new createjs.Text(this.states[this.currentState].italics[it], 'italic 20px Francois One', '#000');
             nl.x = npos;
             if (dealersjs.mobile.isWindows()) {
               npos += nl.getMeasuredWidth() + 7;
@@ -1817,7 +1817,7 @@ LIBRARY
             }
             it++;
           } else {
-            nl = new createjs.Text(texto, '20px Roboto', '#000');
+            nl = new createjs.Text(texto, '20px Francois One', '#000');
             nl.x = npos;
             npos += nl.getMeasuredWidth() + 5;
           }
@@ -1825,7 +1825,7 @@ LIBRARY
           newLabel.push(nl);
         }
       } else {
-        this.label = new createjs.Text(this.states[this.currentState].text, '20px Roboto', '#000');
+        this.label = new createjs.Text(this.states[this.currentState].text, '20px Francois One', '#000');
         this.label.x = 14;
         this.addChild(this.label);
       }

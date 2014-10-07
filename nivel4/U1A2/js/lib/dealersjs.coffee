@@ -898,7 +898,7 @@ class Instructions extends Component
 			newLabel = []
 			for texto in @states[@currentState].text
 				if texto is '#ital'
-					nl = new createjs.Text @states[@currentState].italics[it], 'italic 20px Roboto', '#000'
+					nl = new createjs.Text @states[@currentState].italics[it], 'italic 20px Francois One', '#000'
 					nl.x = npos
 					if dealersjs.mobile.isWindows() then npos += nl.getMeasuredWidth() + 7
 					if dealersjs.mobile.isMac() then npos += nl.getMeasuredWidth()
@@ -906,13 +906,13 @@ class Instructions extends Component
 					if dealersjs.mobile.isIOS() then npos += nl.getMeasuredWidth() + 7
 					it++
 				else
-					nl = new createjs.Text texto, '20px Roboto', '#000'
+					nl = new createjs.Text texto, '20px Francois One', '#000'
 					nl.x = npos
 					npos += nl.getMeasuredWidth() + 5
 				@addChild nl
 				newLabel.push nl
 		else
-			@label = new createjs.Text @states[@currentState].text, '20px Roboto', '#000'
+			@label = new createjs.Text @states[@currentState].text, '20px Francois One', '#000'
 			@label.x = 14
 			@addChild @label
 		@addChild triangle
