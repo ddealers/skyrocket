@@ -883,19 +883,16 @@ class Instructions extends Component
 			npos = 14
 			for texto in @states[@currentState].text
 				if texto is '#ital'
-
-					@label = new createjs.Text @states[@currentState].italics[it], 'Bold italic 20px Roboto', '#000'
+					@label = new createjs.Text @states[@currentState].italics[it], 'Bold italic 25px Browallia New', '#000'
 					it++
 				else 
-					@label = new createjs.Text texto, '20px Roboto', '#000'
+					@label = new createjs.Text texto, '25px Browallia New', '#000'
 				@label.x = npos
 				@addChild @label
 				console.log @label
 				npos = npos + @label.getMeasuredWidth() + 5
-				
-
 		else
-			@label = new createjs.Text @states[@currentState].text, '20px Roboto', '#000'
+			@label = new createjs.Text @states[@currentState].text, '25px Browallia New', '#000'
 			@label.x = 14
 			@addChild @label
 		@addChild triangle
