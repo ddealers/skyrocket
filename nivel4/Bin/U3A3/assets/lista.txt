@@ -1,0 +1,15 @@
+{id:'actor', src:'actor.png'}
+{id:'binoculars', src:'binoculars.png'}
+{id:'book', src:'book.png'}
+{id:'caja', src:'caja.png'}
+{id:'cake', src:'cake.png'}
+{id:'cap', src:'cap.png'}
+{id:'cat', src:'cat.png'}
+{id:'chapulines', src:'chapulines.png'}
+{id:'cycling', src:'cycling.png'}
+{id:'dad', src:'dad.png'}
+{id:'header', src:'header.png'}
+{id:'shark', src:'shark.png'}
+{id:'silence', src:'silence.mp3'}
+{id:'sleeping', src:'sleeping.png'}
+{id:'soda', src:'soda.png'}
