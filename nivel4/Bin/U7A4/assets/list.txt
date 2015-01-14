@@ -1,9 +1,0 @@
-{id:'c2.png', src:'circilo_2.png'}
-{id:'c1.png', src:'circulo_1.png'}
-{id:'false.png', src:'false.png'}
-{id:'grandad.png', src:'grandad.png'}
-{id:'header.png', src:'header.png'}
-{id:'Marie.png', src:'Marie.png'}
-{id:'pantalla.png', src:'pantalla-01.png'}
-{id:'sixties.png', src:'sixties.png'}
-{id:'true.png', src:'true.png'}

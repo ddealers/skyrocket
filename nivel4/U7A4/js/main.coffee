@@ -24,11 +24,13 @@ class U7A4 extends Oda
 			t = lib[target]
 			t.complete = true
 			if d.index is t.success
+				d.mouseEnabled = false
 				lib.scene.success()
 			else
 				lib.scene.fail()
 		@continue = (dispatcher) =>
 			d = lib[dispatcher]
+			d.alpha = 0
 			lib.scene.nextStep()
 		@game = 
 			header: 'header'

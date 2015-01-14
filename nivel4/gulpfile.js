@@ -14,15 +14,20 @@ function main(activity){
 }
 
 function deal(activity){
-	gulp.src([activity+'/js/lib/dealersjs.coffee'])
+	gulp.src(['base/scripts/dealersjs.coffee'])
 	.pipe(coffee({bare: true}))
 	.pipe(uglify('dealersjs.min.js'))
 	.pipe(gulp.dest(activity+'/js/lib/'))
 }
 
-gulp.task('production', function(){
+gulp.task('dev', function(){
 	deal(activity);
 	main(activity);
+});
+
+gulp.task('production', function(){
+	//deal(activity);
+	//main(activity);
 	gulp.src([
 		activity+'/assets/**/*.*',
 		activity+'/css/**/*.*',
@@ -31,6 +36,6 @@ gulp.task('production', function(){
 		activity+'/js/**/*.min.js',
 		activity+'/index.html',
 		], {base: './'})
-	.pipe(gulp.dest('Bin'));
+	.pipe(gulp.dest('build'));
 	console.log('Activity '+activity+' Complete!');
 });

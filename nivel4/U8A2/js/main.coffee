@@ -25,8 +25,12 @@ class U8A2 extends Oda
 
 		]
 		@onkeydown = (e) ->
+			keycode = e.keyCode || e.which
+			if !modal.open
+				if keycode is 8
+					e.preventDefault()
+		@onkeyup = (e) ->
 			#e.preventDefault()
-			e.preventDefault()
 			e.stopPropagation()
 			word = ''
 			keycode = e.keyCode || e.which
@@ -44,7 +48,8 @@ class U8A2 extends Oda
 							fail = true
 							lib.scene.fail()
 						modal.hide()
-						if not fail then lib.scene.success true,false
+						if not fail then createjs.Sound.play 's/good'
+						if target.parent.isComplete() then lib.scene.success()
 					else
 						target.writeText str.toLowerCase()
 			else
@@ -53,6 +58,7 @@ class U8A2 extends Oda
 				if target.success
 					targ = target.success.split '||'
 					if keycode is 8
+						e.preventDefault()
 						target.write '<-'
 					else if keycode is 13
 						fail = false
@@ -63,35 +69,14 @@ class U8A2 extends Oda
 							fail = true
 							lib.scene.fail()
 						modal.hide()
-						if not fail then lib.scene.success true,false
+						if not fail then createjs.Sound.play 's/good'
+						if target.parent.isComplete() then lib.scene.success()
 					else if keycode is 32
 						target.write '-'
 					else if keycode is 222
 						target.write '\''
 					else if pattern.test str
 						target.write str.toLowerCase()
-		@btnClick = (dispatcher, target) =>
-			###
-			d = lib[dispatcher]
-			t = lib[target]
-			a = d.index
-			b = t.droptargets
-			c = t.currentTarget
-			console.log d,t,a,b,c
-			console.log a, b[c].success
-			if a is b[c].success
-				verb = prompt "Enter the correct form of #{d.index}"
-				if verb is b[c].text.text
-					b[c].complete = true
-					b[c].update()
-					t.currentTarget++
-				if t.currentTarget is b.length
-					lib.scene.success()
-				else
-					lib.scene.fail()
-			else
-				lib.scene.fail false 
-			###
 		@game = 
 			header: 'header'
 			instructions: {x: 110, y: 130, states: [{text:'Choose the verb and write it in the correct form.', sound:'s/silence', played: false}]}
@@ -102,50 +87,61 @@ class U8A2 extends Oda
 						collection: [
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
+								{name: 'window', opts: {keyup: @onkeyup, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'car1'}}
 								{name:'pcpt1', opts:{pattern:['Oh no! The car','#tcpt','the children!'], targets:[{text:'is going to hit', success:'is going to hit||\'s going to hit'}]}}
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
+								{name: 'window', opts: {keyup: @onkeyup, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'explode'}}
 								{name:'pcpt1', opts:{pattern:['Oh no, the gas truck','#tcpt','!'], targets:[{text:'is going to explode', success:'is going to explode||\'s going to explode'}]}}
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
+								{name: 'window', opts: {keyup: @onkeyup, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'wolfman'}}
 								{name:'pcpt1', opts:{pattern:['Help! The wolf man','#tcpt','#rtn',' with the baby!'], targets:[{text:'is going to escape', success:'is going to escape||\'s going to escape'}]}}
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
+								{name: 'window', opts: {keyup: @onkeyup, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'baby'}}
 								{name:'pcpt1', opts:{pattern:['Help! The baby','#tcpt','!'], targets:[{text:'is going to fall', success:'is going to fall||\'s going to fall'}]}}
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
+								{name: 'window', opts: {keyup: @onkeyup, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'bus'}}
 								{name:'pcpt1', opts:{pattern:['Do something! The bus','#tcpt','into the tree!'], targets:[{text:'is going to crash', success:'is going to crash||\'s going to crash'}]}}
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
+								{name: 'window', opts: {keyup: @onkeyup, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'swing'}}
 								{name:'pcpt1', opts:{pattern:['Oh no! The swing','#tcpt','and then','#rtn',' the child is going to fall.'], targets:[{text:'is going to break', success:'is going to break||\'s going to break'}]}}
 							]
 							[
+								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
+								{name: 'window', opts: {keyup: @onkeyup, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'car2'}}
 								{name:'pcpt1', opts:{pattern:['Hurry! The car','#tcpt','the girl!'], targets:[{text:'is going to hit', success:'is going to hit||\'s going to hit'}]}}
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
+								{name: 'window', opts: {keyup: @onkeyup, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'theater'}}
 								{name:'pcpt1', opts:{pattern:['Look! There are many clouds. It','#tcpt','.'], targets:[{text:'is going to rain', success:'is going to rain||\'s going to rain'}]}}
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
+								{name: 'window', opts: {keyup: @onkeyup, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'ladder'}}
 								{name:'pcpt1', opts:{pattern:['Quickly! The man on the ladder','#tcpt','!'], targets:[{text:'is going to fall', success:'is going to fall||\'s going to fall'}]}}
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
+								{name: 'window', opts: {keyup: @onkeyup, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'swimmer'}}
 								{name:'pcpt1', opts:{pattern:['Look! The man','#tcpt','the swimmer. Good!'], targets:[{text:'is going to help', success:'is going to help||\'s going to help'}]}}
 							]

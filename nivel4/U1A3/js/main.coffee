@@ -75,7 +75,7 @@ class U1A3 extends Oda
 				d.dragged = false
 				return
 			if dealersjs.mobile.isAndroid()
-				lib.scene.snd="s/#{d.index}.1"
+				lib.scene.snd = "s/#{d.index}.1"
 			else 
 				lib.scene.snd = "s/#{d.index}"
 			createjs.Sound.stop()

@@ -17,15 +17,19 @@ class U6A4 extends Oda
 			{ id: 's/silence', src: 'silence.mp3' }
 		]
 		@onClick = (dispatcher, target) =>
+			if lib.btnContinue.alpha > 0 and lib.btnContinue.visible or lib.btnContinue2.alpha > 0 and lib.btnContinue2.visible or lib.btnContinue3.alpha > 0 and lib.btnContinue3.visible
+				return
 			d = lib[dispatcher]
 			t = lib[target]
 			t.complete = true
 			if d.index is t.success
+				d.mouseEnabled = false
 				lib.scene.success()
 			else
 				lib.scene.fail()
 		@continue = (dispatcher) =>
 			d = lib[dispatcher]
+			d.alpha = 0
 			lib.scene.nextStep()
 		@game = 
 			header: 'header'

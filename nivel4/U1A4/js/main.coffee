@@ -17,15 +17,19 @@ class U1A4 extends Oda
 			{ id: 's/silence', src: 'silence.mp3' }
 		]
 		@onClick = (dispatcher, target) =>
+			if lib.btnContinue.alpha > 0 and lib.btnContinue.visible or lib.btnContinue2.alpha > 0 and lib.btnContinue2.visible
+				return
 			d = lib[dispatcher]
 			t = lib[target]
 			t.complete = true
 			if d.index is t.success
+				d.mouseEnabled = false 
 				lib.scene.success()
 			else
 				lib.scene.fail()
 		@continue = (dispatcher) =>
 			d = lib[dispatcher]
+			d.alpha = 0
 			lib.scene.nextStep()
 		@game = 
 			header: 'header'
@@ -35,7 +39,9 @@ class U1A4 extends Oda
 				{
 					answers: {
 						collection: [
-							[{name:'lbl1', opts:{text:'There are a lot of snakes on Hayden\'s farm.', success:false}}]
+							[
+								{name:'lbl1', opts:{text:'There are a lot of snakes on Hayden\'s farm.', success:false}}
+							]
 							[{name:'lbl1', opts:{text:'Hayden shouldn\'t swim in the swamp; it\'s very dangerous.', success:true}}]
 							[{name:'lbl1', opts:{text:'Hayden fished in the river.', success:true}}]
 							[{name:'lbl1', opts:{text:'If there are baby crocodiles, the mother crocodile is probably far away.', success:false}}]

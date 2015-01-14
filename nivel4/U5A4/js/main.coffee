@@ -37,8 +37,12 @@ class U5A4 extends Oda
 
 		]
 		@onkeydown = (e) ->
+			keycode = e.keyCode || e.which
+			if !modal.open
+				if keycode is 8
+					e.preventDefault()
+		@onkeyup = (e) ->
 			#e.preventDefault()
-			e.preventDefault()
 			e.stopPropagation()
 			word = ''
 			keycode = e.keyCode || e.which
@@ -56,7 +60,8 @@ class U5A4 extends Oda
 							fail = true
 							lib.scene.fail()
 						modal.hide()
-						if not fail then lib.scene.success true,false
+						if not fail then createjs.Sound.play 's/good'
+						if target.parent.isComplete() then lib.scene.success()
 					else
 						target.writeText str.toLowerCase()
 			else
@@ -65,6 +70,7 @@ class U5A4 extends Oda
 				if target.success
 					targ = target.success.split '||'
 					if keycode is 8
+						e.preventDefault()
 						target.write '<-'
 					else if keycode is 13
 						fail = false
@@ -75,7 +81,8 @@ class U5A4 extends Oda
 							fail = true
 							lib.scene.fail()
 						modal.hide()
-						if not fail then lib.scene.success true,false
+						if not fail then createjs.Sound.play 's/good'
+						if target.parent.isComplete() then lib.scene.success()
 					else if keycode is 32
 						target.write '-'
 					else if keycode is 222
@@ -92,6 +99,7 @@ class U5A4 extends Oda
 						collection: [
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
+								{name: 'window', opts: {keyup: @onkeyup, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'older'}}
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text1'}}
 								{name: 'pcpt1', opts: {pattern:['Lizzy is ', '#tcpt', '#tcpt',' (old) her sister.'], targets: [{text: 'older'},{text: 'than'}]}}
@@ -99,54 +107,63 @@ class U5A4 extends Oda
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
+								{name: 'window', opts: {keyup: @onkeyup, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'thinner'}}
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text2'}}
 								{name: 'pcpt1', opts: {pattern:['Patrick is', '#tcpt','#tcpt', '(thin) Louis.'], targets: [{text: 'thinner'},{text: 'than'}]}}
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
+								{name: 'window', opts: {keyup: @onkeyup, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'hotter'}}	
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text3'}}			
 								{name: 'pcpt1', opts: {pattern:['Today is', '#tcpt','#tcpt', '(hot) yesterday.'], targets: [{text: 'hotter'},{text: 'than'}]}}
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
+								{name: 'window', opts: {keyup: @onkeyup, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'funnier'}}
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text4'}}			
 								{name: 'pcpt1', opts: {pattern:['This movie is', '#tcpt','#tcpt', '#rtn', '(funny) the other one.'], targets: [{text: 'funnier'},{text: 'than'}]}}
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
+								{name: 'window', opts: {keyup: @onkeyup, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'longer'}}	
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text5'}}			
 								{name: 'pcpt1', opts: {pattern:['Roger\'s book is', '#tcpt','#rtn','#tcpt', '(long) Paul\'s.'], targets: [{text: 'longer'},{text: 'than'}]}}
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
+								{name: 'window', opts: {keyup: @onkeyup, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'stronger'}}
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text6'}}			
 								{name: 'pcpt1', opts: {pattern:['Your brother is ', '#tcpt','#rtn','#tcpt', '(strong) you.'], targets: [{text: 'stronger'},{text: 'than'}]}}
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
+								{name: 'window', opts: {keyup: @onkeyup, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'higher'}}		
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text7'}}		
 								{name: 'pcpt1', opts: {pattern:['She jumps', '#tcpt','#tcpt', '(high) you.'], targets: [{text: 'higher'},{text: 'than'}]}}
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
+								{name: 'window', opts: {keyup: @onkeyup, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'happier'}}	
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text8'}}		
 								{name: 'pcpt1', opts: {pattern:['Laura is', '#tcpt','#tcpt', '(happy) Samuel.'], targets: [{text: 'happier'},{text: 'than'}]}}
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
+								{name: 'window', opts: {keyup: @onkeyup, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'harder'}}		
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text9'}}		
 								{name: 'pcpt1', opts: {pattern:['He kicked the ball', '#tcpt','#tcpt','#rtn', '(hard) the other players.'], targets: [{text: 'harder'},{text: 'than'}]}}
 							]
 							[
 								{name: 'window', opts: {keydown: @onkeydown, target:'pcpt1'}}
+								{name: 'window', opts: {keyup: @onkeyup, target:'pcpt1'}}
 								{name: 'grp1', opts:{type: 'fadeIn', target: 'farther'}}
 								{name: 'grp2', opts:{type: 'fadeIn', target: 'text10'}}
 								{name: 'pcpt1', opts: {pattern:['Andrew lives', '#tcpt', 'from', '#rtn', '(far) the school', '#tcpt', 'Liz.'], targets: [{text: 'farther'},{text: 'than'}]}}
