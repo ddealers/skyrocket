@@ -35,7 +35,7 @@ class U4A4 extends Oda
 		@game = 
 			header: 'header'
 
-			instructions: {x: 110, y: 140, states: [{text:['Read the text. Then answer the questions, click on','#ital','or','#ital'],italics:['True','False.'], sound:'s/silence', played: false, custom:true}]}
+			instructions: {x: 110, y: 140, states: [{text:['Read the text. Then answer the questions, click on','#ital','or','#ital'],italics:['True ','False.'], sound:'s/silence', played: false, custom:true}]}
  
 			score:{type: 'points', x:20, y:500, init: 0, total: 15, aimg: 'c1', acolor: '#333', bimg: 'c2', bcolor: '#333'}
 			scenes:[
