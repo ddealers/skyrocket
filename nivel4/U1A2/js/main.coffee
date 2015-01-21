@@ -65,12 +65,14 @@ class U1A2 extends Oda
 						fail = false
 						if target.write() in targ
 							modal.clear()
-							target.complete = true
 						else
 							fail = true
 							lib.scene.fail()
 						modal.hide()
-						if not fail then lib.scene.success true,false
+						if not target.complete
+							if not fail 
+								target.complete = true
+								lib.scene.success true,false
 					else if keycode is 32
 						target.write '-'
 					else if keycode is 222
