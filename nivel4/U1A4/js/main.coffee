@@ -21,10 +21,10 @@ class U1A4 extends Oda
 				return
 			d = lib[dispatcher]
 			t = lib[target]
-			t.complete = true
 			if d.index is t.success
-				d.mouseEnabled = false 
-				lib.scene.success()
+				if not t.complete
+					t.complete = true
+					lib.scene.success()
 			else
 				lib.scene.fail()
 		@continue = (dispatcher) =>
@@ -41,10 +41,24 @@ class U1A4 extends Oda
 						collection: [
 							[
 								{name:'lbl1', opts:{text:'There are a lot of snakes on Hayden\'s farm.', success:false}}
+								{name:'btnTrue', opts:{visible:true}}
+								{name:'btnFalse', opts:{visible:true}}
 							]
-							[{name:'lbl1', opts:{text:'Hayden shouldn\'t swim in the swamp; it\'s very dangerous.', success:true}}]
-							[{name:'lbl1', opts:{text:'Hayden fished in the river.', success:true}}]
-							[{name:'lbl1', opts:{text:'If there are baby crocodiles, the mother crocodile is probably far away.', success:false}}]
+							[
+								{name:'lbl1', opts:{text:'Hayden shouldn\'t swim in the swamp; it\'s very dangerous.', success:true}}
+								{name:'btnTrue', opts:{visible:true}}
+								{name:'btnFalse', opts:{visible:true}}
+							]
+							[
+								{name:'lbl1', opts:{text:'Hayden fished in the river.', success:true}}
+								{name:'btnTrue', opts:{visible:true}}
+								{name:'btnFalse', opts:{visible:true}}
+							]
+							[
+								{name:'lbl1', opts:{text:'If there are baby crocodiles, the mother crocodile is probably far away.', success:false}}
+								{name:'btnTrue', opts:{visible:true}}
+								{name:'btnFalse', opts:{visible:true}}
+							]
 							[{name:'btnContinue', opts:{visible:true}}]
 						]
 						type: 'steps'

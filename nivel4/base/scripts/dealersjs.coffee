@@ -548,7 +548,14 @@ class Oda
 		@playInstructions()
 	playInstructions: =>
 		if dealersjs.mobile.isIOS() or dealersjs.mobile.isAndroid()
-			lib.mainContainer.insertBitmap 'start', 'sg', d2oda.stage.w / 2, d2oda.stage.h / 2, 'mc'
+			sg = d2oda.methods.createBitmap 'start', 'sg', 0, 0, 'mc'
+			sg.mouseEnabled = false
+			sh = new createjs.Shape()
+			sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-sg.width / 2, -sg.height / 2, sg.width, sg.height)
+			startGame = new createjs.Container()
+			startGame.set {name: 'start', x: d2oda.stage.w / 2, y: d2oda.stage.h / 2}
+			startGame.addChild sg, sh
+			lib.mainContainer.add startGame
 			lib.start.addEventListener 'click', @initMobileInstructions
 			TweenLite.from lib.start, 0.3, { alpha: 0, y: lib.start + 20 }
 		else
@@ -565,7 +572,14 @@ class Oda
 		lib.game.start()
 	endGame: =>
 		createjs.Sound.stop()
-		lib.mainContainer.insertBitmap 'play_again', 'pa', d2oda.stage.w / 2, d2oda.stage.h / 2, 'mc'
+		pa = d2oda.methods.createBitmap 'play_again', 'pa', 0, 0, 'mc'
+		pa.mouseEnabled = false
+		sh = new createjs.Shape()
+		sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-pa.width / 2, -pa.height / 2, pa.width, pa.height)
+		playAgain = new createjs.Container()
+		playAgain.set {name: 'play_again', x: d2oda.stage.w / 2, y: d2oda.stage.h / 2}
+		playAgain.addChild pa, sh
+		lib.mainContainer.add playAgain
 		lib.play_again.addEventListener 'click', @handlePlayAgain
 		TweenLite.from lib.play_again, 0.5, { alpha: 0, y: lib.play_again.y - 20 }
 	handlePlayAgain: (e) =>
@@ -1191,11 +1205,8 @@ class DragContainer extends Component
 		@eval = opts.eval
 		@droptargets = new Array()
 		@disableDrag = opts.disableDrag ? false
-		b = @createBitmap @name, opts.id, 0, 0
 		@bmpname = opts.name
 		@bmpid = opts.id
-		@width = b.width
-		@height = b.height
 		@dragged = false
 		@setPosition opts.align
 		switch opts.afterSuccess
@@ -1210,7 +1221,16 @@ class DragContainer extends Component
 			when 'inplace' then @afterFail = @putInPlace
 			when 'return' then @afterFail = @returnToPlace
 			when 'origin' then @afterFail = @setInOrigin
-		@add b, false
+		b = @createBitmap @name, opts.id, 0, 0
+		b.mouseEnabled = false
+		sh = new createjs.Shape()
+		sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(0, 0, b.width, b.height)
+		container = new createjs.Container()
+		container.set {name: "#{@name}_container"}
+		container.addChild b, sh
+		@add container, false
+		@width = b.width
+		@height = b.height
 		if @isArray opts.target 
 			@target = opts.target
 		else
@@ -1238,8 +1258,8 @@ class DragContainer extends Component
 		posX = e.stageX / d2oda.stage.r
 		posY = e.stageY / d2oda.stage.r
 		offset = x: posX - @x, y: posY - @y
-		prevX = @x = posX - offset.x
-		prevY = @y = posY - offset.y
+		@x = posX - offset.x
+		@y = posY - offset.y
 		@on 'pressmove', (ev)=>
 			@dragged = true
 			posX = ev.stageX / d2oda.stage.r
@@ -1248,11 +1268,6 @@ class DragContainer extends Component
 			@y = posY - offset.y
 			false
 		@on 'pressup', (ev)=>
-			if @x >= prevX - 3 && @x <= prevX + 3 && @y >= prevY - 3 && @y <= prevY + 3
-				@dispatchEvent {type:'click'}
-				@removeAllEventListeners 'pressmove'
-				@removeAllEventListeners 'pressup'
-				return
 			@removeAllEventListeners 'pressmove'
 			@removeAllEventListeners 'pressup'
 			if @droptargets and @droptargets.length > 0
@@ -1311,10 +1326,7 @@ class ButtonContainer extends Component
 			else if opts.isFinish
 				d2oda.evaluator.evaluate 'finish', null, opts.target
 			else
-				lib.scene.observer.subscribe SceneObserver.SET_STEP, =>
-					@mouseEnabled = true
 				d2oda.evaluator.evaluate opts.eval, @name, opts.target
-		console.log @, @mouseEnabled
 	setImageText: (img, txt) ->
 		@removeAllChildren()
 		@alpha = 1
@@ -1323,8 +1335,23 @@ class ButtonContainer extends Component
 			y = img.y ? 0
 			align = img.align ? ''
 			b = @createBitmap 'img', img.name, x, y, align
+			b.mouseEnabled = false
+			sh = new createjs.Shape()
+			switch align
+				when 'tc' then sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width / 2, 0, b.width, b.height)
+				when 'tr' then sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width, 0, b.width, b.height)
+				when 'ml' then sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(0, -b.height / 2, b.width, b.height)
+				when 'mc' then sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width / 2, -b.height / 2, b.width, b.height)
+				when 'mr' then sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width, -b.height / 2, b.width, b.height)
+				when 'bl' then sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(0, -b.height, b.width, b.height)
+				when 'bc' then sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width / 2, -b.height, b.width, b.height)
+				when 'br' then sh.graphics.beginFill('rgba(255,255,255,0.1)').drawRect(-b.width, -b.height, b.width, b.height)
+				else @setReg obj, 0, 0
+			container = new createjs.Container()
+			container.set {name: "#{@name}_container"}
+			container.addChild b, sh
 			if img.scale then b.scaleX = b.scaleY = img.scale
-			@add b, false
+			@add container, false
 		if txt
 			text = txt.text ? ''
 			font = txt.font ? '20px Arial'
@@ -1833,6 +1860,7 @@ class PhraseCompleterContainer extends Component
 		@droptargets = new Array()
 	update: (opts) ->
 		@removeAllChildren()
+		@complete = false
 		if opts.h2
 			align = opts.h2.align ? ''
 			h2 = @createText 'h2', opts.h2.text, @font, @color, opts.h2.x, opts.h2.y, align
@@ -1896,6 +1924,8 @@ class PhraseCompleterContainer extends Component
 		enabled
 	isComplete: ->
 		for target in @droptargets
+			targ = target.success.split '||'
+			if target.write and target.write() in targ then target.complete = true
 			if target.complete is false
 				return false
 		return true
@@ -2146,7 +2176,8 @@ class CrossWordsContainer extends Component
 			wordComplete = true
 			for obj in coords
 				if not lib["l#{obj}"].complete
-					wordComplete = false
+					if lib["l#{obj}"].write() in lib["l#{obj}"].success.split '||' then lib["l#{obj}"].complete = true
+					if not lib["l#{obj}"].complete then wordComplete = false
 			if not word.complete
 				if wordComplete
 					word.complete = true
@@ -2154,6 +2185,7 @@ class CrossWordsContainer extends Component
 					if lib["number#{word.target}"] then @fadeOut lib["number#{word.target}"]
 					createjs.Sound.play "s/#{word.target}"
 					lib.scene.success()
+			console.log word
 	isComplete: () ->
 		@allComplete = true
 		for word in @words

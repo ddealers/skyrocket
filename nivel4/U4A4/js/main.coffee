@@ -22,15 +22,19 @@ class U4A4 extends Oda
 
 		]
 		@onClick = (dispatcher, target) =>
+			if lib.btnContinue.alpha > 0 and lib.btnContinue.visible or lib.btnContinue2.alpha > 0 and lib.btnContinue2.visible or lib.btnContinue3.alpha > 0 and lib.btnContinue3.visible or lib.btnContinue4.alpha > 0 and lib.btnContinue4.visible 
+				return
 			d = lib[dispatcher]
 			t = lib[target]
-			t.complete = true
 			if d.index is t.success
-				lib.scene.success()
+				if not t.complete
+					t.complete = true
+					lib.scene.success()
 			else
 				lib.scene.fail()
 		@continue = (dispatcher) =>
 			d = lib[dispatcher]
+			d.alpha = 0
 			lib.scene.nextStep()
 		@game = 
 			header: 'header'

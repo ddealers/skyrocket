@@ -22,10 +22,10 @@ class U7A4 extends Oda
 		@onClick = (dispatcher, target) =>
 			d = lib[dispatcher]
 			t = lib[target]
-			t.complete = true
 			if d.index is t.success
-				d.mouseEnabled = false
-				lib.scene.success()
+				if not t.complete
+					t.complete = true
+					lib.scene.success()
 			else
 				lib.scene.fail()
 		@continue = (dispatcher) =>

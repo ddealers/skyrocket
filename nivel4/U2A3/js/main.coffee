@@ -29,8 +29,8 @@ class U2A3 extends Oda
 			complete = true
 			if a.index  is b.success
 				b.update()
-				d2oda.methods.delay 300, ->
-					b.parent.updateCache()
+				#d2oda.methods.delay 300, ->
+				#	b.parent.updateCache()
 				a.afterSuccess()
 				b.complete = true
 				lib.scene.success true,false

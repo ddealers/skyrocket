@@ -1,18 +1,22 @@
 {
-  "name": "compilador",
-  "version": "0.0.0",
-  "description": "Ayuda para pasar a producción app",
-  "main": "gulpfile.js",
-  "scripts": {
-    "test": "gulp compile"
-  },
-  "author": "@jok3rcit0",
-  "license": "ISC",
+  "name": "ODAs",
+  "version": "1.0.0",
+  "description": "Webserver Development & Production Tasks",
+  "author": "Digital Dealers",
+  "license": "MIT",
   "dependencies": {
-    "gulp": "^3.8.8",
+    "gulp": "^3.5.6",
+    "gulp-concat": "^2.2.0",
+    "gulp-minify-css": "^0.3.0",
+    "gulp-rename": "^1.2.0",
     "gulp-coffee": "^2.2.0",
-    "gulp-if": "^1.2.5",
     "gulp-uglifyjs": "^0.4.4",
-    "yargs": "^1.3.2"
+    "gulp-connect": "^2.2.0",
+    "yargs": "^1.3.3"
+  },
+  "devDependencies": {
+    "bower": "^1.3.3",
+    "gulp-util": "^2.2.14",
+    "shelljs": "^0.3.0"
   }
 }

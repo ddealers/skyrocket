@@ -23,8 +23,14 @@ class U2A1 extends Oda
 			{ id: 'header', src: 'header.png' }
 			{ id: 's/silence', src: 'silence.mp3' }
 		]
-		@onkeydown = (e) ->
-			#e.stopPropagation()
+		@onkeydown = (e)->
+			e.preventDefault()
+			word = ''
+			keycode = e.keyCode || e.which
+			target = lib[window.target].getEnabledTarget()
+			if keycode is 8
+				target.write '<-'
+		@onkeyup = (e) ->
 			e.preventDefault()
 			e.stopPropagation()
 			word = ''
@@ -39,11 +45,12 @@ class U2A1 extends Oda
 						if target.write() in targ
 							modal.clear()
 							target.complete = true
+							createjs.Sound.play 's/good'
 						else
 							fail = true
 							lib.scene.fail()
 						modal.hide()
-						if not fail then lib.scene.success true,false
+						target.parent.evaluateWords()
 					else
 						target.writeText str.toLowerCase()
 			else
@@ -56,13 +63,11 @@ class U2A1 extends Oda
 					else if keycode is 13
 						fail = false
 						if target.write() in targ
-							modal.clear()
 							target.complete = true
+							createjs.Sound.play 's/good'
 						else
 							fail = true
 							lib.scene.fail()
-						modal.hide()
-						if not fail then lib.scene.success false
 						target.parent.evaluateWords()
 					else if keycode is 32
 						target.write '-'
@@ -80,7 +85,7 @@ class U2A1 extends Oda
 					answers: {
 						collection: [
 							[
-								{name: 'window', opts: {keydown: @onkeydown, target:'cwd1'}}
+								{name: 'window', opts: {keyup: @onkeyup, keydown: @onkeydown, target:'cwd1'}}
 								{
 									name:'cwd1'
 									opts:{

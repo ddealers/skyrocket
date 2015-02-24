@@ -21,10 +21,10 @@ class U6A4 extends Oda
 				return
 			d = lib[dispatcher]
 			t = lib[target]
-			t.complete = true
 			if d.index is t.success
-				d.mouseEnabled = false
-				lib.scene.success()
+				if not t.complete
+					t.complete = true
+					lib.scene.success()
 			else
 				lib.scene.fail()
 		@continue = (dispatcher) =>

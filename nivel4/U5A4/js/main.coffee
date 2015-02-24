@@ -60,8 +60,11 @@ class U5A4 extends Oda
 							fail = true
 							lib.scene.fail()
 						modal.hide()
-						if not fail then createjs.Sound.play 's/good'
-						if target.parent.isComplete() then lib.scene.success()
+						if not target.parent.complete and target.parent.isComplete()
+							target.parent.complete = true
+							lib.scene.success true, false
+						if not fail and not target.parent.complete
+							createjs.Sound.play 's/good'
 					else
 						target.writeText str.toLowerCase()
 			else
@@ -81,8 +84,11 @@ class U5A4 extends Oda
 							fail = true
 							lib.scene.fail()
 						modal.hide()
-						if not fail then createjs.Sound.play 's/good'
-						if target.parent.isComplete() then lib.scene.success()
+						if not target.parent.complete and target.parent.isComplete()
+							target.parent.complete = true
+							lib.scene.success true, false
+						if not fail and not target.parent.complete
+							createjs.Sound.play 's/good'
 					else if keycode is 32
 						target.write '-'
 					else if keycode is 222
